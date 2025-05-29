@@ -1,0 +1,36 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: cb744a98-8e36-43f4-b227-d9cc31a23a89
+  title: Álgebra Linear - fundamentos, tópicos e aplicações
+  # description:
+  # keywords: []
+  # authors:
+  github: https://github.com/OnMat/Algebra-Linear
+  # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
+  toc:
+    - file: index.md
+    - file: sobre.md
+      children:
+        - file: fundamentos/index.md
+          children:
+            - file: fundamentos/espacos-vetoriais.md
+        - file: topicos/index.md
+          children:
+            - file: topicos/operadores-auto-adjuntos.md
+        - file: aplicacoes/index.md
+          children:
+            - file: aplicacoes/pagerank.md
+  exclude:
+    - README.md
+    - LICENSE
+site:
+  template: book-theme
+  options:
+    style: public/style.css
+    logo: public/logo.svg
+    folders: true
+  actions:
+    - title: GitHub
+      url: https://github.com/OnMat/Algebra-Linear
+  #   favicon: favicon.ico
