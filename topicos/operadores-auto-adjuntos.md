@@ -5,14 +5,9 @@ subject: Tópicos
 
 Breve descrição do exercício...
 
-## Descritores
+:::{prf:definition}
+:label: autoadjunto
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-## Enunciado
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-:::{seealso}
-Confira outros jogos ...
+Um operador $T$ é dito autoadjunto se $\langle Tx, y \rangle = \langle x, Ty \rangle$.
 :::
+
