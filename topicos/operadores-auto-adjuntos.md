@@ -1,6 +1,6 @@
 ---
 title: Operadores Auto-Adjuntos
-subject: Tópicos
+subject: Tópicos Avançados
 ---
 
 Breve descrição do exercício...
