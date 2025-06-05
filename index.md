@@ -3,8 +3,4 @@ title: Álgebra Linear
 subtitle: Fundamentos, tópicos avançados e aplicações.
 ---
 
-O estudo de Álgebra Linear...
-
-```{code}
-print("Hello world!")
-```
+O estudo da Álgebra Linear e suas aplicações.

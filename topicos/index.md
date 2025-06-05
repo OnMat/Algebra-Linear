@@ -3,14 +3,7 @@ title: Tópicos Avançados
 subject: Álgebra Linear
 ---
 
+Esta seção aborda tópicos posteriores aos estudos iniciais de espaços vetoriais e transformações lineares.
 
-In this tutorial, we'll cover the basics of the Jupyter Book ecosystem, and step you through creating, building, and publishing your first book.
-
-:::{admonition} A note for Windows users
-:class: warning
-
-Não esqueça de...
-:::
-
-Confira os jogos desta seção a seguir.
-
+- [Operadores Auto-adjuntos](operadores-auto-adjuntos.md)
+- [Teorema Espectral](teorema-espectral.md)

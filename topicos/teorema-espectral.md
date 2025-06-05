@@ -9,31 +9,13 @@ O *Teorema Espectral* é um importante resultado na Álgebra Linear, diz respeit
 
 :::{prf:theorem} Teorema Espectral para operadores auto-adjuntos
 :label: teorema-espectral
-Para todo operador auto-adjunto $A:V\to V$, num espaço vetorial de dimensão finita munido de produto interno, existe uma base ortonormal $\{ u_{1},\dots,u_{n} \}\subset V$ formada por **autovetores** de $A$.
+Seja $T$ um operador linear auto-adjunto sobre um espaço vetorial $V$, de dimensão finita e munido de produto interno, então existe uma **base ortonormal** de $V$ formada por **autovetores** de $T$.
 :::
 
-A demonstração requer alguns resultados prévios.
+A sua prova requer dois resultados prévios.
 
 :::{prf:lemma}
-Seja $T$ um operador linear auto-adjunto sobre um espaço vetorial $V$ munido de produto interno. Então autovetores associados a autovalores distintos são ortogonais.
-:::
-
-```{admonition} Demonstração
-:class: dropdown
-Sejam $v,w\in V$ autovetores associados a autovalores distintos $\lambda$ e $\mu$, respectivamente. Ou seja, $Tv=\lambda v$ e $Tw=\mu w$. Dado que $T$ é auto-adjunto, temos que $$
-\langle Tv , w \rangle=\langle v , Tw \rangle.
-$$
-Logo, 
-\begin{align}
-\langle \lambda v ,  w \rangle &= \langle v , \mu w \rangle \\
-\lambda \langle v , w \rangle &= \mu \langle v , w \rangle \\
-(\lambda-\mu)\langle v , w \rangle &= 0
-\end{align}
-
-Como $\lambda \neq \mu$, então necessariamente $\langle v , w \rangle= 0$. Ou seja, $v$ e $w$ são ortogonais.
-```
-
-:::{prf:lemma}
+:label: lema1
 Seja $T$ um operador linear auto-adjunto sobre um espaço vetorial $V$ munido de produto interno. Se $U$ é um subespaço $T$-invariante de $V$, então $U^{\perp}$ também o é. 
 :::
 
@@ -47,6 +29,7 @@ Por outro lado, dado que $T$ é auto-adjunto, $\langle Tu , w \rangle=\langle u 
 ```
 
 :::{prf:lemma}
+:label: lema2
 Seja $T$ um operador linear auto-adjunto sobre um espaço vetorial $V$ de dimensão finita e munido de produto interno. Então, o conjunto de autovalores de $T$ é não-vazio e está constituído por números reais.
 :::
 
@@ -96,3 +79,39 @@ o que procurávamos.
 
 Assim, dado que os somatórios nas igualdades {eq}`eq:igualdade` são reais, podemos concluir que $\lambda \in \mathbb{R}$.
 ```
+
+Agora, podemos provar o Teorema Espectral.
+
+:::{prf:proof} Teorema Espectral para operadores auto-adjuntos 
+A prova se dá por indução sobre a dimensão de $V$. Consideremos $dim\;V = n$.
+
+Como caso base, se $n=1$, qualquer ${} v\in V-\{ 0_{V} \} {}$ forma uma base do espaço. Naturalmente, $\left\{  \frac{v}{\lvert |v| \rvert}  \right\}$ é uma base ortonormal de $V$. Ademais, também é formada por um autovetor, uma vez que se $T(v)\in V$, então $T(v)=\lambda v$, para algum $\lambda \in \mathbb{R}$, dado que $\{ v \}$ é uma base.
+
+Agora, considere $n>1$ e suponha que o Teorema é válido para todo espaço com dimensão menor que $n$. O [Lema 2](#lema2) garante que existe um autovetor de $T$ (em particular, unitário) $v_{1}\in V$, associado a um autovalor real $\lambda_{1}$. Seja $U=[v_{1}]$, temos então que $dim\,U^{\perp}=dim\,V-dim\,U=n-1<n$. Além disso, seja $u \in U$, $u=\alpha v_{1}$ e $T(\alpha v_{1})=\alpha T(v_{1})=\alpha \lambda_{1}v_{1}\in U$. Logo, $U$ é $T$-invariante. Consequentemente, pelo [Lema 1](#lema1), $U^{\perp}$ também é $T$-invariante.
+
+Dado que $dim\,U^{\perp}<n$ e ${} U^{\perp} {}$ é $T$-invariante, vale a hipótese de indução. Logo, existe uma base ortonormal $\{ v_{2},\dots ,v_{n} \}$ de $U^{\perp}$ formada por autovetores de $T$. Naturalmente, como $V=U \oplus U^{\perp}$, $\{ v_{1},v_{2},\dots,v_{n} \}$ é uma base ortonormal de $V$ formada por autovetores de $T$.
+:::
+
+Verifica-se sem muita dificuldade que, em espaços vetoriais reais, a recíproca do Teorema Espectral é verdadeira: Se existe uma base ortonormal formada por autovetores de $T$, então $T$ é auto-adjunto.
+
+### Teorema Espectral para matrizes simétricas
+
+:::{prf:corollary} Teorema Espectral para matrizes simétricas
+Seja $A\in M_{n}(\mathbb{R})$ uma matriz simétrica, então existe uma matriz $P\in M_{n}(\mathbb{R})$ ortogonal tal que $D=P^{T}AP$, onde $D$ é uma matriz **diagonal** constituída dos autovalores de $A$.
+:::
+
+```{admonition} Demonstração
+:class: dropdown
+Seja $T\in \mathcal{L}(V)$ tal que $A=[T]_{c}$, onde $c$ é a base canônica. Como $A$ é simétrica e a base canônica é ortonormal, então $T$ é auto-adjunta. Logo, do [Teorema Espectral](#teorema-espectral) sabemos que existe uma base $\beta=\{ v_{1},\dots,v_{n} \}$ de $V$ formada por autovetores de $T$. Seja $T(v_{i})=\lambda_{i}v_{i}$ ($i=1,2,\dots,n$), então
+$$
+D=[T]_{\beta}=\begin{pmatrix}
+\lambda_{1} & 0 & \dots & 0 \\
+0 & \lambda_{2} & \dots & 0 \\
+0 & 0 & \ddots & 0 \\
+0 & 0 & \dots & \lambda_{n}
+\end{pmatrix}.
+$$
+Além disso, $D=P^{-1}AP$, onde $P$ é a matriz mudança de base de $\beta$ para $c$. Dado que $\beta$ é ortonormal, então $P$ é ortogonal. Ou seja, $P^{-1}=P^{T}$.
+```
+
+O fato de podermos garantir que matrizes simétricas podem ser diagonalizadas e, além disso, sabermos como encontrar a matriz diagonal tem grande aplicação prática e computacional. Por exemplo, no cálculo de potências de matrizes ($A^n$).
