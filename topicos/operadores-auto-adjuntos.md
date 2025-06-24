@@ -16,6 +16,38 @@ Ou seja, $\boxed{T=T^{*}}$.
 
 :::
 
+Como exemplo, considere o operador linear $T\in \mathcal{L}(\mathbb{R}^{2})$ dado por $T(x,y)=(x,2y)$. Utilizando as propriedades da adjunta e produto interno canônico, temos que:
+
+```{math}
+\begin{align}
+&\langle (1,0) , T^{*}(x,y) \rangle=\langle T(1,0) , (x,y) \rangle=\langle (1,0) , (x,y) \rangle=x \\
+& \langle (0,1) , T^{*}(x,y) \rangle=\langle T(0,1) , (x,y) \rangle=\langle (0,2) , (x,y) \rangle=2y
+\end{align}
+```
+
+Ou seja, dado que $\langle e_{i} , (x_{1},\dots,x_{n}) \rangle$ nos dá a coordenada $x_{i}$, isso mostra que para todo $(x,y)\in \mathbb{R}^{2}$ temos $T^{*}(x,y)=(x,2y)=T(x,y)$. Portanto, $T=T^{*}$, isto é, $T$ é auto-adjunto.
+
+:::{prf:proposition}
+
+Sejam $A$ e $B$ operadores auto-adjuntos e $\alpha \in \mathbb{R}$, então os operadores $(A+B)$ e $\alpha A$ também são auto-adjuntos.
+
+:::
+
+```{admonition} Demonstração
+:class: dropdown
+
+Utilizando as propriedades da adjunta:
+
+$$
+\begin{align}
+&(A+B)^{*}=A^{*}+B^{*}=A+B \\
+&(\alpha A)^{*}= \alpha A^{*}=\alpha A
+\end{align}
+$$
+
+
+```
+
 :::{prf:proposition}
 
 Seja $T\in \mathcal{L}(V)$ auto-adjunto e um isomorfismo, então $T^{-1}$ também é auto-adjunto.
@@ -104,3 +136,23 @@ $$
 concluindo que $T=T^{*}$.
 
 :::
+
+Voltando ao exemplo dado após a [Definição 1](#autoadjunto), temos que $T(1,0)=(1,0)$ e $T(0,1)=(0,2)$. Logo, seja $c$ a base canônica:
+
+$$
+[T]_{c}=\begin{pmatrix}
+1 & 0 \\
+0 & 2
+\end{pmatrix}
+$$
+
+Além disso,
+
+$$
+([T]_{c})^{T}=\begin{pmatrix}
+1 & 0 \\
+0 & 2
+\end{pmatrix} = [T]_{c}.
+$$
+
+Portanto, $[T]_{c}$ é uma matriz simétrica. Como a base canônica é ortonormal, verificamos novamente que $T$ é auto-adjunto.
