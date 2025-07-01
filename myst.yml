@@ -19,7 +19,7 @@ project:
         - file: topicos/teorema-espectral.md
     - file: aplicacoes/index.md
       children:
-        - file: aplicacoes/pagerank.md
+        - file: aplicacoes/teorema-espectral-aplicacoes.md
     - file: sobre.md
   exclude:
     - README.md

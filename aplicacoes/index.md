@@ -3,4 +3,6 @@ title: Aplicações
 subject: Álgebra Linear
 ---
 
-Em desenvolvimento...
+Nesta seção discutiremos algumas aplicações dos conceitos e resultados vistos.
+
+- [Teorema Espectral](teorema-espectral-aplicacoes.md)
