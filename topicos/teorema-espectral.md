@@ -114,4 +114,87 @@ $$
 Além disso, $D=P^{-1}AP$, onde $P$ é a matriz mudança de base de $\beta$ para $c$. Dado que $\beta$ é ortonormal, então $P$ é ortogonal. Ou seja, $P^{-1}=P^{T}$.
 ```
 
-O fato de podermos garantir que matrizes simétricas podem ser diagonalizadas e, além disso, sabermos como encontrar a matriz diagonal tem grande aplicação prática e computacional. Por exemplo, no cálculo de potências de matrizes ($A^n$).
+O fato de podermos garantir que matrizes simétricas podem ser diagonalizadas e sabermos como encontrar a matriz diagonal tem grande aplicação prática e computacional. Vejamos como exemplo o cálculo de potências de matrizes ($A^n$).
+
+Seja $A=\begin{pmatrix}1 & 2 \\ 2 & -2\end{pmatrix}$, encontremos $A^{n}$ ($n\in \mathbb{N}$). Primeiramente, note que $A^{T}=A$. A ideia então é diagonalizar $A$ utilizando o teorema espectral, de maneira que podemos determinar $A^{n}$ em um formato mais simples. Começamos calculando os autovalores de $A$, de modo a determinar os autovetores associados e posteriormente uma base ortonormal formada por eles:
+
+$$
+\det \begin{pmatrix}
+1-\lambda & 2 \\
+2 & -2-\lambda
+\end{pmatrix}=0 \implies (1-\lambda)(-2-\lambda)-4=0
+$$
+
+Encontrando $\lambda_{1}=-3$ e $\lambda_{2}=2$. Para $\lambda_{1}$ temos:
+
+$$
+\begin{pmatrix}
+1 & 2 \\
+2 & -2
+\end{pmatrix}\begin{pmatrix}
+x \\
+y
+\end{pmatrix}=-3 \begin{pmatrix}
+x \\
+y
+\end{pmatrix}
+$$
+
+Resolvendo o sistema linear associado encontramos o autovetor ${} v_{1}=(1,-2) {}$. Analogamente para $\lambda_{2}$:
+
+$$
+\begin{pmatrix}
+1 & 2 \\
+ 2 & -2
+\end{pmatrix} \begin{pmatrix}
+x \\
+y
+\end{pmatrix}=2\begin{pmatrix}
+x \\
+y
+\end{pmatrix}
+$$
+
+Encontrando ${} v_{2}=(2,1) {}$. Logo, a base $\{ (1,-2),(2,1) \}$ de $\mathbb{R}^{2}$ é formada por autovetores de $A$. Note que, como são associados a autovalores distintos,  $v_{1}$ e $v_{2}$ são ortogonais, restando apenas normalizá-los para que obtenhamos uma base ortonormal de autovetores. Portanto,
+
+$$
+\beta =\left\{  \left( \frac{1}{\sqrt{ 5 }},\frac{-2}{\sqrt{ 5 }} \right),\left( \frac{2}{\sqrt{ 5 }},\frac{1}{\sqrt{ 5 }} \right)  \right\}
+$$
+
+é uma base ortonormal formada por autovetores de $A$.
+
+Consequentemente, a matriz
+
+$$
+[I]^{\beta}_{c}=P=\begin{pmatrix}
+\frac{1}{\sqrt{ 5 }} & \frac{2}{\sqrt{ 5 }} \\
+\frac{-2}{\sqrt{ 5 }} & \frac{1}{\sqrt{ 5 }}
+\end{pmatrix}
+$$
+
+é ortogonal, logo $P^{-1}=P^{T}$. Daí seque que ${} A=PDP^{T} {}$. Finalmente, observe que
+
+$$
+\begin{align*}
+A^{2}&=(PDP^{T})(PDP^{T})=PD^{2}P^{T} \\
+A^{3}&=A^{2}A=(PD^{2}P^{T})(PDP^{T})=PD^{3}P^{T} \\
+&\,\,\,\vdots \\
+A^{n}&=PD^{n}P^{T}
+\end{align*}
+$$
+
+Concluindo:
+
+$$
+A^{n}=\begin{pmatrix}
+\frac{1}{\sqrt{ 5 }} & \frac{2}{\sqrt{ 5 }} \\
+\frac{-2}{\sqrt{ 5 }} & \frac{1}{\sqrt{ 5 }}
+\end{pmatrix}\begin{pmatrix}
+(-3)^{n} & 0 \\
+0 & 2^{n}
+\end{pmatrix}\begin{pmatrix}
+\frac{1}{\sqrt{ 5 }} & \frac{-2}{\sqrt{ 5 }} \\
+\frac{2}{\sqrt{ 5 }} & \frac{1}{\sqrt{ 5 }} 
+\end{pmatrix}.
+$$
+

@@ -152,7 +152,7 @@ $$
 ([T]_{c})^{T}=\begin{pmatrix}
 1 & 0 \\
 0 & 2
-\end{pmatrix} = [T]_{c}.
+\end{pmatrix} = [T]_{c}
 $$
 
 Portanto, $[T]_{c}$ é uma matriz simétrica. Como a base canônica é ortonormal, verificamos novamente que $T$ é auto-adjunto.
