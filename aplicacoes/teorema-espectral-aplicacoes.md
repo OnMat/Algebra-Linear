@@ -50,6 +50,15 @@ Para o caso em que algum autovalor for zero, **o teste é inconclusivo**. É nec
 
 Assim, a forma diagonal da matriz Hessiana nos revela a curvatura da função nas direções dos autovetores. Por exemplo, se $\lambda_{1}>0$ e $\lambda_{2}>0$ a função tem concavidade para cima em todas as direções.
 
-Por fim, tomemos um exemplo prático. Considere $f(x,y)=x^{2}+2y^{2}$. Utilizando {eq}`eq:sistema` encontramos o ponto crítico $(0,0)$, cuja Hessiana é dada por $H(0,0)=\begin{pmatrix}2 & 0\\ 0 & 4\end{pmatrix}$, já diagonal. Encontramos que seus autovalores são $\lambda_{1}=2>0$ e $\lambda_{2}=4>0$, resultando na conclusão que $(0,0)$ é um mínimo local.
+Tomemos um exemplo prático: Considere $f(x,y)=x^{2}+2y^{2}$. Utilizando {eq}`eq:sistema` encontramos o ponto crítico $(0,0)$, cuja Hessiana é dada por $H(0,0)=\begin{pmatrix}2 & 0\\ 0 & 4\end{pmatrix}$, já diagonal. Encontramos que seus autovalores são $\lambda_{1}=2>0$ e $\lambda_{2}=4>0$, resultando na conclusão que $(0,0)$ é um mínimo local.
+
+```{figure} graph.png
+:width: 300px
+:align: center
+:name: fig-3d-plot
+
+Gráfico 3D da função $f(x,y)=x^{2}+2y^{2}$
+```
 
 Trazendo para um cenário análogo ao exemplo da função de lucro discutida no início, se tal $f$ corresponde a um custo dependente dos parâmetros $(x,y)$, sabemos que tomando-os $(0,0)$ **estaríamos minimizando o custo**.
+
