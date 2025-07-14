@@ -13,6 +13,7 @@ project:
     - file: fundamentos/index.md
       children:
         - file: fundamentos/espacos-vetoriais.md
+        - file: fundamentos/matrizes.md
     - file: topicos/index.md
       children:
         - file: topicos/operadores-auto-adjuntos.md

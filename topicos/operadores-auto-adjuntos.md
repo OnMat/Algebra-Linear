@@ -86,13 +86,7 @@ Como $\lambda \neq \mu$, então necessariamente $\langle v , w \rangle= 0$. Ou s
 
 ### Matrizes de operadores auto-adjuntos
 
-Como é de se esperar, operadores auto-adjuntos possuem uma equivalência matricial.
-
-:::{prf:remark} Matriz simétrica
-
-Uma matriz é dita *simétrica* quando é igual a sua transposta. Isto é, seja $A \in \mathcal{M}_{n}(\mathbb{R})$, $A$ é simétrica se, e somente se, $A^{T}=A$.
-
-:::
+Como é de se esperar, operadores auto-adjuntos possuem uma equivalência matricial. Tal equivalência relaciona-se com matrizes simétricas (ver {ref}`def-matriz-simetrica`).
 
 :::{prf:theorem} Caracterização de operadores auto-adjuntos
 

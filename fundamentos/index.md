@@ -3,4 +3,6 @@ title: Fundamentos
 subject: Álgebra Linear
 ---
 
-Em desenvolvimento...
+Os conceitos base da Álgebra Linear.
+
+- [Matrizes](matrizes.md)
