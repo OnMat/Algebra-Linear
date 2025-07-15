@@ -5,7 +5,7 @@ subject: Tópicos Avançados
 
 Vejamos a definição e alguns resultados sobre *operadores auto-adjuntos*, um tipo de operador normal. Os operadores auto-adjuntos são o objeto central do [*Teorema Espectral*](teorema-espectral.md), um dos principais resultados da Álgebra Linear e tópico subsequente.
 
-:::{prf:definition}
+:::{prf:definition} Operador auto-adjunto
 :label: autoadjunto
 
 Seja $V$ um espaço vetorial com produto interno, dizemos que $T\in \mathcal{L}(V)$ é *auto-adjunto* se $\forall v,w\in V$ temos
@@ -16,16 +16,26 @@ Ou seja, $\boxed{T=T^{*}}$.
 
 :::
 
-Como exemplo, considere o operador linear $T\in \mathcal{L}(\mathbb{R}^{2})$ dado por $T(x,y)=(x,2y)$. Utilizando as propriedades da adjunta e produto interno canônico, temos que:
+:::{prf:example} Reflexão em torno do eixo $x$
+:label: exemplo-1-operador-auto-adjunto
 
-```{math}
+Geometricamente, o operador $T\in \mathcal{L}(\mathbb{R}^{2})$ definido por $T(x,y)=(x,-y)$ descreve uma reflexão em torno do eixo $x$. Verifiquemos que ele é auto-adjunto.
+
+Sejam $u=(u_{1},u_{2})$ e $v=(v_{1},v_{2})$ pertencentes ao $\mathbb{R}^{2}$, temos que
+
+$$
 \begin{align}
-&\langle (1,0) , T^{*}(x,y) \rangle=\langle T(1,0) , (x,y) \rangle=\langle (1,0) , (x,y) \rangle=x \\
-& \langle (0,1) , T^{*}(x,y) \rangle=\langle T(0,1) , (x,y) \rangle=\langle (0,2) , (x,y) \rangle=2y
+\langle Tu , v \rangle & =\langle (u_{1},-u_{2}) ,(v_{1},v_{2})  \rangle \\
+ & =u_{1}v_{1}-u_{2}v_{2} \\
+ & =\langle u ,T^{*}v  \rangle.
 \end{align}
-```
+$$
 
-Ou seja, dado que $\langle e_{i} , (x_{1},\dots,x_{n}) \rangle$ nos dá a coordenada $x_{i}$, isso mostra que para todo $(x,y)\in \mathbb{R}^{2}$ temos $T^{*}(x,y)=(x,2y)=T(x,y)$. Portanto, $T=T^{*}$, isto é, $T$ é auto-adjunto.
+Por outro lado, $\langle u , Tv \rangle=\langle (u_{1},u_{2}) , (v_{1},-v_{2}) \rangle=u_{1}v_{1}-u_{2}v_{2}=\langle Tu , v \rangle$. Logo, $T=T^{*}$, auto-adjunto.
+
+A auto-adjunção significa que, de uma certa forma, o operador preserva o produto interno, e reflexões são bons exemplos disso.
+
+:::
 
 :::{prf:proposition}
 
@@ -89,6 +99,7 @@ Como $\lambda \neq \mu$, então necessariamente $\langle v , w \rangle= 0$. Ou s
 Como é de se esperar, operadores auto-adjuntos possuem uma equivalência matricial. Tal equivalência relaciona-se com matrizes simétricas (ver {ref}`def-matriz-simetrica`).
 
 :::{prf:theorem} Caracterização de operadores auto-adjuntos
+:label: teorema1-autoadjunto
 
 Seja $T\in \mathcal{L}(V)$, então $T$ é auto-adjunto se, e somente se, $[T]_\beta$ é simétrica, onde $\beta$ é uma base ortonormal de $V$.
 
@@ -107,7 +118,7 @@ Portanto, $[T]_{\beta}$ é simétrica.
 $(\impliedby):$ Se $[T]_{\beta}=([T]_{\beta})^{T}$, suponha que $\beta = \{ v_{1},\dots,v_{n} \}$. Logo, 
 $$
 \langle Tv_{i} , v_{j} \rangle=\langle Tv_{j} , v_{i} \rangle,
-\label{eq:igualdade}
+\label{eq:igualdade-prova-caracterizacao-op-auto-adjunto}
 $$
 para todo $i,j$, e estas são as entradas de $[T]_\beta$ e $([T]_{\beta})^{T}$, respectivamente.
 
@@ -121,7 +132,7 @@ $$
 &= \sum_{i}x_{i}\sum_{j}y_{j}\langle Tv_{i} , v_{j} \rangle,
 \end{align} $$
 
-(na última igualdade usamos {eq}`eq:igualdade`).
+onde na última igualdade usamos {eq}`eq:igualdade-prova-caracterizacao-op-auto-adjunto`.
 
 Portanto, temos que 
 $$
@@ -131,22 +142,23 @@ concluindo que $T=T^{*}$.
 
 :::
 
-Voltando ao exemplo dado após a [Definição 1](#autoadjunto), temos que $T(1,0)=(1,0)$ e $T(0,1)=(0,2)$. Logo, seja $c$ a base canônica:
+:::{prf:example}
+
+Voltando ao operador do [](#exemplo-1-operador-auto-adjunto), vamos verificar sua auto-adjunção utilizando o [](#teorema1-autoadjunto).
+
+Primeiro, escrevemos a matriz associada a ele na base canônica, a base ortonormal mais fácil de lidarmos:
 
 $$
-[T]_{c}=\begin{pmatrix}
+\begin{align}
+T(1,0)&=(1,0) \\
+T(0,1)&=(0,-1)
+\end{align}
+\implies [T]_{c}=\begin{pmatrix}
 1 & 0 \\
-0 & 2
+0 & -1
 \end{pmatrix}
 $$
 
-Além disso,
+Como $([T]_{c})^{T}=[T]_{c}$, o [](#teorema1-autoadjunto) nos garante que $T$ é auto-adjunto. Já havíamos verificado tal fato no [](#exemplo-1-operador-auto-adjunto), mas note como o teorema nos proporciona um método mais direto de verificação (não precisamos nos preocupar em definir vetores arbitrários $u$ e $v$ nem verificar a forma do produto interno entre eles).
 
-$$
-([T]_{c})^{T}=\begin{pmatrix}
-1 & 0 \\
-0 & 2
-\end{pmatrix} = [T]_{c}
-$$
-
-Portanto, $[T]_{c}$ é uma matriz simétrica. Como a base canônica é ortonormal, verificamos novamente que $T$ é auto-adjunto.
+:::
