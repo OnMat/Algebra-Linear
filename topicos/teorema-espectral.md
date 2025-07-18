@@ -117,7 +117,7 @@ Além disso, $D=P^{-1}AP$, onde $P$ é a matriz mudança de base de $\beta$ para
 
 O fato de podermos garantir que matrizes simétricas podem ser diagonalizadas e sabermos como encontrar a matriz diagonal tem grande aplicação prática e computacional, como veremos no exemplo a seguir.
 
-:::{prf:example} Potênciação de uma matriz simétrica
+:::{prf:example} Potenciação de uma matriz simétrica
 
 Seja $A$ uma matriz simétrica, podemos determinar $A^{n}$ para um expoente natural qualquer. A chave está em encontrarmos a forma diagonal de $A$, garantida pelo [](#espectral-para-matrizes-simetricas) (neste caso, nos será útil escrever $A$ como $PDP^{T}$), e então verificar o que seria $A^{n}$ neste formato.
 
