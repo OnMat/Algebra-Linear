@@ -97,6 +97,7 @@ Verifica-se sem muita dificuldade que, em espaços vetoriais reais, a recíproca
 ### Teorema Espectral para matrizes simétricas
 
 :::{prf:corollary} Teorema Espectral para matrizes simétricas
+:label: espectral-para-matrizes-simetricas
 Seja $A\in M_{n}(\mathbb{R})$ uma matriz simétrica, então existe uma matriz $P\in M_{n}(\mathbb{R})$ ortogonal tal que $D=P^{T}AP$, onde $D$ é uma matriz **diagonal** constituída dos autovalores de $A$.
 :::
 
@@ -114,87 +115,120 @@ $$
 Além disso, $D=P^{-1}AP$, onde $P$ é a matriz mudança de base de $\beta$ para $c$. Dado que $\beta$ é ortonormal, então $P$ é ortogonal. Ou seja, $P^{-1}=P^{T}$.
 ```
 
-O fato de podermos garantir que matrizes simétricas podem ser diagonalizadas e sabermos como encontrar a matriz diagonal tem grande aplicação prática e computacional. Vejamos como exemplo o cálculo de potências de matrizes ($A^n$).
+O fato de podermos garantir que matrizes simétricas podem ser diagonalizadas e sabermos como encontrar a matriz diagonal tem grande aplicação prática e computacional, como veremos no exemplo a seguir.
 
-Seja $A=\begin{pmatrix}1 & 2 \\ 2 & -2\end{pmatrix}$, encontremos $A^{n}$ ($n\in \mathbb{N}$). Primeiramente, note que $A^{T}=A$. A ideia então é diagonalizar $A$ utilizando o teorema espectral, de maneira que podemos determinar $A^{n}$ em um formato mais simples. Começamos calculando os autovalores de $A$, de modo a determinar os autovetores associados e posteriormente uma base ortonormal formada por eles:
+:::{prf:example} Potênciação de uma matriz simétrica
+
+Seja $A$ uma matriz simétrica, podemos determinar $A^{n}$ para um expoente natural qualquer. A chave está em encontrarmos a forma diagonal de $A$, garantida pelo [](#espectral-para-matrizes-simetricas) (neste caso, nos será útil escrever $A$ como $PDP^{T}$), e então verificar o que seria $A^{n}$ neste formato.
+
+O processo para encontrar a forma diagonal é basicamente o mesmo para qualquer matriz simétrica, onde as 3 etapas principais são:
+1. Encontrar os autovalores;
+2. Encontrar os autovetores associados;
+3. Determinar a base ortonormal formada a partir dos autovetores encontrados.
+
+Para ilustrar estas etapas numericamente, considere o caso em que $A=\begin{pmatrix}7 & -1 \\ -1 & 2\end{pmatrix}$.
+
+Para o primeiro passo, fazemos $\det (A-\lambda I)=0$ e resolvemos para $\lambda$ (isto é, encontramos as raízes do polinômio característico). Note que pelo [](#lema2) sabemos que as soluções serão todas reais. Neste caso, temos 
 
 $$
-\det \begin{pmatrix}
-1-\lambda & 2 \\
-2 & -2-\lambda
-\end{pmatrix}=0 \implies (1-\lambda)(-2-\lambda)-4=0
+\det\begin{pmatrix}
+7-\lambda & -1 \\
+-1 & 2-\lambda
+\end{pmatrix} = 0 \implies (7-\lambda)(2-\lambda)-1=0
 $$
 
-Encontrando $\lambda_{1}=-3$ e $\lambda_{2}=2$. Para $\lambda_{1}$ temos:
+Encontrando então os autovalores $\lambda_{1}=\frac{1}{2}(9+\sqrt{ 29 })$ e $\lambda_{2}=\frac{1}{2}(9-\sqrt{ 29 })$.
+
+Para os autovetores, resolvemos os sistemas associados a
 
 $$
 \begin{pmatrix}
-1 & 2 \\
-2 & -2
+7-\lambda_{1} & -1 \\
+-1 & 2-\lambda_{1}
 \end{pmatrix}\begin{pmatrix}
 x \\
 y
-\end{pmatrix}=-3 \begin{pmatrix}
-x \\
-y
+\end{pmatrix}=\begin{pmatrix}
+0 \\
+0
 \end{pmatrix}
 $$
 
-Resolvendo o sistema linear associado encontramos o autovetor ${} v_{1}=(1,-2) {}$. Analogamente para $\lambda_{2}$:
+e
 
 $$
 \begin{pmatrix}
-1 & 2 \\
- 2 & -2
-\end{pmatrix} \begin{pmatrix}
+7-\lambda_{2} & -1 \\
+-1 & 2-\lambda_{2}
+\end{pmatrix}\begin{pmatrix}
 x \\
 y
-\end{pmatrix}=2\begin{pmatrix}
-x \\
-y
+\end{pmatrix}=\begin{pmatrix}
+0 \\
+0
 \end{pmatrix}
 $$
 
-Encontrando ${} v_{2}=(2,1) {}$. Logo, a base $\{ (1,-2),(2,1) \}$ de $\mathbb{R}^{2}$ é formada por autovetores de $A$. Note que, como são associados a autovalores distintos,  $v_{1}$ e $v_{2}$ são ortogonais, restando apenas normalizá-los para que obtenhamos uma base ortonormal de autovetores. Portanto,
+encontrando $v_{1}=\left( -5-\sqrt{ 29 },2 \right)$ e $v_{2}=\left( -5+\sqrt{ 29 },2 \right)$, respectivamente.
+
+Note que, como $\lambda_{1}\neq \lambda_{2}$, [](#autovetores-associados-a-autovalores-distintos-ortogonais) garante que $v_{1}$ e $v_{2}$ já são ortogonais. Então, para o terceiro passo resta apenas normalizá-los. Fazendo isso, obtemos os respectivos versores
 
 $$
-\beta =\left\{  \left( \frac{1}{\sqrt{ 5 }},\frac{-2}{\sqrt{ 5 }} \right),\left( \frac{2}{\sqrt{ 5 }},\frac{1}{\sqrt{ 5 }} \right)  \right\}
+\begin{align}
+\hat{v_{1}}&=\left( \frac{-5-\sqrt{ 29 }}{\sqrt{ 58+10\sqrt{ 29 } }} ,\frac{2}{{\sqrt{ 58+10\sqrt{ 29 } }}}\right)  \\
+\hat{v_{2}}&=\left( \frac{-5+\sqrt{ 29 }}{\sqrt{ 58-10\sqrt{ 29 } }} ,\frac{2}{{\sqrt{ 58-10\sqrt{ 29 } }}}\right)
+\end{align}
 $$
 
-é uma base ortonormal formada por autovetores de $A$.
+Logo, $\{ \hat{v_{1}},\hat{v_{2}} \}$ é uma base ortonormal de $\mathbb{R}^{2}$ formada por autovetores de $A$.
 
-Consequentemente, a matriz
+Voltando ao caso geral (para simplificar consideraremos uma matriz $2\times2$, mas a análise para dimensões maiores é análoga), considere que os autovetores normalizados encontrados no terceiro passo são $\hat{v_{1}}=(a,b)$ e $\hat{v_{2}}=(c,d)$. A demonstração do [](#espectral-para-matrizes-simetricas) nos diz que $P=\begin{pmatrix}a & c \\ b & d\end{pmatrix}$, portanto
 
 $$
-[I]^{\beta}_{c}=P=\begin{pmatrix}
-\frac{1}{\sqrt{ 5 }} & \frac{2}{\sqrt{ 5 }} \\
-\frac{-2}{\sqrt{ 5 }} & \frac{1}{\sqrt{ 5 }}
+A=PDP^{T}=\begin{pmatrix}
+a & c \\
+b & d
+\end{pmatrix}\begin{pmatrix}
+\lambda_{1} & 0 \\
+0 & \lambda_{2}
+\end{pmatrix}\begin{pmatrix}
+a & b \\
+c & d
 \end{pmatrix}
 $$
 
-é ortogonal, logo $P^{-1}=P^{T}$. Daí seque que ${} A=PDP^{T} {}$. Finalmente, observe que
+Agora, note que 
 
 $$
-\begin{align*}
-A^{2}&=(PDP^{T})(PDP^{T})=PD^{2}P^{T} \\
-A^{3}&=A^{2}A=(PD^{2}P^{T})(PDP^{T})=PD^{3}P^{T} \\
-&\,\,\,\vdots \\
-A^{n}&=PD^{n}P^{T}
-\end{align*}
+A^{n}=(PDP^{T})^{n}= \underbrace{ (PDP^{T})(PDP^{T})\dots(PDP^{T}) }_{ n\text{ vezes} }
 $$
 
-Concluindo:
+mas como $P$ é ortogonal, então $P^{T}P=I$. Logo, isto se simplifica em
+
+$$
+\begin{align}
+A^{n}&=P\underbrace{ DD\dots D }_{ n\text{ vezes} }P^{T} \\
+ & =PD^{n}P^{T}
+\end{align}
+$$
+
+Mais ainda, como $D$ é uma matriz diagonal, observe que $D^{n}$ resultará em $\begin{pmatrix}\lambda_{1}^{n} & 0 \\ 0 & \lambda_{2}^{n}\end{pmatrix}$. Dessa forma, concluímos que
 
 $$
 A^{n}=\begin{pmatrix}
-\frac{1}{\sqrt{ 5 }} & \frac{2}{\sqrt{ 5 }} \\
-\frac{-2}{\sqrt{ 5 }} & \frac{1}{\sqrt{ 5 }}
+a & c \\
+b & d
 \end{pmatrix}\begin{pmatrix}
-(-3)^{n} & 0 \\
-0 & 2^{n}
+\lambda_{1}^{n} & 0 \\
+0 & \lambda_{2}^{n}
 \end{pmatrix}\begin{pmatrix}
-\frac{1}{\sqrt{ 5 }} & \frac{-2}{\sqrt{ 5 }} \\
-\frac{2}{\sqrt{ 5 }} & \frac{1}{\sqrt{ 5 }} 
-\end{pmatrix}.
+a & b \\
+c & d
+\end{pmatrix}
 $$
 
+:::
+
+Observe como reduzimos um cálculo que seria de $n-1$ produtos de matrizes em dois produtos de matrizes! 
+
+Para um computador, o custo de calcular $\lambda_{1}^{n}$, $\lambda_{2}^{n}$ e dois produtos matriciais é ordens de grandeza menor que o de calcular $n-1$ produtos matriciais (na maioria dos casos).

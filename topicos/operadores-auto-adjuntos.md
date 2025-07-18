@@ -76,6 +76,7 @@ Logo, $T^{-1}$ é auto-adjunto.
 ```
 
 :::{prf:proposition}
+:label: autovetores-associados-a-autovalores-distintos-ortogonais
 Seja $T \in \mathcal{L}(V)$ auto-adjunto, então autovetores associados a autovalores distintos são ortogonais.
 :::
 
