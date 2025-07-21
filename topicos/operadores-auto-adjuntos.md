@@ -121,9 +121,9 @@ $$
 \langle Tv_{i} , v_{j} \rangle=\langle Tv_{j} , v_{i} \rangle,
 \label{eq:igualdade-prova-caracterizacao-op-auto-adjunto}
 $$
-para todo $i,j$, e estas são as entradas de $[T]_\beta$ e $([T]_{\beta})^{T}$, respectivamente.
+para todo $i,j$, onde estas são as entradas de $[T]_\beta$ e $([T]_{\beta})^{T}$, respectivamente.
 
-Sejam $u,v\in V$, então, pela definição de base, $u=\sum_{i}x_{i}v_{i}$ e $v=\sum_{j}y_{j}v_{j}$. Portanto,
+Sejam $u,v\in V$, pela definição de base temos que $u=\sum_{i}x_{i}v_{i}$ e $v=\sum_{j}y_{j}v_{j}$. Logo,
 
 $$
 \begin{align}

@@ -3,7 +3,7 @@ title: Teorema Espectral
 subject: Tópicos Avançados
 ---
 
-O *Teorema Espectral* é um importante resultado na Álgebra Linear, diz respeito à existência de uma base ortonormal formada por autovetores de um operador auto-adjunto para o espaço vetorial o qual ele atua. Dividiremos-o em dois casos que, na prática, são correspondentes: Operadores auto-adjuntos e matrizes simétricas. Naturalmente, o segundo caso é um corolário do primeiro.
+O *Teorema Espectral* é um importante resultado na Álgebra Linear, diz respeito à existência de uma base ortonormal formada por autovetores de um operador auto-adjunto para o espaço vetorial o qual ele atua. Dividiremos-o em dois casos que, na prática, são correspondentes: Operadores auto-adjuntos e matrizes simétricas. O segundo caso surge naturalmente como um corolário do primeiro, devido a relação entre operadores e matrizes.
 
 ### Teorema Espectral (Operadores auto-adjuntos)
 
@@ -12,11 +12,11 @@ O *Teorema Espectral* é um importante resultado na Álgebra Linear, diz respeit
 Seja $T$ um operador linear auto-adjunto sobre um espaço vetorial $V$, de dimensão finita e munido de produto interno, então existe uma **base ortonormal** de $V$ formada por **autovetores** de $T$.
 :::
 
-A sua prova requer dois resultados prévios.
+A sua prova requer dois resultados prévios. Em ambos, $T$ é um operador linear auto-adjunto sobre um espaço vetorial $V$, de dimensão finita e munido de produto interno.
 
 :::{prf:lemma}
 :label: lema1
-Seja $T$ um operador linear auto-adjunto sobre um espaço vetorial $V$ munido de produto interno. Se $U$ é um subespaço $T$-invariante de $V$, então $U^{\perp}$ também o é. 
+Se $U$ é um subespaço $T$-invariante de $V$, então $U^{\perp}$ é $T$-invariante. 
 :::
 
 ```{admonition} Demonstração
@@ -30,12 +30,14 @@ Por outro lado, dado que $T$ é auto-adjunto, $\langle Tu , w \rangle=\langle u 
 
 :::{prf:lemma}
 :label: lema2
-Seja $T$ um operador linear auto-adjunto sobre um espaço vetorial $V$ de dimensão finita e munido de produto interno. Então, o conjunto de autovalores de $T$ é não-vazio e está constituído por números reais.
+Os autovalores de $T$ são reais.
 :::
 
 ```{admonition} Demonstração
 :class: dropdown
-Seja $\beta$ uma base ortonormal de $V$ e $\dim V = n>0$. Como $T$ é auto-adjunto, então $[T]_{\beta}=A$ é uma matriz simétrica. O polinômio característico de $T$ é dado por ${} p_{A}(x)=\det(x I-A) {}$. Logo, $\lambda$ é autovalor de $T$ se, e somente se, $p_{A}(\lambda)=0$. Considere que $\lambda$ é uma raiz de $p_{A}(x)$ (cuja existência é garantida pelo *Teorema Fundamental da Álgebra*, podendo ser uma raiz real ou complexa), vamos mostrar então que $\lambda \in \mathbb{R}$.
+Considere $\beta$ uma base ortonormal de $V$ e $\dim V = n>0$. Como $T$ é auto-adjunto, então $[T]_{\beta}=A$ é uma matriz simétrica (pelo [](#teorema1-autoadjunto)). 
+
+Sabemos que $\lambda$ é autovalor de $T$ se, e somente se, $p_{A}(\lambda)=0$, onde ${} p_{A}(x)=\det(x I-A) {}$ é o polinômio característico de $T$. Considere que $\lambda$ é uma raiz de $p_{A}(x)$ (cuja existência é garantida pelo *Teorema Fundamental da Álgebra*, podendo ser uma raiz real ou complexa), vamos mostrar então que $\lambda \in \mathbb{R}$.
 
 Dado que $\det(\lambda I-A)=0$, então o sistema linear $AX=\lambda X$ possui infinitas soluções não nulas para $X$. Consideremos que
 $$
@@ -87,7 +89,7 @@ A prova se dá por indução sobre a dimensão de $V$. Consideremos $\dim V = n$
 
 Como caso base, se $n=1$, qualquer ${} v\in V-\{ 0_{V} \} {}$ forma uma base do espaço. Naturalmente, $\left\{  \frac{v}{\lvert |v| \rvert}  \right\}$ é uma base ortonormal de $V$. Ademais, também é formada por um autovetor, uma vez que se $T(v)\in V$, então $T(v)=\lambda v$, para algum $\lambda \in \mathbb{R}$, dado que $\{ v \}$ é uma base.
 
-Agora, considere $n>1$ e suponha que o Teorema é válido para todo espaço com dimensão menor que $n$. O [Lema 2](#lema2) garante que existe um autovetor de $T$ (em particular, unitário) $v_{1}\in V$, associado a um autovalor real $\lambda_{1}$. Seja $U=[v_{1}]$, temos então que $\dim U^{\perp}= \dim V - \dim U=n-1<n$. Além disso, seja $u \in U$, $u=\alpha v_{1}$ e $T(\alpha v_{1})=\alpha T(v_{1})=\alpha \lambda_{1}v_{1}\in U$. Logo, $U$ é $T$-invariante. Consequentemente, pelo [Lema 1](#lema1), $U^{\perp}$ também é $T$-invariante.
+Como hipótese de indução, considere $n>1$ e suponha que o Teorema vale para todo espaço com dimensão menor que $n$. O [Lema 2](#lema2) garante que existe um autovetor de $T$ (em particular, unitário) $v_{1}\in V$, associado a um autovalor real $\lambda_{1}$. Seja $U=[v_{1}]$, temos então que $\dim U^{\perp}= \dim V - \dim U=n-1<n$. Além disso, seja $u \in U$, $u=\alpha v_{1}$ e $T(\alpha v_{1})=\alpha T(v_{1})=\alpha \lambda_{1}v_{1}\in U$. Logo, $U$ é $T$-invariante. Consequentemente, pelo [Lema 1](#lema1), $U^{\perp}$ também é $T$-invariante.
 
 Dado que $\dim U^{\perp}<n$ e ${} U^{\perp} {}$ é $T$-invariante, vale a hipótese de indução. Logo, existe uma base ortonormal $\{ v_{2},\dots ,v_{n} \}$ de $U^{\perp}$ formada por autovetores de $T$. Naturalmente, como $V=U \oplus U^{\perp}$, $\{ v_{1},v_{2},\dots,v_{n} \}$ é uma base ortonormal de $V$ formada por autovetores de $T$.
 :::
@@ -98,7 +100,7 @@ Verifica-se sem muita dificuldade que, em espaços vetoriais reais, a recíproca
 
 :::{prf:corollary} Teorema Espectral para matrizes simétricas
 :label: espectral-para-matrizes-simetricas
-Seja $A\in M_{n}(\mathbb{R})$ uma matriz simétrica, então existe uma matriz $P\in M_{n}(\mathbb{R})$ ortogonal tal que $D=P^{T}AP$, onde $D$ é uma matriz **diagonal** constituída dos autovalores de $A$.
+Seja $A\in M_{n}(\mathbb{R})$ uma matriz simétrica, então existe uma matriz $P\in M_{n}(\mathbb{R})$ ortogonal tal que $D=P^{T}AP$, onde $D$ é uma [matriz diagonal](#def-matriz-diagonal) cuja diagonal principal contém os autovalores de $A$.
 :::
 
 ```{admonition} Demonstração
