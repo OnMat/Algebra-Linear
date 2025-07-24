@@ -3,7 +3,34 @@ title: Matrizes
 subject: Fundamentos
 ---
 
-### Definições gerais
+O tópico seguinte a este é um ponto extremamente importante no estudo da Álgebra Linear, pois mostra como matrizes e transformações lineares estão intimamente relacionadas. Mas antes, devemos definir e relembrar alguns fatos acerca de matrizes.
+
+:::{prf:definition} Matriz
+
+Uma matriz de dimensão $m\times n$ (lê-se $m$ por $n$), com $m$ e $n$ inteiros positivos, é o conjunto de *entradas* $a_{ij}\in \mathbb{R}$, onde $i=1,\dots,m$ e $j=1,\dots,n$. 
+
+Matrizes são representadas dispondo as entradas em $m$ linhas e $n$ colunas, onde cada entrada $a_{ij}$ está localizada na $i$-ésima linha e $j$-ésima coluna:
+
+$$
+\begin{pmatrix}
+a_{11} & a_{12} & \dots & a_{1n} \\
+a_{21} & a_{22} & \dots & a_{2n} \\
+\vdots   & \vdots & \vdots  & \vdots\\ 
+a_{m1} & a_{m2} & \dots & a_{mn}
+\end{pmatrix}
+$$
+
+:::
+
+O conjunto das matrizes com entradas reais e dimensão $m\times n$ é representado por ${} \mathcal{M}_{m\times n}(\mathbb{R}) {}$. 
+
+Verificaremos que esse conjunto constitui um espaço vetorial, mas para isso devemos definir as operações de soma e multiplicação por escalar para matrizes.
+
+### Operações matriciais
+
+...
+
+### Outros conceitos importantes
 
 :::{prf:definition} Matriz transposta
 
@@ -60,11 +87,3 @@ Uma matriz quadrada é *diagonal* quando, exceto por entradas em sua diagonal pr
 A matriz identidade é diagonal, além de ser simétrica. No caso de dimensão $2\times2$, $I=\begin{pmatrix}1&0 \\0 & 1\end{pmatrix}=I^{T}$.
 
 Note que a definição permite que a diagonal principal possua entradas nulas, apenas não pode haver nenhuma entrada fora da diagonal principal que não seja nula. Neste sentido, a matriz nula é um caso particular de matriz diagonal (em que todas as entradas da diagonal principal são nulas), mas na prática não a consideramos dessa forma.
-
-### Relação com transformações lineares
-
-Notações utilizadas:
-
-- $c$ é a base *canônica* do espaço $\mathbb{R}^{n}$ em contexto.
-- $[T]^{\alpha}_{\beta}$ é a matriz associada a transformação linear $T:V\to W$ em relação a base $\alpha$ de $V$ e a base $\beta$ de $W$. No caso da matriz de um operador em relação a uma mesma base, omitiremos o sobrescrito.
-- $\textbf{I}$ é a matriz identidade (dimensão compatível com o contexto em que é utilizada) e $[I]^{\alpha}_{\beta}$ representa a matriz mudança de base de $\alpha$ para $\beta$.
