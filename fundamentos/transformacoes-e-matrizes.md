@@ -1,5 +1,5 @@
 ---
-title: A relação entre transformações lineares e matrizes
+title: Relação entre transformações lineares e matrizes
 subject: Fundamentos
 ---
 
