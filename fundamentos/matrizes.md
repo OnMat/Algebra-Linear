@@ -267,4 +267,119 @@ Mais uma vez, a  matriz identidade também recai nessa categoria. Havíamos cons
 
 ### Determinante
 
-...
+O determinante é uma das principais ferramentas quando lidamos com matrizes quadradas (que cumprem um papel central na Álgebra Linear, veja o tópico de Operadores Lineares), fornecendo informações acerca da matriz, como invertibilidade, além de ser utilizado em aspectos computacionais. Para os propósitos dessa seção, iremos apenas enunciar como calculá-lo para matrizes de dimensões $2\times2$ e $3\times 3$, além de algumas propriedades importantes.
+
+:::{prf:remark} Cálculo do determinante
+
+O determinante é uma função $\det(A):\mathcal{M}_{n}(\mathbb{R})\to \mathbb{R}$ (isto é: dada uma matriz quadrada de entradas reais, retorna um valor real).
+
+Para qualquer matriz ${} A=\begin{pmatrix}a & b \\ c & d\end{pmatrix} {}$ de dimensão $2\times 2$, ele é dado por
+
+$$
+\det(A)=\begin{vmatrix}
+a & b \\
+c & d
+\end{vmatrix} = ad-bc
+$$
+
+e para qualquer matriz $A=\begin{pmatrix}a & b & c \\ d &e& f \\ g & h & i\end{pmatrix}$ de dimensão $3\times 3$
+
+$$
+\det(A)=\begin{vmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i
+\end{vmatrix}=aei+bfg+cdh-ceg-afh-bdi
+$$
+
+(as barras verticais são uma notação comumente utilizada para representar o determinante da matriz com tais entradas).
+
+:::
+
+No caso do determinante de matrizes $3 \times 3$, existem algumas "regras" que auxiliam a calculá-lo, visto que a sua fórmula é bem menos intuitiva (além de ser bem mais longa) que no caso $2 \times 2$. Uma das mais conhecidas é a chamada **Regra de Sarrus**, onde repetimos as duas primeiras colunas no lado direito da matriz:
+
+$$
+\begin{array}{ccc|cc}
+a & b & c & a & b \\
+d & e & f & d & e \\
+g & h & i & g & h \\
+\end{array}
+$$
+
+note, comparando com a fórmula, que o determinante é então dado somando os produtos das entradas nas diagonais da esquerda para direita e subtraindo os produtos das entradas nas diagonais da direta para esquerda.
+
+:::{prf:example} 
+
+Seja a matriz:
+
+$$
+B=\begin{pmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{pmatrix}
+$$
+
+Aplicando a Regra de Sarrus, escrevemos:
+
+$$
+\begin{array}{ccc|cc}
+1 & 2 & 3 & 1 & 2 \\
+4 & 5 & 6 & 4 & 5 \\
+7 & 8 & 9 & 7 & 8
+\end{array}
+$$
+
+obtendo $\det(B)=(1\cdot5 \cdot 9)+(2 \cdot 6 \cdot 7) + (3 \cdot 4 \cdot 8) - (2 \cdot 4 \cdot 9) - (1 \cdot 6 \cdot 8) - (3 \cdot 5 \cdot 7)=45+84+96-72-48-105=0$.
+
+:::
+
+:::{prf:theorem} Invertibilidade de uma matriz
+
+Seja $A$ uma matriz quadrada, então $A$ é invertível (existe a matriz $A^{-1}$) se, e somente se, $\det(A)\neq 0$.
+
+:::
+
+Essa relação entre a invertibilidade de uma matriz e seu determinante ser não nulo fica mais clara quando vemos que uma divisão pelo determinante aparece nas fórmulas utilizadas para se calcular a inversa. A justificativa teórica, no entanto, requer uma fundamentação acerca de *formas multilineares alternadas*, um tópico mais avançado da Álgebra Linear (contudo, parte dessa justificativa pode ser entendida ao se estudar as condições para que um operador linear seja invertível e a relação do determinante com o núcleo de um operador linear, veja o tópico de Operadores Lineares).
+
+Por fim, algumas outras propriedades:
+
+:::{prf:property}
+
+Seja $k\in \mathbb{R}$ e $A$ uma matriz quadrada,
+
+$$
+\det(kA)=k\det(A)
+$$
+
+:::
+
+:::{prf:property}
+
+Sejam $A$ e $B$ duas matrizes quadradas de mesma ordem,
+
+$$
+\det(AB)=\det(A)\det(B)
+$$
+
+:::
+
+:::{prf:property}
+
+Seja $A$ uma matriz quadrada, 
+
+$$
+\det(A^{T})=\det(A)
+$$
+
+:::
+
+:::{prf:property}
+
+Seja $A$ uma matriz quadrada invertível,
+
+$$
+\det(A^{-1})=\frac{1}{\det(A)}
+$$
+
+:::
