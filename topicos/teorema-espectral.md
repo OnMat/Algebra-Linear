@@ -105,7 +105,7 @@ Seja $A\in M_{n}(\mathbb{R})$ uma matriz simétrica, então existe uma matriz $P
 
 ```{admonition} Demonstração
 :class: dropdown
-Seja $T\in \mathcal{L}(V)$ tal que $A=[T]_{c}$, onde $c$ é a base canônica. Como $A$ é simétrica e a base canônica é ortonormal, então $T$ é auto-adjunta. Logo, do [Teorema Espectral](#teorema-espectral) sabemos que existe uma base $\beta=\{ v_{1},\dots,v_{n} \}$ de $V$ formada por autovetores de $T$. Seja $T(v_{i})=\lambda_{i}v_{i}$ ($i=1,2,\dots,n$), então
+Seja $T\in \mathcal{L}(V)$ tal que $A=[T]_{c}$. Como $A$ é simétrica e a base canônica é ortonormal, então $T$ é auto-adjunta. Logo, do [Teorema Espectral](#teorema-espectral) sabemos que existe uma base $\beta=\{ v_{1},\dots,v_{n} \}$ de $V$ formada por autovetores de $T$. Seja $T(v_{i})=\lambda_{i}v_{i}$ ($i=1,2,\dots,n$), então
 $$
 D=[T]_{\beta}=\begin{pmatrix}
 \lambda_{1} & 0 & \dots & 0 \\

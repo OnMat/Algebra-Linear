@@ -85,7 +85,7 @@ $$
 
 Com estas duas operações, verifica-se facilmente que $\mathcal{M}_{m\times n}(\mathbb{R})$ é um espaço vetorial.
 
-Por fim, temos o *produto matricial*. Essa operação cumpre um papel central no [tópico seguinte](transformacoes-e-matrizes.md).
+Por fim, temos o *produto matricial*. Essa operação cumpre um papel importante no [tópico seguinte](transformacoes-e-matrizes.md).
 
 :::{prf:definition} Produto de matrizes
 

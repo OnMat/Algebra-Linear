@@ -13,9 +13,10 @@ Tendo estudado transformações lineares e as propriedades fundamentais de matri
 
 ### Princípios
 
-Vimos que todo espaço vetorial possui bases que o geram, logo, quando discutimos uma transformação linear podemos pensar em relação a como ela atua em uma base específica deste espaço. Essa ideia é o cerne da relação entre transformaçõe lineares e matrizes.
+Vimos que todo espaço vetorial possui bases que o geram, logo, quando discutimos uma transformação linear podemos pensar em relação a ela considerando bases específicas dos espaços envolvidos. Essa ideia é o cerne da relação entre transformaçõe lineares e matrizes.
 
 :::{prf:definition} Matriz de uma transformação linear
+:label: def-matrizdeumatransformacaolinear
 
 Considere $T:V\to W$ uma transformação linear, onde o espaço vetorial $V$ possui dimensão $n$ e o espaço vetorial $W$ possui dimensão $m$. Dadas bases ordenadas $\alpha=\{ v_{1},v_{2},\dots,v_{n} \}$ e $\beta=\{ w_{1},w_{2},\dots,w_{m} \}$ de $V$ e $W$, respectivamente, definimos a matriz $[T]^{\alpha}_{\beta}$, de dimensão $m \times n$, como a *matriz associada à $T$ em relação às bases $\alpha$ e $\beta$*. De forma que:
 
@@ -32,6 +33,40 @@ onde $a_{ij}$ é a $i$-ésima coordenada de $Tv_{j}$ na base $\beta$.
 
 :::
 
-Note que, a partir desssa definição, toda transformação linear está relacionada univocamente a uma matriz (o que decorre da unicidade de coordenadas em uma base ordenada). Logo, uma mesma transformação pode ter matrizes diferentes (mas de mesma dimensão) em relação a bases diferentes. 
+Assim, fixadas as bases dos espaços vetoriais envolvidos, toda transformação linear entre esses espaços está relacionada univocamente a uma matriz, o que decorre da unicidade das coordenadas em uma base ordenada (mas note que uma mesma transformação pode ter matrizes diferentes, mas de mesma dimensão, em relação a bases diferentes). Logo, conseguimos "encapsular" uma transformação linear em uma matriz, de modo que somente com suas entradas e conhecendo os espaços vetoriais e bases em contexto podemos determinar de qual transformação se trata. Isso é extremamente interessante e poderoso, principalmente do ponto de vista computacional (veremos adiante como isso nos permite determinar a imagem de um vetor utilizando a matriz associada à transformação), conseguimos resumir qualquer transformação linear em um conjunto de números.
 
-Mas e no caso contrário? Se pensarmos dessa forma geral, dada uma matriz qualquer, ela pode estar relacionada a diferentes transformações em relação a diferentes bases. Então, para fazer a passagem de uma matriz para uma transformação, nós padronizamos as bases, de maneira que nos interessa determinar a transformação relacionada. Dado o isomorfismo entre um espaço vetorial qualquer de dimensão $n$ e o $\mathbb{R}^{n}$, para uma matriz de dimensão $m \times n$, fixamos as bases canônicas de $\mathbb{R}^{m}$  e ${} \mathbb{R}^{n} {}$, de maneira que a matriz está associada univocamente a uma transformação linear $T:\mathbb{R}^{n}\to \mathbb{R}^{m}$, em relação às respectivas bases canônicas.
+Mas e o oposto? Dada uma matriz qualquer, como interpretá-la como uma transformação linear? Com base na [](#def-matrizdeumatransformacaolinear), devemos determinar quais os espaços vetoriais e as respectivas bases envolvidas. Uma escolha natural seria considerarmos, para uma matriz de dimensão ${} m\times n {}$, os espaços vetoriais $\mathbb{R}^{m}$ e $\mathbb{R}^{n}$, com suas respectivas bases canônicas. Dessa forma, a matriz estará associada univocamente a uma transformação linear $T:\mathbb{R}^{n}\to \mathbb{R}^{m}$ em relação às bases canônicas. Essa escolha facilita muitos aspectos (pois são espaços vetoriais e bases simples de lidarmos) e sabemos do isomorfismo que existe entre qualquer espaço vetorial de dimensão $n$ e o $\mathbb{R}^{n}$, então a transformação associada é "equivalente" para quaisquer espaços de dimensões compatíveis com a matriz. 
+
+Portanto, temos a seguinte definição:
+
+:::{prf:definition} Transformação linear associada a uma matriz
+:label: def-transformacaoassociadaamatriz
+
+Seja $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, a *transformação linear associada a* $A$ é $T:\mathbb{R}^{n}\to \mathbb{R}^{m}$, tal que cada entrada $a_{ij}$ de $A$ é a $i$-ésima coordenada de ${} Te_{j} {}$ na base canônica de $\mathbb{R}^{m}$, onde $\{ e_{1},e_{2},\dots,e_{n} \}$ é a base canônica de $\mathbb{R}^{n}$.
+
+:::
+
+:::{prf:example}
+
+Qual transformação linear $T$ está associada à matriz $A=\begin{pmatrix}1 & 2 & 3 \\ 4 & 5 & 6\end{pmatrix}$?
+
+Pela [](#def-transformacaoassociadaamatriz) sabemos que:
+- $T:\mathbb{R}^{3}\to \mathbb{R}^{2}$, pois $A$ tem dimensão $2\times 3$;
+- $Te_{1}=T(1,0,0)=(1,4)$;
+- $Te_{2}=T(0,1,0)=(2,5)$;
+- $Te_{3}=T(0,0,1)=(3,6)$.
+
+Portanto, seja $(x,y,z)\in \mathbb{R}^{3}$,
+
+$$
+\begin{align}
+T(x,y,z)&=xTe_{1}+yTe_{2}+zTe_{3} \\
+ & =x(1,4)+y(2,5)+z(3,6) \\
+ & =(x,4x)+(2y,5y)+(3z,6z) \\
+ & =(x+2y+3z,4x+5y+6z)
+\end{align}
+$$
+
+Determinando assim $T$.
+
+:::
