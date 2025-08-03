@@ -13,7 +13,7 @@ Tendo estudado transformações lineares e as propriedades fundamentais de matri
 
 ### Princípios
 
-Vimos que todo espaço vetorial possui bases que o geram, logo, quando discutimos uma transformação linear podemos pensar em relação a ela considerando bases específicas dos espaços envolvidos. Essa ideia é o cerne da relação entre transformaçõe lineares e matrizes.
+Vimos que todo espaço vetorial possui bases que o geram, logo, quando discutimos uma transformação linear podemos pensar em relação a ela considerando bases específicas dos espaços envolvidos. Essa ideia é o cerne da relação entre transformações lineares e matrizes.
 
 :::{prf:definition} Matriz de uma transformação linear
 :label: def-matrizdeumatransformacaolinear
@@ -35,6 +35,31 @@ onde $a_{ij}$ é a $i$-ésima coordenada de $Tv_{j}$ na base $\beta$.
 
 Assim, fixadas as bases dos espaços vetoriais envolvidos, toda transformação linear entre esses espaços está relacionada univocamente a uma matriz, o que decorre da unicidade das coordenadas em uma base ordenada (mas note que uma mesma transformação pode ter matrizes diferentes, mas de mesma dimensão, em relação a bases diferentes). Logo, conseguimos "encapsular" uma transformação linear em uma matriz, de modo que somente com suas entradas e conhecendo os espaços vetoriais e bases em contexto podemos determinar de qual transformação se trata. Isso é extremamente interessante e poderoso, principalmente do ponto de vista computacional (veremos adiante como isso nos permite determinar a imagem de um vetor utilizando a matriz associada à transformação), conseguimos resumir qualquer transformação linear em um conjunto de números.
 
+:::{prf:example}
+
+Qual a matriz associada à transformação linear $T:\mathbb{R}^{2}\to \mathbb{R}^{3}$, nas bases canônicas, dada por $T(x,y)=(x+y,2x-y,y)$?
+
+Devemos determinar as imagens dos vetores da base do espaço vetorial de saída, no caso, a base canônica de $\mathbb{R}^{2}$. Depois, reescrevemos tais imagens na base ordenada do espaço vetorial de chegada, as coordenadas obtidas nos dão as entradas da matriz. No caso, como a base de chegada considerada também é a canônica, basta apenas calcular as imagens:
+
+$$
+\begin{align}
+ & T(1,0)=(1+0,2\cdot1-0,0)=(1,2,0) \\
+ & T(0,1)=(0+1,2\cdot 0-1,1)=(1,-1,1)
+\end{align}
+$$
+
+Logo, sejam $c_{1}$ e $c_{2}$ as bases canônicas de $\mathbb{R}^{2}$ e $\mathbb{R}^{3}$, respectivamente,
+
+$$
+[T]^{c_{1}}_{c_{2}}=\begin{pmatrix}
+1 & 1 \\
+2 & -1 \\
+0 & 1
+\end{pmatrix}
+$$
+
+:::
+
 Mas e o oposto? Dada uma matriz qualquer, como interpretá-la como uma transformação linear? Com base na [](#def-matrizdeumatransformacaolinear), devemos determinar quais os espaços vetoriais e as respectivas bases envolvidas. Uma escolha natural seria considerarmos, para uma matriz de dimensão ${} m\times n {}$, os espaços vetoriais $\mathbb{R}^{m}$ e $\mathbb{R}^{n}$, com suas respectivas bases canônicas. Dessa forma, a matriz estará associada univocamente a uma transformação linear $T:\mathbb{R}^{n}\to \mathbb{R}^{m}$ em relação às bases canônicas. Essa escolha facilita muitos aspectos (pois são espaços vetoriais e bases simples de lidarmos) e sabemos do isomorfismo que existe entre qualquer espaço vetorial de dimensão $n$ e o $\mathbb{R}^{n}$, então a transformação associada é "equivalente" para quaisquer espaços de dimensões compatíveis com a matriz. 
 
 Portanto, temos a seguinte definição:
@@ -42,7 +67,7 @@ Portanto, temos a seguinte definição:
 :::{prf:definition} Transformação linear associada a uma matriz
 :label: def-transformacaoassociadaamatriz
 
-Seja $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, a *transformação linear associada a* $A$ é $T:\mathbb{R}^{n}\to \mathbb{R}^{m}$, tal que cada entrada $a_{ij}$ de $A$ é a $i$-ésima coordenada de ${} Te_{j} {}$ na base canônica de $\mathbb{R}^{m}$, onde $\{ e_{1},e_{2},\dots,e_{n} \}$ é a base canônica de $\mathbb{R}^{n}$.
+Seja $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, a *transformação linear associada* a $A$ é $T:\mathbb{R}^{n}\to \mathbb{R}^{m}$, tal que cada entrada $a_{ij}$ de $A$ é a $i$-ésima coordenada de ${} Te_{j} {}$ na base canônica de $\mathbb{R}^{m}$, onde $\{ e_{1},e_{2},\dots,e_{n} \}$ é a base canônica de $\mathbb{R}^{n}$.
 
 :::
 
@@ -70,3 +95,64 @@ $$
 Determinando assim $T$.
 
 :::
+
+### Releitura das propriedades matriciais
+
+Agora, com a ótica de transformações lineares, podemos interpretar as propriedades de matrizes.
+
+:::{prf:property}
+
+A soma matricial é equivalente a soma de transformações lineares, isto é, sejam $T:V\to W$ e $S:V\to W$:
+
+$$
+[T]^{\alpha}_{\beta}+[S]^{\alpha}_{\beta}=[T+S]^{\alpha}_{\beta}
+$$
+
+$\alpha$ e $\beta$ são bases de $V$ e $W$, respectivamente. Note que devemos ter as mesmas bases para as duas matrizes/transformações.
+
+:::
+
+:::{prf:property}
+
+A multiplicação de uma matriz por um escalar é equivalente a multiplicação de uma transformação linear por este escalar. Para $k \in \mathbb{R}$,
+
+$$
+k[T]^{\alpha}_{\beta}=[k T]^{\alpha}_{\beta}
+$$
+
+:::
+
+:::{prf:property}
+
+O produto matricial é equivalente à composição de transformações lineares. Sejam $T:V\to W$ e $S:W\to X$,
+
+$$
+[S]^{\alpha}_{\beta}\cdot[T]^{\gamma}_{\alpha}=[ST]^{\gamma}_{\beta}
+$$
+
+Note que a base do espaço $W$, em comum entre $T$ e $S$, deve ser a mesma.
+
+:::
+
+Essa terceira propriedade esclarece o porquê do produto matricial ser definido da forma que é. Isso pode ser verificado algebricamente, considerando transformações (cuja composição é válida) e bases fixas, mas é melhor visualizado pensando nas colunas das matrizes como vetores (na verdade, como coordenadas de um vetor em uma base). Vetores na forma matricial (isto é, matrizes $n \times 1$) são chamados de *vetores coluna*.
+
+Perceba como essa interpretação também oferece uma nova maneira de determinar a transformação linear associada à uma matriz $A$ de dimensão ${} m\times n {}$, basta fazermos o produto $A\cdot \begin{pmatrix}x_{1}\\x_{2}\\ \vdots \\ x_{n} \end{pmatrix}$.
+
+Além disso, como é esperado, $\mathbf{I}=[I]_{\alpha}$. Introduziremos agora uma importante ferramenta relacionada com a matriz do operador identidade:
+
+:::{prf:property}
+
+Seja $V$ um espaço vetorial, com $\alpha$ e $\beta$ bases de $V$, a *matriz mudança de base* de $\alpha$ para $\beta$ é $[I]^{\alpha}_{\beta}$ ($I$ o operador identidade em $V$).
+
+:::
+
+O nome vem simplesmente do fato que tal matriz permite determinar as coordenadas na base $\beta$ de qualquer vetor em $V$, a partir das suas coordenadas em $\alpha$. Ou seja, digamos que $(v)_{\alpha}=(x_{1},x_{2},\dots,x_{n})$, então as coordenadas de $(v)_{\beta}$ são dadas pelas entradas do vetor coluna resultante do produto $[I]^{\alpha}_{\beta}\cdot \begin{pmatrix}
+x_{1} \\
+x_{2} \\
+\vdots \\
+x_{n}
+\end{pmatrix}$.
+
+E claro que podemos também fazer o produto matricial entre uma matriz compatível $A$ e ${} [I]^{\alpha}_{\beta} {}$, de maneira que se $A=[T]^{\beta}_{\gamma}$, a matriz resultante é $[T]^{\alpha}_{\gamma}$. Logo, podemos reescrever a matriz de qualquer transformação em bases diferentes, esse fato cumpre um papel importante no [Teorema Espectral para matrizes](#espectral-para-matrizes-simetricas).
+
+Por fim, a transposta de uma matriz também possui um contexto de transformação linear, que é discutido no tópico de *Adjunta*.
