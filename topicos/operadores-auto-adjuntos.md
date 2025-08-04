@@ -8,7 +8,7 @@ Vejamos a definição e alguns resultados sobre *operadores auto-adjuntos*, um t
 :::{prf:definition} Operador auto-adjunto
 :label: autoadjunto
 
-Seja $V$ um espaço vetorial com produto interno, dizemos que $T\in \mathcal{L}(V)$ é *auto-adjunto* se $\forall v,w\in V$ temos
+Seja $V$ um espaço vetorial com produto interno e dimensão finita, dizemos que $T\in \mathcal{L}(V)$ é *auto-adjunto* se $\forall v,w\in V$ temos
 $$
 \langle Tv , w \rangle=\langle v , Tw \rangle.
 $$
@@ -163,3 +163,150 @@ $$
 Como $([T]_{c})^{T}=[T]_{c}$, o [](#teorema1-autoadjunto) nos garante que $T$ é auto-adjunto. Já havíamos verificado tal fato no [](#exemplo-1-operador-auto-adjunto), mas note como o teorema nos proporciona um método mais direto de verificação (não precisamos nos preocupar em definir vetores arbitrários $u$ e $v$ nem verificar a forma do produto interno entre eles).
 
 :::
+
+### Positividade de operadores auto-adjuntos
+
+Existem certos tipos de operadores auto-adjuntos que merecem uma atenção especial, pois a partir de suas propriedades obtemos alguns resultados que têm destaque no campo mais prático e aplicado da Álgebra Linear, como a resolução de sistemas lineares e métodos de aproximação numérica.
+
+:::{prf:definition} Operador definido positivo
+
+Seja $V$ um espaço vetorial com produto interno e dimensão finita, dado $T\in \mathcal{L}(V)$ auto-adjunto, dizemos que $T$ é *definido positivo* se $\forall v\in V$, com $v\neq 0$, temos
+
+$$
+\langle Tv , v \rangle>0
+$$
+
+e escrevemos $T>0$.
+
+:::
+
+:::{prf:example}
+
+Considere o operador identidade em $\mathbb{R}^{2}$. Para $(x,y)\in \mathbb{R}^{2}$, com $(x,y)\neq (0,0)$, temos
+
+$$
+\begin{align}
+\langle I(x,y) , (x,y) \rangle & =\langle (x,y) , (x,y) \rangle \\
+ & =x^{2}+y^{2}>0
+\end{align}
+$$
+
+Logo, $I$ é um operador definido positivo.
+
+:::
+
+Estendendo para considerar $v = 0$, temos a definição a seguir:
+
+:::{prf:definition} Operador não negativo
+
+Seja $V$ um espaço vetorial com produto interno e dimensão finita, dado $T\in \mathcal{L}(V)$ auto-adjunto, dizemos que $T$ é *não negativo* ou *semi-definido positivo* se $\forall v\in V$, temos
+
+$$
+\langle Tv , v \rangle\geq0
+$$
+
+e escrevemos $T\geq0$.
+
+:::
+
+No caso do exemplo anterior, é natural que ao incluirmos a possibilidade que $v=0$ verificamos que o operador identidade é não negativo, uma vez que ele já é positivo definido. De fato, todo operador positivo definido é não negativo, mas a recíproca não vale (podemos ter $\langle Tv , v \rangle=0$ mas $v\neq 0$).
+
+Podemos também estender essas definições de maneira análoga para operadores *negativos* ($T<0$) e *não positivos* ($T\leq0$), mas existem operadores que não se enquadram em nenhum destes:
+
+:::{prf:example} Operador indefinido
+
+Considere a base ortonormal $\beta=\{ (1,0),(0,1) \}$ e $T(x,y)=(y,x),\forall(x,y)\in \mathbb{R}²$. Temos que:
+
+$$
+[T]_{\beta}=
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+$$
+ 
+Observe que $[T]_{\beta}$ é simétrica, então o [](#teorema1-autoadjunto) garante que $T$ é auto-adjunto. Além disso,
+
+$$
+\langle T(x,y) , (x,y) \rangle=\langle (y,x) , (x,y) \rangle=yx+xy=2xy,\forall(x,y)\in \mathbb{R}²
+$$
+ 
+Note que, a depender dos valores de $x$ e $y$, $2xy$ pode ser positivo, negativo ou nulo. Portanto, $T$ é um *operador indefinido*.
+
+:::
+
+O teorema a seguir serve como base para uma extensão do [Teorema Espectral](/topicos/teorema-espectral) para transformações lineares quaisquer.
+
+:::{prf:theorem} 
+
+Seja $T:V\to W$ uma transformação linear entre espaços vetoriais de dimensão finita e munidos de produto interno, os operadores lineares $T^{*}T:V\to V$ e $TT^{*}:W\to W$ são não negativos e possuem o mesmo posto de $T$ e $T^{*}$.
+
+:::
+
+:::{prf:proof}
+
+Primeiramente, note que $(T^{*}T)^*=T^{*}T$ e $(TT^{*})^{*}=TT^{*}$. Logo, ambos são auto-adjuntos. Agora, considerando $v\in V$, temos
+
+$$
+\begin{align}
+\langle T^{*}Tv , v \rangle  & =\langle Tv , Tv \rangle \\
+ & =\lVert Tv \rVert ^{2} \\
+ & \geq0
+\end{align}
+$$
+
+Similarmente para $w\in W$, temos
+
+$$
+\begin{align}
+\langle TT^{*}w ,w  \rangle  & = \langle T^{*}w , T^{*}w \rangle \\
+ & =\lVert T^{*}w \rVert ^{2}  \\
+ & \geq 0
+\end{align}
+$$
+
+Concluindo que ambos são não negativos. 
+
+Para o posto, observe que
+
+$$
+\begin{align}
+w\in N(T^{*})  & \iff T^{*}w=0 \\
+ & \iff \langle v , T^{*}w \rangle=0, \forall v\in V \\
+ & \iff \langle Tv , w \rangle=0,\forall v\in V \\
+ & \iff w\in \mathrm{Im}(T)^{\perp}.
+\end{align}
+$$
+
+Ou seja, $N(T^{*})=\mathrm{Im}(T)^{\perp}$. 
+
+Utilizando esse fato, mostremos que $N(T^{*}T)=N(T)$. Seja $v\in N(T)$, temos $T^{*}Tv=T^{*}0=0$, logo, $N(T)\subset N(T^{*}T)$. Reciprocamente,
+
+$$
+\begin{align}
+v\in N(T^{*}T)  & \implies T^{*}Tv=0 \\
+ & \implies Tv\in N(T^{*})=\mathrm{Im}(T)^{\perp} \\
+ & \implies Tv\in(\mathrm{Im}(T)\cap \mathrm{Im}(T)^{\perp})=\{ 0 \} \\
+ & \implies Tv=0
+\end{align}
+$$
+
+Concluindo que $N(T^{*}T)\subset N(T)$ e, portanto, $N(T^{*}T)=N(T)$. Assim, utilizando o Teorema do Núcleo e Imagem,
+
+$$
+\dim V   = \dim N(T^{*}T)+\dim \mathrm{Im}(T^{*}T)
+$$
+
+$$
+\begin{align} 
+\implies\dim \mathrm{Im}(T^{*}T) & =\dim V-\dim N(T^{*}T) \\
+ & =\dim V - \dim N(T) \\
+ & =\dim \mathrm{Im}(T)
+\end{align}
+$$
+
+Mostrando que o posto de $T^{*}T$ é o mesmo de $T$. Analogamente, obtemos que o posto de $TT^{*}$ é igual ao posto de $T^{*}$ (que é o mesmo de $T$).
+
+:::
+
+Observe que tais operadores são positivos definidos se, e somente se, $T$ é invertível.
