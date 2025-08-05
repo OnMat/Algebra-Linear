@@ -21,7 +21,7 @@ project:
         - file: topicos/teorema-espectral.md
     - file: aplicacoes/index.md
       children:
-        - file: aplicacoes/teorema-espectral-aplicacoes.md
+        - file: aplicacoes/matrizes-simetricas.md
     - file: sobre.md
   exclude:
     - README.md

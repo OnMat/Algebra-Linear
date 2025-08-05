@@ -1,5 +1,5 @@
 ---
-title: Teorema Espectral
+title: Matrizes Simétricas
 subject: Aplicações
 ---
 
@@ -9,7 +9,7 @@ A modelagem matemática de fenômenos físicos (em áreas como Mecânica Clássi
 
 Considere, por exemplo, a modelagem do lucro de uma empresa dado em função do preço dos seus dois principais produtos, $L(p_{1},p_{2})$. Encontrar os valores de $p_{1}$ e $p_{2}$ que maximizariam o lucro é um problema clássico do *Cálculo Diferencial e Integral*, que envolve determinar os chamados **pontos de máximo e mínimo locais** da função $L(p_{1},p_{2})$. 
 
-Munidos das ferramentas do Cálculo, o [Teorema Espectral](../topicos/teorema-espectral.md) nos permite uma análise do problema sob a ótica da Álgebra Linear, o que por muitas vezes oferece uma solução mais prática.
+Munidos das ferramentas do Cálculo, as propriedades de [matrizes simétricas e operadores auto-adjuntos](../topicos/operadores-auto-adjuntos.md) nos permitem uma análise do problema sob a ótica da Álgebra Linear, o que por muitas vezes oferece uma solução mais prática.
 
 A ideia central é analisarmos as propriedades da **matriz Hessiana**, uma das principais ferramentas do Cálculo Vetorial, que é constituída das derivadas parciais de segunda ordem da função, que naturalmente nos fornecem informações sobre os pontos de máximo e mínimo, chamados **pontos críticos**.
 
@@ -26,7 +26,7 @@ $$
 
 :::
 
-Para o caso em que as derivadas de segunda ordem são contínuas, tem-se que $\frac{\partial^{2}f}{\partial x\partial y}=\frac{\partial^{2}f}{\partial y\partial x}$. Logo, **a matriz Hessiana é simétrica** e sabemos, pelo Teorema Espectral, que possuirá autovalores reais. Em suma, isto nos permite classificar os pontos críticos com base nos seus autovalores.
+Para o caso em que as derivadas de segunda ordem são contínuas, tem-se que $\frac{\partial^{2}f}{\partial x\partial y}=\frac{\partial^{2}f}{\partial y\partial x}$. Logo, **a matriz Hessiana é simétrica** e sabemos, por [](#lema2), que possuirá autovalores reais. Em suma, isto nos permite classificar os pontos críticos com base nos seus autovalores.
 
 Similarmente à estratégia usual do Cálculo, inicialmente devemos encontrar pontos que são candidatos a **máximos, mínimos ou pontos de sela**. Tais pontos satisfazem o seguinte sistema:
 

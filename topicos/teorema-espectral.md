@@ -12,7 +12,7 @@ O *Teorema Espectral* é um importante resultado na Álgebra Linear, diz respeit
 Seja $T$ um operador linear auto-adjunto sobre um espaço vetorial $V$, de dimensão finita e munido de produto interno, então existe uma **base ortonormal** de $V$ formada por **autovetores** de $T$.
 :::
 
-A sua prova requer dois resultados prévios. Em ambos, $T$ é um operador linear auto-adjunto sobre um espaço vetorial $V$, de dimensão finita e munido de produto interno.
+A sua prova requer dois resultados prévios. **Em ambos, $T$ é um operador linear auto-adjunto sobre um espaço vetorial $V$ de dimensão finita e munido de produto interno**.
 
 :::{prf:lemma}
 :label: lema1
