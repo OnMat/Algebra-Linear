@@ -234,3 +234,4 @@ $$
 Observe como reduzimos um cálculo que seria de $n-1$ produtos de matrizes em dois produtos de matrizes! 
 
 Para um computador, o custo de calcular $\lambda_{1}^{n}$, $\lambda_{2}^{n}$ e dois produtos matriciais é ordens de grandeza menor que o de calcular $n-1$ produtos matriciais (na maioria dos casos).
+

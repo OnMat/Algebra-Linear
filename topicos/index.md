@@ -7,3 +7,4 @@ Esta seção aborda tópicos posteriores aos estudos iniciais de espaços vetori
 
 - [Operadores Auto-adjuntos](operadores-auto-adjuntos.md)
 - [Teorema Espectral](teorema-espectral.md)
+- [Valores Singulares](valores-singulares.md)

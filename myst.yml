@@ -19,6 +19,7 @@ project:
       children:
         - file: topicos/operadores-auto-adjuntos.md
         - file: topicos/teorema-espectral.md
+        - file: topicos/valores-singulares.md
     - file: aplicacoes/index.md
       children:
         - file: aplicacoes/matrizes-simetricas.md

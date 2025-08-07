@@ -238,6 +238,7 @@ Note que, a depender dos valores de $x$ e $y$, $2xy$ pode ser positivo, negativo
 O teorema a seguir serve como base para uma extensão do [Teorema Espectral](/topicos/teorema-espectral) para transformações lineares quaisquer.
 
 :::{prf:theorem} 
+:label: pre-teorema-valores-singulares
 
 Seja $T:V\to W$ uma transformação linear entre espaços vetoriais de dimensão finita e munidos de produto interno, os operadores lineares $T^{*}T:V\to V$ e $TT^{*}:W\to W$ são não negativos e possuem o mesmo posto de $T$ e $T^{*}$.
 
