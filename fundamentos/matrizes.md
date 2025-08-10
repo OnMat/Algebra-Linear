@@ -182,6 +182,26 @@ A matriz $\begin{pmatrix}1 & 0 \\ 0 & 2\end{pmatrix}$ é diagonal.
 
 Note que a definição permite que a diagonal principal possua entradas nulas, apenas não pode haver nenhuma entrada fora da diagonal principal que não seja nula. Toda matriz diagonal também é simétrica.
 
+Além disso, podemos generalizar o conceito de matriz diagonal para matrizes retangulares, conforme a próxima definição:
+
+:::{prf:definition} Matriz retangular diagonal
+
+Seja $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, com $m \neq n$, dizemos que $A$ é *retangular diagonal* quando todas as suas entradas $a_{ij}$, com $i \neq j$, forem nulas.
+
+:::
+
+Por exemplo:
+
+$$
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0
+\end{pmatrix}
+$$
+
+
+
 #### Matrizes especiais
 
 Algumas matrizes aparecerão de maneira recorrente e possuem propriedades particulares.
@@ -383,3 +403,7 @@ $$
 $$
 
 :::
+
+### Notações úteis
+
+TODO

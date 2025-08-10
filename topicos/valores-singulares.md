@@ -14,7 +14,7 @@ $$
 Em particular, nos seria interessante que tais matrizes tenham propriedades similares ao caso do Teorema Espectral, com $U$ e $V^{T}$ ortogonais e $\Sigma$ diagonal. Mas note que se $A$ não é quadrada essa configuração não é possível, já que para tal deveríamos ter 3 matrizes quadradas, cujo produto não resultaria em uma matriz não quadrada. Como veremos, o que obteremos será o seguinte:
 
 - $U$ é uma matriz ortogonal $m\times m$;
-- $\Sigma$ é uma matriz "diagonal" $m\times n$ (diagonal no sentido de ter valores não nulos somente nas entradas de linha e coluna com mesmo índice);
+- $\Sigma$ é uma matriz retangular diagonal $m\times n$;
 - $V^{T}$ é a transposta de uma matriz ortogonal $n\times n$.
 
 O próximo teorema é a base para essa ideia. Ele nos indica quais serão os valores da diagonal de $\Sigma$, chamados de *valores singulares*, e quais os vetores que irão compor as matrizes $U$ e $V^{T}$. Para demonstrá-lo precisamos do seguinte lema:
@@ -35,6 +35,7 @@ $$
 :::
 
 :::{prf:theorem} Valores Singulares
+:label: teo-valores-singulares1
 
 Seja $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, com posto igual a $r$. Existem números reais $\sigma_{1}\geq \dots\geq \sigma_{r}>0$, chamados de *valores singulares* de $A$, e bases ortonormais $\{ v_{1},\dots,v_{n} \}$ de $\mathbb{R}^{n}$ e $\{ u_{1},\dots,u_{m} \}$ de $\mathbb{R}^{m}$, tais que:
 
@@ -101,4 +102,53 @@ Note que, para $i=r+1,\dots,m$, temos $A^{T}u_{i}=0$, pois $N(AA^{T})=N(A^{T})$,
 
 :::
 
-Dessa forma, $v_{1},\dots,v_{n}$ constituirão as colunas da matriz $V$ e são chamados de *vetores singulares à direita*, enquanto $u_{1},\dots,u_{m}$ constituirão as colunas de $U$ e são chamados de *vetores singulares à esquerda*.
+Tais $v_{1},\dots,v_{n}$ constituirão as colunas da matriz $V$ e são chamados de *vetores singulares à direita*, enquanto $u_{1},\dots,u_{m}$ constituirão as colunas de $U$ e são chamados de *vetores singulares à esquerda*.
+
+A partir disso, temos a *decomposição em valores singulares*:
+
+:::{prf:theorem} Decomposição em valores singulares
+
+Seja $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, existem matrizes ortogonais $V\in \mathcal{M}_{n}(\mathbb{R})$ e $U\in \mathcal{M}_{m}(\mathbb{R})$ e uma matriz retangular diagonal $\Sigma \in \mathcal{M}_{m\times n}(\mathbb{R})$ tais que
+
+$$
+A=U\Sigma V^{T}
+$$
+
+Em particular, sejam $\sigma_{1},\dots,\sigma_{r}$, $\{ v_{1},\dots,v_{n} \}$ e $\{ u_{1},\dots,u_{m} \}$ os mesmos do [teorema anterior](#teo-valores-singulares1), temos $V=[v_{1}\dots v_{n}]$, $U=[u_{1}\dots u_{m}]$ e $\sigma_{1},\dots,\sigma_{r}$ compondo as entradas não nulas da diagonal principal de $\Sigma$, nesta ordem.
+
+:::
+
+:::{prf:proof}
+
+Novamente, considere $\{ v_{1},\dots,v_{n} \}$, $\{ u_{1},\dots,u_{m} \}$ e $\sigma_{1},\dots,\sigma_{r}$ os de [](#teo-valores-singulares1). Claramente as matrizes $V=[v_{1},\dots,v_{n}]$ e $U=[u_{1},\dots,u_{m}]$ são ortogonais, pois são formadas por vetores ortonormais.
+
+Considere a matriz $\Sigma$ retangular diagonal de dimensão $m \times n$, contendo em sua diagonal principal $\sigma_{1},\dots,\sigma_{r}$ (nesta ordem) e as demais entradas nulas.
+
+Observe que $U\Sigma=[\sigma_{1}u_{1}\dots \sigma_{r}u_{r}\; 0\dots0]$. Multiplicando isto por $V^{T}$ à direita, obtemos:
+
+$$
+U\Sigma V^{T}=\sum_{i=1}^{r}\sigma_{i}u_{i}v_{i}^{T}
+$$
+
+Pelo [](#teo-valores-singulares1), sabemos que a ação de $A$ em qualquer vetor $v_{j}$ é dada por:
+
+$$
+Av_{j}=\begin{cases}
+\sigma_{j}u_{j} & \text{se }j\leq r, \\
+0 & \text{se }j>r
+\end{cases}
+$$
+
+Mas note que isso coincide com a ação de $\Sigma_{i=1}^{r}\sigma_{i}u_{i}v_{i}^{T}$ em $v_{j}$, pois
+
+$$
+\left( \sum_{i=1}^{r}\sigma_{i}u_{i}v_{i}^{T} \right)v_{j}=\sigma_{j}u_{j} \quad \text{para }j\leq r, \quad \text{e }0\text{ para }j>r.
+$$
+
+Dado que $\{ v_{1},\dots,v_{n} \}$ é uma base de $\mathbb{R}^{n}$, devemos ter (pela unicidade de uma transformação linear sobre uma base)
+
+$$
+A=\sum_{i=1}^{r}\sigma_{i}u_{i}v_{i}^{T}=U \Sigma V^{T}.
+$$
+
+:::
