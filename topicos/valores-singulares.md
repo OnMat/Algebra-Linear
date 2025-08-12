@@ -1,5 +1,5 @@
 ---
-title: Decomposição em Valores Singulares
+title: Decomposição em Valores Singulares (SVD)
 subject: Tópicos Avançados
 ---
 
@@ -120,14 +120,19 @@ Em particular, sejam $\sigma_{1},\dots,\sigma_{r}$, $\{ v_{1},\dots,v_{n} \}$ e 
 
 :::{prf:proof}
 
-Novamente, considere $\{ v_{1},\dots,v_{n} \}$, $\{ u_{1},\dots,u_{m} \}$ e $\sigma_{1},\dots,\sigma_{r}$ os de [](#teo-valores-singulares1). Claramente as matrizes $V=[v_{1},\dots,v_{n}]$ e $U=[u_{1},\dots,u_{m}]$ são ortogonais, pois são formadas por vetores ortonormais.
+Novamente, considere $\{ v_{1},\dots,v_{n} \}$, $\{ u_{1},\dots,u_{m} \}$ e $\sigma_{1},\dots,\sigma_{r}$ do [](#teo-valores-singulares1). Claramente as matrizes $V=[v_{1} \dots v_{n}]$ e $U=[u_{1} \dots u_{m}]$ são ortogonais, pois são formadas por vetores ortonormais.
 
 Considere a matriz $\Sigma$ retangular diagonal de dimensão $m \times n$, contendo em sua diagonal principal $\sigma_{1},\dots,\sigma_{r}$ (nesta ordem) e as demais entradas nulas.
 
-Observe que $U\Sigma=[\sigma_{1}u_{1}\dots \sigma_{r}u_{r}\; 0\dots0]$. Multiplicando isto por $V^{T}$ à direita, obtemos:
+Observe que $U\Sigma=[\sigma_{1}u_{1}\dots \sigma_{r}u_{r}\;\; 0\dots0]$. Multiplicando isto por $V^{T}$ à direita, obtemos:
 
 $$
-U\Sigma V^{T}=\sum_{i=1}^{r}\sigma_{i}u_{i}v_{i}^{T}
+U\Sigma V^{T}=[\sigma_{1}u_{1}\dots \sigma_{r}u_{r}\;\; 0\dots0]\cdot \begin{bmatrix}
+v_{1}^{T} \\
+v_{2}^{T} \\
+\vdots \\
+v_{n}^{T}
+\end{bmatrix}=\sum_{i=1}^{r}\sigma_{i}u_{i}v_{i}^{T}
 $$
 
 Pelo [](#teo-valores-singulares1), sabemos que a ação de $A$ em qualquer vetor $v_{j}$ é dada por:
@@ -142,13 +147,42 @@ $$
 Mas note que isso coincide com a ação de $\Sigma_{i=1}^{r}\sigma_{i}u_{i}v_{i}^{T}$ em $v_{j}$, pois
 
 $$
-\left( \sum_{i=1}^{r}\sigma_{i}u_{i}v_{i}^{T} \right)v_{j}=\sigma_{j}u_{j} \quad \text{para }j\leq r, \quad \text{e }0\text{ para }j>r.
+\left( \sum_{i=1}^{r}\sigma_{i}u_{i}v_{i}^{T} \right)\cdot [v_{j}]=\sum_{i=1}^{r}\sigma_{i}u_{i}v_{i}^{T}v_{j}=\sigma_{j}u_{j} \quad \text{para }j\leq r, \quad \text{e }0\text{ para }j>r.
 $$
 
-Dado que $\{ v_{1},\dots,v_{n} \}$ é uma base de $\mathbb{R}^{n}$, devemos ter (pela unicidade de uma transformação linear sobre uma base)
+(consequência do fato que $\{ v_{1},\dots,v_{n} \}$ é ortonormal, logo $v_{i}^{T}v_{j}=0$ se $i \neq j$ e $v_{i}^{T}v_{j}=1$ se $i=j$)
+
+Dado que $\{ v_{1},\dots,v_{n} \}$ é uma base de $\mathbb{R}^{n}$, devemos ter (pela unicidade de uma transformação linear sobre uma base) que
 
 $$
 A=\sum_{i=1}^{r}\sigma_{i}u_{i}v_{i}^{T}=U \Sigma V^{T}.
 $$
+
+:::
+
+Vejamos um exemplo para entender, na prática, como determinar a decomposição SVD de uma matriz.
+
+:::{prf:example}
+
+Vamos determinar a decomposição em valores singulares da seguinte matriz:
+
+$$
+A=
+\begin{bmatrix}
+1 & 0 & 1 \\
+0 & 1 & 0
+\end{bmatrix}
+$$
+
+Seja qual for a matriz, o processo para a decomposição SVD é sempre o mesmo:
+
+1. Calcular $A^{T}A$ ou $AA^{T}$;
+2. Determinar os autovalores de $A^{T}A$ ou $AA^{T}$;
+3. Encontrar os valores singulares a partir dos autovalores não nulos encontrados (isso já nos dará a matriz $\Sigma$, basta ordená-los);
+4. Determinar $U$ e $V$.
+
+É importante perceber que a maneira como se seguirá o passo 4 depende da matriz escolhida no passo 1. Neste último passo devemos determinar os autovetores associados aos autovalores encontrados (que estarão no espaço correspondente a matriz escolhida), normalizá-los (obtendo a matriz ortogonal correspondente, $U$ ou $V$) e a partir dos vetores normalizados obtidos determinar os vetores restantes, utilizando a relação $Av_{i}=\sigma_{i}u_{i}$ . Logo, é interessante escolhermos entre $A^{T}A$ ou $AA^{T}$ aquela que terá menor dimensão em seu domínio, pois facilitará o processo de obtenção e normalização dos autovetores.
+
+#TODO#
 
 :::
