@@ -160,7 +160,7 @@ $$
 
 :::
 
-Vejamos um exemplo para entender, na prática, como determinar a decomposição SVD de uma matriz.
+Vejamos agora um exemplo, para entender como a decomposição em valores singulares é feita na prática.
 
 :::{prf:example}
 
@@ -174,15 +174,147 @@ A=
 \end{bmatrix}
 $$
 
-Seja qual for a matriz, o processo para a decomposição SVD é sempre o mesmo:
+Antes, observe o seguinte (isso vale para qualquer matriz): Para obter os valores singulares e a matriz $\Sigma$, podemos escolher entre $A^{T}A$ ou $AA^{T}$ para calcular os autovalores, pois sabemos que elas terão exatamente os mesmos autovalores não nulos. Já para determinar $U$ e $V$, uma maneira seria calcular tanto $A^{T}A$ como $AA^{T}$ e encontrar os autovetores associados aos seus respectivos autovalores (incluindo os nulos), normalizá-los (e ortogonalizá-los, se necessário[^nota1]) e obter $V$ e $U$, respectivamente. No entanto, seja $r=\text{posto}(A)$, podemos fazer uso das seguintes relações:
 
-1. Calcular $A^{T}A$ ou $AA^{T}$;
-2. Determinar os autovalores de $A^{T}A$ ou $AA^{T}$;
-3. Encontrar os valores singulares a partir dos autovalores não nulos encontrados (isso já nos dará a matriz $\Sigma$, basta ordená-los);
-4. Determinar $U$ e $V$.
+$$
+Av_{i}=\sigma_{i}u_{i} \quad \text{e} \quad A^{T}u_{i}=\sigma_{i}v_{i},\;i=1,\dots,r
+$$
 
-É importante perceber que a maneira como se seguirá o passo 4 depende da matriz escolhida no passo 1. Neste último passo devemos determinar os autovetores associados aos autovalores encontrados (que estarão no espaço correspondente a matriz escolhida), normalizá-los (obtendo a matriz ortogonal correspondente, $U$ ou $V$) e a partir dos vetores normalizados obtidos determinar os vetores restantes, utilizando a relação $Av_{i}=\sigma_{i}u_{i}$ . Logo, é interessante escolhermos entre $A^{T}A$ ou $AA^{T}$ aquela que terá menor dimensão em seu domínio, pois facilitará o processo de obtenção e normalização dos autovetores.
+Logo, podemos adotar a seguinte estratégia: Calculamos somente $A^{T}A$ ou $AA^{T}$, a que possui menor dimensão ($\min\{ m,n \}$). Assim, o processo de encontrar os autovalores (e consequentemente os valores singulares) e uma base ortonormal constituída de autovetores do espaço correspondente ao da matriz escolhida será menos trabalhoso. Para encontrar a outra matriz restante ($U$ ou $V$), fazemos uso das igualdades acima, bastando calcular as imagens $Av_{i}$ ou $A^{T}u_{i}$ e dividir as coordenadas pelo valor singular $\sigma_{i}$ correspondente, obtendo $r$ dos vetores que compõem a matriz restante. Para os $m-r$ ou $n-r$ vetores restantes, correspondentes aos valores singulares nulos, basta completarmos o conjunto dos $r$ vetores que já temos de maneira a formar uma base ortonormal do espaço correspondente (isto é, completamos com uma base ortonormal de $N(A)$ ou $N(A^{T})$)[^nota2].
 
-#TODO#
+Com isso em mente, vamos decompor $A$. Observe que $A^{T}A$ é $3\times3$, enquanto que $AA^{T}$ é $2\times 2$. Logo, vamos escolher $AA^{T}$ para trabalharmos e encontraremos primeiramente a matriz $U$.
+
+$$
+AA^{T}=\begin{bmatrix}
+1 & 0 & 1 \\
+0 & 1 & 0
+\end{bmatrix}\cdot \begin{bmatrix}
+1 & 0 \\
+0 & 1 \\
+1 & 0
+\end{bmatrix}=\begin{bmatrix}
+2 & 0 \\
+0 & 1
+\end{bmatrix}
+$$
+
+Note que $AA^{T}$ já se encontra na forma diagonal, logo seus autovalores são $2$ e $1$ (observe que eles já são distintos, então precisaremos apenas normalizar os autovetores encontrados, obtendo uma base ortonormal de $\mathbb{R}^{2}$ e a matriz $U$). Dessa forma, já obtemos os valores singulares: $\sigma_{1}=\sqrt{ 2 }$ e $\sigma_{2}=\sqrt{ 1 }=1$. Consequentemente, 
+
+$$
+\Sigma=\begin{bmatrix}
+\sqrt{ 2 } & 0 & 0 \\
+0 & 1 & 0
+\end{bmatrix}
+$$
+
+Mais uma vez, como $AA^{T}$ já está na forma diagonal, a base ortonormal de autovetores é propriamente a base canônica de $\mathbb{R}^{2}$, ou seja, $e_{1}=(1,0)$ está associado ao autovalor $2$ e $e_{2}=(0,1)$ ao autovalor $1$, temos então:
+
+$$
+U=\begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}
+$$
+
+Resta apenas determinar $V$. Observe de antemão que como obtemos dois autovalores não nulos, iremos obter as duas primeiras colunas da matriz $V$ (de dimensão $n\times n$, neste caso, ${} 3 \times 3 {}$) por $A^{T}u_{i}=\sigma_{i}v_{i}$, restando apenas determinar a coluna restante (iremos encontrar um vetor unitário ortogonal à $v_{1}$ e $v_{2}$). Logo,
+
+$$
+\begin{align}
+v_{1}=\frac{1}{\sigma_{1}}\cdot A^{T}u_{1}=\frac{1}{\sqrt{ 2 }}\cdot \begin{bmatrix}
+1 & 0 \\
+0 & 1 \\
+1 & 0
+\end{bmatrix}\cdot \begin{bmatrix}
+1 \\
+0
+\end{bmatrix} =\begin{bmatrix}
+\frac{1}{\sqrt{ 2 }} \\
+0 \\
+\frac{1}{\sqrt{ 2 }}
+\end{bmatrix}
+\end{align}
+$$
+
+$$
+v_{2}=\frac{1}{\sigma_{2}}\cdot A^{T}u_{2}=1\cdot \begin{bmatrix}
+1 & 0 \\
+0 & 1 \\
+1 & 0
+\end{bmatrix}\cdot \begin{bmatrix}
+0 \\
+1
+\end{bmatrix}=\begin{bmatrix}
+0 \\
+1 \\
+0
+\end{bmatrix}
+$$
+
+Para encontrar $v_{3}$, utilizaremos o processo de Gram-Schmidt. Começamos encontrando um $v_{3}'$ de forma que ${} \{ v_{1},v_{2},v'_{3} \} {}$ seja uma base de $\mathbb{R}^{3}$ (completar a base). Observe que ${} v_{3}'=(1,0,0) {}$ funciona. Agora, utilizaremos $v_{3}'$ para determinar $v_{3}''$ de forma que $\{ v_{1},v_{2},v_{3}'' \}$ seja uma base ortogonal de $\mathbb{R}^{3}$ (ortogonalizar). Temos que
+
+$$
+v_{3}''=v_{3}'-\text{proj}_{[v_{1},v_{2}]}\;v_{3}'
+$$
+
+será ortogonal a $v_{1}$ e $v_{2}$. Logo,
+
+$$
+\begin{align}
+v_{3}'' & =v_{3}'-\text{proj}_{v_{1}}v_{3}' -\text{proj}_{v_{2}}v_{3}' \\
+ & =v_{3}'-\frac{\langle v_{3}' , v_{1} \rangle}{\lVert v_{1} \rVert^{2} }v_{1}-\frac{\langle v_{3}' , v_{2} \rangle}{\lVert v_{2} \rVert^{2} }v_{2} \\
+ & =(1,0,0)-\frac{1}{\sqrt{ 2 }}\cdot \left( \frac{1}{\sqrt{ 2 }},0,\frac{1}{\sqrt{ 2 }} \right)-0\cdot (0,1,0) \\
+ & =(1,0,0)+\left( \frac{-1}{2},0,\frac{-1}{2} \right) \\
+ & =\left( \frac{1}{2},0,\frac{-1}{2} \right)
+\end{align}
+$$
+
+Por fim, devemos normalizar $v_{3}''$, ou seja, $v_{3}=\frac{v_{3}''}{\lVert v_{3}'' \rVert}$:
+
+$$
+v_{3}= \frac{\left( \frac{1}{2},0,\frac{-1}{2} \right)}{1/\sqrt{ 2 }}=\left( \frac{\sqrt{ 2 }}{2},0,\frac{-\sqrt{ 2 }}{2} \right)
+$$
+
+Portanto,
+
+$$
+V=\begin{bmatrix}
+\frac{1}{\sqrt{ 2 }}  & 0 & \frac{\sqrt{ 2 }}{2} \\
+0  & 1 & 0\\
+\frac{1}{\sqrt{ 2 }} & 0 & \frac{-\sqrt{ 2 }}{2}
+\end{bmatrix}
+$$
+
+$$
+V^{T}=\begin{bmatrix}
+\frac{1}{\sqrt{ 2 }} & 0 & \frac{1}{\sqrt{ 2 }} \\
+0 & 1 & 0 \\
+\frac{\sqrt{ 2 }}{2} & 0 & \frac{-\sqrt{ 2 }}{2}
+\end{bmatrix}
+$$
+
+E finalmente:
+
+$$
+A=\begin{bmatrix}
+1 & 0 & 1 \\
+0 & 1 & 0
+\end{bmatrix}=\underbrace{ \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix} }_{ U }\cdot \underbrace{ \begin{bmatrix}
+\sqrt{ 2 } & 0 & 0 \\
+0 & 1 & 0
+\end{bmatrix} }_{ \Sigma }\cdot \underbrace{ \begin{bmatrix}
+\frac{1}{\sqrt{ 2 }} & 0 & \frac{1}{\sqrt{ 2 }} \\
+0 & 1 & 0 \\
+\frac{\sqrt{ 2 }}{2} & 0 & \frac{-\sqrt{ 2 }}{2}
+\end{bmatrix} }_{ V^{T} }
+$$
+
+[^nota1]: Caso todos os autovalores sejam distintos, por [](#autovetores-associados-a-autovalores-distintos-ortogonais) sabemos que todos os autovetores encontrados serão ortogonais. Mas, caso hajam autovalores repetidos, não há essa garantia. Logo, talvez seja necessário ortogonalizar alguns autovetores, o que pode ser feito via processo de Gram-Schmidt.
+
+[^nota2]: O que mais uma vez pode ser feito via processo de Gram-Schmidt.
 
 :::
+
+
