@@ -12,12 +12,12 @@ Uma matriz de dimensão $m\times n$ (lê-se $m$ por $n$), com $m$ e $n$ inteiros
 Matrizes são representadas dispondo as entradas em $m$ linhas e $n$ colunas, onde cada entrada $a_{ij}$ está localizada na $i$-ésima linha e $j$-ésima coluna:
 
 $$
-\begin{pmatrix}
+\begin{bmatrix}
 a_{11} & a_{12} & \dots & a_{1n} \\
 a_{21} & a_{22} & \dots & a_{2n} \\
 \vdots   & \vdots & \vdots  & \vdots\\ 
 a_{m1} & a_{m2} & \dots & a_{mn}
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 :::
@@ -45,19 +45,19 @@ Sejam $A$ e $B$ matrizes em $\mathcal{M}_{m\times n}(\mathbb{R})$, com respectiv
 Por exemplo, 
 
 $$
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 2 \\
 3 & 4
-\end{pmatrix} + \begin{pmatrix}
+\end{bmatrix} + \begin{bmatrix}
 5 & 6  \\
 7 & 8
-\end{pmatrix}=\begin{pmatrix}
+\end{bmatrix}=\begin{bmatrix}
 1+5 & 2+6 \\
 3+7 & 4+8
-\end{pmatrix}=\begin{pmatrix}
+\end{bmatrix}=\begin{bmatrix}
 6 & 8 \\
 10 & 12
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 Observe que a adição só está definida para matrizes que possuem mesma dimensão.
@@ -71,16 +71,16 @@ Seja $k\in \mathbb{R}$ e $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, com entrada
 Naturalmente,
 
 $$
-2\cdot \begin{pmatrix}
+2\cdot \begin{bmatrix}
 1 & 2 \\
 3 & 4
-\end{pmatrix}=\begin{pmatrix}
+\end{bmatrix}=\begin{bmatrix}
 2\cdot1 & 2\cdot2 \\
 2\cdot 3 & 2 \cdot 4
-\end{pmatrix}=\begin{pmatrix}
+\end{bmatrix}=\begin{bmatrix}
 2 & 4 \\
 6 & 8
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 Com estas duas operações, verifica-se facilmente que $\mathcal{M}_{m\times n}(\mathbb{R})$ é um espaço vetorial.
@@ -100,20 +100,20 @@ $$
 Primeiramente, note que o produto $AB$ só está definido se o número de colunas da matriz $A$ for igual ao número de linhas da matriz $B$, e que a matriz resultante terá o número de linhas de $A$ e o número de colunas de $B$. Como exemplo,
 
 $$
-\underbrace{ \begin{pmatrix}
+\underbrace{ \begin{bmatrix}
 1 & 2 & 3 \\
 4 & 5 & 6
-\end{pmatrix} }_{ 2\times3 }\cdot \underbrace{ \begin{pmatrix}
+\end{bmatrix} }_{ 2\times3 }\cdot \underbrace{ \begin{bmatrix}
 1 & 2 \\
 3 & 4 \\
 5 & 6
-\end{pmatrix} }_{ 3\times2 }=\begin{pmatrix}
+\end{bmatrix} }_{ 3\times2 }=\begin{bmatrix}
 1\cdot1+2\cdot3+3\cdot 5 & 1\cdot 2+2\cdot 4+3\cdot 6 \\
 4\cdot 1+5\cdot 3+6\cdot 5 & 4\cdot 2+5\cdot 4+6\cdot 6
-\end{pmatrix}=\underbrace{ \begin{pmatrix}
+\end{bmatrix}=\underbrace{ \begin{bmatrix}
 22 & 28 \\
 49 & 64
-\end{pmatrix} }_{ 2\times2 }
+\end{bmatrix} }_{ 2\times2 }
 $$
 
 Além disso, verificam-se algumas propriedades importantes (considere que todos os produtos abaixo são bem definidos):
@@ -132,7 +132,7 @@ A transposta de uma matriz $A$, denotada por $A^{T}$ é a matriz obtida ao troca
 
 :::
 
-Seja $A=\begin{pmatrix}1 & 2 & 3 \\ 4 & 5 & 6\end{pmatrix}$, então $A^{T}=\begin{pmatrix}1 & 4 \\ 2 & 5 \\ 3 & 6\end{pmatrix}$.
+Seja $A=\begin{bmatrix}1 & 2 & 3 \\ 4 & 5 & 6\end{bmatrix}$, então $A^{T}=\begin{bmatrix}1 & 4 \\ 2 & 5 \\ 3 & 6\end{bmatrix}$.
 
 Note que se $A$ tem dimensão $m\times n$, então $A^{T}$ tem dimensão $n\times m$.
 
@@ -144,7 +144,7 @@ Matrizes que possuem o mesmo número de linhas e colunas são denominadas *quadr
 
 :::
 
-Por exemplo, a matriz $\begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix}$ é quadrada (2 linhas e 2 colunas).
+Por exemplo, a matriz $\begin{bmatrix}1 & 2 \\ 3 & 4\end{bmatrix}$ é quadrada (2 linhas e 2 colunas).
 
 A notação utilizada para representar o conjunto das matrizes quadradas com entradas reais, $n$ linhas e $n$ colunas é $\mathcal{M}_{n}(\mathbb{R})$. Uma matriz não quadrada é chamada de *retangular*.
 
@@ -158,7 +158,7 @@ A diagonal principal de uma matriz quadrada é constituída dos elementos $a_{jj
 
 Visualmente, a diagonal principal constitui as entradas que estão no sentido da esquerda para direita e cima para baixo na matriz.
 
-Por exemplo, a diagonal principal da matriz $\begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix}$ é formada pelas entradas $1$ e $4$.
+Por exemplo, a diagonal principal da matriz $\begin{bmatrix}1 & 2 \\ 3 & 4\end{bmatrix}$ é formada pelas entradas $1$ e $4$.
 
 :::{prf:definition} Matriz simétrica
 :label: def-matriz-simetrica
@@ -167,7 +167,7 @@ Uma matriz quadrada é dita *simétrica* quando é igual a sua transposta. Isto 
 
 :::
 
-A matriz $\begin{pmatrix}1 & 2 \\ 2 & 3\end{pmatrix}$ é simétrica.
+A matriz $\begin{bmatrix}1 & 2 \\ 2 & 3\end{bmatrix}$ é simétrica.
 
 Note que, visualmente, matrizes simétricas são aquelas cujas entradas acima e abaixo da diagonal principal são "refletidas" em torno dela.
 
@@ -178,7 +178,7 @@ Uma matriz quadrada é *diagonal* quando, exceto por entradas em sua diagonal pr
 
 :::
 
-A matriz $\begin{pmatrix}1 & 0 \\ 0 & 2\end{pmatrix}$ é diagonal. 
+A matriz $\begin{bmatrix}1 & 0 \\ 0 & 2\end{bmatrix}$ é diagonal. 
 
 Note que a definição permite que a diagonal principal possua entradas nulas, apenas não pode haver nenhuma entrada fora da diagonal principal que não seja nula. Toda matriz diagonal também é simétrica.
 
@@ -193,11 +193,11 @@ Seja $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, com $m \neq n$, dizemos que $A$
 Por exemplo:
 
 $$
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 \\
 0 & 0 & 1 & 0
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 
@@ -215,10 +215,10 @@ A matriz $I\in \mathcal{M}_{n}(\mathbb{R})$ é chamada de *matriz identidade*, t
 No caso da dimensão $2\times2$,
 
 $$
-I=\begin{pmatrix}
+I=\begin{bmatrix}
 1 & 0 \\
 0 & 1
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 Seja $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, a matriz identidade possui a propriedade que $AI_{n}=I_{m}A=A$ (o subíndice representa a dimensão da matriz identidade), atuando como *elemento neutro do produto matricial*.
@@ -232,10 +232,10 @@ A matriz $\mathbf{0}\in \mathcal{M}_{m\times n}(\mathbb{R})$ é chamada de *matr
 Na dimensão $2\times2$,
 
 $$
-\mathbf{0}=\begin{pmatrix}
+\mathbf{0}=\begin{bmatrix}
 0 & 0 \\
 0 & 0
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 Naturalmente, seja $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, temos que $A+\mathbf{0}_{m\times n}=A$. Logo, a matriz nula atua como *elemento neutro da adição matricial*. Também verifica-se que $\mathbf{0}_{p\times m}\cdot A$ e $A\cdot \mathbf{0}_{n\times p}$ resultarão na matriz nula de dimensão correspondente.
@@ -251,28 +251,28 @@ Seja $A\in \mathcal{M}_{n}(\mathbb{R})$, a *matriz inversa* de $A$, denotada por
 Uma ilustração simples desse método é determinar a inversa da matriz identidade. No caso $2\times 2$, temos
 
 $$
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 0 \\
 0 & 1
-\end{pmatrix}\begin{pmatrix}
+\end{bmatrix}\begin{bmatrix}
 a & b \\
 c & d
-\end{pmatrix}=\begin{pmatrix}
+\end{bmatrix}=\begin{bmatrix}
 1 & 0 \\
 0 & 1
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 Resolvendo o sistema linear associado encontramos $a=1,b=0,c=0$ e $d=1$. Logo,
 
 $$
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 0 \\
 0 & 1
-\end{pmatrix}^{-1}=\begin{pmatrix}
+\end{bmatrix}^{-1}=\begin{bmatrix}
 1 & 0 \\
 0 & 1
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 (note que $I^{-1}=I$ para qualquer dimensão)
@@ -293,7 +293,7 @@ O determinante é uma das principais ferramentas quando lidamos com matrizes qua
 
 O determinante é uma função $\det(A):\mathcal{M}_{n}(\mathbb{R})\to \mathbb{R}$ (isto é: dada uma matriz quadrada de entradas reais, retorna um valor real).
 
-Para qualquer matriz ${} A=\begin{pmatrix}a & b \\ c & d\end{pmatrix} {}$ de dimensão $2\times 2$, ele é dado por
+Para qualquer matriz ${} A=\begin{bmatrix}a & b \\ c & d\end{bmatrix} {}$ de dimensão $2\times 2$, ele é dado por
 
 $$
 \det(A)=\begin{vmatrix}
@@ -302,7 +302,7 @@ c & d
 \end{vmatrix} = ad-bc
 $$
 
-e para qualquer matriz $A=\begin{pmatrix}a & b & c \\ d &e& f \\ g & h & i\end{pmatrix}$ de dimensão $3\times 3$
+e para qualquer matriz $A=\begin{bmatrix}a & b & c \\ d &e& f \\ g & h & i\end{bmatrix}$ de dimensão $3\times 3$
 
 $$
 \det(A)=\begin{vmatrix}
@@ -333,11 +333,11 @@ note, comparando com a fórmula, que o determinante é então dado somando os pr
 Seja a matriz:
 
 $$
-B=\begin{pmatrix}
+B=\begin{bmatrix}
 1 & 2 & 3 \\
 4 & 5 & 6 \\
 7 & 8 & 9
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 Aplicando a Regra de Sarrus, escrevemos:

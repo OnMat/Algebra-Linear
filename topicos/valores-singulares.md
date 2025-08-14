@@ -104,7 +104,7 @@ Note que, para $i=r+1,\dots,m$, temos $A^{T}u_{i}=0$, pois $N(AA^{T})=N(A^{T})$,
 
 Tais $v_{1},\dots,v_{n}$ constituirão as colunas da matriz $V$ e são chamados de *vetores singulares à direita*, enquanto $u_{1},\dots,u_{m}$ constituirão as colunas de $U$ e são chamados de *vetores singulares à esquerda*.
 
-A partir disso, temos a *decomposição em valores singulares*:
+A partir disso, temos então a chamada *Decomposição em Valores Singulares* (também conhecida como *SVD*, do inglês *Singular Value Decomposition*) de uma matriz:
 
 :::{prf:theorem} Decomposição em valores singulares
 
@@ -317,4 +317,6 @@ $$
 
 :::
 
+### Aproximação de matrizes utilizando SVD
 
+##TODO##

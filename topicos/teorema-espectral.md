@@ -41,12 +41,12 @@ Sabemos que $\lambda$ é autovalor de $T$ se, e somente se, $p_{A}(\lambda)=0$, 
 
 Dado que $\det(\lambda I-A)=0$, então o sistema linear $AX=\lambda X$ possui infinitas soluções não nulas para $X$. Consideremos que
 $$
-Y=\begin{pmatrix}
+Y=\begin{bmatrix}
 y_{1} \\
 y_{2} \\
 \vdots \\
 y_{n}
-\end{pmatrix}
+\end{bmatrix}
 $$
 é uma delas.
 
@@ -107,12 +107,12 @@ Seja $A\in M_{n}(\mathbb{R})$ uma matriz simétrica, então existe uma matriz $P
 :class: dropdown
 Seja $T\in \mathcal{L}(V)$ tal que $A=[T]_{c}$. Como $A$ é simétrica e a base canônica é ortonormal, então $T$ é auto-adjunta. Logo, do [Teorema Espectral](#teorema-espectral) sabemos que existe uma base $\beta=\{ v_{1},\dots,v_{n} \}$ de $V$ formada por autovetores de $T$. Seja $T(v_{i})=\lambda_{i}v_{i}$ ($i=1,2,\dots,n$), então
 $$
-D=[T]_{\beta}=\begin{pmatrix}
+D=[T]_{\beta}=\begin{bmatrix}
 \lambda_{1} & 0 & \dots & 0 \\
 0 & \lambda_{2} & \dots & 0 \\
 0 & 0 & \ddots & 0 \\
 0 & 0 & \dots & \lambda_{n}
-\end{pmatrix}.
+\end{bmatrix}.
 $$
 Além disso, $D=P^{-1}AP$, onde $P$ é a matriz mudança de base de $\beta$ para $c$. Dado que $\beta$ é ortonormal, então $P$ é ortogonal. Ou seja, $P^{-1}=P^{T}$.
 ```
@@ -128,15 +128,15 @@ O processo para encontrar a forma diagonal é basicamente o mesmo para qualquer 
 2. Encontrar os autovetores associados;
 3. Determinar a base ortonormal formada a partir dos autovetores encontrados.
 
-Para ilustrar estas etapas numericamente, considere o caso em que $A=\begin{pmatrix}7 & -1 \\ -1 & 2\end{pmatrix}$.
+Para ilustrar estas etapas numericamente, considere o caso em que $A=\begin{bmatrix}7 & -1 \\ -1 & 2\end{bmatrix}$.
 
 Para o primeiro passo, fazemos $\det (A-\lambda I)=0$ e resolvemos para $\lambda$ (isto é, encontramos as raízes do polinômio característico). Note que pelo [](#lema2) sabemos que as soluções serão todas reais. Neste caso, temos 
 
 $$
-\det\begin{pmatrix}
+\det\begin{bmatrix}
 7-\lambda & -1 \\
 -1 & 2-\lambda
-\end{pmatrix} = 0 \implies (7-\lambda)(2-\lambda)-1=0
+\end{bmatrix} = 0 \implies (7-\lambda)(2-\lambda)-1=0
 $$
 
 Encontrando então os autovalores $\lambda_{1}=\frac{1}{2}(9+\sqrt{ 29 })$ e $\lambda_{2}=\frac{1}{2}(9-\sqrt{ 29 })$.
@@ -144,31 +144,31 @@ Encontrando então os autovalores $\lambda_{1}=\frac{1}{2}(9+\sqrt{ 29 })$ e $\l
 Para os autovetores, resolvemos os sistemas associados a
 
 $$
-\begin{pmatrix}
+\begin{bmatrix}
 7-\lambda_{1} & -1 \\
 -1 & 2-\lambda_{1}
-\end{pmatrix}\begin{pmatrix}
+\end{bmatrix}\begin{bmatrix}
 x \\
 y
-\end{pmatrix}=\begin{pmatrix}
+\end{bmatrix}=\begin{bmatrix}
 0 \\
 0
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 e
 
 $$
-\begin{pmatrix}
+\begin{bmatrix}
 7-\lambda_{2} & -1 \\
 -1 & 2-\lambda_{2}
-\end{pmatrix}\begin{pmatrix}
+\end{bmatrix}\begin{bmatrix}
 x \\
 y
-\end{pmatrix}=\begin{pmatrix}
+\end{bmatrix}=\begin{bmatrix}
 0 \\
 0
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 encontrando $v_{1}=\left( -5-\sqrt{ 29 },2 \right)$ e $v_{2}=\left( -5+\sqrt{ 29 },2 \right)$, respectivamente.
@@ -184,19 +184,19 @@ $$
 
 Logo, $\{ \hat{v_{1}},\hat{v_{2}} \}$ é uma base ortonormal de $\mathbb{R}^{2}$ formada por autovetores de $A$.
 
-Voltando ao caso geral (para simplificar consideraremos uma matriz $2\times2$, mas a análise para dimensões maiores é análoga), considere que os autovetores normalizados encontrados no terceiro passo são $\hat{v_{1}}=(a,b)$ e $\hat{v_{2}}=(c,d)$. A demonstração do [](#espectral-para-matrizes-simetricas) nos diz que $P=\begin{pmatrix}a & c \\ b & d\end{pmatrix}$, portanto
+Voltando ao caso geral (para simplificar consideraremos uma matriz $2\times2$, mas a análise para dimensões maiores é análoga), considere que os autovetores normalizados encontrados no terceiro passo são $\hat{v_{1}}=(a,b)$ e $\hat{v_{2}}=(c,d)$. A demonstração do [](#espectral-para-matrizes-simetricas) nos diz que $P=\begin{bmatrix}a & c \\ b & d\end{bmatrix}$, portanto
 
 $$
-A=PDP^{T}=\begin{pmatrix}
+A=PDP^{T}=\begin{bmatrix}
 a & c \\
 b & d
-\end{pmatrix}\begin{pmatrix}
+\end{bmatrix}\begin{bmatrix}
 \lambda_{1} & 0 \\
 0 & \lambda_{2}
-\end{pmatrix}\begin{pmatrix}
+\end{bmatrix}\begin{bmatrix}
 a & b \\
 c & d
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 Agora, note que 
@@ -214,19 +214,19 @@ A^{n}&=P\underbrace{ DD\dots D }_{ n\text{ vezes} }P^{T} \\
 \end{align}
 $$
 
-Mais ainda, como $D$ é uma matriz diagonal, observe que $D^{n}$ resultará em $\begin{pmatrix}\lambda_{1}^{n} & 0 \\ 0 & \lambda_{2}^{n}\end{pmatrix}$. Dessa forma, concluímos que
+Mais ainda, como $D$ é uma matriz diagonal, observe que $D^{n}$ resultará em $\begin{bmatrix}\lambda_{1}^{n} & 0 \\ 0 & \lambda_{2}^{n}\end{bmatrix}$. Dessa forma, concluímos que
 
 $$
-A^{n}=\begin{pmatrix}
+A^{n}=\begin{bmatrix}
 a & c \\
 b & d
-\end{pmatrix}\begin{pmatrix}
+\end{bmatrix}\begin{bmatrix}
 \lambda_{1}^{n} & 0 \\
 0 & \lambda_{2}^{n}
-\end{pmatrix}\begin{pmatrix}
+\end{bmatrix}\begin{bmatrix}
 a & b \\
 c & d
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 :::

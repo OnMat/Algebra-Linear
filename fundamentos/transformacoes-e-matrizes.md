@@ -21,12 +21,12 @@ Vimos que todo espaço vetorial possui bases que o geram, logo, quando discutimo
 Considere $T:V\to W$ uma transformação linear, onde o espaço vetorial $V$ possui dimensão $n$ e o espaço vetorial $W$ possui dimensão $m$. Dadas bases ordenadas $\alpha=\{ v_{1},v_{2},\dots,v_{n} \}$ e $\beta=\{ w_{1},w_{2},\dots,w_{m} \}$ de $V$ e $W$, respectivamente, definimos a matriz $[T]^{\alpha}_{\beta}$, de dimensão $m \times n$, como a *matriz associada à $T$ em relação às bases $\alpha$ e $\beta$*. De forma que:
 
 $$
-[T]^{\alpha}_{\beta}=\begin{pmatrix}
+[T]^{\alpha}_{\beta}=\begin{bmatrix}
 a_{11} & a_{12} & \dots & a_{1n} \\
 a_{21} & a_{22} & \dots & a_{2}n \\
 \vdots   \\
 a_{m_{1}} & a_{m2} & \dots & a_{mn}
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 onde $a_{ij}$ é a $i$-ésima coordenada de $Tv_{j}$ na base $\beta$.
@@ -51,11 +51,11 @@ $$
 Logo, sejam $c_{1}$ e $c_{2}$ as bases canônicas de $\mathbb{R}^{2}$ e $\mathbb{R}^{3}$, respectivamente,
 
 $$
-[T]^{c_{1}}_{c_{2}}=\begin{pmatrix}
+[T]^{c_{1}}_{c_{2}}=\begin{bmatrix}
 1 & 1 \\
 2 & -1 \\
 0 & 1
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 :::
@@ -73,7 +73,7 @@ Seja $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, a *transformação linear assoc
 
 :::{prf:example}
 
-Qual transformação linear $T$ está associada à matriz $A=\begin{pmatrix}1 & 2 & 3 \\ 4 & 5 & 6\end{pmatrix}$?
+Qual transformação linear $T$ está associada à matriz $A=\begin{bmatrix}1 & 2 & 3 \\ 4 & 5 & 6\end{bmatrix}$?
 
 Pela [](#def-transformacaoassociadaamatriz) sabemos que:
 - $T:\mathbb{R}^{3}\to \mathbb{R}^{2}$, pois $A$ tem dimensão $2\times 3$;
@@ -136,7 +136,7 @@ Note que a base do espaço $W$, em comum entre $T$ e $S$, deve ser a mesma.
 
 Essa terceira propriedade esclarece o porquê do produto matricial ser definido da forma que é. Isso pode ser verificado algebricamente, considerando transformações (cuja composição é válida) e bases fixas, mas é melhor visualizado pensando nas colunas das matrizes como vetores (na verdade, como coordenadas de um vetor em uma base). Vetores na forma matricial (isto é, matrizes $n \times 1$) são chamados de *vetores coluna*.
 
-Perceba como essa interpretação também oferece uma nova maneira de determinar a transformação linear associada à uma matriz $A$ de dimensão ${} m\times n {}$, basta fazermos o produto $A\cdot \begin{pmatrix}x_{1}\\x_{2}\\ \vdots \\ x_{n} \end{pmatrix}$.
+Perceba como essa interpretação também oferece uma nova maneira de determinar a transformação linear associada à uma matriz $A$ de dimensão ${} m\times n {}$, basta fazermos o produto $A\cdot \begin{bmatrix}x_{1}\\x_{2}\\ \vdots \\ x_{n} \end{bmatrix}$.
 
 Além disso, como é esperado, $\mathbf{I}=[I]_{\alpha}$. Introduziremos agora uma importante ferramenta relacionada com a matriz do operador identidade:
 
@@ -146,12 +146,12 @@ Seja $V$ um espaço vetorial, com $\alpha$ e $\beta$ bases de $V$, a *matriz mud
 
 :::
 
-O nome vem simplesmente do fato que tal matriz permite determinar as coordenadas na base $\beta$ de qualquer vetor em $V$, a partir das suas coordenadas em $\alpha$. Ou seja, digamos que $(v)_{\alpha}=(x_{1},x_{2},\dots,x_{n})$, então as coordenadas de $(v)_{\beta}$ são dadas pelas entradas do vetor coluna resultante do produto $[I]^{\alpha}_{\beta}\cdot \begin{pmatrix}
+O nome vem simplesmente do fato que tal matriz permite determinar as coordenadas na base $\beta$ de qualquer vetor em $V$, a partir das suas coordenadas em $\alpha$. Ou seja, digamos que $(v)_{\alpha}=(x_{1},x_{2},\dots,x_{n})$, então as coordenadas de $(v)_{\beta}$ são dadas pelas entradas do vetor coluna resultante do produto $[I]^{\alpha}_{\beta}\cdot \begin{bmatrix}
 x_{1} \\
 x_{2} \\
 \vdots \\
 x_{n}
-\end{pmatrix}$.
+\end{bmatrix}$.
 
 E claro que podemos também fazer o produto matricial entre uma matriz compatível $A$ e ${} [I]^{\alpha}_{\beta} {}$, de maneira que se $A=[T]^{\beta}_{\gamma}$, a matriz resultante é $[T]^{\alpha}_{\gamma}$. Logo, podemos reescrever a matriz de qualquer transformação em bases diferentes, esse fato cumpre um papel importante no [Teorema Espectral para matrizes](#espectral-para-matrizes-simetricas).
 

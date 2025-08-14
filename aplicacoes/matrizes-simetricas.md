@@ -18,10 +18,10 @@ A ideia central é analisarmos as propriedades da **matriz Hessiana**, uma das p
 Dada uma função $f(x,y)$, sua *matriz Hessiana* é dada por
 
 $$
-H(x,y)=\begin{pmatrix}
+H(x,y)=\begin{bmatrix}
 \frac{\partial^{2}f}{\partial x^{2}}(x,y) & \frac{\partial^{2}f}{\partial y\partial x}(x,y) \\
 \frac{\partial^{2}f}{\partial x\partial y}(x,y)  & \frac{\partial^{2}f}{\partial y^{2}}(x,y)
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 :::
@@ -50,7 +50,7 @@ Para o caso em que algum autovalor for zero, **o teste é inconclusivo**. É nec
 
 Assim, a forma diagonal da matriz Hessiana nos revela a curvatura da função nas direções dos autovetores. Por exemplo, se $\lambda_{1}>0$ e $\lambda_{2}>0$ a função tem concavidade para cima em todas as direções.
 
-Tomemos um exemplo prático: Considere $f(x,y)=x^{2}+2y^{2}$. Utilizando {eq}`eq:sistema` encontramos o ponto crítico $(0,0)$, cuja Hessiana é dada por $H(0,0)=\begin{pmatrix}2 & 0\\ 0 & 4\end{pmatrix}$, já diagonal. Encontramos que seus autovalores são $\lambda_{1}=2>0$ e $\lambda_{2}=4>0$, resultando na conclusão que $(0,0)$ é um mínimo local.
+Tomemos um exemplo prático: Considere $f(x,y)=x^{2}+2y^{2}$. Utilizando {eq}`eq:sistema` encontramos o ponto crítico $(0,0)$, cuja Hessiana é dada por $H(0,0)=\begin{bmatrix}2 & 0\\ 0 & 4\end{bmatrix}$, já diagonal. Encontramos que seus autovalores são $\lambda_{1}=2>0$ e $\lambda_{2}=4>0$, resultando na conclusão que $(0,0)$ é um mínimo local.
 
 ```{figure} graph.png
 :width: 300px

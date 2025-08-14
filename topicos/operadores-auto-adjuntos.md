@@ -154,10 +154,10 @@ $$
 T(1,0)&=(1,0) \\
 T(0,1)&=(0,-1)
 \end{align}
-\implies [T]_{c}=\begin{pmatrix}
+\implies [T]_{c}=\begin{bmatrix}
 1 & 0 \\
 0 & -1
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 Como $([T]_{c})^{T}=[T]_{c}$, o [](#teorema1-autoadjunto) nos garante que $T$ é auto-adjunto. Já havíamos verificado tal fato no [](#exemplo-1-operador-auto-adjunto), mas note como o teorema nos proporciona um método mais direto de verificação (não precisamos nos preocupar em definir vetores arbitrários $u$ e $v$ nem verificar a forma do produto interno entre eles).
