@@ -319,4 +319,112 @@ $$
 
 ### Aproximação de matrizes utilizando SVD
 
-##TODO##
+Entre uma das muitas aplicações da decomposição SVD está a aproximação de matrizes. Em um cenário computacional, é comum que seja mais vantajoso trabalharmos com uma aproximação de determinado objeto matemático do que com sua forma exata. Para matrizes isso ocorre com bastante frequência.
+
+Por exemplo, suponha que uma matriz $A$ de posto $r$ possua os valores singulares não nulos $\sigma_{1},\dots,\sigma_{r-1},0.0001$. Ou seja, $\sigma_{r}=0.0001$. Ao realizarmos cálculos com essa matriz na forma SVD em um computador, devido à natureza da arimética de ponto flutuante, haverá um acúmulo de erros decorrente dos produtos com a entrada $0.0001$. Nesse caso, como $0.0001$ está muito próximo de $0$, acaba sendo mais benéfico (do ponto de vista de minimização de erros) "truncarmos" o posto de $A$ para $r-1$, isto é, consideramos $\sigma_{r}=0$.
+
+:::{prf:definition} Matriz $A_{k}$
+
+Seja $A \in \mathbb{R}^{m\times n}$ com posto $r$ e decomposição SVD $A=U\Sigma V^{T}$, fixado $k$ entre $1,\dots,r-1$ definimos a matriz $A_{k}$ como:
+
+$$
+A_{k}:=U\Sigma_{k}V^{T}
+$$
+
+onde $\Sigma_{k}$ é a matriz $\Sigma$ com $\sigma_{i}=0$ para $i=k+1,\dots,r$.
+
+:::
+
+Observe que $A_{k}$ possui posto $k$.
+
+:::{prf:theorem} Eckart-Young
+
+Seja $A\in \mathbb{R}^{m\times n}$ com posto ${} r>1 {}$ e $k=1,\dots,r-1$, então $A_{k}$ é a matriz que melhor aproxima $A$ segundo a norma espectral. Isto é, para toda matriz $B\in \mathbb{R}^{m\times n}$ com posto $k$, tem-se
+
+$$
+\lVert A-A_{k} \rVert_{2} \leq \lVert A-B \rVert _{2} 
+$$
+
+Equivalentemente, 
+
+$$
+\lVert A-A_{k} \rVert_{2}=\min \{ \lVert A-B \rVert _{2}/B\in \mathbb{R}^{m\times n}\text{ e }\text{posto}(B)=k \} 
+$$
+
+Além disso, $\lVert A-A_{k} \rVert=\sigma_{k+1}$.
+
+:::
+
+:::{prf:proof}
+
+Começamos pela igualdade $\lVert A-A_{k} \rVert_{2}=\sigma_{k+1}$. Devemos mostrar que $\sigma_{k+1}$ é o maior valor singular de $A-A_{k}$. Mas observe que 
+
+$$
+A-A_{k}=U\Sigma V^{T}-U\Sigma_{k}V^{T}= U(\Sigma-\Sigma_{k})V^{T}
+$$
+
+e pela definição de $\Sigma_{k}$ concluímos que $\sigma_{k+1}$ é de fato o maior valor singular.
+
+Agora, para $B\in \mathbb{R}^{m\times n}$ com posto $k$, mostremos que $\sigma_{k+1}\leq \lVert A-B \rVert_{2}$.
+
+Sejam $v_{1},\dots v_{n}$ os vetores que compõem as colunas de $V$, defina $W:=[v_{1},\dots,v_{k+1}]$. Temos então $(W+N(B))\subseteq \mathbb{R}^{n}$, pois $W,N(B)\subseteq \mathbb{R}^{n}$. Logo,
+
+$$
+\dim (W+N(B))=\dim W+\dim N(B)-\dim(W \cap N(B))\leq n
+$$
+
+Por outro lado, observe que $\dim W=k+1$ (pela definição de $W$) e $\dim N(B)=n-k$ (pois $B$ tem posto $k$). Portanto,
+
+$$
+k+1+n-k-\dim(W\cap N(B))\leq n
+$$
+
+$$
+\implies \dim(W\cap N(B))\geq 1
+$$
+
+indicando que $(W\cap N(B)) \neq \emptyset$. 
+
+Sendo assim, consideremos $v\in (W\cap N(B))$ tal que $\lVert v \rVert_{2}=1$. Pela definição de $W$ (dado que $v_{1},\dots,v_{k+1}$ são ortonormais) e como, em particular, $v\in W$, temos 
+
+$$
+v=\alpha_{1}v_{1}+\dots+\alpha_{k+1}v_{k+1}, \quad \text{com }\alpha_{1},\dots,\alpha_{k+1}\in \mathbb{R}
+$$
+
+Como $\lVert v \rVert_{2}=1$, temos $\langle v , v \rangle=\lVert v \rVert_{2}^{2}=1^{2}=1$. Mas, pela ortonormalidade de $v_{1},\dots,v_{k+1}$:
+
+$$
+\begin{align}
+\langle v , v \rangle=\langle \alpha v_{1}+\dots \alpha_{k+1}v_{k+1} , \alpha v_{1}+\dots \alpha_{k+1}v_{k+1} \rangle=\alpha_{1}^{2}+\dots+\alpha_{k+1}^{2}
+\end{align}
+$$
+
+Logo,
+
+$$
+\alpha_{1}^{2}+\dots+\alpha_{k+1}^{2}=1
+\label{eq:igualdade-eckart}
+$$
+
+Além disso, $v\in N(B)$, então:
+
+$$
+(A-B)v=Av-0=A(\alpha_{1}v_{1}+\dots+\alpha_{k+1}v_{k+1})=\alpha_{1}Av_{1}+\dots+\alpha_{k+1}Av_{k+1}
+$$
+
+e temos que $Av_{i}=\sigma_{i}u_{i}$, para $i=1,\dots,k+1$. Em particular, $u_{1},\dots,u_{k+1}$ são ortonormais, utilizando esses fatos temos
+
+$$
+\lVert (A-B)v \rVert _{2}^{2}=\langle (A-B)v , (A-B)v \rangle=\left\langle  \sum_{i=1}^{k+1} \alpha_{i}\sigma_{i}v_{i} , \sum_{i=1}^{k+1} \alpha_{i}\sigma_{i}v_{i}  \right\rangle= \sum_{i=1}^{k+1}(\alpha_{i}\sigma_{i})^{2}
+$$
+
+Mas, $\sum_{i=1}^{k+1}(\alpha_{i}\sigma_{i})^{2}\geq \sigma_{k+1}^{2}\sum_{i=1}^{k+1}a_{i}^{2}=\sigma_{k+1}^{2}$ (utilizando {eq}`eq:igualdade-eckart`). Portanto, considerando que $\lVert A-B \rVert_{2}$ é equivalente ao máximo de ${} \lVert (A-B)x \rVert$ para todo ${} x\in \mathbb{R}^{n}$ tal que $\lVert x \rVert_{2}=1$ , concluímos:
+
+$$
+\sigma_{k+1}\leq \lVert (A-B)v \rVert_{2}\leq \lVert A-B \rVert_{2}   
+$$
+
+
+:::
+
+O tópico [](../aplicacoes/svd.md) mostra como essa ideia de aproximação de matrizes é aplicada.

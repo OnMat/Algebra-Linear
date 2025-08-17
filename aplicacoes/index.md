@@ -5,4 +5,5 @@ subject: Álgebra Linear
 
 Nesta seção discutiremos algumas aplicações dos conceitos e resultados vistos.
 
-- [Matrizes simétricas](matrizes-simetricas.md)
+- [Máximos e mínimos utilizando matrizes simétricas](matrizes-simetricas.md)
+- [Compressão de imagens utilizando Decomposição em Valores Singulares](svd.md)

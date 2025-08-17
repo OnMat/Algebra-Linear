@@ -1,5 +1,5 @@
 ---
-title: Matrizes Simétricas
+title: Máximos e mínimos utilizando matrizes simétricas
 subject: Aplicações
 ---
 
