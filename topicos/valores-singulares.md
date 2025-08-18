@@ -5,7 +5,7 @@ subject: Tópicos Avançados
 
 Vimos no [Teorema Espectral](teorema-espectral.md) que é possível decompor qualquer matriz simétrica como o produto entre 3 matrizes, sendo uma delas diagonal (contendo os autovalores) e as outras duas ortogonais (de transição entre a base canônica e a base ortonormal de autovetores). Esse tópico apresenta uma espécie de "generalização" do Teorema Espectral para uma matriz qualquer de dimensão $m \times n$.
 
-A ideia geral é similar, queremos decompor uma matriz $A\in \mathcal{M}_{m\times n}(\mathbb{R})$ como o produto entre 3 matrizes:
+A ideia geral é similar, queremos decompor uma matriz $A\in \mathbb{R}^{m\times n}$ como o produto entre 3 matrizes:
 
 $$
 A=U\Sigma V^{T}
@@ -37,7 +37,7 @@ $$
 :::{prf:theorem} Valores Singulares
 :label: teo-valores-singulares1
 
-Seja $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, com posto igual a $r$. Existem números reais $\sigma_{1}\geq \dots\geq \sigma_{r}>0$, chamados de *valores singulares* de $A$, e bases ortonormais $\{ v_{1},\dots,v_{n} \}$ de $\mathbb{R}^{n}$ e $\{ u_{1},\dots,u_{m} \}$ de $\mathbb{R}^{m}$, tais que:
+Seja $A\in \mathbb{R}^{m\times n}$, com posto igual a $r$. Existem números reais $\sigma_{1}\geq \dots\geq \sigma_{r}>0$, chamados de *valores singulares* de $A$, e bases ortonormais $\{ v_{1},\dots,v_{n} \}$ de $\mathbb{R}^{n}$ e $\{ u_{1},\dots,u_{m} \}$ de $\mathbb{R}^{m}$, tais que:
 
 - $Av_{i}=\sigma_{i}u_{i}$, para $i=1,\dots,r$;
 - $Av_{i}=0$, para $i=r+1,\dots,n$;
@@ -108,7 +108,7 @@ A partir disso, temos então a chamada *Decomposição em Valores Singulares* (t
 
 :::{prf:theorem} Decomposição em valores singulares
 
-Seja $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, existem matrizes ortogonais $V\in \mathcal{M}_{n}(\mathbb{R})$ e $U\in \mathcal{M}_{m}(\mathbb{R})$ e uma matriz retangular diagonal $\Sigma \in \mathcal{M}_{m\times n}(\mathbb{R})$ tais que
+Seja $A\in \mathbb{R}^{m\times n}$, existem matrizes ortogonais $V\in \mathbb{R}^{n \times n}$ e $U\in \mathbb{R}^{m \times m}$ e uma matriz retangular diagonal $\Sigma \in \mathbb{R}^{m\times n}$ tais que
 
 $$
 A=U\Sigma V^{T}

@@ -67,7 +67,7 @@ Portanto, temos a seguinte definição:
 :::{prf:definition} Transformação linear associada a uma matriz
 :label: def-transformacaoassociadaamatriz
 
-Seja $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, a *transformação linear associada* a $A$ é $T:\mathbb{R}^{n}\to \mathbb{R}^{m}$, tal que cada entrada $a_{ij}$ de $A$ é a $i$-ésima coordenada de ${} Te_{j} {}$ na base canônica de $\mathbb{R}^{m}$, onde $\{ e_{1},e_{2},\dots,e_{n} \}$ é a base canônica de $\mathbb{R}^{n}$.
+Seja $A\in \mathbb{R}^{m\times n}$, a *transformação linear associada* a $A$ é $T:\mathbb{R}^{n}\to \mathbb{R}^{m}$, tal que cada entrada $a_{ij}$ de $A$ é a $i$-ésima coordenada de ${} Te_{j} {}$ na base canônica de $\mathbb{R}^{m}$, onde $\{ e_{1},e_{2},\dots,e_{n} \}$ é a base canônica de $\mathbb{R}^{n}$.
 
 :::
 

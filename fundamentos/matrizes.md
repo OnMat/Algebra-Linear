@@ -22,23 +22,23 @@ $$
 
 :::
 
-O conjunto das matrizes com entradas reais e dimensão $m\times n$ é representado por ${} \mathcal{M}_{m\times n}(\mathbb{R}) {}$.
+O conjunto das matrizes com entradas reais e dimensão $m\times n$ é representado por $\mathbb{R}^{m\times n}$.
 
 Naturalmente, dizemos que duas matrizes são iguais quando possuem mesma dimensão e entradas iguais. Formalmente:
 
 :::{prf:definition} Igualdade de matrizes
 
-Sejam $A\in \mathcal{M}_{m\times n}(\mathbb{R})$ e $B\in \mathcal{M}_{m\times n}(\mathbb{R})$, com respectivas entradas $a_{ij}$ e $b_{ij}$ ($i=1,\dots,m$ e $j=1,\dots,n$), temos que $A=B$ quando $a_{ij}=b_{ij}$ para todo $i=1,\dots,m$ e $j=1,\dots,n$.
+Sejam $A,B\in \mathbb{R}^{m\times n}$, com respectivas entradas $a_{ij}$ e $b_{ij}$ ($i=1,\dots,m$ e $j=1,\dots,n$), temos que $A=B$ quando $a_{ij}=b_{ij}$ para todo $i=1,\dots,m$ e $j=1,\dots,n$.
 
 ::: 
 
-O conjunto ${} \mathcal{M}_{m\times n}(\mathbb{R}) {}$ constitui, também, um espaço vetorial. Mas, para isso, devemos definir as operações de soma e multiplicação por escalar para matrizes.
+O conjunto $\mathbb{R}^{m\times n}$ constitui, também, um espaço vetorial. Mas, para isso, devemos definir as operações de soma e multiplicação por escalar para matrizes.
 
 ### Operações matriciais
 
 :::{prf:definition} Soma de matrizes
 
-Sejam $A$ e $B$ matrizes em $\mathcal{M}_{m\times n}(\mathbb{R})$, com respectivas entradas $a_{ij}$ e $b_{ij}$ ($i=1,\dots,m$ e $j=1,\dots,n$), a *soma matricial* de $A$ e $B$ é dada pela matriz $C$ ($C=A+B$), onde $C\in \mathcal{M}_{m\times n}(\mathbb{R})$ e sua entrada da $i$-ésima linha e $j$-ésima coluna é dada por $c_{ij}=a_{ij}+b_{ij}$ .
+Sejam $A$ e $B$ matrizes em $\mathbb{R}^{m\times n}$, com respectivas entradas $a_{ij}$ e $b_{ij}$ ($i=1,\dots,m$ e $j=1,\dots,n$), a *soma matricial* de $A$ e $B$ é dada pela matriz $C$ ($C=A+B$), onde $C\in \mathbb{R}^{m\times n}$ e sua entrada da $i$-ésima linha e $j$-ésima coluna é dada por $c_{ij}=a_{ij}+b_{ij}$ .
 
 :::
 
@@ -64,7 +64,7 @@ Observe que a adição só está definida para matrizes que possuem mesma dimens
 
 :::{prf:definition} Multiplicação de matriz por escalar
 
-Seja $k\in \mathbb{R}$ e $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, com entradas $a_{ij}$, o produto de $A$ pelo escalar $k$ é dado pela matriz $kA\in \mathcal{M}_{m\times n}(\mathbb{R})$, que possui a entrada da $i$-ésima linha e $j$-ésima coluna dada por $k\cdot a_{ij}$.
+Seja $k\in \mathbb{R}$ e $A\in \mathbb{R}^{m\times n}$, com entradas $a_{ij}$, o produto de $A$ pelo escalar $k$ é dado pela matriz $kA\in \mathbb{R}^{m\times n}$, que possui a entrada da $i$-ésima linha e $j$-ésima coluna dada por $k\cdot a_{ij}$.
 
 :::
 
@@ -83,13 +83,13 @@ $$
 \end{bmatrix}
 $$
 
-Com estas duas operações, verifica-se facilmente que $\mathcal{M}_{m\times n}(\mathbb{R})$ é um espaço vetorial.
+Com estas duas operações, verifica-se facilmente que $\mathbb{R}^{m\times n}$ é um espaço vetorial.
 
 Por fim, temos o *produto matricial*. Essa operação cumpre um papel importante no [tópico seguinte](transformacoes-e-matrizes.md).
 
 :::{prf:definition} Produto de matrizes
 
-Seja $A\in \mathcal{M}_{m\times n}(\mathbb{R})$ e $B\in \mathcal{M}_{n\times p}(\mathbb{R})$, com respectivas entradas $a_{ij}$ e $b_{ij}$, o produto $AB$ é dado pela matriz $C\in \mathcal{M}_{m\times p}(\mathbb{R})$, de forma que sua entrada da linha $i$ e coluna $j$ é dada por
+Seja $A\in \mathbb{R}^{m\times n}$ e $B\in \mathbb{R}^{n\times p}$, com respectivas entradas $a_{ij}$ e $b_{ij}$, o produto $AB$ é dado pela matriz $C\in \mathbb{R}^{m\times p}$, de forma que sua entrada da linha $i$ e coluna $j$ é dada por
 
 $$
 c_{ij}=\sum_{k=1}^{n}a_{ik}\cdot b_{kj}
@@ -146,7 +146,7 @@ Matrizes que possuem o mesmo número de linhas e colunas são denominadas *quadr
 
 Por exemplo, a matriz $\begin{bmatrix}1 & 2 \\ 3 & 4\end{bmatrix}$ é quadrada (2 linhas e 2 colunas).
 
-A notação utilizada para representar o conjunto das matrizes quadradas com entradas reais, $n$ linhas e $n$ colunas é $\mathcal{M}_{n}(\mathbb{R})$. Uma matriz não quadrada é chamada de *retangular*.
+A notação utilizada para representar o conjunto das matrizes quadradas com entradas reais, $n$ linhas e $n$ colunas é $\mathbb{R}^{n \times n}$. Uma matriz não quadrada é chamada de *retangular*.
 
 Uma característica presente em matrizes quadradas, utilizada em outras definições, é o conceito de *diagonal principal*.
 
@@ -163,7 +163,7 @@ Por exemplo, a diagonal principal da matriz $\begin{bmatrix}1 & 2 \\ 3 & 4\end{b
 :::{prf:definition} Matriz simétrica
 :label: def-matriz-simetrica
 
-Uma matriz quadrada é dita *simétrica* quando é igual a sua transposta. Isto é, seja $A \in \mathcal{M}_{n}(\mathbb{R})$, $A$ é simétrica se, e somente se, $A^{T}=A$.
+Uma matriz quadrada é dita *simétrica* quando é igual a sua transposta. Isto é, seja $A \in \mathbb{R}^{n \times n}$, $A$ é simétrica se, e somente se, $A^{T}=A$.
 
 :::
 
@@ -186,7 +186,7 @@ Além disso, podemos generalizar o conceito de matriz diagonal para matrizes ret
 
 :::{prf:definition} Matriz retangular diagonal
 
-Seja $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, com $m \neq n$, dizemos que $A$ é *retangular diagonal* quando todas as suas entradas $a_{ij}$, com $i \neq j$, forem nulas.
+Seja $A\in \mathbb{R}^{m\times n}$, com $m \neq n$, dizemos que $A$ é *retangular diagonal* quando todas as suas entradas $a_{ij}$, com $i \neq j$, forem nulas.
 
 :::
 
@@ -208,7 +208,7 @@ Algumas matrizes aparecerão de maneira recorrente e possuem propriedades partic
 
 :::{prf:definition} Matriz identidade
 
-A matriz $I\in \mathcal{M}_{n}(\mathbb{R})$ é chamada de *matriz identidade*, tal que $I$ é uma matriz **diagonal** cujas entradas da diagonal principal são todas iguais a $1$.
+A matriz $I\in \mathbb{R}^{n \times n}$ é chamada de *matriz identidade*, tal que $I$ é uma matriz **diagonal** cujas entradas da diagonal principal são todas iguais a $1$.
 
 :::
 
@@ -221,11 +221,11 @@ I=\begin{bmatrix}
 \end{bmatrix}
 $$
 
-Seja $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, a matriz identidade possui a propriedade que $AI_{n}=I_{m}A=A$ (o subíndice representa a dimensão da matriz identidade), atuando como *elemento neutro do produto matricial*.
+Seja $A\in \mathbb{R}^{m\times n}$, a matriz identidade possui a propriedade que $AI_{n}=I_{m}A=A$ (o subíndice representa a dimensão da matriz identidade), atuando como *elemento neutro do produto matricial*.
 
 :::{prf:definition} Matriz nula
 
-A matriz $\mathbf{0}\in \mathcal{M}_{m\times n}(\mathbb{R})$ é chamada de *matriz nula*, tal que **todas as suas entradas são nulas**.
+A matriz $\mathbf{0}\in \mathbb{R}^{m\times n}$ é chamada de *matriz nula*, tal que **todas as suas entradas são nulas**.
 
 :::
 
@@ -238,11 +238,11 @@ $$
 \end{bmatrix}
 $$
 
-Naturalmente, seja $A\in \mathcal{M}_{m\times n}(\mathbb{R})$, temos que $A+\mathbf{0}_{m\times n}=A$. Logo, a matriz nula atua como *elemento neutro da adição matricial*. Também verifica-se que $\mathbf{0}_{p\times m}\cdot A$ e $A\cdot \mathbf{0}_{n\times p}$ resultarão na matriz nula de dimensão correspondente.
+Naturalmente, seja $A\in \mathbb{R}^{m\times n}$, temos que $A+\mathbf{0}_{m\times n}=A$. Logo, a matriz nula atua como *elemento neutro da adição matricial*. Também verifica-se que $\mathbf{0}_{p\times m}\cdot A$ e $A\cdot \mathbf{0}_{n\times p}$ resultarão na matriz nula de dimensão correspondente.
 
 :::{prf:definition} Matriz inversa
 
-Seja $A\in \mathcal{M}_{n}(\mathbb{R})$, a *matriz inversa* de $A$, denotada por $A^{-1}\in \mathcal{M}_{n}(\mathbb{R})$, é a matriz **única** que satisfaz $AA^{-1}=A^{-1}A=I$.
+Seja $A\in \mathbb{R}^{n \times n}$, a *matriz inversa* de $A$, denotada por $A^{-1}\in \mathbb{R}^{n \times n}$, é a matriz **única** que satisfaz $AA^{-1}=A^{-1}A=I$.
 
 :::
 
@@ -279,7 +279,7 @@ $$
 
 :::{prf:definition} Matriz ortogonal
 
-Seja $A\in \mathcal{M}_{n}(\mathbb{R})$, $A$ é *ortogonal* quando $AA^{T}=A^{T}A=I$. Isto é, $A^{T}=A^{-1}$.
+Seja $A\in \mathbb{R}^{n \times n}$, $A$ é *ortogonal* quando $AA^{T}=A^{T}A=I$. Isto é, $A^{T}=A^{-1}$.
 
 :::
 
@@ -291,7 +291,7 @@ O determinante é uma das principais ferramentas quando lidamos com matrizes qua
 
 :::{prf:remark} Cálculo do determinante
 
-O determinante é uma função $\det(A):\mathcal{M}_{n}(\mathbb{R})\to \mathbb{R}$ (isto é: dada uma matriz quadrada de entradas reais, retorna um valor real).
+O determinante é uma função $\det(A):\mathbb{R}^{n \times n}\to \mathbb{R}$ (isto é: dada uma matriz quadrada de entradas reais, retorna um valor real).
 
 Para qualquer matriz ${} A=\begin{bmatrix}a & b \\ c & d\end{bmatrix} {}$ de dimensão $2\times 2$, ele é dado por
 
