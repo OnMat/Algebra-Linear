@@ -338,6 +338,7 @@ onde $\Sigma_{k}$ é a matriz $\Sigma$ com $\sigma_{i}=0$ para $i=k+1,\dots,r$.
 Observe que $A_{k}$ possui posto $k$.
 
 :::{prf:theorem} Eckart-Young
+:label: teo-eckart-young
 
 Seja $A\in \mathbb{R}^{m\times n}$ com posto ${} r>1 {}$ e $k=1,\dots,r-1$, então $A_{k}$ é a matriz que melhor aproxima $A$ segundo a norma espectral. Isto é, para toda matriz $B\in \mathbb{R}^{m\times n}$ com posto $k$, tem-se
 
