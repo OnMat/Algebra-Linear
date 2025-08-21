@@ -3,6 +3,8 @@ title: Compressão de imagens utilizando Decomposição em Valores Singulares
 subject: Aplicações
 ---
 
+### Contextualização
+
 Um dos principais exemplos de como matrizes podem ser aplicadas no meio computacional é o processamento de imagens. Em geral, a maioria dos softwares lidam com imagens tratando-as como uma matriz de *pixels* (à nível de manipulação e processamento, já o armazenamento em disco é feito utilizando outros formatos mais eficientes, como os conhecidos formatos *.JPG*, *.PNG*, entre outros), com dimensões correspondentes as da resolução da imagem. 
 
 Um *pixel* é a unidade fundamental que compõe uma imagem, ele é basicamente uma cor sólida. A composição de milhares de pixels (por exemplo, uma imagem de resolução 800 x 600 contém $800\cdot 600=480000$ pixels) resulta na imagem como a enxergamos. A cor de um pixel é armazenada como um conjunto de números, que representam as escalas de cada espectro principal de cor e luz, que unidos formam a cor desejada - logo, na verdade uma imagem é uma matriz tridimensional, pois cada pixel que a compõe armazena mais de um valor. 
@@ -14,6 +16,8 @@ Como vimos no [Teorema de Eckart-Young](#teo-eckart-young), é possível aproxim
 O conceito de *comprimir* uma imagem consiste em reduzir o seu tamanho (a quantidade de informações que ela armazena, o que é refletido no espaço que ela ocupa em disco), de maneira que não haja uma perda significativa na sua qualidade. Existem diversos métodos de compressão de imagens, cada um com propósitos diferentes, e a **compressão via SVD truncada** é um deles. Em geral, é mais utilizado quando lida-se com imagens de complexidade menor, onde a estrutura global é mais importante (muito comum no contexto de *Visão Computacional*), tendo como vantagem um controle maior do nível de compressão, definido diretamente pelo posto $k$ para o qual serão aproximadas as matrizes originais.
 
 Nesse tópico, mostraremos uma implementação (relativamente simples) desse método de compressão na linguagem *Python*, fazendo uso dos conceitos vistos no tópico de [Valores Singulares](../topicos/valores-singulares.md) e recursos oferecidos por *bibliotecas* da linguagem Python. Analisaremos os efeitos da compressão em uma imagem de teste, considerando valores diferentes para o posto $k$ de aproximação.
+
+### O Algoritmo
 
 A ideia geral para o algoritmo provém do que discutimos até agora:
 
@@ -46,9 +50,10 @@ Ub, Sb, Vbt = np.linalg.svd(matriz_b)
 k = 100 #posto escolhido
 
 # Trunca as matrizes SVD do RGB para o posto k
-Ukr = Ur[:, :k]
-Skr = Sr[:k]
-Vtkr = Vrt[:k, :]
+
+Ukr = Ur[:, :k]        # Todas as linhas, primeiras k colunas
+Skr = Sr[:k]           # Primeiros k elementos
+Vtkr = Vrt[:k, :]      # Primeiras k linhas, todas as colunas
 
 Ukg = Ug[:, :k]
 Skg = Sg[:k]
@@ -69,4 +74,66 @@ Image.fromarray(imagem_reconstruida).save("reconstruida.jpg")
 
 ```
 
-Observe que ...
+Observe que a decomposição SVD é realizada pelo método *linalg.svd*, da biblioteca Numpy, que retorna as matrizes $U$, um vetor S contendo os valores singulares ordenados (ou seja, a diagonal principal da matriz $\Sigma$ e não ela própria. Inclui também os valores singulares nulos) e $V^{T}$, respectivamente. As funções do módulo *Image* da biblioteca PIL nos permitem realizar as conversões entre imagem e matriz (que é um *array* multidimensional). 
+
+A separação das matrizes RGB e o truncamento são realizados aproveitando-se do poderoso recurso de *slicing* (fatiamento) de arrays do Python (a sintaxe "[: : :]"). No caso dos arrays U, S e Vt, o que obtemos é o seguinte:
+
+1. U (originalmente uma matriz $m\times m$) é truncado nas primeiras $k$ colunas, obtendo uma nova matriz $m\times k$;
+2. S (originalmente um vetor de dimensão igual ao $\min\{ m,n \}$) é truncado nos primeiros $k$ elementos, obtendo um vetor de dimensão $k$ (contendo os valores singulares $\sigma_{1},\sigma_{2},..,\sigma_{k}$);
+3. Vt (originalmente uma matriz $n\times n$) é truncado nas primeiras $k$ linhas, obtendo uma nova matriz $k\times n$.
+
+Esse processo de truncamento é equivalente a considerar os valores singulares de índice maior que $k$ na matriz $\Sigma$ iguais a zero, conforme descrito na [definição da matriz $A_{k}$](#def-matrizak-eckart-young) e no [Teorema de Eckart-Young](#teo-eckart-young).
+
+Logo, as matrizes RGB aproximadas, obtidas nos produtos entre suas respectivas matrizes SVD truncadas (realizado no python com o operador "@", de produto matricial. O método *np.diag* é utilizado para transformar o vetor truncado Sk na matriz diagonal truncada $\Sigma_{k}$), preservam a dimensão de $m\times n$ das matrizes originais ($m\times k\times k\times k\times k \times n=m\times n$). Isso implica que a imagem final comprimida terá resolução (dimensão) igual a da imagem original, logo, o processo realiza uma **redução de complexidade** da imagem, e não uma redução de resolução (este último que é comum em outros métodos que visam reduzir o tamanho de uma imagem).
+
+### Testes e resultados
+
+Agora, veremos os resultados obtidos aplicando o algoritmo em uma imagem de testes, para diferentes valores de $k$. Note que o valor $k$ escolhido no algoritmo é livre, não há um controle sobre o valor escolhido em relação ao posto das matrizes originais. Mas, se escolhermos $k$ maior que o posto, na prática não ocorrerá alteração alguma na imagem. 
+
+Utilizaremos uma imagem de alta resolução (6000 x 4000) e iremos variar $k$ para os valores 10, 50, 150, 500 e 1000. A nossa métrica para a compressão será o espaço em disco ocupado pelas imagens, com a imagem original possuindo 7,4 MB (Megabytes), e determinaremos o percentual de compressão pela seguinte fórmula:
+
+$$
+\text{Percentual de compressão}=\left( 1-\frac{\text{tamanho comprimido}}{\text{tamanho original}} \right)\times 100
+$$
+
+Vejamos os resultados:
+
+:::{figure} original.jpg
+:align: center
+
+Imagem original. Tamanho: 7,4MB
+:::
+
+:::{figure} 10.jpg
+:align: center
+
+Imagem comprimida com $k$ = 10. Tamanho: 1,2MB (Compressão de 83,78%).
+:::
+
+:::{figure} 50.jpg
+:align: center
+
+Imagem comprimida com $k$ = 50. Tamanho: 2,2MB (Compressão de 70,27%).
+:::
+
+:::{figure} 150.jpg
+:align: center
+
+Imagem comprimida com $k$ = 150. Tamanho: 3,1MB (Compressão de 58,10%).
+:::
+
+:::{figure} 500.jpg
+:align: center
+
+Imagem comprimida com $k$ = 500. Tamanho: 3,8MB (Compressão de 48,64%).
+:::
+
+:::{figure} 1000.jpg
+:align: center
+
+Imagem comprimida com $k$ = 1000. Tamanho: 3,8MB (Compressão de 48,64%).
+:::
+
+Note como de $k$ = 10 para $k$ = 50 a imagem se torna completamente distinguível, apesar da presença dos artefatos gráficos (as manchas coloridas). Como mencionado no início do tópico, para aplicações em áreas como *Visão Computacional* esse tipo de compressão é bastante vantajoso, veja como nesse caso tivemos uma compressão de mais de 70%, preservando consideravelmente a estrutura e os detalhes principais da imagem.
+
+O mais interessante é que a partir de $k$ = 500 o percentual de compressão parece chegar a um piso de 58,10% (note como é o mesmo para $k$ = 1000), havendo um ganho razoável na nitidez da imagem sem um aumento significativo do tamanho. Na imagem comprimida com $k$ = 1000 ainda é possível observar pequenos artefatos (principalmente nas zonas de cores mais escuras), mas é uma aproximação bastante decente, considerando que obtivemos uma compressão de quase 50% do tamanho original.

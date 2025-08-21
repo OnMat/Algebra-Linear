@@ -324,6 +324,7 @@ Entre uma das muitas aplicações da decomposição SVD está a aproximação de
 Por exemplo, suponha que uma matriz $A$ de posto $r$ possua os valores singulares não nulos $\sigma_{1},\dots,\sigma_{r-1},0.0001$. Ou seja, $\sigma_{r}=0.0001$. Ao realizarmos cálculos com essa matriz na forma SVD em um computador, devido à natureza da arimética de ponto flutuante, haverá um acúmulo de erros decorrente dos produtos com a entrada $0.0001$. Nesse caso, como $0.0001$ está muito próximo de $0$, acaba sendo mais benéfico (do ponto de vista de minimização de erros) "truncarmos" o posto de $A$ para $r-1$, isto é, consideramos $\sigma_{r}=0$.
 
 :::{prf:definition} Matriz $A_{k}$
+:label: def-matrizak-eckart-young
 
 Seja $A \in \mathbb{R}^{m\times n}$ com posto $r$ e decomposição SVD $A=U\Sigma V^{T}$, fixado $k$ entre $1,\dots,r-1$ definimos a matriz $A_{k}$ como:
 
