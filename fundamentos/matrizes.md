@@ -404,6 +404,12 @@ $$
 
 :::
 
+### Posto
+
+Além do determinante, outra característica importante de uma matriz é o seu posto. Diferentemente do determinante, toda matriz possui um posto bem definido, seja ela quadrada ou não.
+
+...
+
 ### Notações úteis
 
-#TODO#
+...

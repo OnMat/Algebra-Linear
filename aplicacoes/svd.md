@@ -9,7 +9,7 @@ Um dos principais exemplos de como matrizes podem ser aplicadas no meio computac
 
 Um *pixel* é a unidade fundamental que compõe uma imagem, ele é basicamente uma cor sólida. A composição de milhares de pixels (por exemplo, uma imagem de resolução 800 x 600 contém $800\cdot 600=480000$ pixels) resulta na imagem como a enxergamos. A cor de um pixel é armazenada como um conjunto de números, que representam as escalas de cada espectro principal de cor e luz, que unidos formam a cor desejada - logo, na verdade uma imagem é uma matriz tridimensional, pois cada pixel que a compõe armazena mais de um valor. 
 
-O *RGB* é um dos sistemas de cores mais conhecidos e utilizados, cuja sigla vem do inglês *Red* (Vermelho), *Green* (Verde) e *Blue* (Azul), uma vez que todas as outras cores (ou pelo menos a maioria) podem ser obtidas através da adição dessas três. Se pensarmos na representação matricial de uma imagem de resolução $m\times n$ no formato RGB, o que teremos serão 3 matrizes de dimensão $m\times n$, uma para cada uma das cores base.
+O *RGB* é um dos sistemas de cores mais conhecidos e utilizados, cuja sigla vem do inglês *Red* (Vermelho), *Green* (Verde) e *Blue* (Azul), uma vez que todas as outras cores (ou pelo menos a maioria) podem ser obtidas através da adição dessas três. No padrão RGB, cada pixel contém valores entre 0 e 255 para cada uma das três cores base, representando as suas respectivas intensidades. Por exemplo, um pixel contendo os valores (255, 0, 0) - para vermelho, verde e azul, respectivamente - terá cor vermelha sólida, enquanto um com (255, 255, 0) terá cor amarela (vermelho mais verde), (0, 0, 0) terá cor preta e (255, 255, 255) terá cor branca. Então, na representação matricial de uma imagem de resolução $m\times n$ no formato RGB, o que teremos serão 3 matrizes de dimensão $m\times n$, uma para cada uma das cores base, com as entradas variando de 0 a 255.
 
 Como vimos no [Teorema de Eckart-Young](#teo-eckart-young), é possível aproximar uma matriz por outra de mesma dimensão e posto menor, descartando (anulando) os valores singulares de índice maior ao do posto escolhido, na sua decomposição SVD. Então, quais seriam os efeitos de aplicar essa técnica às matrizes RGB de uma imagem? Acontece que, na verdade, esse é um método de *compressão de imagens* válido, que é aplicado em algumas situações no meio digital.
 
@@ -68,7 +68,12 @@ R_approx = Ukr @ np.diag(Skr) @ Vtkr
 G_approx = Ukg @ np.diag(Skg) @ Vtkg
 B_approx = Ukb @ np.diag(Skb) @ Vtkb
 
-# 3. Reconstrói a imagem a partir das novas matrizes RGB 
+# Garante que as entradas das novas matrizes estejam entre 0 e 255 
+R_approx = np.clip(R_approx, 0, 255).astype(np.uint8)
+G_approx = np.clip(G_approx, 0, 255).astype(np.uint8)
+B_approx = np.clip(B_approx, 0, 255).astype(np.uint8)
+
+# Reconstrói a imagem a partir das novas matrizes RGB 
 imagem_reconstruida = np.stack((R_approx, G_approx, B_approx), axis=-1).astype(np.uint8)
 Image.fromarray(imagem_reconstruida).save("reconstruida.jpg")
 
@@ -85,6 +90,8 @@ A separação das matrizes RGB e o truncamento são realizados aproveitando-se d
 Esse processo de truncamento é equivalente a considerar os valores singulares de índice maior que $k$ na matriz $\Sigma$ iguais a zero, conforme descrito na [definição da matriz $A_{k}$](#def-matrizak-eckart-young) e no [Teorema de Eckart-Young](#teo-eckart-young).
 
 Logo, as matrizes RGB aproximadas, obtidas nos produtos entre suas respectivas matrizes SVD truncadas (realizado no python com o operador "@", de produto matricial. O método *np.diag* é utilizado para transformar o vetor truncado Sk na matriz diagonal truncada $\Sigma_{k}$), preservam a dimensão de $m\times n$ das matrizes originais ($m\times k\times k\times k\times k \times n=m\times n$). Isso implica que a imagem final comprimida terá resolução (dimensão) igual a da imagem original, logo, o processo realiza uma **redução de complexidade** da imagem, e não uma redução de resolução (este último que é comum em outros métodos que visam reduzir o tamanho de uma imagem).
+
+O uso da função *np.clip*, nas linhas 38-40, é importante para garantir que as entradas das matrizes resultantes dos produtos estejam no intervalo permitido pelo padrão RGB, entre 0 e 255. A função substitui por 0 entradas com valor abaixo de 0, assim como por 255 entradas acima de 255, preservando as que estão dentro do intervalo. A presença de entradas fora desse intervalo resultaria em pixels "defeituosos" no resultado final, com cores destoantes da imagem original.
 
 ### Testes e resultados
 
@@ -113,27 +120,27 @@ Imagem comprimida com $k$ = 10. Tamanho: 1,2MB (Compressão de 83,78%).
 :::{figure} 50.jpg
 :align: center
 
-Imagem comprimida com $k$ = 50. Tamanho: 2,2MB (Compressão de 70,27%).
+Imagem comprimida com $k$ = 50. Tamanho: 1,8MB (Compressão de 75,67%).
 :::
 
 :::{figure} 150.jpg
 :align: center
 
-Imagem comprimida com $k$ = 150. Tamanho: 3,1MB (Compressão de 58,10%).
+Imagem comprimida com $k$ = 150. Tamanho: 2,4MB (Compressão de 67,56%).
 :::
 
 :::{figure} 500.jpg
 :align: center
 
-Imagem comprimida com $k$ = 500. Tamanho: 3,8MB (Compressão de 48,64%).
+Imagem comprimida com $k$ = 500. Tamanho: 2,8MB (Compressão de 62,16%).
 :::
 
 :::{figure} 1000.jpg
 :align: center
 
-Imagem comprimida com $k$ = 1000. Tamanho: 3,8MB (Compressão de 48,64%).
+Imagem comprimida com $k$ = 1000. Tamanho: 3,0MB (Compressão de 59,45%).
 :::
 
-Note como de $k$ = 10 para $k$ = 50 a imagem se torna completamente distinguível, apesar da presença dos artefatos gráficos (as manchas coloridas). Como mencionado no início do tópico, para aplicações em áreas como *Visão Computacional* esse tipo de compressão é bastante vantajoso, veja como nesse caso tivemos uma compressão de mais de 70%, preservando consideravelmente a estrutura e os detalhes principais da imagem.
+Note como de $k$ = 10 para $k$ = 50 a imagem se torna completamente distinguível. Como mencionado no início do tópico, para aplicações em áreas como *Visão Computacional* esse tipo de compressão é bastante vantajoso, veja como no caso $k$ = 50 tivemos uma compressão de mais de 75%, preservando consideravelmente a estrutura e os detalhes principais da imagem.
 
-O mais interessante é que a partir de $k$ = 500 o percentual de compressão parece chegar a um piso de 58,10% (note como é o mesmo para $k$ = 1000), havendo um ganho razoável na nitidez da imagem sem um aumento significativo do tamanho. Na imagem comprimida com $k$ = 1000 ainda é possível observar pequenos artefatos (principalmente nas zonas de cores mais escuras), mas é uma aproximação bastante decente, considerando que obtivemos uma compressão de quase 50% do tamanho original.
+O mais interessante é que a partir de $k$ = 500, a imagem já parece quase idêntica a original (ao menos a olho nu), com $k$ = 1000 apenas aumentando a nitidez de alguns detalhes (abrindo as imagens em tela cheia é possível perceber melhor). Ao final, temos uma imagem extremamente próxima a original, com o tamanho reduzido em quase 60%. 

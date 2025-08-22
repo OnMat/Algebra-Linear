@@ -429,4 +429,4 @@ $$
 
 :::
 
-O tópico [](../aplicacoes/svd.md) mostra como essa ideia de aproximação de matrizes é aplicada.
+O tópico [](../aplicacoes/svd.md) mostra como essa ideia de aproximação de matrizes pode ser aplicada.
