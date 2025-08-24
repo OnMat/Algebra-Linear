@@ -406,9 +406,53 @@ $$
 
 ### Posto
 
-Além do determinante, outra característica importante de uma matriz é o seu posto. Diferentemente do determinante, toda matriz possui um posto bem definido, seja ela quadrada ou não.
+Além do determinante, outra característica importante de uma matriz, utilizada em tópicos subsequentes, é o seu posto. Diferentemente do determinante, toda matriz possui um posto bem definido, seja ela quadrada ou não.
 
-...
+:::{prf:definition} Posto de uma matriz
+
+Seja a matriz $A\in \mathbb{R}^{m\times n}$. O *posto* de $A$, denotado por $\text{posto}(A)$, é a quantidade máxima de colunas ou linhas linearmente independentes de $A$, considerando as linhas ou colunas como vetores. 
+
+:::
+
+Definimos como a quantidade de colunas **ou** linhas linearmente independentes pois as duas quantidades serão sempre as mesmas para qualquer matriz, não havendo ambiguidade. A razão por trás desse fato é tratada em tópicos mais adiante, assim como alguns outros resultados sobre o posto.
+
+Ao considerarmos as colunas ou linhas como vetores, o posto é igual a dimensão do espaço gerado por tais vetores.
+
+:::{prf:example}
+
+Determine o posto da matriz:
+
+$$
+A=\begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}
+$$
+
+Consideramos cada coluna (ou linha) como vetores. Temos o vetor $(1,0)$ compondo a primeira coluna e o vetor $(0,1)$ compondo a segunda coluna. Claramente são linearmente independentes, pois formam a base canônica do espaço $\mathbb{R}^{2}$, logo, $\text{posto}(A)=2$.
+
+Nesse caso, quando o posto é o maior possível, dizemos que a matriz $A$ possui *posto completo* ou *posto máximo*.
+
+:::
+
+Perceba que a própria definição do posto nos diz que o posto máximo de uma matriz $m \times n$ será sempre igual a ${} \min \{ m,n \} {}$, uma vez que, como mencionado, a quantidade de colunas LI é sempre igual a quantidade de linhas LI (logo, não é possível ter mais linhas/colunas LI do que a própria quantidade de linhas/colunas).
+
+:::{prf:example}
+
+Determine o posto da matriz:
+
+$$
+A=\begin{bmatrix}
+1 & 2 & 3 \\
+1 & 2 & 3
+\end{bmatrix}
+$$
+
+Pelo que foi discutido anteriormente, o posto máximo de $A\in \mathbb{R}^{2\times3}$ seria de $\min\{ 2,3 \}=2$. Mas, evidentemente, $(2,2)$ e $(3,3)$ são múltiplos de $(1,1)$. Logo, $\text{posto}(A)=1$.
+
+:::
+
+Ao determinar o posto de uma matriz, em geral, é mais vantajoso analisar entre as linhas e colunas o que possuir menor dimensão. No caso do último exemplo, $A$ possui dimensão $2\times 3$, analisando suas duas linhas vemos claramente que $(1,2,3)=(1,2,3)$, logo $\text{posto}(A)=1$ (ao invés de analisarmos 3 vetores).
 
 ### Notações úteis
 
