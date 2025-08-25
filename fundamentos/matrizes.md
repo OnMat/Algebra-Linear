@@ -409,6 +409,7 @@ $$
 Além do determinante, outra característica importante de uma matriz, utilizada em tópicos subsequentes, é o seu posto. Diferentemente do determinante, toda matriz possui um posto bem definido, seja ela quadrada ou não.
 
 :::{prf:definition} Posto de uma matriz
+:label: def-posto
 
 Seja a matriz $A\in \mathbb{R}^{m\times n}$. O *posto* de $A$, denotado por $\text{posto}(A)$, é a quantidade máxima de colunas ou linhas linearmente independentes de $A$, considerando as linhas ou colunas como vetores. 
 
@@ -455,5 +456,99 @@ Pelo que foi discutido anteriormente, o posto máximo de $A\in \mathbb{R}^{2\tim
 Ao determinar o posto de uma matriz, em geral, é mais vantajoso analisar entre as linhas e colunas o que possuir menor dimensão. No caso do último exemplo, $A$ possui dimensão $2\times 3$, analisando suas duas linhas vemos claramente que $(1,2,3)=(1,2,3)$, logo $\text{posto}(A)=1$ (ao invés de analisarmos 3 vetores).
 
 ### Notações úteis
+
+Ao longo do estudo da Álgebra Linear, é comum tratarmos as linhas ou colunas de matrizes como vetores (vide a [def. de posto](#def-posto)). Essa representação é muito útil não só para simplificação de manipulações algébricas, como também auxilia na computação de produtos matriciais. 
+
+Apresentaremos a notação utilizada nesse tipo de representação, assim como uma interpretação alternativa para o produto matricial.
+
+:::{prf:observation}
+
+
+Seja $A\in \mathbb{R}^{m\times n}$, podemos representar $A$ como:
+
+$$
+A=[v_{1}\;v_{2}\;\dots\;v_{n}]
+$$
+
+onde cada $v_{k}\in \mathbb{R}^{m}$ e $v_{k}=(a_{1k},a_{2k},\dots,a_{mk})$, com $a_{ij}$ as respectivas entradas de $A$. 
+
+:::
+
+:::{prf:example}
+
+Podemos representar a matriz
+
+$$
+A=\begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6
+\end{bmatrix}
+$$
+
+como $A=[v_{1}\;v_{2}\;v_{3}]$, onde $v_{1}=(1,4)$, $v_{2}=(2,5)$ e $v_{3}=(3,6)$.
+
+:::
+
+Naturalmente, a equivalência entre matrizes $n\times 1$ e vetores do $\mathbb{R}^{n}$ é imediata. Chamamos esse tipo de matriz de *vetor coluna*. Utilizaremos essa noção daqui em diante, não sendo necessário fazer uma distinção explícita entre matriz e vetor, nesse caso.
+
+Com essa noção em mente, temos a seguinte visualização do produto matricial:
+
+:::{prf:observation} Produto entre matriz e vetor
+
+Sejam $A=[v_{1}\;v_{2}\;\dots\;v_{n}]\in \mathbb{R}^{m\times n}$ e $x=(x_{1},x_{2},\dots,x_{n})\in \mathbb{R}^{n}$. O vetor $b\in \mathbb{R}^{m}$ dado pelo produto $Ax$ é resultante de uma combinação linear entre os vetores $v_{1},v_{2},\dots,v_{n}$, dada por $b=x_{1}v_{1}+x_{2}v_{2}+\dots+x_{n}v_{n}$.
+
+:::
+
+Podemos visualizar melhor com um exemplo prático:
+
+:::{prf:example}
+
+Sejam
+
+$$
+A=\begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6
+\end{bmatrix}\quad \text{e}\quad x=\begin{bmatrix}
+1 \\
+2 \\
+3
+\end{bmatrix},
+$$
+
+determinemos $b=Ax$. Pela observação anterior:
+
+$$
+b=1\cdot (1,4)+2\cdot (2,5)+3\cdot (3,6)=(1,4)+(4,10)+(9,18)=(14,32)
+$$
+
+Ou seja,
+
+$$
+\begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6
+\end{bmatrix}\cdot \begin{bmatrix}
+1 \\
+2 \\
+3
+\end{bmatrix}=1\cdot \begin{bmatrix}
+1 \\
+4
+\end{bmatrix}+2\cdot \begin{bmatrix}
+2 \\
+5
+\end{bmatrix}+3\cdot \begin{bmatrix}
+3 \\
+6
+\end{bmatrix}=\begin{bmatrix}
+14 \\
+32
+\end{bmatrix}
+$$
+
+:::
+
+A grande vantagem de "quebrar" o produto dessa forma é, ao invés de pensar no resultado coordenada a coordenada, podermos enxergá-lo de maneira mais geral. Isso é especialmente útil em manipulações matriciais mais complexas, pois simplifica a notação, trocando somatórios de produtos de entradas por combinações lineares entre vetores.
 
 ...
