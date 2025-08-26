@@ -551,4 +551,57 @@ $$
 
 A grande vantagem de "quebrar" o produto dessa forma é, ao invés de pensar no resultado coordenada a coordenada, podermos enxergá-lo de maneira mais geral. Isso é especialmente útil em manipulações matriciais mais complexas, pois simplifica a notação, trocando somatórios de produtos de entradas por combinações lineares entre vetores.
 
-...
+A partir disso, temos o produto entre duas matrizes quaisquer:
+
+:::{prf:observation}
+
+Sejam $A\in \mathbb{R}^{m\times n}$ e $B\in \mathbb{R}^{n\times p}$, com $A=[v_{1}\;v_{2}\;\dots\;v_{n}]$ e $B=[u_{1}\;u_{2}\;\dots\;u_{p}]$, onde cada $u_{k}=(u_{1k},u_{2k},\dots,u_{nk})$. A $j$-ésima coluna de $AB$ (lembre-se que $AB$ tem $p$ colunas) é dada pela seguinte combinação linear das colunas de $A$:
+
+$$
+c_{j}=u_{1j}v_{1}+u_{2j}v_{2}+\dots+u_{nj}v_{n}
+$$
+
+Isto é, cada coluna de $AB$ é uma combinação linear das colunas de $A$, com coeficientes dados pela coluna respectiva de $B$. Em particular, $c_{j}=Au_{j}$. Dessa forma,
+
+$$
+AB=[Au_{1}\;Au_{2}\;\dots\;Au_{p}] 
+$$
+
+:::
+
+Então, podemos pensar no produto $AB$ como a concatenação dos vetores resultantes do produto de $A$ por cada coluna de $B$. 
+
+:::{prf:example}
+
+$$
+\begin{bmatrix}
+1 & 2 \\
+3 & 4 \\
+5 & 6
+\end{bmatrix}\cdot \begin{bmatrix}
+1 & 2 \\
+3 & 4
+\end{bmatrix}=\left[1\cdot \begin{bmatrix}
+1 \\
+3 \\
+5
+\end{bmatrix}+3\cdot \begin{bmatrix}
+2 \\
+4 \\
+6
+\end{bmatrix}\quad 2\cdot \begin{bmatrix}
+1 \\
+3 \\
+5
+\end{bmatrix}+4\cdot \begin{bmatrix}
+2 \\
+4 \\
+6
+\end{bmatrix}\right]=\begin{bmatrix}
+7 & 10 \\
+15  & 22\\
+23 & 34
+\end{bmatrix}
+$$
+
+:::
