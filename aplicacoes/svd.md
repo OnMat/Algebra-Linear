@@ -144,3 +144,33 @@ Imagem comprimida com $k$ = 1000. Tamanho: 3,0MB (Compressão de 59,45%).
 Note como de $k$ = 10 para $k$ = 50 a imagem se torna completamente distinguível. Como mencionado no início do tópico, para aplicações em áreas como *Visão Computacional* esse tipo de compressão é bastante vantajoso, veja como no caso $k$ = 50 tivemos uma compressão de mais de 75%, preservando consideravelmente a estrutura e os detalhes principais da imagem.
 
 O mais interessante é que a partir de $k$ = 500, a imagem já parece quase idêntica a original (ao menos a olho nu), com $k$ = 1000 apenas aumentando a nitidez de alguns detalhes (abrindo as imagens em tela cheia é possível perceber melhor). Ao final, temos uma imagem extremamente próxima a original, com o tamanho reduzido em quase 60%. 
+
+:::{figure} plotcompressao.png
+:align: center
+
+Gráfico com os resultados obtidos.
+:::
+
+Também é possível, a partir da decomposição SVD da imagem original, extrair seus valores singulares e componentes correspondentes, para uma análise mais geral do comportamento da compressão para diferentes valores de $k$. Visualizando essas informações, podemos identificar a partir de qual componente os valores singulares se anulam (no caso que a matriz não possui posto completo), se aproximam de zero ou passam a variar pouco, sendo então essa componente uma possível escolha para $k$. 
+
+Fazendo isso para as matrizes RGB, podemos identificar a contribuição de cada canal na imagem, possibilitando escolher um $k$ específico para cada um. Imagens com cores predominantemente verdes, por exemplo, terão o canal verde com maiores valores singulares. Isso fica evidente na imagem de testes:
+
+:::{figure} plotvaloressingrgb.png
+:align: center
+
+Valores singulares e componentens correspondentes das matrizes de cada canal RGB.
+:::
+
+Percebemos que os maiores valores singulares estão concentrados nas primeiras componentes, e que a partir da componente 5 os valores já estão estáveis, passando a decrescer suavemente. Os primeiros valores, maiores, carregam as informações mais gerais da imagem, como seu formato e silhueta, enquanto que os valores seguintes são responsáveis por detalhes mais finos, como nitidez e textura. Isso se alinha com o fato de que, ao fazermos $k=10$, a imagem resultante preserva um aspecto geral da imagem original, sua silhueta. A falta de nitidez, nesse caso, se deve à perda dos valores singulares restantes que, em especial nessa imagem (que tem dimensão grande), são muitos.
+
+Como os valores singulares são grandes, a escala logarítmica proporciona uma visualização mais ampla. Podemos ainda, converter a imagem para a escala de cinza, que resulta em um único canal de cor (e consequentemente uma única matriz para analisarmos):
+
+:::{figure} plotvaloressinglog.png
+:align: center
+
+Valores singulares (em escala logarítmica) e componentes correspondentes da matriz da imagem em escala de cinza.
+:::
+
+Em particular, note que os valores singulares nunca se anulam, logo a matriz tem posto completo. De certa forma, esse é o caso mais complicado para se escolher $k$, pois se não tivesse posto completo uma escolha clara para $k$ seria a última componente não nula (ou não muito próxima de zero). 
+
+Alinhadas a esses dados, as imagens resultantes dos valores de $k$ testados nos indicam que a partir da componente 1000, aproximadamente, devemos ter uma variação muito baixa dos valores singulares, uma vez que a diferença de qualidade se torna praticamente imperceptível.
