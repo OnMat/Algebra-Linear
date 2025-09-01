@@ -430,3 +430,5 @@ $$
 :::
 
 O tópico [](../aplicacoes/svd.md) mostra como essa ideia de aproximação de matrizes pode ser aplicada.
+
+Veja também: [](../aplicacoes/quadradosminimos.md).

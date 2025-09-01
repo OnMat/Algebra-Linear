@@ -7,3 +7,4 @@ Nesta seção discutiremos algumas aplicações dos conceitos e resultados visto
 
 - [Máximos e mínimos utilizando matrizes simétricas](matrizes-simetricas.md)
 - [Compressão de imagens utilizando Decomposição em Valores Singulares](svd.md)
+- [Resolução de sistemas lineares por Quadrados Mínimos (e Pseudoinversa)](quadradosminimos.md)

@@ -24,6 +24,7 @@ project:
       children:
         - file: aplicacoes/matrizes-simetricas.md
         - file: aplicacoes/svd.md
+        - file: aplicacoes/quadradosminimos.md
     - file: sobre.md
   exclude:
     - README.md
