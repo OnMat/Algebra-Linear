@@ -99,10 +99,65 @@ $$
 
 O mesmo acontece quando $Ax=b$ é **possível e indeterminado**. Nesse caso, $A^{T}A$ não será invertível e as infinitas soluções de $A^{T}A\bar{x}=A^{T}b$ irão coincidir com as de $Ax=b$. 
 
-Uma vez que $Ax=b$ é um sistema impossível, as soluções (ou a solução única, no caso $m \geq n$ e posto completo) de $A^{T}A\bar{x}=A^{T}b$ são **soluções aproximadas** de $Ax=b$, com base no critério de minimizar $\lVert b - A\bar{x} \rVert$.
+Uma vez que $Ax=b$ é um **sistema impossível**, as soluções (ou a solução única, no caso $m \geq n$ e posto completo) de $A^{T}A\bar{x}=A^{T}b$ são **soluções aproximadas** de $Ax=b$, com base no critério de minimizar $\lVert b - A\bar{x} \rVert$.
 
 ### Caso geral e pseudoinversa
 
-A decomposição SVD de $A$ nos permite construir um método de resolver $A^{T}Ax=A^{T}b$ no caso geral, que independe da quantidade de linhas e colunas, assim como do posto de $A$. 
+A decomposição SVD de $A$ nos permite construir uma ferramenta para resolver $A^{T}Ax=A^{T}b$ no caso geral, que independe da quantidade de linhas e colunas, assim como do posto de $A$. 
+
+Começamos definindo a **pseudoinversa** de uma matriz e constatando algumas de suas propriedades.
+
+:::{prf:definition} Pseudoinversa de Moore-Penrose
+
+Seja $A=U\Sigma V^{T}$. A *pseudoinversa* de $A$ é a matriz:
+
+$$
+A^{+}=V\Sigma^{+}U^{T}
+$$
+
+Onde $\Sigma^{+}$ é obtida invertendo os valores singulares não nulos de $\Sigma$ (isto é, se $\sigma_{i}\neq 0$ faz-se $\frac{1}{\sigma_{i}}$) e tomando a transposta. 
+
+:::
+
+Para ilustrar melhor como obter ${} \Sigma^{+} {}$, se posto de $A$ é igual a $r$ e seja: 
+
+$$
+\Sigma =
+\begin{bmatrix}
+\sigma_1 &        &        &        & \cdots &        & 0 \\
+         & \sigma_2 &      &        & \cdots &        & 0 \\
+         &        & \ddots &        &        &        & \vdots \\
+         &        &        & \sigma_r &       &        & 0 \\
+         &        &        &        & 0      &        & 0 \\
+\vdots   & \vdots &        &        & \vdots & \ddots & \vdots \\
+0        & 0      & \cdots &        & 0      & \cdots & 0
+\end{bmatrix}
+$$
+
+A matriz resultante da inversão dos $\sigma_{i}$ ($i=1,\dots,r$) é:
+
+$$
+\Sigma' =
+\begin{bmatrix}
+\frac{1}{\sigma_{1}} &        &        &        & \cdots &        & 0 \\
+         & \frac{1}{\sigma_{2}} &      &        & \cdots &        & 0 \\
+         &        & \ddots &        &        &        & \vdots \\
+         &        &        & \frac{1}{\sigma_{r}} &       &        & 0 \\
+         &        &        &        & 0      &        & 0 \\
+\vdots   & \vdots &        &        & \vdots & \ddots & \vdots \\
+0        & 0      & \cdots &        & 0      & \cdots & 0
+\end{bmatrix}
+$$
+
+E então, $\Sigma^{+}=(\Sigma')^{T}$.
+
+$A^{+}$ é uma generalização da ideia de inversa para uma matriz qualquer, então o nome de pseudoinversa. Existem outros tipos de pseudoinversas, esta em específico satisfaz as chamadas **condições de Penrose**:
+
+1. $AA^{+}A=A$
+2. $A^{+}AA^{+}=A^{+}$
+3. $(AA^{+})^{T}=AA^{+}$
+4. $(A^{+}A)^{T}=A^{+}A$
+
+Essas condições são verificadas sem muita dificuldade considerando-se a decomposição SVD de $A$ e as propriedades das matrizes $U$, $V$, $\Sigma$ e $\Sigma^{+}$. 
 
 ...
