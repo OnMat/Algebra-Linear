@@ -151,13 +151,104 @@ $$
 
 E então, $\Sigma^{+}=(\Sigma')^{T}$.
 
-$A^{+}$ é uma generalização da ideia de inversa para uma matriz qualquer, então o nome de pseudoinversa. Existem outros tipos de pseudoinversas, esta em específico satisfaz as chamadas **condições de Penrose**:
+$A^{+}$ é uma generalização da ideia de inversa para uma matriz qualquer, daí o nome de pseudoinversa. Existem outros tipos de pseudoinversas, esta em específico satisfaz as chamadas **condições de Penrose**:
 
 1. $AA^{+}A=A$
 2. $A^{+}AA^{+}=A^{+}$
 3. $(AA^{+})^{T}=AA^{+}$
 4. $(A^{+}A)^{T}=A^{+}A$
 
-Essas condições são verificadas sem muita dificuldade considerando-se a decomposição SVD de $A$ e as propriedades das matrizes $U$, $V$, $\Sigma$ e $\Sigma^{+}$. 
+Essas condições são verificadas sem muita dificuldade considerando-se a decomposição SVD de $A$ e as propriedades das matrizes $U$, $V$, $\Sigma $ e $\Sigma^{+}$. 
 
-...
+:::{prf:theorem} 
+
+Quando $A \in \mathbb{R}^{m\times n}$ possui $m\geq n$ e posto completo, a solução única da equação normal $A^{T}A\bar{x}=A^{T}b$ é dada por:
+
+$$
+\bar{x}=A^{+}b
+$$
+
+:::
+
+:::{prf:proof}
+
+Uma vez que $A$ tem $m\geq n$ e posto completo, então seu posto é igual a $n$. Consequentemente, $A^{T}A$ é invertível e a solução da equação normal é dada unicamente por $\bar{x}=(A^{T}A)^{-1}A^{T}b$. Seja $A=U\Sigma V^{T}$, substituindo e utilizando o fato que $U$ e $V$ são matrizes ortogonais, obtemos o seguinte:
+
+$$
+\begin{align}
+\bar{x} & =((U \Sigma V^{T})^{T}\; U \Sigma V^{T})^{-1}(U \Sigma V^{T})^{T}b \\
+ & =(V\Sigma^{T}U^{T}U\Sigma V^{T})^{-1}(V\Sigma^{T}U^{T})b \\
+ & =(V(\Sigma^{T}\Sigma)^{-1}V^{T}V\Sigma^{T}U^{T})b \\
+ & =(V(\Sigma^{T}\Sigma)^{-1}\Sigma^{T}U^{T})b
+\end{align}
+$$
+
+Agora, note que a matriz $\Sigma^{T}\Sigma$ tem dimensão $n\times n$ e é diagonal, contendo os $n$ valores singulares não nulos de $A$ ao quadrado. Logo, $(\Sigma^{T}\Sigma)^{-1}$ existe e é dada por $\Sigma^{T}\Sigma$ com os inversos dos quadrados dos valores singulares. Então, ao fazermos $(\Sigma^{T}\Sigma)^{-1}\Sigma^{T}$ o que obtemos é uma matriz $n\times m$ diagonal, contendo os inversos dos valores singulares de $A$ (que, neste caso, são todos não nulos), o que corresponde exatamente à matriz $\Sigma^{+}$. Logo,
+
+$$
+\bar{x}=(V\Sigma^{+}U^{T})b=A^{+}b
+$$
+
+:::
+
+Concluímos que, quando $m\geq n$ e $A$ tem posto completo, $(A^{T}A)^{-1}A^{T}=A^{+}$. Em geral, calcular a decomposição SVD de $A$ e determinar sua pseudoinversa tem menor custo computacional que calcular $(A^{T}A)^{-1}A^{T}$, uma vez que inversão de matrizes tem alto custo.
+
+Agora, estendemos esse resultado para o caso geral, onde $A^{+}b$ nos dará uma solução única para a equação normal em função de um critério específico.
+
+:::{prf:theorem} 
+
+$A^{+}b$ fornece a solução da equação normal $A^{T}A\bar{x}=A^{T}b$ **que possui norma mínima**, seja qual for a matriz $A$. Isto é, se $\hat{x}=A^{+}b$, então:
+
+$$
+\lVert \hat{x} \rVert =\min \{ \lVert \bar{x} \rVert;\bar{x}\text{ é solução de }A^{T}A\bar{x}=A^{T}b  \}
+$$
+
+:::
+
+:::{prf:proof}
+
+Começamos verificando que $A^{+}b$ é solução de $A^{T}A\bar{x}=A^{T}b$. Seja $A=U\Sigma V^{T}$,
+
+$$
+\begin{align}
+A^{T}A(A^{+}b) & =(U\Sigma V^{T})^{T}(U\Sigma V^{T})(V\Sigma^{+} U^{T})b \\
+ & =(V\Sigma^{T}U^{T}U\Sigma V^{T}V\Sigma^{+}U^{T})b \\
+ & =(V(\Sigma^{T}\Sigma \Sigma^{+})U^{T})b
+\end{align}
+$$
+
+Mais uma vez, $\Sigma^{T}\Sigma$ é uma matriz diagonal $n\times n$ contendo os valores singulares ao quadrado. Quando fazemos seu produto por $\Sigma^{+}$, que é uma matriz $n\times m$ contendo o inverso dos valores singulares não nulos, o que obtemos é uma matriz $n\times m$ contendo os valores singulares, que é propriamente $\Sigma^{T}$. Logo, 
+
+$$
+A^{T}A(A^{+}b)=(V\Sigma^{T}U^{T})b=A^{T}b
+$$
+
+Assim, $A^{+}b$ é solução da equação normal.
+
+Agora, verificamos que $A^{+}b$ possui norma mínima entre as soluções da equação normal.
+
+Começamos notando que, pela construção que fizemos de $A^{T}A\bar{x}=A^{T}b$ no início do tópico, qualquer solução $\bar{x}$ é tal que $A\bar{x}$ é o vetor no espaço coluna de $A$ de forma que $\lVert b-A\bar{x} \rVert$ é mínimo, onde tal distância é a distância perpendicular entre o ponto $b$ e o espaço coluna de $A$, que por sua vez é única. Logo, o vetor $A\bar{x}$, onde $\bar{x}$ é uma solução da equação normal, **é o mesmo** para todas as soluções $\bar{x}$, denominado *projeção de $b$* no espaço coluna de $A$. Portanto, seja $A^{+}b=\hat{x}$, temos que:
+
+$$
+A\bar{x}=A\hat{x}\implies A(\bar{x}-\hat{x})=0
+$$
+
+O que por sua vez nos dá que $\bar{x}-\hat{x}$ é um vetor do núcleo de $A$. Em particular, seja $z=\bar{x}-\hat{x}$, então todo vetor $\bar{x}$ solução da eq. normal pode ser escrito como $\bar{x}=z+\hat{x}$. Agora, considere a decomposição SVD de $A$. Pela construção que se tem a pseudoinversa, note que o vetor $\hat{x}=A^{+}b$ irá pertencer ao espaço coluna de $A^{T}$. Mas temos que o núcleo de $A$ é ortogonal ao espaço coluna de $A^{T}$, consequentemente $\langle \hat{x} , z \rangle = 0$.
+
+Assim, temos enfim que:
+
+$$
+\lVert \bar{x} \rVert^{2}=\lVert z+\hat{x} \rVert  ^{2}=\lVert z \rVert ^{2}+\lVert \hat{x} \rVert ^{2}\geq \lVert \hat{x} \rVert ^{2}
+$$
+
+(veja que a quebra da norma nas duas parcelas é consequência do fato de $\hat{x}$ e $z$ serem ortogonais)
+
+Donde concluímos que $\lVert \bar{x} \rVert\geq \lVert \hat{x} \rVert$ e teremos a igualdade somente quando $z=0$ e $\bar{x}=\hat{x}$. Portanto, $\hat{x}$ é a solução da equação normal de norma mínima.
+
+
+
+
+:::
+
+Com isso, temos uma solução geral para o problema de Quadrados Mínimos, e ainda, única pelo critério de norma mínima (mesmo que a equação normal possua infinitas soluções).
+
