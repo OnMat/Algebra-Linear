@@ -323,6 +323,36 @@ Entre uma das muitas aplicações da decomposição SVD está a aproximação de
 
 Por exemplo, suponha que uma matriz $A$ de posto $r$ possua os valores singulares não nulos $\sigma_{1},\dots,\sigma_{r-1},0.0001$. Ou seja, $\sigma_{r}=0.0001$. Ao realizarmos cálculos com essa matriz na forma SVD em um computador, devido à natureza da arimética de ponto flutuante, haverá um acúmulo de erros decorrente dos produtos com a entrada $0.0001$. Nesse caso, como $0.0001$ está muito próximo de $0$, acaba sendo mais benéfico (do ponto de vista de minimização de erros) "truncarmos" o posto de $A$ para $r-1$, isto é, consideramos $\sigma_{r}=0$.
 
+Primeiramente, precisamos de uma métrica que nos permita determinar o quão "próximas" estão duas matrizes, assim definimos uma norma para matrizes. Em particular, existem diferentes tipos de normas para matrizes (assim como existem para vetores), mas para os própositos desse tópico nos será útil a *norma 2*, pela relação que ela possui com os valores singulares.
+
+:::{prf:definition} Norma 2 matricial
+ 
+Seja $A\in \mathbb{R}^{m\times n}$, definimos a norma 2 de $A$ como:
+
+$$
+\lVert A \rVert_{2}=\sup _{\lVert x \rVert_{2}=1 }\lVert Ax \rVert_{2} \quad (x \in \mathbb{R}^{n}) 
+$$
+
+onde $\lVert x \rVert_{2}$ corresponde à norma 2 (ou norma euclidiana) para vetores do $\mathbb{R}^{n}$.
+
+:::
+
+Essa é a definição mais comum, mas verifica-se que ela é equivalente a seguinte, que explicita a relação dessa norma com os valores singulares:
+
+:::{prf:definition} Norma 2 matricial via valores singulares
+
+Seja $A\in \mathbb{R}^{m\times n}$, sua norma 2 é dada pelo maior valor singular de $A$. Ou seja,
+
+$$
+\lVert A \rVert_{2}=\sigma_{\max}(A) 
+$$
+
+:::
+
+Essa equivalência entre as duas definições fica evidente quando pensamos geometricamente. A primeira definição diz respeito ao maior "alongamento" na norma 2 vetorial que $A$ causa, entre todos os vetores unitários do ${} \mathbb{R}^{n} {}$, que corresponde justamente ao seu maior valor singular (uma vez que os vetores $v_{1},\dots,v_{n}$ que compõem a matriz $V$ da decomposição SVD formam uma base de $\mathbb{R}^{n}$).
+
+Então, temos a aproximação de matrizes via *truncamento da SVD*:
+
 :::{prf:definition} Matriz $A_{k}$
 :label: def-matrizak-eckart-young
 
@@ -341,7 +371,7 @@ Observe que $A_{k}$ possui posto $k$.
 :::{prf:theorem} Eckart-Young
 :label: teo-eckart-young
 
-Seja $A\in \mathbb{R}^{m\times n}$ com posto ${} r>1 {}$ e $k=1,\dots,r-1$, então $A_{k}$ é a matriz que melhor aproxima $A$ segundo a norma espectral. Isto é, para toda matriz $B\in \mathbb{R}^{m\times n}$ com posto $k$, tem-se
+Seja $A\in \mathbb{R}^{m\times n}$ com posto ${} r>1 {}$ e $k=1,\dots,r-1$, então $A_{k}$ é a matriz que melhor aproxima $A$ segundo a norma 2. Isto é, para toda matriz $B\in \mathbb{R}^{m\times n}$ com posto $k$, tem-se
 
 $$
 \lVert A-A_{k} \rVert_{2} \leq \lVert A-B \rVert _{2} 
@@ -420,7 +450,7 @@ $$
 \lVert (A-B)v \rVert _{2}^{2}=\langle (A-B)v , (A-B)v \rangle=\left\langle  \sum_{i=1}^{k+1} \alpha_{i}\sigma_{i}v_{i} , \sum_{i=1}^{k+1} \alpha_{i}\sigma_{i}v_{i}  \right\rangle= \sum_{i=1}^{k+1}(\alpha_{i}\sigma_{i})^{2}
 $$
 
-Mas, $\sum_{i=1}^{k+1}(\alpha_{i}\sigma_{i})^{2}\geq \sigma_{k+1}^{2}\sum_{i=1}^{k+1}a_{i}^{2}=\sigma_{k+1}^{2}$ (utilizando {eq}`eq:igualdade-eckart`). Portanto, considerando que $\lVert A-B \rVert_{2}$ é equivalente ao máximo de ${} \lVert (A-B)x \rVert$ para todo ${} x\in \mathbb{R}^{n}$ tal que $\lVert x \rVert_{2}=1$ , concluímos:
+Mas, $\sum_{i=1}^{k+1}(\alpha_{i}\sigma_{i})^{2}\geq \sigma_{k+1}^{2}\sum_{i=1}^{k+1}a_{i}^{2}=\sigma_{k+1}^{2}$ (utilizando {eq}`eq:igualdade-eckart`). Portanto, considerando que $\lVert A-B \rVert_{2}$ é equivalente ao máximo de ${} \lVert (A-B)x \rVert$ para todo ${} x\in \mathbb{R}^{n}$ tal que $\lVert x \rVert_{2}=1$ (pela primeira definição da norma 2 matricial), concluímos:
 
 $$
 \sigma_{k+1}\leq \lVert (A-B)v \rVert_{2}\leq \lVert A-B \rVert_{2}   

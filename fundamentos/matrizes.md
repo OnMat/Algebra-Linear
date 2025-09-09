@@ -417,7 +417,7 @@ Seja a matriz $A\in \mathbb{R}^{m\times n}$. O *posto* de $A$, denotado por $\te
 
 Definimos como a quantidade de colunas **ou** linhas linearmente independentes pois as duas quantidades serão sempre as mesmas para qualquer matriz, não havendo ambiguidade. A razão por trás desse fato é tratada em tópicos mais adiante, assim como alguns outros resultados sobre o posto.
 
-Ao considerarmos as colunas ou linhas como vetores, o posto é igual a dimensão do espaço gerado por tais vetores.
+Ao considerarmos as colunas ou linhas como vetores, o posto é igual a dimensão do espaço gerado por tais vetores. Comumente nos referimos a tais espaços como **Espaço Coluna** e **Espaço Linha**, respectivamente.
 
 :::{prf:example}
 
