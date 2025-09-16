@@ -3,9 +3,12 @@ title: Espaços Vetoriais
 subject: Fundamentos
 ---
 
+### Conceitos iniciais
+
 O conceito de **Espaço Vetorial** é a base onde se constrói a Álgebra Linear. Começamos com sua definição.
 
 :::{prf:definition} Espaço Vetorial
+:label: def-espaco-vetorial
 
 Seja $V$ um conjunto não vazio que estejam definidas duas operações:
 
@@ -35,6 +38,55 @@ Vejamos o principal exemplo de espaço vetorial.
 
 :::{prf:example}
 
-...
+As n-uplas ordenadas com entradas reais, representadas por $(a_{1},a_{2},\dots,a_{n})$ com $a_{1},a_{2},\dots,a_{n} \in \mathbb{R}$, compõem o conjunto denotado por $\mathbb{R}^{n}$. A adição e o produto escalar são definidos como se espera:
+
+$$
+\begin{align}
+ & (a_{1},\dots,a_{n})+(b_{1},\dots,b_{n})=(a_{1}+b_{1},\dots,a_{n}+b_{n}) \\
+ & \alpha(a_{1},\dots,a_{n})=(\alpha a_{1},\dots,\alpha a_{n}),\; \alpha \in \mathbb{R}
+\end{align}
+$$
+
+Com estas operações, $\mathbb{R}^{n}$ constitui um espaço vetorial. Verifique que os axiomas do espaço vetorial são satisfeitos.
 
 :::
+
+O terceiro axioma em [](def-espaco-vetorial) diz respeito ao elemento neutro da adição em um espaço vetorial. Tal elemento é denominado ***vetor nulo*** e denotado por $0$ (apesar de poder causar confusão com o escalar real $0$, em geral o contexto deixa claro qual elemento se trata. Por exemplo, se $v$ é um vetor, entao em $v + 0$ temos o vetor nulo, enquanto que $0v$ temos o escalar nulo). O resultado a seguir constata a unicidade desse elemento, em quaquer espaço vetorial.
+
+:::{prf:proposition} 
+
+Seja $V$ um espaço vetorial, seu vetor nulo é único.
+
+:::
+
+:::{prf:proof}
+
+Suponha que $0$ e $0'$ sejam ambos elementos neutros da adição. Logo, pelos axiomas 1 e 3,
+
+$$
+0=0+0'=0'+0=0'
+$$
+
+:::
+
+Similarmente, temos a unicidade do inverso aditivo, retratado no axioma 4.
+
+:::{prf:proposition} 
+
+Seja $V$ um espaço vetorial, para todo $v \in V$, seu inverso aditivo é único.
+
+:::
+
+:::{prf:proof}
+
+Suponha que $w$ e $w'$ sejam ambos inversos aditivos de $v$. Pelos axiomas, 
+
+$$
+w = w+0 = w + (v + w')=(w+v)+w'=0+w'=w'
+$$
+
+:::
+
+Assim, denotamos o inverso aditivo de um vetor $v$ por $-v$ e escrevemos $v+(-v)$ como $v-v$.
+
+Observe que, como é natural de se esperar, temos $0v=0$, pois $0v=(0+0)v=0v+0v$, de onde obtemos $0=0v$ ao adicionarmos $-0v$ em ambos os lados. A partir disso, também temos $-v=(-1)v$, pois $0=0v=(1-1)v=v+(-1)v$, e aplicamos a unicidade do inverso aditivo.
