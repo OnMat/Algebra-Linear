@@ -89,4 +89,42 @@ $$
 
 Assim, denotamos o inverso aditivo de um vetor $v$ por $-v$ e escrevemos $v+(-v)$ como $v-v$.
 
-Observe que, como é natural de se esperar, temos $0v=0$, pois $0v=(0+0)v=0v+0v$, de onde obtemos $0=0v$ ao adicionarmos $-0v$ em ambos os lados. A partir disso, também temos $-v=(-1)v$, pois $0=0v=(1-1)v=v+(-1)v$, e aplicamos a unicidade do inverso aditivo.
+Observe que, como é natural de se esperar, temos $0v=0$, pois $0v=(0+0)v=0v+0v$, de onde obtemos $0=0v$ ao adicionarmos $-0v$ em ambos os lados. A partir disso, também temos $-v=(-1)v$, pois $0=0v=(1-1)v=v+(-1)v$ e aplicamos a unicidade do inverso aditivo.
+
+:::{prf:example}
+
+No $\mathbb{R}^{n}$, o vetor nulo é $0=(0,\dots,0)$. Se $v=(a_{1},\dots,a_{n})$, então $-v=(-a_{1},\dots,-a_{n})$.
+
+:::
+
+Agora, voltamos nossa atenção para subconjuntos de espaços vetoriais que também constituem espaços vetoriais.
+
+:::{prf:definition} Subespaço Vetorial
+
+Seja $V$ um espaço vetorial e $U \subseteq  V$, $U$ será um espaço vetorial se satisfaz as seguintes condições, considerando as mesmas operações de soma e multiplicação por escalar definidas em $V$:
+
+1. $0 \in U$;
+2. $v,w \in U \implies v + w \in U$ (**fechado na adição**);
+3. $v \in U$ e $\alpha \in \mathbb{R}\implies\alpha v \in U$ (**fechado na mult. por escalar**).
+
+Neste caso, dizemos que $U$ é um ***subespaço*** de $V$.
+
+:::
+
+O fato de $U$ ser um subconjunto de um espaço vetorial $V$ faz com que ele já herde grande parte dos axiomas que definem um espaço vetorial (a saber: associatividade, comutatividade, distributividade e identidade multiplicativa). Assim, para manter a conformidade com a [](#def-espaco-vetorial) é suficiente verificar apenas estas 3 condições. A terceira condição, em particular, não só nos garante que a operação de mult. por escalar é fechada no conjunto $U$, mas também nos dá o axioma do inverso aditivo, pois já verificamos que $-v=(-1)v$, logo, se $U$ é fechado na multiplicação temos $-v \in U$ para todo $v \in U$.
+
+Note que a condição 1 impede que um conjunto vazio seja um subespaço. O menor subespaço possível será aquele contendo somente o vetor nulo: $\{ 0 \}$. E, com exceção desse, todo os outros subespaços terão infinitos elementos (consequência do subespaço ser fechado na adição e multiplicação).
+
+:::{prf:example}
+
+Considere o subconjunto do $\mathbb{R}^{n}$ formado pelos vetores cuja primeira entrada é nula. Isto é, $U=\{ (0,a_{2},\dots,a_{n});a_{i} \in \mathbb{R} \}$. 
+
+1. Claramente, $0 \in U$;
+2. $(0,a_{2},\dots,a_{n})+(0,b_{2},\dots,b_{n})=(0,a_{2}+b_{2},\dots,a_{n}+b_{n}) \in U$;
+3. Seja $\alpha \in \mathbb{R}$, $\alpha(0,a_{2},\dots,a_{n})=(0,\alpha a_{2},\dots,\alpha a_{n}) \in U$.
+
+Portanto, $U$ é um espaço vetorial. Em particular, é um subespaço de $\mathbb{R}^{n}$.
+
+:::
+
+Para o $\mathbb{R}^{n}$, é comum que subespaços sejam interpretados geometricamente. No caso do $\mathbb{R}^{3}$, por exemplo, todo os seus subespaços próprios (que não sejam ele mesmo) e não nulos formam retas ou planos.

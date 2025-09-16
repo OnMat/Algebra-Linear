@@ -3,6 +3,8 @@ title: Decomposição em Valores Singulares (SVD)
 subject: Tópicos Avançados
 ---
 
+### A decomposição SVD
+
 Vimos no [Teorema Espectral](teorema-espectral.md) que é possível decompor qualquer matriz simétrica como o produto entre 3 matrizes, sendo uma delas diagonal (contendo os autovalores) e as outras duas ortogonais (de transição entre a base canônica e a base ortonormal de autovetores). Esse tópico apresenta uma espécie de "generalização" do Teorema Espectral para uma matriz qualquer de dimensão $m \times n$.
 
 A ideia geral é similar, queremos decompor uma matriz $A\in \mathbb{R}^{m\times n}$ como o produto entre 3 matrizes:
