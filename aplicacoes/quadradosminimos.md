@@ -12,7 +12,7 @@ x+2y=1 \\
 3x+4y=0 \\
 5x+6y=0
 \end{cases}
-$$
+$$ 
 
 Esse sistema pode ser reescrito na forma matricial como
 
@@ -30,7 +30,7 @@ y
 0
 \end{bmatrix}
 \label{eq:sistema-exemplo}
-$$
+$$ (sistema-exemplo)
 
 Claramente, o sistema não possui solução exata única (a matriz não é sequer quadrada, menos ainda invertível). Analisando do ponto de vista de transformações lineares, sabemos que o sistema será **possível e indeterminado** se $(1,0,0)\in [(1,3,5),(2,4,6)]$. No entanto, 
 
@@ -251,4 +251,78 @@ Donde concluímos que $\lVert \bar{x} \rVert\geq \lVert \hat{x} \rVert$ e teremo
 :::
 
 Com isso, temos uma solução geral para o problema de Quadrados Mínimos, e ainda, única pelo critério de norma mínima (mesmo que a equação normal possua infinitas soluções).
+
+### Exemplo numérico
+
+Voltando ao sistema inicial {eq}`sistema-exemplo`, iremos encontrar sua solução aproximada via quadrados mínimos utilizando os dois métodos, pela inversa da matriz $A^{T}A$ (pois como já vimos, a matriz associada a esse sistema tem posto completo) e através da pseudoinversa.
+
+A equação normal associada é dada por:
+
+$$
+\begin{bmatrix}
+1 & 3 & 5 \\
+2 & 4 & 6
+\end{bmatrix} \begin{bmatrix}
+1 & 2 \\
+3 & 4 \\
+5 & 6
+\end{bmatrix}\begin{bmatrix}
+x \\
+y
+\end{bmatrix}=\begin{bmatrix}
+1 & 3 & 5 \\
+2 & 4 & 6
+\end{bmatrix}\begin{bmatrix}
+1 \\
+0 \\
+0
+\end{bmatrix}
+$$
+
+$$
+\implies \begin{bmatrix}
+35 & 44 \\
+44 & 56
+\end{bmatrix}\begin{bmatrix}
+x \\
+y
+\end{bmatrix}=\begin{bmatrix}
+1 \\
+2
+\end{bmatrix}
+$$
+
+Então, calculamos a inversa da matriz $A^{T}A$:
+
+$$
+\begin{bmatrix}
+35 & 44 \\
+44 & 56
+\end{bmatrix}^{-1}=\frac{1}{24}\begin{bmatrix}
+56 & -44 \\
+-44 & 35
+\end{bmatrix}
+$$
+
+Obtendo a solução de quadrados mínimos:
+
+$$
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}=\frac{1}{24}\begin{bmatrix}
+56 & -44 \\
+-44 & 35
+\end{bmatrix}\begin{bmatrix}
+1 \\
+2
+\end{bmatrix}=\begin{bmatrix}
+-\frac{4}{3} \\
+\frac{13}{12}
+\end{bmatrix}
+$$
+
+Devemos obter a mesma solução utilizando a pseudoinversa, pois nesse caso a equação normal possui solução única. Para o caso de uma matriz em que $A^{T}A$ não é invertível (infinitas soluções para a equação normal) o processo é o mesmo, obtendo a solução de norma mínima.
+
+De maneira similar ao que fizemos no tópico de [Compressão de Imagens](svd.md), utilizaremos a linguagem *Python* para calcular a SVD e a psedoinversa, que possui bibliotecas que já implementam ambos. A desvantagem dessa abordagem é que os resultados encontrados não serão exatos (observe o arredondamento nas últimas casas decimais), mas aproveitaremos que já conhecemos o resultado exato para comparar a precisão, além de introduzir uma ferramenta útil.
 
