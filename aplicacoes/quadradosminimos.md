@@ -160,7 +160,8 @@ $A^{+}$ é uma generalização da ideia de inversa para uma matriz qualquer, da�
 
 Essas condições são verificadas sem muita dificuldade considerando-se a decomposição SVD de $A$ e as propriedades das matrizes $U$, $V$, $\Sigma $ e $\Sigma^{+}$. 
 
-:::{prf:theorem} 
+:::{prf:theorem}
+:label: teo-pseudoinversa-postocompleto
 
 Quando $A \in \mathbb{R}^{m\times n}$ possui $m\geq n$ e posto completo, a solução única da equação normal $A^{T}A\bar{x}=A^{T}b$ é dada por:
 
@@ -252,9 +253,9 @@ Donde concluímos que $\lVert \bar{x} \rVert\geq \lVert \hat{x} \rVert$ e teremo
 
 Com isso, temos uma solução geral para o problema de Quadrados Mínimos, e ainda, única pelo critério de norma mínima (mesmo que a equação normal possua infinitas soluções).
 
-### Exemplo numérico
+### Exemplos numéricos
 
-Voltando ao sistema inicial {eq}`sistema-exemplo`, iremos encontrar sua solução aproximada via quadrados mínimos utilizando os dois métodos, pela inversa da matriz $A^{T}A$ (pois como já vimos, a matriz associada a esse sistema tem posto completo) e através da pseudoinversa.
+Voltando ao sistema inicial {eq}`sistema-exemplo`, encontraremos sua solução aproximada via quadrados mínimos utilizando a inversa da matriz $A^{T}A$ (pois como já vimos, a matriz associada a esse sistema tem posto completo).
 
 A equação normal associada é dada por:
 
@@ -322,7 +323,93 @@ y
 \end{bmatrix}
 $$
 
-Devemos obter a mesma solução utilizando a pseudoinversa, pois nesse caso a equação normal possui solução única. Para o caso de uma matriz em que $A^{T}A$ não é invertível (infinitas soluções para a equação normal) o processo é o mesmo, obtendo a solução de norma mínima.
+Como constatado no [](#teo-pseudoinversa-postocompleto), essa solução é a mesma fornecida pela pseudoinversa.
 
-De maneira similar ao que fizemos no tópico de [Compressão de Imagens](svd.md), utilizaremos a linguagem *Python* para calcular a SVD e a psedoinversa, que possui bibliotecas que já implementam ambos. A desvantagem dessa abordagem é que os resultados encontrados não serão exatos (observe o arredondamento nas últimas casas decimais), mas aproveitaremos que já conhecemos o resultado exato para comparar a precisão, além de introduzir uma ferramenta útil.
+Para ilustrar a solução de quadrados mínimos via pseudoinversa, considere o seguinte sistema, que não possui solução exata e nem posto completo: 
 
+$$
+\begin{bmatrix}
+1 & 2 \\
+2 & 4 \\
+3 & 6
+\end{bmatrix}\begin{bmatrix}
+x \\
+y
+\end{bmatrix}=\begin{bmatrix}
+1 \\
+0 \\
+0
+\end{bmatrix}
+$$
+
+Calculando a pseudoinversa, obtemos:
+
+$$
+\begin{bmatrix}
+1 & 2 \\
+2 & 4 \\
+3 & 6
+\end{bmatrix}^{+}=\frac{1}{70}\begin{bmatrix}
+1 & 2 & 3 \\
+2 & 4 & 6
+\end{bmatrix}
+$$
+
+Logo, a solução de quadrados mínimos de menor norma é dada por:
+
+$$
+\bar{x}=\frac{1}{70}\begin{bmatrix}
+1 & 2 & 3 \\
+2 & 4 & 6
+\end{bmatrix}\begin{bmatrix}
+1 \\
+0 \\
+0
+\end{bmatrix}=\begin{bmatrix}
+\frac{1}{70} \\
+\frac{1}{35}
+\end{bmatrix}
+$$
+
+Assim como no tópico de [Compressão de Imagens](svd.md), podemos utilizar a linguagem *Python* e as funções de Álgebra Linear da biblioteca *NumPy*, dessa vez para resolver quadrados mínimos via pseudoinversa numericamente. Isso normalmente é feito em problemas reais, cujas matrizes possuem dimensões maiores e o cálculo exato da solução é pouco viável:
+
+```{code-block} python
+:caption: Solução numérica de quadrados mínimos via pseudoinversa
+:linenos:
+
+import numpy as np
+
+# Definir as matrizes
+A = np.array([[1, 2],
+              [2, 4],
+              [3, 6]], dtype=float)
+              
+b = np.array([[1],
+              [0],
+              [0]], dtype=float)
+
+# Calcular a pseudoinversa 
+A_pinv = np.linalg.pinv(A)
+
+# Calcular a solução
+x = A_pinv @ b
+
+print("\nPseudoinversa de A:")
+print(A_pinv)
+print("Solução:")
+print(x)
+
+```
+
+Note que o resultado é determinado numericamente e normalmente não corresponde à solução exata, mas é suficientemente preciso na maioria dos casos práticos.
+
+Obtemos:
+
+$$
+\bar{x}\approx \begin{bmatrix}
+0.01428571 \\
+0.02857143
+\end{bmatrix}
+$$
+
+Com uma precisão de sete casas decimais em relação à solução exata encontrada.
