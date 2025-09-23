@@ -128,3 +128,60 @@ Portanto, $U$ é um espaço vetorial. Em particular, é um subespaço de $\mathb
 :::
 
 Para o $\mathbb{R}^{n}$, é comum que subespaços sejam interpretados geometricamente. No caso do $\mathbb{R}^{3}$, por exemplo, todo os seus subespaços próprios (que não sejam ele mesmo) e não nulos formam retas ou planos.
+
+### União e interseção de subespaços
+
+:::{prf:proposition}
+
+Sejam $U$ e $W$ subespaços de um mesmo espaço vetorial $V$, então $U\cap W$ é também um subespaço de $V$.
+
+:::
+
+:::{prf:proof}
+
+Claramente, $U\cap W \subseteq V$. Além disso, $0 \in U\cap W$, pois $U$ e $W$ são ambos subespaços. 
+
+Observe que se $u,w \in U\cap W$, então $u,w \in U$ e $u,w \in W$. Em particular, uma vez que subespaços são fechados na soma, $u+w \in  U$ e $u+w\in W$, logo $u+w \in U\cap W$.
+
+Similarmente para o produto escalar, se $\alpha \in \mathbb{R}$ e $u \in U \cap W$, teremos $\alpha u \in U$ e $\alpha u \in W$, logo $\alpha u \in U\cap W$.
+
+Com estas condições concluímos que $U\cap W$ é um subespaço vetorial de $V$.
+
+:::
+
+:::{prf:observation}
+
+Através de um argumento indutivo podemos estender este resultado para a interseção de uma família arbitrária de subespaços $U_{1},U_{2},\dots,U_{n}$ de $V$.
+
+:::
+
+A união de subespaços, no entanto, não se comporta da mesma maneira. Há casos em que a união não será um subespaço:
+
+:::{prf:example}
+
+Considere os seguintes subespaços de $\mathbb{R}^{2}$:
+
+- ${} S_{1}=\{ (0,y);y \in \mathbb{R} \} {}$;
+- $S_{2}=\{ (x,0);x \in \mathbb{R} \}$.
+
+Inicialmente, note que $S_{1}\cap S_{2} = \{ 0 \}$. Logo, seja $v \in S_{1} \cup S_{2}$ tal que $v \neq 0$, $v$ só pode ser da forma $(0,y)$ ou $(x,0)$, com $x$ e $y$ diferentes de zero. Assim, considere $v,w \in S_{1}\cup S_{2}$, de forma que $v \in S_{1}$ e $w \in S_{2}$ e ambos diferentes do vetor nulo. Observe que $v+w=(x,y)$, para $x,y \in \mathbb{R}-\{ 0 \}$, o que claramente não é um elemento de $S_{1}$ ou de $S_{2}$, portanto não pertence a união.
+
+Assim, $S_{1}\cup S_{2}$ não é fechado na soma e, logo, não é um subespaço vetorial.
+
+:::
+
+O próximo resultado elucida a condição necessária (e suficiente) para que a união entre subespaços mantenha-se um subespaço.
+
+:::{prf:proposition}
+
+Sejam $U$ e $W$ subespaços de $V$, a união $U\cup W$ é um subespaço de $V$ se, e somente se, $U\subseteq W$ ou $W\subseteq U$ (um dos subespaços está contido no outro).
+
+:::
+
+:::{prf:proof}
+
+$(\implies)$ Seja $U\cup W$ um subespaço. Suponha, por contradição, que $U \not \subset W$ e $W \not \subset U$, isso implica que existem elementos $u \in U-W$ e $w \in W-U$ diferentes do vetor nulo. Pelo fato de que $U \cup W$ é um subespaço e $u,w \in U\cup W$, temos $u+w \in U\cup W$, mas isso significa que (pela definição de união entre conjuntos) $u+w \in U$ ou $u+w \in W$, uma contradição à hipótese de que  $v$ e $w$ não pertencem ao mesmo subespaço (por exemplo, se ${} u+w \in U {}$, pelo fato de $U$ ser fechado na soma e multiplicação por escalar teríamos $u+w-u=w \in U$).
+
+$(\impliedby)$ Suponha, sem perda de generalidade, que $U\subseteq W$. Segue-se então que $U\cup W=W$ e já temos que $W$ é um subespaço vetorial.
+
+:::
