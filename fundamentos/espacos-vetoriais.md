@@ -100,6 +100,7 @@ No $\mathbb{R}^{n}$, o vetor nulo é $0=(0,\dots,0)$. Se $v=(a_{1},\dots,a_{n})$
 Agora, voltamos nossa atenção para subconjuntos de espaços vetoriais que também constituem espaços vetoriais.
 
 :::{prf:definition} Subespaço Vetorial
+:label: def-subespaco
 
 Seja $V$ um espaço vetorial e $U \subseteq  V$, $U$ será um espaço vetorial se satisfaz as seguintes condições, considerando as mesmas operações de soma e multiplicação por escalar definidas em $V$:
 
@@ -185,3 +186,90 @@ $(\implies)$ Seja $U\cup W$ um subespaço. Suponha, por contradição, que $U \n
 $(\impliedby)$ Suponha, sem perda de generalidade, que $U\subseteq W$. Segue-se então que $U\cup W=W$ e já temos que $W$ é um subespaço vetorial.
 
 :::
+
+### Soma de subespaços
+
+:::{prf:definition}
+
+Sejam $U_{1},U_{2},\dots,U_{n}$ subespaços de $V$, define-se a sua soma como:
+
+$$
+U_{1}+U_{2}+\dots+U_{n}=\{ u_{1}+\dots+u_{n}; u_{1} \in U_{1},\dots,u_{n} \in U_{n} \}
+$$
+
+Ou seja, é o conjunto de todas as possíveis somas entre elementos de $U_{1},U_{2},\dots,U_{n}$.
+
+:::
+
+:::{prf:example}
+:label: exemplo-soma-de-subespacos
+
+Considere novamente os subespaços:
+
+- $S_{1}=\{ (x,0);x \in \mathbb{R} \}$;
+- $S_{2}=\{ (0,y);y \in \mathbb{R} \}$.
+
+Então, sua soma é dada por:
+
+$$
+S_{1}+S_{2}=\{ (x,y);x,y \in \mathbb{R} \}
+$$
+
+Ou seja, $S_{1}+S_{2}=\mathbb{R}^{2}$.
+
+:::
+
+Observe que a soma entre os subespaços resultou no próprio espaço o qual eles pertencem, que em particular é também um subespaço. O próximo resultado nos mostra que somas de subespaços sempre resultam em subespaços (mas não necessariamente no espaço vetorial inteiro, as condições para que isso ocorra serão discutidas futuramente).
+
+:::{prf:proposition} 
+
+Sejam $U_{1},\dots,U_{n}$ subespaços de $V$, então $U_{1}+\dots+U_{n}$ é um subespaço de $V$.
+
+:::
+
+:::{prf:proof}
+
+Verificaremos que para dois subespaços $U$ e $W$ de $V$, $U+W$ é um subespaço de $V$. O caso geral para uma quantidade $n$ de subespaços verifica-se indutivamente a partir disso.
+
+Observe que $U+W \subseteq V$, logo, devemos verificar apenas as 3 condições em [](#def-subespaco):
+
+- Seja $\alpha \in \mathbb{R}$ e $v \in U+W$. Então $v=u+w$, para $u\in U$ e $w\in W$, e $\alpha v=\alpha(u+w)=\alpha u+\alpha w$. Mas $\alpha u\in U$ e $\alpha w \in W$, logo $\alpha v \in U + W$;
+- Similarmente, sejam $v_{1},v_{2} \in U+W$, com $v_{1}=u_{1}+w_{1}$ e $v_{2}= u_{2}+w_{2}$, então $v_{1}+v_{2}=(u_{1}+u_{2})+(w_{1}+w_{2})$. Como $u_{1}+u_{2} \in U$ e $w_{1}+w_{2} \in W$, temos $v_{1}+v_{2} \in U+W$;
+- Por fim, evidentemente $0 \in U+W$.
+
+Logo, $U+W$ é um subespaço de $V$.
+
+:::
+
+Agora, definimos um tipo diferente de soma entre subespaços, que funciona como um caso especial da soma anterior. 
+
+:::{prf:definition} Soma direta
+
+Dizemos que um espaço vetorial $W$ é ***soma direta*** dos subespaços $U_{1},\dots,U_{n}$, denotado por $W=U_{1}\oplus\dots \oplus U_{n}$, se cada elemento $w \in W$ pode ser escrito **de modo único** como:
+
+$$
+w=u_{1}+\dots+u_{n}
+$$
+
+com $u_{i}\in U_{i}$.
+
+
+:::
+
+O "modo único" significa que cada vetor $u_{i}$ é fixo, uma vez fixado $w$. Logo, não existe um vetor $u_{k}' \neq u_{k}$ de modo que $w=u_{1}'+\dots+u_{k}'+\dots+u_{n}'$ (com $u_{i}'$ podendo ser igual ou não a $u_{i}$, para $i \neq k$). 
+
+No caso do exemplo [](#exemplo-soma-de-subespacos), observe que além de $\mathbb{R}=S_{1}+S_{2}$ temos $\mathbb{R}=S_{1}\oplus S_{2}$, pois cada subespaço influencia em apenas uma das duas coordenadas.
+
+A grande diferença entre os dois tipos de soma fica evidente fazendo-se uma analogia à união de conjuntos. Sejam $C_{1},C_{2}$ e $C_{3}$ conjuntos não vazios, se tivermos $C_{2}\subseteq C_{3}$, então a união $C_{1} \cup C_{2} \cup C_{3}$ é igual a $C_{1} \cup C_{3}$. O mesmo pode ocorrer com a soma de subespaços. Por exemplo, se um dos subespaços contiver outro, a parcela da soma do que está contido não "contribui" para o subespaço resultante, e isto faria com que a condição de escrita única falhasse, pois para qualquer vetor resultante da soma poderíamos somar a parcela do subespaço contido na do que o contém e substituir sua parcela pelo vetor nulo, originando duas escritas diferentes de um mesmo vetor. Agora, quando os conjuntos $C_{1},C_{2}$ e $C_{3}$ são disjuntos, então temos a garantia de que a união entre eles não pode ser reduzida, este seria o análogo a uma soma direta entre subespaços.
+
+O próximo resultado nos dá uma maneira mais prática de verificar se um subespaço é resultante da soma direta de outros.
+
+:::{prf:proposition}
+
+Sejam $U_{1},\dots,U_{n}$ subespaços de $V$. Então, $V=U_{1}\oplus\dots \oplus U_{n}$ se, e somente se, valem as seguintes condições:
+
+1. $V=U_{1}+\dots+U_{n}$;
+2. A única maneira de escrever $0$ como uma soma $u_{1}+\dots+u_{n}$ , com $u_{i}\in U_{i}$, é fazendo cada $u_{i}=0$.
+
+:::
+
