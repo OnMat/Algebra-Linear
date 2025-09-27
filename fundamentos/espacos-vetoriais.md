@@ -187,7 +187,7 @@ $(\impliedby)$ Suponha, sem perda de generalidade, que $U\subseteq W$. Segue-se 
 
 :::
 
-### Soma de subespaços
+### Soma e soma direta de subespaços
 
 :::{prf:definition}
 
@@ -221,7 +221,8 @@ Ou seja, $S_{1}+S_{2}=\mathbb{R}^{2}$.
 
 Observe que a soma entre os subespaços resultou no próprio espaço o qual eles pertencem, que em particular é também um subespaço. O próximo resultado nos mostra que somas de subespaços sempre resultam em subespaços (mas não necessariamente no espaço vetorial inteiro, as condições para que isso ocorra serão discutidas futuramente).
 
-:::{prf:proposition} 
+:::{prf:proposition}
+:label: prop-soma-de-subespacos-eh-subespaco
 
 Sejam $U_{1},\dots,U_{n}$ subespaços de $V$, então $U_{1}+\dots+U_{n}$ é um subespaço de $V$.
 
@@ -244,6 +245,7 @@ Logo, $U+W$ é um subespaço de $V$.
 Agora, definimos um tipo diferente de soma entre subespaços, que funciona como um caso especial da soma anterior. 
 
 :::{prf:definition} Soma direta
+:label: def-soma-direta
 
 Dizemos que um espaço vetorial $W$ é ***soma direta*** dos subespaços $U_{1},\dots,U_{n}$, denotado por $W=U_{1}\oplus\dots \oplus U_{n}$, se cada elemento $w \in W$ pode ser escrito **de modo único** como:
 
@@ -260,7 +262,7 @@ O "modo único" significa que cada vetor $u_{i}$ é fixo, uma vez fixado $w$. Lo
 
 No caso do exemplo [](#exemplo-soma-de-subespacos), observe que além de $\mathbb{R}=S_{1}+S_{2}$ temos $\mathbb{R}=S_{1}\oplus S_{2}$, pois cada subespaço influencia em apenas uma das duas coordenadas.
 
-A grande diferença entre os dois tipos de soma fica evidente fazendo-se uma analogia à união de conjuntos. Sejam $C_{1},C_{2}$ e $C_{3}$ conjuntos não vazios, se tivermos $C_{2}\subseteq C_{3}$, então a união $C_{1} \cup C_{2} \cup C_{3}$ é igual a $C_{1} \cup C_{3}$. O mesmo pode ocorrer com a soma de subespaços. Por exemplo, se um dos subespaços contiver outro, a parcela da soma do que está contido não "contribui" para o subespaço resultante, e isto faria com que a condição de escrita única falhasse, pois para qualquer vetor resultante da soma poderíamos somar a parcela do subespaço contido na do que o contém e substituir sua parcela pelo vetor nulo, originando duas escritas diferentes de um mesmo vetor. Agora, quando os conjuntos $C_{1},C_{2}$ e $C_{3}$ são disjuntos, então temos a garantia de que a união entre eles não pode ser reduzida, este seria o análogo a uma soma direta entre subespaços.
+A grande diferença entre os dois tipos de soma fica evidente fazendo-se uma analogia à união de conjuntos. Sejam $C_{1},C_{2}$ e $C_{3}$ conjuntos não vazios, se tivermos $C_{2}\subseteq C_{3}$, então a união $C_{1} \cup C_{2} \cup C_{3}$ é igual a $C_{1} \cup C_{3}$. O mesmo pode ocorrer com a soma de subespaços. Por exemplo, se um dos subespaços contiver outro, a parcela da soma do que está contido não "contribui" para o subespaço resultante, e isto faria com que a condição de escrita única falhasse, pois para qualquer vetor resultante da soma poderíamos somar a parcela do subespaço contido na do que o contém e substituir sua parcela pelo vetor nulo, originando duas escritas diferentes de um mesmo vetor, então a soma entre aqueles subespaços não seria uma soma direta. Agora, quando os conjuntos $C_{1},C_{2}$ e $C_{3}$ são disjuntos, então temos a garantia de que a união entre eles não pode ser reduzida, este seria o análogo a uma soma direta entre subespaços, que é como o "menor" subespaço que os contém.
 
 O próximo resultado nos dá uma maneira mais prática de verificar se um subespaço é resultante da soma direta de outros.
 
@@ -273,3 +275,28 @@ Sejam $U_{1},\dots,U_{n}$ subespaços de $V$. Então, $V=U_{1}\oplus\dots \oplus
 
 :::
 
+:::{prf:proof}
+
+$(\implies)$ Se vale $V=U_{1}\oplus\dots \oplus U_{n}$, pela [](#def-soma-direta) temos que cada elemento em $V$ pode ser escrito como uma soma de elementos de $U_{1},\dots,U_{n}$, ou seja, $V \subseteq U_{1}+\dots+U_{n}$, logo $V= U_{1}+\dots+U_{n}$ (pela [](#prop-soma-de-subespacos-eh-subespaco) já temos a inclusão contrária). Além disso, a escrita também é única, logo, só deve valer a escrita trivial do elemento nulo, isto é:
+
+$$
+0 = 0+\dots+0
+$$
+
+$(\impliedby)$ Se valem as condições 1 e 2, pela condição 1 temos que cada elemento em $V$ pode ser escrito como uma soma de elementos de $U_{1},\dots,U_{n}$. Então, seja $v\in V$ de forma que $v=u_{1}+\dots+u_{n}=u_{1}'+\dots+u_{n}'$, com $u_{i},u_{i}' \in U_{i}$, temos
+
+$$
+0=v-v=(u_{1}-u_{1}')+\dots+(u_{n}-u_{n}')
+$$
+
+Mas, pela condição 2, o elemento nulo só pode ser escrito como uma soma de elementos de $U_{1},\dots,U_{n}$ da maneira trivial, logo $u_{i}-u_{i}'=0\implies u_{i}=u_{i}'$. Ou seja, todo $v\in V$ pode ser escrito como uma soma de elementos de $U_{1},\dots,U_{n}$ e de maneira única. Portanto, pela [](#def-soma-direta), $V=U_{1}\oplus\dots \oplus U_{n}$.
+
+:::
+
+Agora, vejamos como a "disjunção" entre dois subespaços (que é na verdade $U\cap W=\{ 0 \}$, pois todo subespaço contém o vetor nulo) garante que sua soma é direta.
+
+:::{prf:proposition}
+
+Sejam $U$ e $W$ subespaços de $V$, então $V=U\oplus W$ se, e somente se, $V=U+W$ e $U\cap W=\{ 0 \}$.
+
+:::
