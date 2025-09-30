@@ -118,7 +118,7 @@ Note que a condição 1 impede que um conjunto vazio seja um subespaço. O menor
 
 :::{prf:example}
 
-Considere o subconjunto do $\mathbb{R}^{n}$ formado pelos vetores cuja primeira entrada é nula. Isto é, $U=\{ (0,a_{2},\dots,a_{n});a_{i} \in \mathbb{R} \}$. 
+Considere o subconjunto do $\mathbb{R}^{n}$ formado pelos vetores cuja primeira entrada é nula. Isto é, $U=\{ (0,a_{2},\dots,a_{n})/ a_{i} \in \mathbb{R} \}$. 
 
 1. Claramente, $0 \in U$;
 2. $(0,a_{2},\dots,a_{n})+(0,b_{2},\dots,b_{n})=(0,a_{2}+b_{2},\dots,a_{n}+b_{n}) \in U$;
@@ -162,8 +162,8 @@ A união de subespaços, no entanto, não se comporta da mesma maneira. Há caso
 
 Considere os seguintes subespaços de $\mathbb{R}^{2}$:
 
-- ${} S_{1}=\{ (0,y);y \in \mathbb{R} \} {}$;
-- $S_{2}=\{ (x,0);x \in \mathbb{R} \}$.
+- ${} S_{1}=\{ (0,y)/ y \in \mathbb{R} \} {}$;
+- $S_{2}=\{ (x,0)/ x \in \mathbb{R} \}$.
 
 Inicialmente, note que $S_{1}\cap S_{2} = \{ 0 \}$. Logo, seja $v \in S_{1} \cup S_{2}$ tal que $v \neq 0$, $v$ só pode ser da forma $(0,y)$ ou $(x,0)$, com $x$ e $y$ diferentes de zero. Assim, considere $v,w \in S_{1}\cup S_{2}$, de forma que $v \in S_{1}$ e $w \in S_{2}$ e ambos diferentes do vetor nulo. Observe que $v+w=(x,y)$, para $x,y \in \mathbb{R}-\{ 0 \}$, o que claramente não é um elemento de $S_{1}$ ou de $S_{2}$, portanto não pertence a união.
 
@@ -194,7 +194,7 @@ $(\impliedby)$ Suponha, sem perda de generalidade, que $U\subseteq W$. Segue-se 
 Sejam $U_{1},U_{2},\dots,U_{n}$ subespaços de $V$, define-se a sua soma como:
 
 $$
-U_{1}+U_{2}+\dots+U_{n}=\{ u_{1}+\dots+u_{n}; u_{1} \in U_{1},\dots,u_{n} \in U_{n} \}
+U_{1}+U_{2}+\dots+U_{n}=\{ u_{1}+\dots+u_{n}/ u_{1} \in U_{1},\dots,u_{n} \in U_{n} \}
 $$
 
 Ou seja, é o conjunto de todas as possíveis somas entre elementos de $U_{1},U_{2},\dots,U_{n}$.
@@ -206,13 +206,13 @@ Ou seja, é o conjunto de todas as possíveis somas entre elementos de $U_{1},U_
 
 Considere novamente os subespaços:
 
-- $S_{1}=\{ (x,0);x \in \mathbb{R} \}$;
-- $S_{2}=\{ (0,y);y \in \mathbb{R} \}$.
+- $S_{1}=\{ (x,0)/ x \in \mathbb{R} \}$
+- $S_{2}=\{ (0,y)/ y \in \mathbb{R} \}$
 
 Então, sua soma é dada por:
 
 $$
-S_{1}+S_{2}=\{ (x,y);x,y \in \mathbb{R} \}
+S_{1}+S_{2}=\{ (x,y)/ x,y \in \mathbb{R} \}
 $$
 
 Ou seja, $S_{1}+S_{2}=\mathbb{R}^{2}$.
@@ -267,6 +267,7 @@ A grande diferença entre os dois tipos de soma fica evidente fazendo-se uma ana
 O próximo resultado nos dá uma maneira mais prática de verificar se um subespaço é resultante da soma direta de outros.
 
 :::{prf:proposition}
+:label: prop-caracterizacao1-de-soma-direta
 
 Sejam $U_{1},\dots,U_{n}$ subespaços de $V$. Então, $V=U_{1}\oplus\dots \oplus U_{n}$ se, e somente se, valem as seguintes condições:
 
@@ -296,7 +297,48 @@ Mas, pela condição 2, o elemento nulo só pode ser escrito como uma soma de el
 Agora, vejamos como a "disjunção" entre dois subespaços (que é na verdade $U\cap W=\{ 0 \}$, pois todo subespaço contém o vetor nulo) garante que sua soma é direta.
 
 :::{prf:proposition}
+:label: prop-caracterizacao2-soma-direta
 
 Sejam $U$ e $W$ subespaços de $V$, então $V=U\oplus W$ se, e somente se, $V=U+W$ e $U\cap W=\{ 0 \}$.
+
+:::
+
+:::{prf:proof}
+
+$(\implies)$ Seja $V=U\oplus W$. Utilizando [](#prop-caracterizacao1-de-soma-direta), temos $V=U + W$. Suponha que $v \in U\cap W$. Então, $0=v-v$ e como $v \in U,W$ e a representação do vetor nulo como soma de elementos desses subespaços é somente a trivial (também por [](#prop-caracterizacao1-de-soma-direta)), então $v=0$. Logo, $U\cap W=\{ 0 \}$.
+
+$(\impliedby)$ Se vale $V=U+W$, por [](#prop-caracterizacao1-de-soma-direta) resta mostrar que a escrita dos elementos é única. Suponha que $v=u+w=u'+w'$, com $u,u'\in U$ e $w,w'\in W$. Logo, $0=v-v=(u-u')+(v-v')$, então $(u-u')=(v'-v)$. Mas $(u-u')\in U$ e $(v'-v)\in W$, ou seja, $(u-u')\in U\cap W$ e $(v'-v)\in U\cap W$. Logo, como também vale $U\cap W=\{ 0 \}$,
+
+$$
+\begin{cases}
+u-u'=0 \\
+v'-v=0
+\end{cases}
+$$
+
+Concluindo que $u=u'$ e $v=v'$, ou seja, a escrita é única. Donde obtemos que $V=U\oplus W$.
+
+:::
+
+Veja que, diferentemente da [](#prop-caracterizacao1-de-soma-direta), a [](#prop-caracterizacao2-soma-direta) diz respeito apenas a dois subespaços e não a uma quantidade finita arbitrária. O exemplo a seguir mostra que a propriedade de disjunção não garante soma direta para mais de dois subespaços.
+
+:::{prf:example}
+
+Considere os seguintes subespaços de $\mathbb{R}^{3}$:
+
+- $S_{1}=\{ (x,y,0)/x,y\in \mathbb{R} \}$
+- $S_{2}=\{ (0,0,z)/z\in \mathbb{R} \}$
+- $S_{3}=\{ (0,w,w)/w\in \mathbb{R} \}$
+
+Primeiramente, observe que $\mathbb{R}^{3}=S_{1}+S_{2}+S_{3}$. Além disso, $S_{1}\cap S_{2}=\{ 0 \}$, $S_{1}\cap S_{3}=\{ 0 \}$ e $S_{2}\cap S_{3}=\{ 0 \}$. No entanto, a soma entre esses subespaços não é direta, uma vez que a escrita de qualquer vetor do $\mathbb{R}^{3}$ não será única: Seja ${} (v_{1},v_{2},v_{3}) \in \mathbb{R}^{3} {}$, observe que $(v_{1},v_{2},v_{3})=(v_{1},v_{2},0)+(0,0,v_{3})+(0,0,0)$. Por outro lado, existem infinitas escolhas de $y,w \in \mathbb{R}$, ambas não nulas, de modo que $y+w=a_{2}$ e, a partir do $w$ escolhido, também podemos determinar $z\in \mathbb{R}$ de modo que $z+w=a_{3}$. Um exemplo numérico:
+
+$$
+\begin{align}
+&(1,1,1)= (1,3,0)+(0,0,3)+(0,-2,-2) \\
+&(1,1,1)=(1,1,0)+(0,0,1)+(0,0,0)
+\end{align}
+$$
+
+Logo, a soma entre esses subespaços, igual ao $\mathbb{R}^{3}$, não é direta.
 
 :::
