@@ -89,7 +89,7 @@ $$
 \bar{x}=(A^{T}A)^{-1}A^{T}b
 $$
 
-Apesar de podermos determinar $\bar{x}$ exatamente nesse caso, é importante destacar que ele corresponde à solução da equação normal $A^{T}A\bar{x}=A^{T}b$, e não ao problema original $Ax=b$ que, como vimos, pode nem mesmo possuir soluções. Esse é o caso do sistema linear {eq}`eq:sistema-exemplo`, uma vez que tal $A$ possui 3 linhas e 2 colunas ($m > n$) e posto completo ($\min\{ 3,2 \}=2$), mas o sistema é impossível.
+Apesar de podermos determinar $\bar{x}$ exatamente nesse caso, é importante destacar que ele corresponde à solução da equação normal $A^{T}A\bar{x}=A^{T}b$, e não ao problema original $Ax=b$ que, como vimos, pode nem mesmo possuir soluções. Esse é o caso do sistema linear {eq}`sistema-exemplo`, uma vez que tal $A$ possui 3 linhas e 2 colunas ($m > n$) e posto completo ($\min\{ 3,2 \}=2$), mas o sistema é impossível.
 
 Quando, no entanto, $A$ é quadrada e invertível, a solução da equação normal coincide exatamente com a solução do sistema original, pois:
 
