@@ -27,15 +27,15 @@ $$
 S=\{ \alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}/\alpha_{1},\dots,\alpha_{n}\in \mathbb{R} \}
 $$
 
-Isto é, $S$ é o conjunto de todas as combinações lineares possíveis entre $v_{1},\dots,v_{n}$. Utilizando os resultados do tópico anterior, verificamos facilmente que $S$ é um subespaço vetorial de $V$. Dizemos que $S$ é o ***espaço gerado*** pelos vetores $v_{1},\dots,v_{n}$ e denotaremos-o por $[v_{1},\dots,v_{n}]$.
+Isto é, $S$ é o conjunto de todas as combinações lineares possíveis entre $v_{1},\dots,v_{n}$. Utilizando os resultados do tópico anterior, verificamos facilmente que $S$ é um subespaço vetorial de $V$. Dizemos que $S$ é o ***espaço gerado*** pelos vetores $v_{1},\dots,v_{n}$ e denotaremos-o por $\text{span}(v_{1},\dots,v_{n})$ (notação mais comum, proveniente do termo em inglês para o espaço gerado[^1]).
 
 :::
 
-Em muitos textos (principalmente em inglês) é comum se referir ao espaço gerado como *span*, utilizando a notação $\text{span}(v_{1},\dots ,v_{n})$. Utilizaremos a notação descrita na definição, por simplicidade.
+[^1]: Alternativamente, encontra-se a notação $[\{ v_{1},\dots,v_{n} \}]$.
 
 :::{prf:example}
 
-Considere os vetores $(1,2,3)$ e $(4,5,6)$, do $\mathbb{R}^{3}$. Observe que ${} (10,14,18)\in [(1,2,3),(4,5,6)]$, pois $(10,14,18)=2\cdot(1,2,3)+2\cdot(4,5,6)$. 
+Considere os vetores $(1,2,3)$ e $(4,5,6)$, do $\mathbb{R}^{3}$. Observe que ${} (10,14,18)\in \text{span}((1,2,3),(4,5,6))$, pois $(10,14,18)=2\cdot(1,2,3)+2\cdot(4,5,6)$. 
 
 Similarmente, $(1,2,3)$ e $(4,5,6)$ também são elementos de seu próprio espaço gerado, pois
 
@@ -48,9 +48,11 @@ $$
 
 :::
 
-Quando $[v_{1},\dots,v_{n}]=V$, dizemos que $v_{1},\dots,v_{n}$ **geram** $V$. Logo, dizemos que um espaço vetorial tem dimensão finita quando uma quantidade finita de seus elementos o gera.
+Quando $\text{span}(v_{1},\dots,v_{n})=V$, dizemos que $v_{1},\dots,v_{n}$ **geram** $V$. Logo, dizemos que um espaço vetorial tem dimensão finita quando uma quantidade finita de seus elementos o gera.
 
-De maneira similar à definição de soma direta para um conjunto de subespaços, definimos o conceito de independência linear para um conjunto de vetores.
+### Independência linear
+
+De maneira similar à definição de soma direta para um conjunto de subespaços, definimos o conceito de independência linear para uma lista de vetores.
 
 :::{prf:definition} Vetores linearmente independentes
 
@@ -64,7 +66,7 @@ $$
 
 :::{prf:observation}
 
-Com um raciocínio análogo ao que fizemos para a soma direta, verifica-se que um conjunto de vetores ${} v_{1},\dots,v_{n} {}$ é linearmente independente se, e somente se, todo vetor pertencente ao espaço gerado por ${} v_{1},\dots,v_{n} {}$ possui representação única como combinaçao linear entre eles.
+Com um raciocínio análogo ao que fizemos para a soma direta, verifica-se que uma lista de vetores ${} v_{1},\dots,v_{n} {}$ é linearmente independente se, e somente se, todo vetor pertencente ao espaço gerado por ${} v_{1},\dots,v_{n} {}$ possui representação única como combinaçao linear entre eles.
 
 :::
 
@@ -80,7 +82,7 @@ são linearmente independentes. É fácil de observar que $0=\alpha_{1}(1,0,\dot
 
 :::
 
-Naturalmente, um conjunto de vetores $v_{1},\dots,v_{n} \in V$ é ***linearmente dependente*** quando não é linearmente independente. Logo, existe pelo menos um $\alpha_{i}$ não nulo de modo que $0=\alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}$.
+Naturalmente, uma lista de vetores $v_{1},\dots,v_{n} \in V$ é ***linearmente dependente*** quando não é linearmente independente. Logo, existe pelo menos um $\alpha_{i}$ não nulo de modo que $0=\alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}$.
 
 Um exemplo típico de vetores linearmente dependentes são múltiplos (quando um vetor é o outro multiplicado por um escalar).
 
@@ -102,4 +104,33 @@ Como temos o vetor nulo resultante de uma combinação linear entre $(1,2)$ e $(
 
 :::
 
-De maneira geral, sempre que tivermos o vetor nulo pertencente ao conjunto de vetores considerado, eles serão linearmente dependentes. Se considerarmos $0=\alpha_{0}0+\alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}$, dados valores de $\alpha_{1},\dots,\alpha_{n}$ que satisfaçam $\alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}=0$ (mesmo que sejam todos nulos), então qualquer $\alpha_{0} \in \mathbb{R}$ irá satisfazer a igualdade. Logo, mesmo que $v_{1},\dots,v_{n}$ sejam linearmente independentes, ao adicionarmos o vetor nulo o conjunto de vetores se torna linearmente dependente.
+De maneira geral, sempre que tivermos o vetor nulo pertencente à lista de vetores considerado eles serão linearmente dependentes: se considerarmos $0=\alpha_{0}0+\alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}$, dados valores de $\alpha_{1},\dots,\alpha_{n}$ que satisfaçam $\alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}=0$ (mesmo que sejam todos nulos), então qualquer $\alpha_{0} \in \mathbb{R}$ irá satisfazer a igualdade. Logo, mesmo que $v_{1},\dots,v_{n}$ sejam linearmente independentes, ao adicionarmos o vetor nulo a lista de vetores se torna linearmente dependente.
+
+:::{prf:proposition}
+
+Se $v_{1},\dots,v_{n} \in V$ é linearmente dependente e $v_{1} \neq 0$, existe $i \in \{ 2,\dots,n \}$ tal que $v_{i} \in \text{span}(v_{1},\dots,v_{i-1})$. Além disso, se $v_{i}$ for removido de $v_{1},\dots,v_{n}$, o espaço gerado pela lista resultante é igual ao $\text{span}(v_{1},\dots,v_{n})$.
+
+:::
+
+:::{prf:proof}
+
+Se $v_{1},\dots v_{n}$ é linearmente dependente, então $0 = \alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}$ de modo que pelo menos um dos escalares é não nulo. Como $v_{1} \neq 0$, não podemos ter $\alpha_{2}=\alpha_{3}=\dots=\alpha_{n}=0$, (pois, nesse caso, para a igualdade valer deveríamos ter $\alpha_{1}=0$ também, logo, todos os escalares seriam nulos, uma contradição). Dessa forma, existe pelo menos um $k\in \{ 2,\dots,n \}$ tal que $\alpha_{k}\neq 0$. Seja $i$ o maior elemento em $\{ 2,\dots,n \}$ com essa propriedade, podemos escrever:
+
+$$
+v_{i}=-\frac{\alpha_{1}}{\alpha_{i}}v_{1}-\dots-\frac{\alpha_{i-1}}{\alpha_{i}}v_{i-1}
+\label{eq:prova-dependencia-linear} 
+$$
+
+(observe que, pela escolha de $i$, os escalares com índice maior que $i$ são nulos).
+
+Para a segunda parte, considere $u \in \text{span}(v_{1},\dots,v_{n})$. Logo, existem $\alpha_{1},\dots,\alpha_{n}\in \mathbb{R}$ tais que
+
+$$
+u=\alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}
+$$
+
+Substituir $v_{i}$ na equação acima pelo lado direito da equação {eq}`eq:prova-dependencia-linear` mostra que $u$ pertence ao espaço gerado pela lista resultante da remoção de $v_{i}$ de $v_{1},\dots,v_{n}$, logo, os dois espaços gerados são iguais (pois $u$ é um elemento arbitrário de $\text{span}(v_{1},\dots,v_{n})$ e, por outro lado, o espaço gerado pela lista sem $v_{i}$ está contido no espaço gerado pela lista completa).
+
+:::
+
+Esse resultado nos diz que é possível "simplificar" uma lista de vetores linearmente dependentes em uma lista linearmente independente, removendo vetores que são combinação linear de outros vetores da lista (no caso da lista conter somente o vetor nulo, a lista resultante desse processo é vazia, assumida como linearmente independente por convenção).
