@@ -82,6 +82,8 @@ são linearmente independentes. É fácil de observar que $0=\alpha_{1}(1,0,\dot
 
 :::
 
+Através da definição, verifica-se sem muita dificuldade que toda lista de vetores que está contida em uma lista linearmente independente também será linearmente independente.
+
 Naturalmente, uma lista de vetores $v_{1},\dots,v_{n} \in V$ é ***linearmente dependente*** quando não é linearmente independente. Logo, existe pelo menos um $\alpha_{i}$ não nulo de modo que $0=\alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}$.
 
 Um exemplo típico de vetores linearmente dependentes são múltiplos (quando um vetor é o outro multiplicado por um escalar).
@@ -107,6 +109,7 @@ Como temos o vetor nulo resultante de uma combinação linear entre $(1,2)$ e $(
 De maneira geral, sempre que tivermos o vetor nulo pertencente à lista de vetores considerado eles serão linearmente dependentes: se considerarmos $0=\alpha_{0}0+\alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}$, dados valores de $\alpha_{1},\dots,\alpha_{n}$ que satisfaçam $\alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}=0$ (mesmo que sejam todos nulos), então qualquer $\alpha_{0} \in \mathbb{R}$ irá satisfazer a igualdade. Logo, mesmo que $v_{1},\dots,v_{n}$ sejam linearmente independentes, ao adicionarmos o vetor nulo a lista de vetores se torna linearmente dependente.
 
 :::{prf:proposition}
+:label: prop-aux-teo-li
 
 Se $v_{1},\dots,v_{n} \in V$ é linearmente dependente e $v_{1} \neq 0$, existe $i \in \{ 2,\dots,n \}$ tal que $v_{i} \in \text{span}(v_{1},\dots,v_{i-1})$. Além disso, se $v_{i}$ for removido de $v_{1},\dots,v_{n}$, o espaço gerado pela lista resultante é igual ao $\text{span}(v_{1},\dots,v_{n})$.
 
@@ -133,4 +136,35 @@ Substituir $v_{i}$ na equação acima pelo lado direito da equação {eq}`eq:pro
 
 :::
 
-Esse resultado nos diz que é possível "simplificar" uma lista de vetores linearmente dependentes em uma lista linearmente independente, removendo vetores que são combinação linear de outros vetores da lista (no caso da lista conter somente o vetor nulo, a lista resultante desse processo é vazia, assumida como linearmente independente por convenção).
+Esse resultado nos diz que é possível reduzir uma lista de vetores linearmente dependentes em uma lista linearmente independente, removendo vetores que são combinação linear de outros vetores da lista (no caso da lista conter somente o vetor nulo, a lista resultante desse processo é vazia, assumida como linearmente independente por convenção).
+
+:::{prf:theorem} 
+
+Seja $V$ um espaço vetorial de dimensão finita, toda lista de vetores que gera $V$ tem comprimento maior ou igual a toda lista de vetores linearmente independentes em $V$. Isto é, se $\text{span}( v_{1},\dots,v_{n})=V$ e $u_{1},\dots,u_{m} \in V$ é linearmente independente, então $m \leq n$.
+
+:::
+
+:::{prf:proof}
+
+Suponha que $\text{span}(v_{1},\dots,v_{n})=V$ e $u_{1},\dots,u_{ m}$ é linearmente independente. Observe que $u_{1},v_{1},\dots,v_{n}$ ainda gera $V$ e é linearmente dependente (pois como $v_{1},\dots,v_{n}$ geram $V$, $u_{1}$ pode ser escrito como combinação linear deles). Logo, uma vez que ${} u_{1} \neq 0$ (pois ${} u_{1},\dots,u_{m}$ é linearmente independente), podemos remover um dos $v$'s de modo que a lista resultante ainda gera $V$ (utilizando [](#prop-aux-teo-li)). 
+
+A partir dessa lista resultante, continuamos o processo, fazendo o mesmo para ${} u_{2}$, ${} u_{3}$... até ${} u_{m-1} {}$. Em cada etapa, substituímos um $v$ por um $u$, com a lista resultante ainda gerando $V$. Logo, ao adicionarmos ${} u_{m}$, na $m$-ésima etapa, a lista resultante será linearmente dependente. Se não tivéssemos um $v$ para remover teríamos uma contradição, pois a lista resultante seria $u_{1},\dots,u_{m}$, que é linearmente independente. 
+
+Isso implica que devemos ter uma quantidade de $v$'s pelo menos igual a quantidade de $u$'s. Ou seja, $m \leq n$.
+
+:::
+
+A partir desses resultados também obtemos que qualquer subespaço de um espaço de dimensão finita terá, da mesma forma, dimensão finita. Como é de se esperar.
+
+### Bases
+
+A união entre os conceitos de espaço gerado e independência linear origina a ideia de *base*, central na Álgebra Linear.
+
+:::{prf:definition} Base
+
+Seja $V$ um espaço vetorial. Uma lista de vetores $v_{1},\dots,v_{n} \in V$ é uma ***base*** de $V$ se:
+
+1. Gera $V$;
+2. É linearmente independente.
+
+:::
