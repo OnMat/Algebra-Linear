@@ -71,6 +71,7 @@ Com um raciocínio análogo ao que fizemos para a soma direta, verifica-se que u
 :::
 
 :::{prf:example}
+:label: exbasecanonica
 
 Seja $n \in \mathbb{N}$, os $n$ vetores do $\mathbb{R}^{n}$ (ou seja, com $n$ entradas reais)
 
@@ -161,10 +162,79 @@ A partir desses resultados também obtemos que qualquer subespaço de um espaço
 A união entre os conceitos de espaço gerado e independência linear origina a ideia de *base*, central na Álgebra Linear.
 
 :::{prf:definition} Base
+:label: defbase
 
-Seja $V$ um espaço vetorial. Uma lista de vetores $v_{1},\dots,v_{n} \in V$ é uma ***base*** de $V$ se:
+Seja $V$ um espaço vetorial. Uma lista de vetores $v_{1},\dots,v_{n} \in V$ é uma ***base*** de $V$ se satisfaz as seguintes condições:
 
 1. Gera $V$;
 2. É linearmente independente.
+
+:::
+
+:::{prf:example} Base canônica de $\mathbb{R}^{n}$
+
+Considere os seguintes $n$ vetores de $\mathbb{R}^{n}$:
+
+$$
+(1,0,\dots,0),(0,1,0,\dots,0),\dots,(0,\dots,0,1)
+$$
+
+Como já constatado no [](#exbasecanonica), tais vetores são linearmente independentes. Além disso, observa-se facilmente que eles geram $\mathbb{R}^{n}$. Logo, formam uma base de $\mathbb{R}^{n}$. Chamamos tais vetores de ***base canônica*** de $\mathbb{R}^{n}$, pois constituem a base mais "simples" desse espaço.
+
+Ilustrando mais concretamente, a base canônica de $\mathbb{R}^{2}$ é $\{ (1,0),(0,1) \}$. Similarmente, a de $\mathbb{R}^{3}$ é $\{ (1,0,0),(0,1,0),(0,0,1) \}$.
+
+:::
+
+Veja que multiplicar os vetores da base canônica por escalares quaisquer não altera as duas propriedades que fazem deles uma base. Logo, existem infinitas bases para $\mathbb{R}^{n}$. Existem também bases formadas por vetores que não são somente múltiplos dos vetores da base canônica, como ilustra o próximo exemplo.
+
+:::{prf:example}
+:label: exemplobase
+
+$(1,2)$ e $(3,4)$ formam uma base de $\mathbb{R}^{2}$.
+
+A parte da independência linear é clara, uma vez que um vetor não é múltiplo do outro. Para mostrar que eles geram $\mathbb{R}^{2}$ consideramos um elemento qualquer desse espaço, $(x,y) \in \mathbb{R}^{2}$. Se tais vetores geram esse espaço devem existir escalares $a,b \in \mathbb{R}$ tais que:
+
+$$
+\begin{align}
+(x,y) & =a(1,2)+b(3,4) \\
+ & =(a,2a)+(3b,4b) \\
+ & =(a+3b,2a+4b)
+\end{align}
+$$
+
+Isso nos dá o seguinte sistema linear:
+
+$$
+\begin{cases}
+  a+3b & =x \\
+  2a+4b & =y
+\end{cases}
+$$
+
+Observe que, independente dos valores de $x$ e $y$, podemos determinar valores reais para $a$ e $b$ a partir deles, uma vez que as linhas não são múltiplas (consequência dos vetores associados serem linearmente independentes), impossibilitando que haja qualquer contradição para os valores de $a$ e $b$ (se as linhas fossem múltiplas, as equações só seriam simultaneamente verdadeiras se $x$ e $y$ também fossem múltiplos, pelo mesmo fator. Como não há essa restrição, encontramos soluções para qualquer $(x,y)$). Então, qualquer vetor de $\mathbb{R}^{2}$ pode ser escrito como combinação linear de $(1,2)$ e $(3,4)$, ou seja, esses vetores geram $\mathbb{R}^{2}$.
+
+:::
+
+:::{prf:example}
+
+$(1,2),(3,4)$ e $(2,4)$ não formam uma base de $\mathbb{R}^{2}$.
+
+Apesar de gerarem $\mathbb{R}^{2}$ (no exemplo anterior verificamos que $(1,2)$ e $(3,4)$ geram $\mathbb{R}^{2}$, a inclusão do vetor $(2,4)$ não muda isso), os vetores não são linearmente independentes, pois $(2,4)=2(1,2)$, falhando a segunda condição de [](#defbase).
+
+:::
+
+Esse exemplo nos dá um indício de que bases são **maximais** em relação à quantidade de vetores, pois a inclusão de um novo vetor à base do [](#exemplobase) fez com que uma das condições necessárias em [](#defbase) falhasse. De fato isso é verdadeiro, como será visto posteriormente.
+
+Antes de partirmos para as proposições e teoremas, um último exemplo ilustrando uma base de um espaço vetorial diferente do $\mathbb{R}^{n}$:
+
+:::{prf:example} Base canônica de $\mathcal{P}_{n}$
+
+$\mathcal{P}_{n}$ representa o espaço vetorial formado pelos polinômios de grau máximo $n \in \mathbb{N}$, ou seja, o conjunto dos elementos da forma
+
+$$
+a_{0}+a_{1}x+a_{2}x^{2}+\dots+a_{n}x^{n} \quad (a_{0},a_{1},\dots,a_{n} \in \mathbb{R})
+$$
+
+Os elementos $1,x,\dots,x^{n}$ formam a base canônica de $\mathcal{P}_{n}$ .
 
 :::

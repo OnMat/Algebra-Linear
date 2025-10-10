@@ -5,7 +5,7 @@ subject: Fundamentos
 
 ### Conceitos iniciais
 
-O conceito de **Espaço Vetorial** é a base onde se constrói a Álgebra Linear. Começamos com sua definição.
+O conceito de **Espaço Vetorial** é o alicerce onde se constrói a Álgebra Linear. Começamos com sua definição.
 
 :::{prf:definition} Espaço Vetorial
 :label: def-espaco-vetorial
@@ -48,6 +48,12 @@ $$
 $$
 
 Com estas operações, $\mathbb{R}^{n}$ constitui um espaço vetorial. Verifique que os axiomas do espaço vetorial são satisfeitos.
+
+:::
+
+:::{prf:remark}
+
+Nos exemplos utilizaremos principalmente o $\mathbb{R}^{n}$, mas existem outros tipos de espaços vetoriais, por exemplo, o conjunto dos polinômios de grau máximo $n \in \mathbb{N}$, denotado por $\mathcal{P_{n}}$. Alguns desses espaços serão mencionados posteriormente (como o espaço das matrizes), outros não. Tenha em mente que os resultados apresentados, no entanto, valem para qualquer espaço vetorial (caso não seja especificado o contrário).
 
 :::
 
