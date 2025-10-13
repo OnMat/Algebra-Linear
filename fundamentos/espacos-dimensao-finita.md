@@ -139,7 +139,8 @@ Substituir $v_{i}$ na equação acima pelo lado direito da equação {eq}`eq:pro
 
 Esse resultado nos diz que é possível reduzir uma lista de vetores linearmente dependentes em uma lista linearmente independente, removendo vetores que são combinação linear de outros vetores da lista (no caso da lista conter somente o vetor nulo, a lista resultante desse processo é vazia, assumida como linearmente independente por convenção).
 
-:::{prf:theorem} 
+:::{prf:theorem}
+:label: teocomprimentoentreespanebase
 
 Seja $V$ um espaço vetorial de dimensão finita, toda lista de vetores que gera $V$ tem comprimento maior ou igual a toda lista de vetores linearmente independentes em $V$. Isto é, se $\text{span}( v_{1},\dots,v_{n})=V$ e $u_{1},\dots,u_{m} \in V$ é linearmente independente, então $m \leq n$.
 
@@ -238,3 +239,79 @@ $$
 Os elementos $1,x,\dots,x^{n}$ formam a base canônica de $\mathcal{P}_{n}$ .
 
 :::
+
+:::{prf:proposition} Caracterização de bases
+
+Os vetores $v_{1},\dots,v_{n} \in V$ formam uma base de $V$ se, e somente se, todo $v \in V$ pode ser escrito de forma única como uma combinação linear entre eles. Isto é,
+
+$$
+v=\alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}
+$$
+
+com $\alpha_{1},\dots,\alpha_{n} \in \mathbb{R}$.
+
+:::
+
+:::{prf:proof}
+
+$(\implies)$ Se $v_{1},\dots,v_{n}$ é uma base de $V$, em particular, $v_{1},\dots,v_{n}$ geram $V$. Logo, para todo $v \in V$, existem $\alpha_{1},\dots,\alpha_{n} \in \mathbb{R}$ de modo que $v= \alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}$. Quanto à unicidade, se existem $\alpha_{1}',\dots,\alpha_{n}'\in \mathbb{R}$ tais que $v=\alpha_{1}'v_{1}+\dots+\alpha_{n}'v_{n}$, então
+
+$$
+0=v-v=(\alpha_{1}-\alpha_{1}')v_{1}+\dots+(\alpha_{n}-\alpha_{n}')v_{n}
+$$
+
+Pelo fato de $v_{1},\dots,v_{n}$ serem linearmente independentes (pois são uma base), devemos ter $\alpha_{1}-\alpha_{1}'=\dots=\alpha_{n}-\alpha_{n}'=0$, implicando que $\alpha_{1}=\alpha_{1}',\dots,\alpha_{n}=\alpha_{n}'$, provando que os escalares são únicos.
+
+$(\impliedby)$ A volta é direta: se todo vetor em $V$ pode ser escrito como combinação linear de $v_{1},\dots,v_{n}$ então estes vetores geram $V$. Além disso, se essa escrita é única, então o vetor nulo só pode ser escrito trivialmente, ou seja, $\alpha_{1}=\dots=\alpha_{n}=0$ e $v_{1},\dots,v_{n}$ são linearmente independentes. Logo, $v_{1},\dots,v_{n}$ formam uma base de $V$.
+
+:::
+
+:::{prf:theorem} Spans podem ser reduzidos em uma base
+:label: teoreducaobase
+
+Toda lista de vetores que geram $V$ pode ser reduzida para uma base de $V$.
+
+:::
+
+:::{prf:proof}
+
+Suponha que $v_{1},\dots,v_{n}$ geram $V$. Primeiramente, se $v_{1}= 0$ remova-o. A partir disso, uma aplicação sequencial de [](#prop-aux-teo-li) indo de $v_{2}$ até $v_{n}$, removendo os vetores que pertencem ao espaço gerado pelos anteriores, nos dará uma nova lista que ainda gera $V$ e que é agora linearmente independente, ou seja, uma base de $V$.
+
+:::
+
+Esse teorema nos garante que todo espaço vetorial de dimensão finita possui uma base, uma vez que possui uma lista finita de vetores que o gera e então podemos reduzi-la em uma base.
+
+Agora, mostramos o processo contrário ao do teorema anterior, que toda lista linearmente independente pode ser estendida em uma base, adicionando novos vetores.
+
+:::{prf:theorem} Vetores LI podem ser estendidos em uma base
+:label: teoestenderbase
+
+Toda lista de vetores de $V$ linearmente independentes pode ser estendida em uma base de $V$.
+
+:::
+
+:::{prf:proof}
+
+Sejam $v_{1},\dots,v_{n} \in V$ linearmente independentes e $u_{1},\dots,u_{m} \in V$ tais que $\text{span}( u_{1},\dots,u_{m})=V$. Começamos verificando se $u_{1}$ pertence ao $\text{span}(v_{1},\dots,v_{n})$. Se não pertencer, adicionamos-o a lista $v_{1},\dots,v_{n}$, caso contrário, não o adicionamos. Repetimos o processo para $u_{2}$, verificando se ele pertence ao espaço gerado pela nova lista (que pode ter ou não novos elementos). Fazendo isso até $u_{m}$, ao final obtemos uma lista linearmente independente (pois nenhum vetor na lista pertence ao span dos anteriores) e que gera $V$ (pois todos os $u_{i}$ pertencem ao span da nova lista, e eles geram $V$). Logo, construímos uma base de $V$.
+
+:::
+
+Um resultado similar, sobre subespaços e somas diretas, pode ser extraído a partir desse teorema: Dado um subespaço $W$ de $V$, existe outro subespaço $U$ de $V$, de modo que $V=W\oplus U$. A ideia é considerar uma base de $W$ (que existe, pelo [](#teoreducaobase)) e completá-la em uma base de $V$ usando o [](#teoestenderbase), os vetores complementares obtidos serão a base do subespaço $U$. É fácil verificar que isso nos dará $V=W\oplus U$. Note que se $W=V$, então $U=\{ 0 \}$.
+
+Por fim, um resultado que é naturalmente esperado e é importante para a definição de *dimensão*:
+
+:::{prf:theorem} Bases possuem mesmo comprimento
+
+Quaisquer duas bases de um mesmo espaço vetorial de dimensão finita possuem a mesma quantidade de vetores.
+
+:::
+
+:::{prf:proof}
+
+Sejam $B_{1} =v_{1},\dots,v_{n}$ e ${} B_{2}= u_{1},\dots,u_{m}$ bases de $V$, utilizamos o [](#teocomprimentoentreespanebase): Por um lado, $B_{1}$ é uma lista de vetores linearmente independentes em $V$ e $B_{2}$ é uma lista de vetores que gera $V$, logo, $n\leq m$. Por outro lado, invertendo os papeis de $B_{1}$ e $B_{2}$, obtemos $m\leq n$. Ou seja, $n=m$ e as bases possuem a mesma quantidade de vetores.
+
+:::
+
+### Dimensão
+
+.
