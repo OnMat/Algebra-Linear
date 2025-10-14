@@ -301,6 +301,7 @@ Um resultado similar, sobre subespaços e somas diretas, pode ser extraído a pa
 Por fim, um resultado que é naturalmente esperado e é importante para a definição de *dimensão*:
 
 :::{prf:theorem} Bases possuem mesmo comprimento
+:label: teocomprimentobase
 
 Quaisquer duas bases de um mesmo espaço vetorial de dimensão finita possuem a mesma quantidade de vetores.
 
@@ -314,4 +315,34 @@ Sejam $B_{1} =v_{1},\dots,v_{n}$ e ${} B_{2}= u_{1},\dots,u_{m}$ bases de $V$, u
 
 ### Dimensão
 
-.
+:::{prf:definition} Dimensão de um espaço vetorial
+
+Seja $V$ um espaço vetorial de dimensão finita, sua ***dimensão*** é definida como o número inteiro não negativo dado pelo comprimento de qualquer uma de suas bases (que, pelo [](#teocomprimentobase), é o mesmo para qualquer base) e é denotada por $\dim V$.
+
+:::
+
+A definição de dimensão para um espaço de "dimensão finita" parece circular, mas lembre-se que um espaço possui dimensão finita se pode ser gerado por uma lista finita de vetores, e essa definição não depende do conceito de dimensão definido agora. A necessidade de especificar que o espaço tenha dimensão finita se dá, pois, se o espaço possuir dimensão infinita, então qualquer uma de suas bases conterá infinitos elementos, logo, o conceito de "comprimento" não será mais limitado a um número real, fugindo do escopo elementar da Álgebra Linear.
+
+:::{prf:example}
+
+Como é esperado, seja $n \in \mathbb{N}$, o espaço $\mathbb{R}^{n}$ possui dimensão $n$. Por exemplo, o espaço das duplas ordenadas $\mathbb{R}^{2}=\{ (x,y)/x,y \in \mathbb{R} \}$ possui dimensão 2; o espaço das 123-uplas ordenadas, $\mathbb{R}^{123}$, possui dimensão 123...
+
+A dimensão de um espaço fica evidente quando pensamos na sua base canônica, por exemplo, $\mathcal{P}_{m}$ (polinômios de grau menor ou igual a $m$) possui dimensão $m+1$, sua base canônica é $\{ 1,x,x^{2},\dots,x^{m} \}$, que possui $m+1$ elementos.
+
+O espaço que contém somente o vetor nulo, $\{ 0 \}$, possui dimensão zero. Lembre-se que o vetor nulo não é uma base desse espaço pois, por definição, é linearmente dependente. A base do espaço nulo (ou espaço trivial) é dada pela lista vazia (ou seja, que contém zero vetores), representada por $()$ ou $\{  \}$.
+
+:::
+
+Como já mencionado, todo subespaço de um espaço de dimensão finita terá dimensão finita. Então, naturalmente, temos o seguinte resultado:
+
+:::{prf:proposition}
+
+Se $V$ é um espaço de dimensão finita e $U$ é um subespaço de $V$, então $\dim U \leq \dim V$.
+
+:::
+
+:::{prf:proof}
+
+Observe que qualquer base de $U$ é uma lista linearmente independente de vetores que também pertencem a $V$. Logo, pelo [](#teoestenderbase), pode ser estendida em uma base de $V$, o que implica que $\dim U \leq \dim V$.
+
+:::
