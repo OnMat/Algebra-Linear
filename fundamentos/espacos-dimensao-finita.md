@@ -378,3 +378,57 @@ O raciocínio é similar à proposição anterior. $(v_{1},\dots,v_{n})$ é line
 Considere os vetores do $\mathbb{R}^{2}$: $(11,237)$ e $(5,3)$. Eles são linearmente independentes (pois um não é múltiplo do outro), como $((11,237),(5,3))$ possui comprimento 2, igual a dimensão de $\mathbb{R}^{2}$, a proposição anterior nos garante que $((11,237),(5,3))$ é uma base de $\mathbb{R}^{2}$, sem precisarmos verificar que gera $\mathbb{R}^{2}$.
 
 :::
+
+O teorema a seguir nos dá uma fórmula para a dimensão da soma de dois subespaços. Observe que ela é análoga à fórmula da cardinalidade da união de dois conjuntos finitos, dada por $|A\cup B|=|A|+|B|-|A\cap B|$.
+
+:::{prf:theorem} Dimensão da soma de dois subespaços
+
+Se $V$ possui dimensão finita e $V_{1}$ e $V_{2}$ são subespaços de $V$, então
+
+$$
+\dim (V_{1}+V_{2})=\dim V_{1}+\dim V_{2} - \dim (V_{1}\cap V_{2}).
+$$
+
+:::
+
+:::{prf:proof}
+
+Começamos considerando $(v_{1},\dots,v_{n})$ uma base de $V_{1}\cap V_{2}$, logo, temos que $\dim V_{1}\cap V_{2}=n$. Observe que, por ser uma base da interseção entre $V_{1}$ e $V_{2}$, $(v_{1},\dots,v_{n})$ é uma lista de vetores linearmente independentes simultaneamente em $V_{1}$ e em $V_{2}$. Logo, podemos estender $(v_{1},\dots ,v_{n})$ para uma base $(v_{1},\dots,v_{n},u_{1},\dots,u_{i})$ de $V_{1}$, assim como para uma base $(v_{1},\dots,v_{n},w_{1},\dots,w_{j})$ de $V_{2}$ (note que cada $u_{k}$ é elemento de $V_{1}$, enquanto que cada $w_{k}$ é elemento de $V_{2}$). Daí, temos que $\dim V_{1}=n+i$ e $\dim V_{2}=n+j$. Veja que $(v_{1},\dots,v_{n},u_{1},\dots,u_{i},w_{1},\dots,w_{j})$ gera $V_{1}+V_{2}$, logo, se tal lista for linearmente independente será uma base de $V_{1}+V_{2}$, de onde teremos
+
+$$
+\begin{align}
+\dim V_{1}+V_{2} & =n+i+j \\
+ & =n+i+j+n-n  \\
+& =(n+i)+(n+j)-n \\
+ & =\dim V_{1}+\dim V_{2} - \dim (V_{1}\cap V_{2}).
+\end{align}
+$$
+
+Para mostrar que $(v_{1},\dots,v_{n},u_{1},\dots,u_{i},w_{1},\dots,w_{j})$ é linearmente independente, consideramos
+
+$$
+a_{1}v_{1}+\dots+a_{n}v_{n}+b_{1}u_{1}+\dots+b_{i}u_{i}+c_{1}w_{1}+\dots+c_{j}w_{j}=0
+\label{eq:prova-formula-dimensao}
+$$
+
+e **devemos mostrar que todos esses escalares são nulos**. Podemos reescrever a igualdade como
+
+$$
+b_{1}u_{1}+\dots+b_{i}u_{i}=-a_{1}v_{1}-\dots-a_{n}v_{n}-c_{1}w_{1}-\dots-c_{j}w_{j}.
+$$
+
+Lembrando que $(v_{1},\dots,v_{n},w_{1},\dots,w_{j})$ é uma base de $V_{2}$, essa última igualdade nos diz que $b_{1}u_{1}+\dots+b_{i}u_{i} \in V_{2}$. Por outro lado, cada $u_{k}$ está em $V_{1}$, logo, $b_{1}u_{1}+\dots+b_{i}u_{i} \in V_{1}\cap V_{2}$. Assim, utilizando a base $(v_{1},\dots,v_{n})$ de $V_{1} \cap V_{2}$, podemos escrever
+
+$$
+b_{1}u_{1}+\dots+b_{i}u_{i}=d_{1}v_{1}+\dots+d_{n}v_{n}
+$$
+
+para escalares $d_{1},\dots ,d_{n} \in \mathbb{R}$. Subtraindo o membro da direita em ambos os lados da última igualdade e lembrando que $(v_{1},\dots,v_{n},u_{1},\dots,u_{i})$ é uma base de $V_{1}$ (logo, é linearmente independente), obtemos que $b_{1}=\dots=b_{i}=d_{1}=\dots=d_{n}=0$. Em particular, os escalares $b$'s são todos nulos, logo, considerando esse fato na igualdade {eq}`eq:prova-formula-dimensao` obtemos
+
+$$
+a_{1}v_{1}+\dots+a_{n}v_{n}+c_{1}w_{1}+\dots+c_{j}w_{j}=0.
+$$
+
+Similarmente, invocamos o fato de que $(v_{1},\dots,v_{n},w_{1},\dots,w_{j})$ é uma base de $V_{2}$ e, portanto, é linearmente independente, donde obtemos que todos os escalares $a$'s e $c$'s são nulos, concluindo a demonstração.
+
+:::
