@@ -14,6 +14,7 @@ project:
       children:
         - file: fundamentos/espacos-vetoriais.md
         - file: fundamentos/espacos-dimensao-finita.md
+        - file: fundamentos/transformacoes-lineares.md
         - file: fundamentos/matrizes.md
         - file: fundamentos/transformacoes-e-matrizes.md
     - file: topicos/index.md
