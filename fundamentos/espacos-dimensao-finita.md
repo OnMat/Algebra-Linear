@@ -432,3 +432,28 @@ $$
 Similarmente, invocamos o fato de que $(v_{1},\dots,v_{n},w_{1},\dots,w_{j})$ é uma base de $V_{2}$ e, portanto, é linearmente independente, donde obtemos que todos os escalares $a$'s e $c$'s são nulos, concluindo a demonstração.
 
 :::
+
+Por fim, temos uma proposição que relaciona dimensão e soma direta.
+
+:::{prf:proposition}
+
+Sejam $U_{1},\dots,U_{n}$ subespaços de um espaço de dimensão finita $V$ tais que valem as duas condições abaixo:
+
+1. $V=U_{1}+\dots+U_{n}$ (a soma dos subespaços gera $V$);
+2. $\dim V= \dim U_{1}+\dots+\dim U_{n}$ (a dimensão de $V$ é igual a soma das dimensões dos subespaços).
+
+Então, **$V$ é soma direta desses subespaços:**
+
+$$
+V=U_{1}\oplus\dots \oplus U_{n}
+$$
+
+:::
+
+:::{prf:proof}
+
+Utilizaremos a [](#prop-caracterizacao1-de-soma-direta) do tópico anterior. Já temos que $V=U_{1}+\dots+U_{n}$ (pela condição 1), restando mostrar que $0=u_{1}+\dots+u_{n}$, com $u_{k} \in U_{k}$, implica que $u_{1}=\dots=u_{n}=0$.
+
+Considere, para cada $U_{k}$, uma base $(u_{1}^{k}\dots u_{m_{k}}^{k})$. Observe que a lista resultante da união dessas bases, dada por $(u_{1}^{1},\dots,u_{m_{1}}^{1},\dots,u_{1}^{n},\dots,u_{m_{n}}^{n})$, gera $V$ (pela condição 1 novamente) e possui comprimento igual a dimensão de $V$ (utilizando a condição 2, uma vez que o comprimento dessa lista é a soma dos comprimentos das bases de cada $U_{k}$, e o comprimento de cada base é exatamente $\dim U_{k}$). Logo, $(u_{1}^{1},\dots,u_{n_{1}}^{1},\dots,u_{1}^{n},\dots,u_{m_{n}}^{n})$ é uma base de $V$ e, em particular, é uma lista linearmente independente. Então, ao reescrevermos cada $u_{k}$ em $0=u_{1}+\dots+u_{n}$ como uma combinação linear da sua respectiva base obtemos que todos os escalares são nulos, consequentemente, cada $u_{k}$ será o vetor nulo, concluindo a demonstração.
+
+:::
