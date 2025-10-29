@@ -177,4 +177,72 @@ Assim, podemos definir transformações lineares arbitrárias de maneira bastant
  
 ### Composição/produto de transformações lineares
 
-Assim como para funções, é natural que se tenha a composição de transformações lineares.
+Assim como para funções, é natural que se tenha a composição de transformações lineares. A linearidade faz com que a composição possua algumas propriedades típicas da operação de produto, como distributividade e associatividade (mas não comutatividade, como será mostrado). Por isso, é comum também se referir a composição de transformações lineares como produto.
+
+:::{prf:definition} Composição/produto de transformações lineares
+
+Sejam $S \in \mathcal{L}(V,W)$ e $T \in \mathcal{L}(W,U)$. A ***composição*** ou ***produto*** de $T$ e $S$ é dado por $TS \in \mathcal{L}(V,U)$[^2], tal que
+
+$$
+(TS)v=T(Sv).
+$$
+
+Ou seja, dado $v \in V$, aplica-se $S$ e depois aplica-se $T$. Note que a imagem de $S$ deve pertencer ao domínio de $T$.
+
+
+
+:::
+
+[^2]: Utilizando o fato que $S$ e $T$ são lineares, é fácil verificar que $TS$ definido dessa forma será linear.
+
+Com essa definição, valem as seguintes propriedades:
+
+:::{prf:property} Associatividade
+
+Sejam $S_{1},S_{2}$ e $S_{3}$ transformações lineares tais que o produto $S_{1}S_{2}S_{3}$ está definido (ou seja, a imagem de $S_{3}$ está no domínio de $S_{2}$ e a imagem de $S_{2}$ está no domínio de $S_{1}$). Vale que
+
+$$
+(S_{1}S_{2})S_{3}=S_{1}(S_{2}S_{3}).
+$$
+
+Isto é, aplicar $S_{3}$ e depois $S_{2}$ e $S_{1}$ é o mesmo que aplicar $S_{3}$ e $S_{2}$ e depois $S_{1}$ para todos os vetores no domínio de $S_{1}S_{2}S_{3}$.
+
+:::
+
+:::{prf:property} Distributividade
+
+Sejam $S,S_{1},S_{2} \in \mathcal{L}(V,W)$ e $T,T_{1},T_{2} \in \mathcal{L}(U,V)$. Valem
+
+1. $(S_{1}+ S_{2})T=S_{1}T+S_{2}T$;
+2. $S(T_{1}+T_{2})=ST_{1}+ST_{2}$.
+
+:::
+
+:::{prf:property} Identidade
+
+Sejam $I_{v}$ a identidade em $V$, $I_{w}$ a identidade em $W$ e $T \in \mathcal{L}(V,W)$. Vale que
+
+$$
+I_{w}T=TI_{v}=T.
+$$
+
+:::
+
+Essas 3 propriedades são imediatas a partir das definições (composição, linearidade, soma de transformações e transformação identidade).
+
+Como mencionado, **não vale a comutatividade para o produto de transformações**:
+
+:::{prf:observation}
+
+Sejam $S$ e $T$ transformações lineares tais que o produto $ST$ esteja definido. Não há garantia que $ST=TS$ (mesmo que $TS$ esteja definido).
+
+:::
+
+O caso mais óbvio de que a comutatividade não é garantida é quando $TS$ não está nem mesmo definido (a imagem de $S$ não pertence ao domínio de $T$). Como exemplo de um caso em que $ST$ e $TS$ estão ambos definidos, considere $S \in \mathcal{L}(\mathbb{R}^{2},\mathbb{R}^{2})$ como a rotação do [](#exemplo-rotacao-do-plano) e $T \in \mathcal{L}(\mathbb{R}^{2},\mathbb{R}^{2})$ como a reflexão em torno do eixo x dada por $T(x,y)=(x,-y)$. Basta um vetor $v \in \mathbb{R}^{2}$ tal que $STv \neq TSv$ para que $ST \neq TS$. Geometricamente, fica clara a diferença quando consideramos o vetor $(1,0)$:
+
+:::{figure} ./videos/naocomut.mp4
+:::
+
+Algebricamente, temos que $ST(x,y)=S(x,-y)=(y,x)$, enquanto que $TS(x,y)=T(-y,x)=(-y,-x)$.
+
+### Núcleo de uma transformação
