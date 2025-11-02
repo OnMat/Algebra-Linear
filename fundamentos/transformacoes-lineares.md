@@ -28,6 +28,7 @@ Também denotaremos por $\mathcal{L}(V,W)$ o conjunto de todas as transformaçõ
 É importante destacar uma propriedade clássica de transformações lineares que é consequência direta da condição de homogeneidade:
 
 :::{prf:proposition} Transformações lineares preservam o vetor nulo
+:label: prop-transformacoes-preservam-o-vetor-nulo
 
 Seja $T \in \mathcal{L}(V,W)$. O vetor nulo de $V$ é sempre levado ao vetor nulo de $W$. Isto é,
 
@@ -245,4 +246,141 @@ O caso mais óbvio de que a comutatividade não é garantida é quando $TS$ não
 
 Algebricamente, temos que $ST(x,y)=S(x,-y)=(y,x)$, enquanto que $TS(x,y)=T(-y,x)=(-y,-x)$.
 
-### Núcleo de uma transformação
+### Núcleo de uma transformação linear
+
+O **núcleo** (comumente também referido como *kernel*) é um importante subconjunto do espaço vetorial do domínio de uma transformação linear.
+
+:::{prf:definition} Núcleo de uma transformação linear
+
+Seja $T \in \mathcal{L}(V,W)$. O ***núcleo*** de $T$, denotado por $N(T)$, é o seguinte subconjunto de $V$:
+
+$N(T)=\{ v \in V/Tv=0 \}$.
+
+Ou seja, o conjunto de vetores em $V$ que são mapeados por $T$ para o vetor nulo em $W$.
+
+:::
+
+Lembrando da [](#prop-transformacoes-preservam-o-vetor-nulo), sempre temos que $N(T) \neq \emptyset$, pois o núcleo possui como elemento, pelo menos, o vetor nulo do domínio.
+
+:::{prf:example}
+
+Seja $p \in \mathcal{P}_{n}$, um polinômio de grau máximo $n$, e $T \in \mathcal{L}(\mathcal{P}_{n},\mathcal{P}_{n-1})$ a derivada ($Tp=p'$). Sabemos, pelas regras de derivação de polinômios, que a derivada de um polinômio é nula se, e somente se, o polinômio for constante. Ou seja,
+
+$$
+N(T)=\mathcal{P}_{0}.
+$$
+
+Onde $\mathcal{P}_{0}$ é o conjunto dos polinômios de grau máximo zero, ou seja, o conjunto dos polinômios constantes, que é um subconjunto de $\mathcal{P}_{n}$, o domínio de $T$.
+
+:::
+
+Por outro lado, observe que no caso da transformação de rotação do [](#exemplo-rotacao-do-plano) é evidente que o núcleo é somente o vetor nulo (a origem do plano).
+
+Além de um subconjunto, o núcleo é também um subespaço:
+
+:::{prf:proposition} O núcleo é um subespaço
+
+Seja $T \in \mathcal{L}(V,W)$. $N(T)$ é um subespaço de $V$.
+
+:::
+
+:::{prf:proof}
+
+Uma vez que $N(T)\subseteq V$, utilizamos [](#def-subespaco). Pela [](#prop-transformacoes-preservam-o-vetor-nulo) já temos que $0 \in N(T)$. Observe que, sejam $v,w \in N(T)$, temos
+
+$$
+T(v+w)=Tv+Tw=0+0=0
+$$
+
+Logo, $v+w \in N(T)$. O núcleo é fechado na soma. Similarmente, seja $v \in N(T)$ e $\alpha \in \mathbb{R}$, temos
+
+$$
+T(\alpha v)=\alpha Tv=\alpha \cdot 0=0
+$$
+
+Portanto, o núcleo é fechado na multiplicação por escalar. Consequentemente, $N(T)$ é um subespaço de $V$.
+
+:::
+
+#### Injetividade
+
+O conceito de **injetividade**, assim como para funções, também vale para transformações lineares.
+
+:::{prf:definition} Injetividade
+
+Seja $T\in \mathcal{L}(V,W)$. Dizemos que $T$ é ***injetiva*** se para todo $v,w \in V$, sempre que $Tv=Tw$ tivermos $v=w$.
+
+:::
+
+Essa definição de injetividade é basicamente a mesma da usual para funções. Quer dizer que $T$, quando é injetiva, mapeia elementos distintos do domínio em elementos distintos do contradomínio.
+
+A grande diferença em relação à injetividade usual de funções é, no caso de transformações lineares, como essa propriedade se relaciona com o núcleo:
+
+:::{prf:proposition}
+
+Seja $T\in \mathcal{L}(V,W)$. $T$ é injetiva se, e somente se, $N(T)=\{ 0 \}$.
+
+:::
+
+:::{prf:proof}
+
+$(\implies)$ Seja $T$ injetiva e $v \in N(T)$. Temos que $Tv=0=T0$. Logo, pela injetividade de $T$, $v=0$. Portanto, o único elemento no núcleo de $T$ é o vetor nulo: $N(T)=\{ 0 \}$.
+
+$(\impliedby)$ Seja $N(T)=\{ 0 \}$ e $v,w \in V$ tais que $Tv = Tw$. Temos,
+
+$$
+\begin{align}
+T(v-w) & =Tv-Tw \\
+ & =0.
+\end{align}
+$$
+
+Ou seja, $v-w \in N(T)$. Consequentemente, uma vez que $N(T)=\{ 0 \}$, $v-w = 0$, donde temos $v=w$. Logo, $T$ é injetiva.
+
+:::
+
+### Imagem de uma transformação linear
+
+Para transformações lineares, o conceito de **imagem** é análogo ao usual para funções.
+
+:::{prf:definition} Imagem de uma transformação linear
+
+Seja $T\in \mathcal{L}(V,W)$. A ***imagem*** de $T$, denotada por $\text{Im}(T)$, é o seguinte subconjunto de $W$:
+
+$$
+\text{Im}(T)=\{ Tv/v \in V \}.
+$$
+
+:::
+
+:::{prf:example}
+
+Mais uma vez considerando o exemplo da derivada, se $T \in \mathcal{L}(\mathcal{P}_{n},\mathcal{P_{n-1}})$ com $Tp=p'$, é evidente que $\mathrm{Im}(T)=\mathcal{P_{n-1}}$ (lembre-se que todo polinômio é integrável. Logo, para todo elemento $q$ em $\mathcal{P}_{n-1}$ existe um elemento $p$ em $\mathcal{P}_{n}$ tal que $p'=Tp=q$).
+
+:::
+
+Assim como no caso do núcleo, a imagem de uma transformação linear também é um subespaço, agora do contradomínio.
+
+:::{prf:proposition} A imagem é um subespaço
+
+Seja $T\in \mathcal{L}(V,W)$. $\mathrm{Im}(T)$ é um subespaço de $W$.
+
+:::
+
+:::{prf:proof}
+
+Utilizamos a [](#def-subespaco) novamente. Como $T0=0$, temos que $0 \in \mathrm{Im}(T)$. Sejam $Tv,Tw \in \mathrm{Im}(T)$, observe que
+
+$$
+Tv+Tw=T(v+w),\;\text{para }v,w \in V.
+$$
+
+Logo, $Tv+Tw \in \mathrm{Im}(T)$ (lembre-se que $v+w \in V$ e $T$ está definida para todos os elementos em $V$). Além disso, seja $\alpha \in \mathbb{R}$,
+
+$$
+\alpha Tv=T(\alpha v).
+$$
+
+Mostrando que $\alpha Tv \in \mathrm{Im}(T)$ também. Logo, $\mathrm{Im}(T)$ é um subespaço de $W$.
+
+:::
