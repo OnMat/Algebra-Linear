@@ -354,6 +354,7 @@ $$
 :::
 
 :::{prf:example}
+:label: exemplo-sobrejeitividade
 
 Mais uma vez considerando o exemplo da derivada, se $T \in \mathcal{L}(\mathcal{P}_{n},\mathcal{P_{n-1}})$ com $Tp=p'$, é evidente que $\mathrm{Im}(T)=\mathcal{P_{n-1}}$ (lembre-se que todo polinômio é integrável. Logo, para todo elemento $q$ em $\mathcal{P}_{n-1}$ existe um elemento $p$ em $\mathcal{P}_{n}$ tal que $p'=Tp=q$).
 
@@ -384,3 +385,75 @@ $$
 Mostrando que $\alpha Tv \in \mathrm{Im}(T)$ também. Logo, $\mathrm{Im}(T)$ é um subespaço de $W$.
 
 :::
+
+#### Sobrejetividade
+
+Do mesmo modo que com a injetividade, o conceito de sobrejetividade para transformações lineares também é análogo ao de funções.
+
+:::{prf:definition} Sobrejetividade
+
+Seja $T\in \mathcal{L}(V,W)$. $T$ é ***sobrejetiva*** quando $\mathrm{Im}(T)=W$.
+
+:::
+
+A transformação do [](#exemplo-sobrejeitividade) é sobrejetiva. Veja que, no entanto, **a sobrejetividade depende do espaço considerado no contradomínio**. Poderíamos, nesse mesmo exemplo, considerar o contradomínio como $\mathcal{P}_{n}$ ao invés de $\mathcal{P}_{n-1}$, sem alterar de fato a transformação. Mas, nesse caso, ela não seria sobrejetiva. 
+
+### Teorema do Núcleo e Imagem
+
+Os conceitos de núcleo e imagem de transformações lineares se unem em um dos principais resultados da Álgebra Linear, que diz que dada uma transformação, a dimensão de seu domínio é sempre igual a dimensão de seu núcleo mais a dimensão de sua imagem. Lembramos que os espaços considerados possuem dimensão finita.
+
+:::{prf:theorem} Teo. do núcleo e imagem
+:label: teo-nucleo-imagem
+
+Seja $T \in \mathcal{L}(V,W)$. Então,
+
+$$
+\dim V=\dim N(T)+\dim \mathrm{Im}(T).
+$$
+
+:::
+
+:::{prf:proof}
+
+Começamos considerando uma base $(u_{1},\dots,u_{n})$ de $N(T)$. Logo, $\dim N(T)=n$. Então, podemos estender essa base de $N(T)$ (que é uma lista linearmente independente de vetores em $V$) em uma base de $V$: $(u_{1},\dots,u_{n},w_{1},\dots,w_{m})$. Donde temos que $\dim V=n+m$. A partir disso, basta provarmos que $\dim \mathrm{Im}(T)=m$; em particular, provaremos que $(Tw_{1},\dots,Tw_{m})$ é uma base de $\mathrm{Im}(T)$.
+
+Primeiro, devemos mostrar que $(Tw_{1},\dots,Tw_{m})$ gera $\mathrm{Im}(T)$. Seja $Tv \in \mathrm{Im}(T)$, para algum $v \in V$, temos que (uma vez que $(u_{1},\dots,u_{n},w_{1},\dots,w_{m})$ é uma base de $V$)
+
+$$
+v  =\alpha_{1}u_{1}+\dots+\alpha_{n}u_{n}+\beta_{1}w_{1}+\dots+\beta_{m}w_{m},\; \alpha_{i},\beta_{i} \in \mathbb{R}.
+$$
+
+Ao aplicarmos $T$ em ambos os lados dessa igualdade, obtemos (considerando que $(u_{1},\dots,u_{n})$ é uma base de $N(T)$, logo, $Tu_{i}=0$)
+
+$$
+Tv=\beta_{1}Tw_{1}+\dots+\beta_{m}Tw_{m}.
+$$
+
+Como $Tv$ é um elemento arbitrário de $\mathrm{Im}(T)$ e pode ser escrito como combinação linear de $(Tw_{1},\dots,Tw_{m})$, então $(Tw_{1},\dots,Tw_{m})$ gera $\mathrm{Im}(T)$.
+
+Para mostrar que $(Tw_{1},\dots,Tw_{m})$ é linearmente independente. Considere $c_{1},\dots,c_{m} \in \mathbb{R}$ tais que
+
+$$
+c_{1}Tw_{1}+\dots+c_{m}Tw_{m}=0.
+\label{eq:Twi-li}
+$$
+
+Então, utilizando a linearidade de $T$,
+
+$$
+T(c_{1}w_{1}+\dots+c_{m}w_{m})=0.
+$$
+
+O que nos diz que $c_{1}w_{1}+\dots+c_{m}w_{m} \in N(T)$. Logo, $c_{1}w_{1}+\dots+c_{m}w_{m}$ pode ser escrito como combinação linear da base $(u_{1},\dots,u_{n})$ de $N(T)$:
+
+$$
+c_{1}w_{1}+\dots+c_{m}w_{m}=d_{1}u_{1}+\dots+d_{n}u_{n},\;d_{i} \in \mathbb{R}.
+$$
+
+Por outro lado, $(u_{1},\dots,u_{n},w_{1},\dots,w_{m})$ é uma base de $V$ e, em particular, é linearmente independente. Portanto, nesta última igualdade temos $c_{1}=\dots=c_{m}=d_{1}=\dots=d_{n}=0$. Voltando à igualdade {eq}`eq:Twi-li`, temos então que $(Tw_{1},\dots,Tw_{m})$ é linearmente independente e, logo, uma base de $\mathrm{Im}(T)$, como queríamos mostrar.
+
+:::
+
+A maneira como é feita a demonstração nos revela um panorama geral desse resultado que vai além da igualdade numérica entre as dimensões: dada uma transformação linear, podemos obter uma base do espaço vetorial do domínio formada pela concatenação de uma base do núcleo e uma base da imagem dessa transformação. É como se dividíssemos o espaço do domínio em duas partes em relação à transformação considerada, uma é mapeada no vetor nulo do contradomínio enquanto a outra gera a imagem.
+
+Os próximos corolários ilustram parte da importância do [](#teo-nucleo-imagem). Quando o unimos aos conceitos de injetividade e sobrejetividade, podemos obter informações importantes acerca da transformação linear apenas relacionando as dimensões dos espaços vetoriais envolvidos.
