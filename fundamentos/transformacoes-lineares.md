@@ -317,6 +317,7 @@ Essa definição de injetividade é basicamente a mesma da usual para funções.
 A grande diferença em relação à injetividade usual de funções é, no caso de transformações lineares, como essa propriedade se relaciona com o núcleo:
 
 :::{prf:proposition}
+:label: prop-injetividade
 
 Seja $T\in \mathcal{L}(V,W)$. $T$ é injetiva se, e somente se, $N(T)=\{ 0 \}$.
 
@@ -457,3 +458,50 @@ Por outro lado, $(u_{1},\dots,u_{n},w_{1},\dots,w_{m})$ é uma base de $V$ e, em
 A maneira como é feita a demonstração nos revela um panorama geral desse resultado que vai além da igualdade numérica entre as dimensões: dada uma transformação linear, podemos obter uma base do espaço vetorial do domínio formada pela concatenação de uma base do núcleo e uma base da imagem dessa transformação. É como se dividíssemos o espaço do domínio em duas partes em relação à transformação considerada, uma é mapeada no vetor nulo do contradomínio enquanto a outra gera a imagem.
 
 Os próximos corolários ilustram parte da importância do [](#teo-nucleo-imagem). Quando o unimos aos conceitos de injetividade e sobrejetividade, podemos obter informações importantes acerca da transformação linear apenas relacionando as dimensões dos espaços vetoriais envolvidos.
+
+:::{prf:corollary}
+
+Sejam $V$ e $W$ espaços vetoriais tais que $\dim V > \dim W$. Então não existe transformação linear de $V$ para $W$ que seja injetiva.
+
+:::
+
+:::{prf:proof}
+
+Pela [](#prop-injetividade), uma transformação é injetiva se, e somente se, a dimensão do seu núcleo é zero. Seja $T\in \mathcal{L}(V,W)$, utilizando o [](#teo-nucleo-imagem) temos que  
+
+$$
+\dim N(T)=\dim V - \dim\mathrm{Im}(T).
+$$
+
+Considerando que $\dim V > \dim W \geq \dim \mathrm{Im}(T)$ (lembre-se que $\mathrm{Im}(T)$ é um subespaço de $W$), obtemos que $\dim N(T)>0$. Logo, $T$ (uma transformação arbitrária de $V$ para $W$) não pode ser injetiva.
+
+:::
+
+:::{prf:corollary}
+
+Sejam $V$ e $W$ espaços vetoriais tais que $\dim V < \dim W$. Então não existe transformação linear de $V$ para $W$ que seja sobrejetiva.
+
+:::
+
+:::{prf:proof}
+
+Seja $T \in \mathcal{L}(V,W)$, $T$ é sobrejetiva quando $\mathrm{Im}(T)=W$ (pela def. de sobrejetividade). Logo, $T$ é sobrejetiva quando $\dim \mathrm{Im}(T)=\dim W$. Utilizando o [](#teo-nucleo-imagem), temos
+
+$$
+\dim \mathrm{Im}(T)=\dim V - \dim N(T).
+$$
+
+Observe que o lado direito da equação valerá no máximo $\dim V$ (quando $T$ é injetiva e $\dim N(T)=0$). No entanto, $\dim V < \dim W$, donde obtemos que, $\dim \mathrm{Im}(T)<\dim W$, em todo caso. Portanto, $T$ (uma transformação linear arbitrária de $V$ para $W$) não pode ser sobrejetiva.
+
+:::
+
+É fácil visualizarmos esses dois corolários se fizermos uma analogia com dois conjuntos finitos, em que um possui mais elementos que o outro. Claramente, não existe uma função que mapeia os elementos do conjunto menor para todos os elementos do conjunto maior (seria necessário que um mesmo elemento no domínio fosse mapeado para mais de um elemento no contradomínio, deixando de ser uma função). Da mesma forma, não existe uma função que mapeia cada elemento do conjunto maior para elementos distintos do conjunto menor, ao menos um elemento do contradomínio tem que ser a imagem de mais de um elemento do domínio (princípio da casa dos pombos). No caso dos espaços vetoriais, apesar de conterem infinitos elementos (com exceção do espaço trivial $\{ 0 \}$), a dimensão é como o seu "tamanho".
+
+### Invertibilidade e isomorfismo
+
+:::{prf:definition} Inversa
+
+Seja $T \in \mathcal{L}(V,W)$. $T$ é ***invertível*** se existe uma transformação $S \in \mathcal{L}(W,V)$ tal que $ST=I$ (identidade em $V$) e $TS=I$ (identidade em $W$). Se existir, tal transformação $S$ é chamada de ***inversa*** de $T$.
+
+:::
+
