@@ -17,6 +17,7 @@ project:
         - file: fundamentos/transformacoes-lineares.md
         - file: fundamentos/matrizes.md
         - file: fundamentos/transformacoes-e-matrizes.md
+        - file: fundamentos/autovetores.md
     - file: topicos/index.md
       children:
         - file: topicos/operadores-auto-adjuntos.md

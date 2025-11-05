@@ -126,6 +126,7 @@ Observe que, nessa ilustração, os vetores $\vec{v_{1}}$ e $\vec{v_{3}}$ formam
 Até agora, com os exemplos dados, vimos transformações lineares definidas como estamos acostumados com funções: uma regra/fórmula que atribui a cada vetor do domínio um vetor no contradomínio. Acontece que, no caso de uma transformação linear,  ao escolhermos uma base do domínio podemos defini-la completamente somente pelas imagens dos vetores que compõem essa base, sem necessariamente saber qual regra a transformação aplica a um vetor genérico do domínio (mas podemos obtê-la, se quisermos). Tal fato é uma consequência natural das propriedades de uma base e da linearidade da transformação, como evidenciado abaixo.
 
 :::{prf:observation}
+:label: determinacao-de-transformacao
 
 Seja $T \in \mathcal{L}(V,W)$ e $(v_{1},\dots,v_{n})$ uma base de $V$. Veja que $T$ é inteiramente determinada pelas imagens de cada $v_{i}$, isto é, $Tv_{i}=w_{i} \in W$: Seja $v \in V$, $v$ pode ser escrito **de maneira única** como $v= a_{1}v_{1}+\dots+a_{n}v_{n}$, para $a_{i} \in \mathbb{R}$. Logo, 
 
@@ -500,8 +501,156 @@ Observe que o lado direito da equação valerá no máximo $\dim V$ (quando $T$ 
 ### Invertibilidade e isomorfismo
 
 :::{prf:definition} Inversa
+:label: def-inversa
 
 Seja $T \in \mathcal{L}(V,W)$. $T$ é ***invertível*** se existe uma transformação $S \in \mathcal{L}(W,V)$ tal que $ST=I$ (identidade em $V$) e $TS=I$ (identidade em $W$). Se existir, tal transformação $S$ é chamada de ***inversa*** de $T$.
 
 :::
 
+Observe que a inversa é única, pois se $S$ e $S'$ são inversas de $T$, então
+
+$$
+S=SI=S(TS')=(ST)S'=IS'=S'.
+$$
+
+Denotaremos a inversa de uma transformação $T$ como ${} T^{-1} {}$.
+
+:::{prf:proposition} Caracterização da inversa
+:label: caracterizacao-da-inversa
+
+Uma transformação linear é invertível se, e somente se, é injetiva e sobrejetiva.
+
+:::
+
+:::{prf:proof}
+
+$(\implies)$ Seja $T \in \mathcal{L}(V,W)$ invertível. Para provar a injetividade, considere $v,u \in V$ tais que $Tv=Tu$. Utilizando a inversa, é imediato que
+
+$$
+v=Iv=T^{-1}Tv=T^{-1}Tu=Iu=u.
+$$
+
+Logo, $T$ é injetiva. Para a sobrejetividade, seja $w \in W$, temos que
+
+$$
+w=Iw=T(T^{-1}w).
+$$
+
+Mostrando que $T$ é sobrejetiva.
+
+$(\impliedby)$ Seja $T \in \mathcal{L}(V,W)$ injetiva e sobrejetiva. Para mostrar que $T$ é invertível, é suficiente mostrar que existe uma transformação linear $S$ que satisfaz as propriedades da inversa (conforme [](#def-inversa)), sendo então $S$ = $T^{-1}$.
+
+Observe que para todo $w \in W$, existe um único $v$ em $V$ tal que $Tv=w$, como consequência da bijetividade de $T$. Logo, defina $Sw=v$, tal que $Tv=w$. Então, $TSw=w,\;\forall w \in W$, mostrando que $TS$ é a identidade em $W$. Agora, seja $v \in V$,
+
+$$
+T(STv)=(TS)Tv=ITv=Tv.
+$$
+
+Pela injetividade de $T$, obtemos que $STv=v$. Como $v$ é um vetor arbitrário de $V$, temos que $ST$ é a identidade em $V$.
+
+Note que a prova ainda não está concluída, uma vez que não mostramos que a função/transformação $S$ definida é linear. Para isso, considere $w_{1},w_{2} \in W$. Então,
+
+$$
+T(Sw_{1}+Sw_{2})=TSw_{1}+TSw_{2}=w_{1}+w_{2}.
+$$
+
+Novamente pela injetividade de $T$, $Sw_{1}+Sw_{2}$ é o único elemento em $V$ que $T$ mapeia para $w_{1}+w_{2}$. Logo, pela definição de $S$, 
+
+$$
+S(w_{1}+w_{2})=Sw_{1}+Sw_{2}.
+$$
+
+Mostrando a propriedade de aditividade de $S$. 
+
+Similarmente, seja $\alpha \in \mathbb{R}$ e $w \in W$, pela homogeneidade de $T$ temos
+
+$$
+T(\alpha Sw)=\alpha TSw=\alpha w.
+$$
+
+Concluindo que $S(\alpha w)=\alpha Sw$, portanto $S$ é linear e $S=T^{-1}$ (pela unicidade da inversa). Em particular, $T$ é invertível.
+:::
+
+A definição seguinte traz um importante conceito, que associa dois espaços vetoriais.
+
+:::{prf:definition} Isomorfismo
+:label: def-isomorfismo
+
+Sejam $V$ e $W$ espaços vetoriais, se existe $T\in \mathcal{L}(V,W)$ tal que $T$ é invertível, dizemos que $V$ e $W$ são ***isomorfos*** e que tal $T$ é um ***isomorfismo*** entre $V$ e $W$.
+
+:::
+
+Veja que quando dois espaços são isomorfos, o fato de existir uma transformação invertível (logo, bijetiva) implica que existe uma associação *um-pra-um* (ou biunívoca) entre os espaços. Então, é como se um espaço fosse "equivalente" ao outro.[^3] O teorema abaixo dá uma caracterização mais forte para isso.
+
+[^3]: A palavra isomorfo, do grego, significa "mesma forma".
+
+:::{prf:theorem} 
+
+Dois espaços vetoriais são isomorfos se, e somente se, possuem mesma dimensão.
+
+:::
+
+:::{prf:proof}
+
+$(\implies)$ Suponha que $V$ e $W$ são dois espaços isomorfos. Logo, existe uma transformação linear $T$ de $V$ para $W$ tal que $T$ é invertível. Logo, por [](#caracterizacao-da-inversa), temos que $\dim N(T)= 0$ ($T$ é injetiva) e ${} \dim \mathrm{Im}(T)=\dim W {}$ ($T$ é sobrejetiva). Portanto, substituindo no [](#teo-nucleo-imagem), obtemos
+
+$$
+\dim V = \dim W.
+$$
+
+$(\impliedby)$ Suponha que $\dim V = \dim W$ e considere as bases $(v_{1},\dots,v_{n})$ e $(w_{1},\dots,w_{n})$ de $V$ e $W$, respectivamente. Seja $v \in V$, podemos escrever $v=a_{1}v_{1}+\dots+a_{n}v_{n}$ para $a_{i} \in \mathbb{R}$. A partir disso, definimos a transformação linear $T \in \mathcal{L}(V,W)$ como
+
+$$
+Tv=T(a_{1}v_{1}+\dots+a_{n}v_{n})=a_{1}w_{1}+\dots+a_{n}w_{n}.
+$$
+
+Isto é, $Tv_{i}=w_{i}$ (lembre-se de [](#determinacao-de-transformacao)). Observe que $T$ é sobrejetiva, pois seja $w= b_{1}w_{1}+\dots+b_{n}w_{n} \in W$, basta escolher $v=b_{1}v_{1}+\dots+b_{n}v_{n}$ que tem-se $Tv=w$. Além disso, se $v= a_{1}v_{1}+\dots+a_{n}v_{n} \in V$ é tal que $Tv=0$, então
+
+$$
+Tv=T(a_{1}v_{1}+\dots+a_{n}v_{n})=a_{1}Tv_{1}+\dots+a_{n}Tv_{n}=a_{1}w_{1}+\dots+a_{n}w_{n}=0.
+$$
+
+O fato de $(w_{1},\dots,w_{n})$ ser uma base e, em particular, linearmente independente implica que $a_{1}=\dots=a_{n}=0$. Logo, temos $v=0$, o que quer dizer que $N(T)=\{ 0 \}$ (pois o $v$ considerado é um elemento arbitrário tal que $Tv=0$, isto é, um elemento de $N(T)$), ou seja, $T$ é injetiva.
+
+Portanto, $T$ é injetiva e sobrejetiva, logo, é invertível. Sendo assim, $V$ e $W$ são isomorfos ([](#def-isomorfismo)).
+
+:::
+
+A transformação $T$ definida na segunda parte da demonstração mostra uma associação biunívoca entre espaços isomorfos. Associamos a cada $v_{i}$ de uma base de $V$ um $w_{i}$ de uma base de $W$, o que é possível porque, como mostrado, as dimensões são iguais. Ao fazermos essa associação entre as bases, automaticamente estamos fazendo o mesmo para todos os vetores dos espaços (mesmo que sejam infinitos).
+
+Por fim, analisamos as condições de invertibilidade para o caso especial em que $T \in \mathcal{L}(V,V)$ (uma transformação linear de um espaço $V$ para ele mesmo). Transformações desse tipo são chamadas de ***operadores*** e denotamos $T \in \mathcal{L}(V)$, por simplicidade. [^4]
+
+[^4]: Operadores serão tratados com mais especificidade no tópico de **Autovetores e Autovalores**.
+
+O resultado abaixo é um grande facilitador quando lidamos com invertibilidade de operadores.
+
+:::{prf:theorem} Injetividade, sobrejetividade e invertibilidade são equivalentes em operadores
+
+Se $T \in \mathcal{L}(V)$, as afirmações seguintes são equivalentes:
+
+1. $T$ é invertível;
+2. $T$ é injetiva;
+3. $T$ é sobrejetiva.
+
+:::
+
+:::{prf:proof}
+
+Já diretamente, temos que 1 implica 2 (pela [](#caracterizacao-da-inversa
+)). Suponha que vale 2, logo, $\dim N(T)=0$ e pelo [](#teo-nucleo-imagem) temos
+
+$$
+\dim V = \dim \mathrm{Im}(T).
+$$
+
+Uma vez que $\mathrm{Im}(T) \subseteq V$ e vale a igualdade entre as dimensões acima, necessariamente devemos ter $\mathrm{Im}(T)=V$, isto é, $T$ é sobrejetiva. Mostrando que 2 implica 3.
+
+Se vale 3, temos $\dim \mathrm{Im}(T)=\dim V$. Utilizando o [](#teo-nucleo-imagem) novamente temos
+
+$$
+\dim N(T)=\dim V - \dim \mathrm{Im}(T)=0
+$$
+
+Ou seja, $T$ é injetiva. Uma vez que foi assumido 3, $T$ é injetiva e sobrejetiva, então $T$ é invertível, mostrando que 3 implica 1. A circularidade das implicações (1 $\implies$ 2 $\implies$ 3 $\implies$ 1) mostra a equivalência das afirmações (se vale uma, valem as outras duas).
+
+:::
