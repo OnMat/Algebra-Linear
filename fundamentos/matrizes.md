@@ -3,7 +3,9 @@ title: Matrizes
 subject: Fundamentos
 ---
 
-O tópico seguinte a este é um ponto extremamente importante no estudo da Álgebra Linear, pois mostra como matrizes e transformações lineares estão intimamente relacionadas. Mas antes, devemos definir e relembrar alguns fatos acerca de matrizes.
+É difícil destacar o tamanho da importância das matrizes na Álgebra Linear, elas fornecem uma maneira extremamente prática de representar e condensar informações sobre transformações lineares, além de uma grande ferramente computacional.
+
+As matrizes possuem toda uma fundamentação teórica e são objetos de estudo da Álgebra Linear tanto quanto transformações lineares e espaços vetoriais (e estão intimamente conectadas com estes conceitos). No entanto, visando uma abordagem mais simplificada, definiremos as matrizes e suas principais propriedades de maneira paralela e depois mostraremos a conexão delas com transformações lineares (no tópico subsequente a este). Um abordagem mais teórica, que pode ser encontrada em muitos livros, consiste em construir o conceito de matriz já diretamente a partir de transformações lineares, com a vantagem principal de que as operações de soma e produto serão consequências dessa construção, parecendo menos arbitrárias em relação à abordagem adotada aqui.
 
 :::{prf:definition} Matriz
 
@@ -287,7 +289,7 @@ Mais uma vez, a  matriz identidade também recai nessa categoria. Havíamos cons
 
 ### Determinante
 
-O determinante é uma das principais ferramentas quando lidamos com matrizes quadradas (que cumprem um papel central na Álgebra Linear, veja o tópico de Operadores Lineares), fornecendo informações acerca da matriz, como invertibilidade, além de ser utilizado em aspectos computacionais. Para os propósitos dessa seção, iremos apenas enunciar como calculá-lo para matrizes de dimensões $2\times2$ e $3\times 3$, além de algumas propriedades importantes.
+O determinante é uma das principais ferramentas quando lidamos com matrizes quadradas, fornecendo informações acerca da matriz, como invertibilidade, além de ser utilizado em aspectos computacionais. Para os propósitos dessa seção, iremos apenas enunciar como calculá-lo para matrizes de dimensões $2\times2$ e $3\times 3$, além de algumas propriedades importantes.
 
 :::{prf:remark} Cálculo do determinante
 
@@ -360,7 +362,7 @@ Seja $A$ uma matriz quadrada, então $A$ é invertível (existe a matriz $A^{-1}
 
 :::
 
-Essa relação entre a invertibilidade de uma matriz e seu determinante ser não nulo fica mais clara quando vemos que uma divisão pelo determinante aparece nas fórmulas utilizadas para se calcular a inversa. A justificativa teórica, no entanto, requer uma fundamentação acerca de *formas multilineares alternadas*, um tópico mais avançado da Álgebra Linear (contudo, parte dessa justificativa pode ser entendida ao se estudar as condições para que um operador linear seja invertível e a relação do determinante com o núcleo de um operador linear, veja o tópico de Operadores Lineares).
+Essa relação entre a invertibilidade de uma matriz e seu determinante ser não nulo fica mais clara quando vemos que uma divisão pelo determinante aparece nas fórmulas utilizadas para se calcular a inversa. A justificativa teórica, no entanto, requer uma fundamentação acerca de *formas multilineares alternadas*, um tópico mais avançado da Álgebra Linear (contudo, parte dessa justificativa pode ser entendida ao se estudar as condições para que um operador linear seja invertível, tratadas no tópico Transformações Lineares, e a relação do determinante com o núcleo do operador linear associado).
 
 Por fim, algumas outras propriedades:
 
