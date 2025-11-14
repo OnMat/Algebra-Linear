@@ -30,3 +30,37 @@ Em um caso menos óbvio, mas ainda fácil de enxergar, se $T \in \mathcal{L}(\ma
 ### Autovetores e autovalores
 
 O estudo dos autovetores e autovalores se inicia com o enfoque em subespaços invariantes de dimensão 1.
+
+:::{prf:remark} Formato de subespaços de dimensão 1
+
+Pelas definições de dimensão e base, um subespaço de dimensão 1 consiste no conjunto dos múltiplos escalares de um vetor não nulo. Seja $v \in V$ um vetor não nulo, o conjunto $U=\{ \alpha u: \alpha \in \mathbb{R} \}$ é um subespaço de dimensão 1, e todo subespaço de $V$de dimensão 1 será dessa forma para algum $v \in V$ não nulo.
+
+:::
+
+Veja que se um subespaço $U \subseteq V$ de dimensão 1 é invariante sobre $T \in \mathcal{L}(V)$ e $u \in V$ é uma base desse subespaço, então $Tu$ deve corresponder a um múltiplo escalar de $u$. Ou seja,
+
+$$
+Tu=\lambda u, \quad \lambda \in \mathbb{R}.
+$$
+
+Reciprocamente, se $u \in V$ é não nulo e tal que $Tu = \lambda u$, para algum $\lambda \in \mathbb{R}$, então o subespaço $U=\{ \alpha u: \alpha \in \mathbb{R} \}$ é um subespaço invariante de dimensão 1 com relação à $T$.
+
+Essa noção nos leva à seguinte definição:
+
+:::{prf:definition} Autovetor e autovalor
+
+Sejam $T \in \mathcal{L}(V)$ e $v \in V$, com $v$ não nulo. Se existe $\lambda \in \mathbb{R}$ tal que 
+
+$$
+Tv=\lambda v,
+$$
+
+então $v$ é dito um ***autovetor*** de $T$. O escalar $\lambda$ é chamado de ***autovalor*** associado a $v$.
+
+:::
+
+Chamamos o subespaço invariante de dimensão 1 gerado por $v$ de ***autoespaço***. Note que todo vetor pertencente ao autoespaço de $v$ (ou seja, os múltiplos de $v$) também será um autovetor associado ao mesmo autovalor $\lambda$. Se pensarmos no caso do $\mathbb{R}^{n}$, todo autoespaço de um operador linear corresponde a uma reta (a gerada pelo autovetor correspondente) que é preservada (mantida no lugar) com a aplicação do operador. 
+
+Observe também que não é feita nenhuma restrição em relação ao valor de $\lambda$. Em particular, quando existem autovetores associados ao autovalor $\lambda=0$, o operador não será invertível, pois o seu núcleo é não trivial (lembre-se que autovetores são não nulos por definição).
+
+Um exemplo trivial de autovetores e autovalores provém do operador identidade, $I \in \mathcal{L}(V)$. Para todo $v \in V$ temos $Iv=v$, logo, todo vetor do espaço $V$ é um autovetor de $I$, com autovalor associado igual a 1.
