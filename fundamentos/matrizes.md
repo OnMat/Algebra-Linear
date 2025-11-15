@@ -357,6 +357,7 @@ obtendo $\det(B)=(1\cdot5 \cdot 9)+(2 \cdot 6 \cdot 7) + (3 \cdot 4 \cdot 8) - (
 :::
 
 :::{prf:theorem} Invertibilidade de uma matriz
+:label: teo-invertibilidade-matriz
 
 Seja $A$ uma matriz quadrada, então $A$ é invertível (existe a matriz $A^{-1}$) se, e somente se, $\det(A)\neq 0$.
 

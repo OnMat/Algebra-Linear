@@ -625,6 +625,7 @@ Por fim, analisamos as condições de invertibilidade para o caso especial em qu
 O resultado abaixo é um grande facilitador quando lidamos com invertibilidade de operadores.
 
 :::{prf:theorem} Injetividade, sobrejetividade e invertibilidade são equivalentes em operadores
+:label: teo-invertibilidade-em-operadores
 
 Se $T \in \mathcal{L}(V)$, as afirmações seguintes são equivalentes:
 
