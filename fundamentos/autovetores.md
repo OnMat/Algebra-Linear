@@ -88,7 +88,7 @@ A última igualdade nos diz que $v$ está no núcleo do operador $(T-\lambda I)$
 
 É através dessa observação e do [](#teo-invertibilidade-matriz) que encontramos/calculamos os autovetores e autovalores de um operador linear (lembre-se que [toda transformação linear está associada a uma matriz](./transformacoes-e-matrizes.md)).
 
-:::{prf:example}
+:::{prf:example} Encontrando os autovalores e autovetores de um operador
 
 Considere o operador linear do $\mathbb{R}^{2}$ dado pela seguinte matriz (na base canônica):
 
@@ -157,11 +157,11 @@ $$
 \end{cases}
 $$
 
-um sistema possível e indeterminado (é natural que isso ocorra, pois como vimos, todos os múltiplos de um autovetor são autovetores com o mesmo autovalor associado. Logo, existem infinitos autovetores para um mesmo autovalor). Dele obtemos $y=0$, o que nos diz que o vetor solução $(x,y)$ é da forma $(x,0),\, x \in \mathbb{R}$. Aqui podemos escolher qualquer valor para $x$, em particular, $x=1$, correspondendo ao vetor $(1,0)$ da análise inicial (mas qualquer outro valor de $x$ escolhido estaria correto).
+um sistema possível e indeterminado (é natural que isso ocorra, pois como vimos, todos os múltiplos de um autovetor são autovetores com o mesmo autovalor associado. Logo, existem infinitos autovetores para um mesmo autovalor). Dele obtemos $y=0$, o que nos diz que o vetor solução $(x,y)$ é da forma $(x,0),\, x \in \mathbb{R}$. Aqui podemos escolher qualquer valor não nulo para $x$ (pois no caso $x = 0$ teríamos o vetor nulo), em particular, $x=1$, correspondendo ao vetor $(1,0)$ da análise inicial (mas qualquer outro valor não nulo de $x$ escolhido estaria correto).
 
-Ao repetirmos o mesmo processo para $\lambda_{2}=1/2$, obtemos o vetor $(0,1)$ (mais uma vez, qualquer vetor da forma $(0,y)$ estaria correto). Veja que os autovetores encontrados nesse processo são "representantes" da reta que constitui o autoespaço associado. Assim, encontramos os autovalores e autovetores associados para o operador $T$ dado nesse exemplo, que neste caso existiam (eram reais).
+Ao repetirmos o mesmo processo para $\lambda_{2}=1/2$, obtemos o vetor $(0,1)$ (mais uma vez, qualquer vetor não nulo da forma $(0,y)$ estaria correto). Veja que os autovetores encontrados nesse processo são "representantes" da reta que constitui o autoespaço associado. Assim, encontramos os autovalores e autovetores associados para o operador $T$ dado nesse exemplo, que neste caso existiam (eram reais).
 
-Basicamente a mesma abordagem é empregada para qualquer matriz/operador, independentemente da dimensão ou da estrutura da matriz (desde que seja quadrada, é claro).
+Basicamente a mesma abordagem é empregada para qualquer matriz/operador, independentemente da dimensão ou da estrutura da matriz (desde que seja quadrada, é claro). Esse é o método mais utilizado para encontrar os autovalores e autovetores, mas também existe uma abordagem que não utiliza diretamente matrizes e determinantes: Neste caso em particular onde $T \in \mathcal{L}(\mathbb{R}^{2})$, considerando a relação $T(x,y)=\lambda(x,y)$ e substituindo $T(x,y)$ pelo formato da imagem de $T$ sobre um vetor $(x,y)$ obtemos um sistema linear. A análise das soluções desse sistema nos leva aos mesmos autovalores e autovetores encontrados com as matrizes. No entanto, essa abordagem não matricial se torna pouco prática quando o espaço vetorial possui dimensão maior que 2.
 
 :::
 
@@ -172,3 +172,50 @@ O eixo $y$ também é preservado, já que $(0,1)$ também é autovetor.
 :::
 
 Parte da importância prática de autovetores/autovalores se deve a essa noção de "preservação" sobre uma transformação.
+
+Por último, temos um importante teorema e corolário envolvendo autovalores e autovetores.
+
+:::{prf:theorem} Autovalores distintos possuem autovetores linearmente independentes
+:label: teo-autovalores-distintos-autovetores-li
+
+Seja $T\in \mathcal{L}(V)$. Se $\lambda_{1},\dots,\lambda_{m}$ são autovalores distintos de $T$ e $v_{1},\dots,v_{m}$ seus respectivos autovetores, então $(v_{1},\dots,v_{m})$ é linearmente independente. 
+
+:::
+
+:::{prf:proof}
+
+Suponha que $(v_{1},\dots,v_{m})$ é linearmente dependente. [](#prop-aux-teo-li) garante que existe pelo menos um índice $i$ entre $1$ e $m$ tal que $v_{i} \in \text{span}(v_{1},\dots,v_{i-1})$. Escolha $k$ como sendo o menor dos índices que satisfaz essa condição. Logo, existem $a_{1},\dots,a_{k-1} \in \mathbb{R}$ tais que 
+
+$$
+v_{k}=a_{1}v_{1}+\dots+a_{k-1}v_{k-1.}
+\label{eq:vk-no-span}
+$$
+
+Conforme cada $v_{j}$ é um autovetor com autovalor associado ${} \lambda_{j} {}$, aplicando $T$ em ambos os lados da equação obtemos
+
+$$
+\lambda_{k} v_{k}=a_{1}\lambda_{1}v_{1}+\dots+a_{k-1}\lambda_{k-1}v_{k-1}.
+\label{eq:lambdakvk-no-span}
+$$
+
+Ao multiplicarmos a equação {eq}`eq:vk-no-span` por $\lambda_{k}$ e da equação resultante subtrairmos a equação {eq}`eq:lambdakvk-no-span`, obtemos
+
+$$
+0=a_{1}(\lambda_{k}-\lambda_{1})v_{1}+\dots+a_{k-1}(\lambda_{k}-\lambda_{k-1})v_{k-1}.
+$$
+
+Note que pela escolha de $k$ devemos ter $(v_{1},\dots,v_{k-1})$ linearmente independente. Logo, cada escalar $a_{i}(\lambda_{k}-\lambda_{i})$ na equação acima deve ser igual a zero. Uma vez que, por hipótese, cada autovalor é distinto dos demais, temos $\lambda_{k} - \lambda_{i} \neq 0$ para todo $i \in \{ 1,\dots,k-1 \}$. Assim, a única possibilidade restante é que $a_{1}=\dots=a_{k-1}=0$. Mas, retornando a {eq}`eq:vk-no-span`, isso implicaria que $v_{k}=0$, uma contradição ao fato de que $v_{k}$ é um autovetor (por definição não nulo). Portanto, $(v_{1},\dots,v_{m})$ deve ser linearmente independente.
+
+:::
+
+:::{prf:corollary}
+
+Seja $T \in \mathcal{L}(V)$. $T$ possui no máximo $\dim V$ autovalores distintos. 
+
+:::
+
+:::{prf:proof}
+
+Sejam $\lambda_{1},\dots,\lambda_{m}$ autovalores distintos de $T$ com $v_{1},\dots,v_{m}$ respectivos autovetores associados. Pelo [teorema anterior](#teo-autovalores-distintos-autovetores-li), $(v_{1},\dots,v_{m})$ é linearmente independente. [](#teo-dim-subespaco-menor-ou-igual-dim-espaco) garante que $\dim [\text{span}(v_{1},\dots,v_{m})] \leq \dim V$. Em particular, a dimensão do subespaço $\text{span}(v_{1},\dots,v_{m})$ é $m$, pois os autovetores são linearmente independentes. Portanto, $m \leq \dim V$.
+
+:::

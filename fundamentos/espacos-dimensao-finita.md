@@ -336,6 +336,7 @@ O espaço que contém somente o vetor nulo, $\{ 0 \}$, possui dimensão zero. Le
 Como já mencionado, todo subespaço de um espaço de dimensão finita terá dimensão finita. Então, naturalmente, temos o seguinte resultado:
 
 :::{prf:proposition}
+:label: teo-dim-subespaco-menor-ou-igual-dim-espaco
 
 Se $V$ é um espaço de dimensão finita e $U$ é um subespaço de $V$, então $\dim U \leq \dim V$.
 
