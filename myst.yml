@@ -18,6 +18,7 @@ project:
         - file: fundamentos/matrizes.md
         - file: fundamentos/transformacoes-e-matrizes.md
         - file: fundamentos/autovetores.md
+        - file: fundamentos/produto-interno.md
     - file: topicos/index.md
       children:
         - file: topicos/operadores-auto-adjuntos.md
