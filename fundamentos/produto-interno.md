@@ -1,5 +1,5 @@
 ---
-title: Produto interno e norma
+title: Produto Interno e Norma
 subject: Fundamentos
 ---
 
@@ -79,3 +79,17 @@ $$
 Assim como no caso do produto interno, a definição de norma pode ser generalizada de maneira que qualquer função que atenda certas propriedades caracterize uma norma, mesmo que esta não esteja diretamente relacionada com um produto interno[^1]. No caso das normas do tipo da [](#def-norma), as quais voltaremos nossa atenção, essas propriedades são "herdadas" do produto interno.
 
 [^1]: Os principais exemplos de normas não induzidas por produto interno em ${} \mathbb{R}^{n} {}$ são a norma do infinito (ou norma do máximo), usualmente denotada por ${} \lVert \cdot \rVert_{\infty} {}$ e dada pela maior coordenada em módulo do vetor, e a norma da soma (ou norma 1), usualmente denotada por ${} \lVert \cdot \rVert_{S} {}$ e dada pela soma dos módulos das coordenadas.
+
+:::{prf:example} Norma euclidiana
+
+No caso do produto interno euclidiano no ${} \mathbb{R}^{n} {}$, a norma induzida é dada por
+
+$$
+\lVert x \rVert =\sqrt{ \langle x , x \rangle }=\sqrt{ x_{1}^{2}+\dots+x_{n}^{2} },
+$$
+
+onde $x=(x_{1},\dots,x_{n})\in \mathbb{R}^{n}$. Essa norma nos fornece o comprimento do vetor $x$, o que é o mesmo que a distância da origem até o ponto de $\mathbb{R}^{n}$ dado pelas coordenadas de $x$. Para o caso do $\mathbb{R}^{2}$ é fácil verificar esse fato utilizando o teorema de Pitágoras, enquanto que em dimensões maiores temos uma generalização dessa ideia.
+
+:::
+
+### Propriedades

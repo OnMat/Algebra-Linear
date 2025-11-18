@@ -21,6 +21,7 @@ project:
         - file: fundamentos/produto-interno.md
     - file: topicos/index.md
       children:
+        - file: topicos/adjunta.md
         - file: topicos/operadores-auto-adjuntos.md
         - file: topicos/teorema-espectral.md
         - file: topicos/valores-singulares.md
