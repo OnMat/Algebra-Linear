@@ -5,6 +5,8 @@ subject: Tópicos Avançados
 
 Quando estamos trabalhando com dois espaços vetoriais $V$ e $W$ munidos de produto interno, podemos associar a cada transformação linear de $V$ para $W$ uma transformação linear de $W$ para $V$ que possui algumas propriedades interessantes. Essa transformação é chamada de ***adjunta*** de $T$ e serve de alicerce para um dos principais resultados da Álgebra Linear, o [Teorema Espectral](teorema-espectral.md).
 
+### Conceitos iniciais - Funcionais lineares
+
 Antes de falarmos sobre a adjunta propriamente, precisamos de um teorema central acerca de um tipo especial de transformações lineares, os funcionais lineares.
 
 :::{prf:definition} Funcional linear
@@ -48,6 +50,7 @@ $$
 define um funcional linear em $V$ (a linearidade de $F$ é evidente pela [linearidade do próprio produto interno](#def-produto-interno)). O teorema a seguir mostra que, na verdade, vale a recíproca: todo funcional linear pode ser representado dessa forma, através do produto interno.
 
 :::{prf:theorem} Teo. da representação de Riesz
+:label: teo-riesz
 
 Seja $V$ um espaço vetorial munido de produto interno $\langle \cdot , \cdot \rangle$ e $F$ um funcional linear em $V$. Então, existe um único $u \in V$ tal que 
 
@@ -86,6 +89,90 @@ $$
 0=\langle v , u \rangle - \langle v , u' \rangle = \langle v , u - u' \rangle
 $$
 
-para todo $v \in V$. Em particular, se tomarmos $v = u-u'$ teríamos $\langle u-u' , u-u' \rangle=0$, implicando que $\lVert u-u' \rVert = 0$, pois $\langle u-u' , u-u' \rangle = \lVert u-u' \rVert^{2}$. Como $u-u'$ possui norma igual a zero,  devemos ter que $u-u' = 0$, ou seja, $u=u'$, mostrando a unicidade de $u$.
+para todo $v \in V$. Em particular, se tomarmos $v = u-u'$ teríamos $\langle u-u' , u-u' \rangle=0$, implicando que $u-u' = 0$, pela [propriedade 1 do produto interno](#def-produto-interno). Ou seja, $u=u'$, mostrando a unicidade de $u$.
+
+:::
+
+### Definição e exemplos
+
+A definição de adjunta tem uma construção um pouco mais sofisticada, onde utilizamos o [](#teo-riesz).
+
+:::{prf:definition} Adjunta
+
+Sejam $V$ e $W$ espaços vetoriais munidos de produto interno e $T \in \mathcal{L}(V,W)$. A ***adjunta*** de $T$, denotada por $T^{*}$, é a função de $W$ para $V$ definida da seguinte forma: Fixe $w \in W$ e considere o funcional linear sobre $V$ que mapeia $v \in V$ para $\langle Tv , w \rangle$. $T^{*}w$ será o único vetor de $V$ que representa esse funcional linear como um produto interno em $V$, garantido pelo [](#teo-riesz). Isto é, $T^{*}w \in V$ é o único tal que
+
+$$
+\langle Tv , w \rangle= \langle v , T^{*}w \rangle
+$$
+
+para todo $v \in V$.
+
+:::
+
+É importante perceber bem como é feita essa definição. Primeiramente, note que consideramos uma transformação $T \in \mathcal{L}(V,W)$ qualquer, é a partir dela que construímos a função $T^{*}$ associada. Então, fixando um vetor $w \in W$, através da construção feita associamos a ele um único vetor $T^{*}w$, com a propriedade de que $\langle Tv , w \rangle=\langle v , T^{*}w \rangle$ para todo $v \in V$ (note que na esquerda temos o produto interno de $W$, enquanto na direita temos o produto interno em $V$). Como o vetor $w$ considerado é arbitrário, o que fazemos é associar a cada $w \in W$, um **único** vetor $T^{*}w$ em $V$. Assim, temos uma função $T^{*}$ de $W$ para $V$. Em particular, essa função possui uma propriedade muito importante: 
+
+$$
+\langle Tv , w \rangle = \langle v , T^{*}w \rangle,
+\label{eq:igualdade-adjunta}
+$$
+
+para quaisquer $v \in V$ e $w \in W$.
+
+Na prática, podemos pensar na adjunta como uma "inversa em relação ao produto interno". Mas, claro, não é exatamente isso em um sentido técnico. 
+
+Antes de prosseguirmos, devemos constatar um fato essencial sobre essa nova função que definimos.
+
+:::{prf:proposition} A adjunta é linear
+
+A adjunta de uma transformação linear também é uma transformação linear. Mais simbolicamente, se $T\in \mathcal{L}(V,W)$ então ${} T^{*} \in \mathcal{L}(W,V) {}$.
+
+:::
+
+:::{prf:proof}
+
+Consideremos $w,w' \in W$ e $a \in \mathbb{R}$. Veja que para todo $v \in V$ temos
+
+$$
+\begin{align}
+\langle Tv , w+w' \rangle & =\langle Tv , w \rangle+\langle Tv , w' \rangle \\
+ & =\langle v , T^{*}w \rangle+\langle v , T^{*}w' \rangle \\
+ & = \langle v , T^{*}w+T^{*}w' \rangle.
+\end{align}
+$$
+
+Logo, o vetor dado por $T^{*}w + T^{*}w'$ satisfaz $\langle Tv , w+w' \rangle=\langle v , T^{*}w+T^{*}w' \rangle$ para todo $v \in V$. Mas, pelo [](#teo-riesz) e pela definição da adjunta, esse vetor é único e corresponde exatamente a $T^{*}(w+w')$. Isto é, $T^{*}(w+w')=T^{*}w+T^{*}w'$, mostrando a aditividade da adjunta.
+
+Além disso, veja que
+
+$$
+\begin{align}
+\langle Tv , aw \rangle & =a\langle Tv , w \rangle \\
+ & =a\langle v , T^{*}w \rangle \\
+ & = \langle v , aT^{*}w \rangle.
+\end{align}
+$$
+
+Pelo mesmo raciocínio empregado no caso da aditividade, temos $T^{*}(aw)=aT^{*}w$, mostrando a homogeneidade de $T^{*}$ e, portanto, sua linearidade.
+
+:::
+
+Vejamos como determinar algebricamente a adjunta de uma transformação linear.
+
+:::{prf:example}
+
+Vamos determinar a adjunta da transformação linear do $\mathbb{R}^{2}$
+ para o $\mathbb{R}^{3}$ (produtos internos canônicos) dada por
+
+$$
+T(x,y) = (x+y, 2x+2y,3x+3y).
+$$
+
+Antes de partirmos diretamente para o objetivo, é importante ter uma noção geral do que está sendo feito. Quando queremos determinar uma transformação linear, no fim o que queremos é saber para quais vetores do contradomínio ela mapeia cada vetor de uma base fixada, sendo usual considerar a base canônica. 
+
+Isso também vale para a adjunta, mas nesse caso costuma ser mais prático considerar um vetor genérico do domínio e, através da igualdade {eq}`eq:igualdade-adjunta`, determinar a sua imagem, assim determinando inteiramente a transformação. Dessa maneira, condensamos as informações que buscamos sobre as imagens de cada vetor da base canônica em uma coisa só. Mas, é claro, a abordagem de determinar a imagem de cada vetor da base separadamente também funciona.
+
+Voltando ao exemplo, uma vez que $T\in \mathcal{L}(\mathbb{R}^{2},\mathbb{R}^{3})$ então $T^{*} \in \mathcal{L}(\mathbb{R}^{3},\mathbb{R}^{2})$. Logo, consideramos ${} (a,b,c) {}$ como um vetor qualquer do $\mathbb{R}^{3}$ e devemos determinar $T^{*}(a,b,c)$ utilizando a igualdade entre os produtos internos (perceba que usaremos a informação sobre $T(x,y)$ fornecida).
+
+...
 
 :::
