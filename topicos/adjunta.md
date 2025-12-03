@@ -93,11 +93,12 @@ para todo $v \in V$. Em particular, se tomarmos $v = u-u'$ teríamos $\langle u-
 
 :::
 
-### Definição e exemplos
+### Definição e exemplo
 
 A definição de adjunta tem uma construção um pouco mais sofisticada, onde utilizamos o [](#teo-riesz).
 
 :::{prf:definition} Adjunta
+:label: def-adjunta
 
 Sejam $V$ e $W$ espaços vetoriais munidos de produto interno e $T \in \mathcal{L}(V,W)$. A ***adjunta*** de $T$, denotada por $T^{*}$, é a função de $W$ para $V$ definida da seguinte forma: Fixe $w \in W$ e considere o funcional linear sobre $V$ que mapeia $v \in V$ para $\langle Tv , w \rangle$. $T^{*}w$ será o único vetor de $V$ que representa esse funcional linear como um produto interno em $V$, garantido pelo [](#teo-riesz). Isto é, $T^{*}w \in V$ é o único tal que
 
@@ -129,6 +130,7 @@ A adjunta de uma transformação linear também é uma transformação linear. M
 :::
 
 :::{prf:proof}
+:label: prova-linearidade-adjunta
 
 Consideremos $w,w' \in W$ e $a \in \mathbb{R}$. Veja que para todo $v \in V$ temos
 
@@ -171,8 +173,84 @@ Antes de partirmos diretamente para o objetivo, é importante ter uma noção ge
 
 Isso também vale para a adjunta, mas nesse caso costuma ser mais prático considerar um vetor genérico do domínio e, através da igualdade {eq}`eq:igualdade-adjunta`, determinar a sua imagem, assim determinando inteiramente a transformação. Dessa maneira, condensamos as informações que buscamos sobre as imagens de cada vetor da base canônica em uma coisa só. Mas, é claro, a abordagem de determinar a imagem de cada vetor da base separadamente também funciona.
 
-Voltando ao exemplo, uma vez que $T\in \mathcal{L}(\mathbb{R}^{2},\mathbb{R}^{3})$ então $T^{*} \in \mathcal{L}(\mathbb{R}^{3},\mathbb{R}^{2})$. Logo, consideramos ${} (a,b,c) {}$ como um vetor qualquer do $\mathbb{R}^{3}$ e devemos determinar $T^{*}(a,b,c)$ utilizando a igualdade entre os produtos internos (perceba que usaremos a informação sobre $T(x,y)$ fornecida).
+Voltando ao exemplo, uma vez que $T\in \mathcal{L}(\mathbb{R}^{2},\mathbb{R}^{3})$ então $T^{*} \in \mathcal{L}(\mathbb{R}^{3},\mathbb{R}^{2})$. Logo, consideramos ${} (a,b,c) {}$ como um vetor qualquer do $\mathbb{R}^{3}$ e devemos determinar $T^{*}(a,b,c)$ utilizando a igualdade entre os produtos internos (perceba que usaremos a informação sobre $T(x,y)$ fornecida). Em particular, consideramos $T^{*}(a,b,c)=(\alpha, \beta)$ e devemos determinar cada coordenada em função de $a,b$ e $c$. 
 
-...
+Note que podemos fixar $(1,0) \in \mathbb{R}^{2}$, uma vez que a igualdade {eq}`eq:igualdade-adjunta` vale para quaisquer vetores de $\mathbb{R}^{2}$ e $\mathbb{R}^{3}$. Assim, temos
+
+$$
+\begin{align}
+\langle T(1,0) , (a,b,c) \rangle  & = \langle (1,2,3) , (a,b,c) \rangle\\
+ & =a+2b+3c \\
+ & =\langle (1,0) , T^{*}(a,b,c) \rangle \\
+ & =\langle (1,0) , (\alpha,\beta) \rangle \\
+ & =\alpha.
+\end{align}
+$$
+
+Donde obtemos que $\alpha=a+2b+3c$. Similarmente, considerando o vetor $(0,1) \in \mathbb{R}^{2}$ temos
+
+$$
+\begin{align}
+\langle T(0,1) , (a,b,c) \rangle  & = \langle (1,2,3) , (a,b,c) \rangle \\
+ & = a+2b+3c \\
+ & =\langle (0,1) , T^{*}(a,b,c) \rangle \\
+ & =\langle (0,1) , (\alpha,\beta) \rangle \\
+ & =\beta.
+\end{align}
+$$
+
+Obtendo que $\beta$ também vale $a+2b+3c$. Portanto, determinamos que $T^{*}(a,b,c)=(a+2b+3c,a+2b+3c)$. 
+
+Mas, ao considerar essa abordagem, é natural que fique a questão: Tal função $T^{*}$ encontrada dessa forma é de fato a adjunta de $T$, uma vez que consideramos somente dois vetores do domínio de $T$ (nesse caso, $(1,0)$ e $(0,1)$) e a [](#def-adjunta) diz respeito a todos os vetores do domínio de $T$? A resposta é afirmativa e a justificativa provém do fato que $(1,0)$ e $(0,1)$ formam uma base do domínio de $T$, que é $\mathbb{R}^{2}$. Se considerássemos um vetor qualquer $(x,y) \in \mathbb{R}^{2}$ no intuito de seguir rigorosamente a [](#def-adjunta), poderíamos reescrevê-lo como uma combinação linear de $(1,0)$ e $(0,1)$. Utilizando as propriedades de linearidade de $T$ e do produto interno, no fim obteríamos os mesmos resultados encontrados quando consideramos diretamente os vetores $(1,0)$ e $(0,1)$.
+
+Portanto, essa abordagem de fixar vetores do domínio da transformação considerada para determinar sua adjunta funciona no caso geral, **contanto que os vetores fixados formem uma base do domínio**. Em particular, costuma ser mais prático fixar os vetores da base canônica, uma vez que os zeros e uns facilitam os cálculos.
+
+:::
+
+### Propriedades da adjunta
+
+Utilizando a [](#def-adjunta) e a linearidade do produto interno, de maneira similar ao que é feito em [](#prova-linearidade-adjunta), é possível verificar as seguintes propriedades da adjunta:
+
+:::{prf:property} Propriedades principais da adjunta
+
+(**aditividade**) $(S+T)^{*}=S^{*}+T^{*}$, $\forall S,T \in \mathcal{L}(V,W)$;
+
+(**homogeneidade**) $(aT)^{*}=aT^{*}$, $\forall a \in \mathbb{R}$ e $\forall T \in \mathcal{L}(V,W)$;
+
+(**adjunta da adjunta**) $(T^{*})^{*}=T$, $\forall T \in \mathcal{L}(V,W)$;
+
+(**adjunta da identidade**) $I^{*}=I$, onde $I$ é o operador identidade em $V$;
+
+(**adjunta do produto**) $(ST)^{*}=T^{*}S^{*}$, $\forall T \in \mathcal{L}(V,W)$ e $\forall S \in \mathcal{L}(W,U)$.
+
+:::
+
+Além dessas propriedades fundamentais, temos relações importantes entre os núcleos e imagens de uma transformação e sua adjunta.
+
+:::{prf:proposition}
+
+Seja $T \in \mathcal{L}(V,W)$, valem as seguintes igualdades:
+
+1. $N(T^{*})=\mathrm{Im}(T)^{\perp}$;
+2. $\mathrm{Im}(T^{*})=N(T)^{\perp}$;
+3. $N(T)=\mathrm{Im}(T^{*})^{\perp}$;
+4. $\mathrm{Im}(T)=N(T^{*})^{\perp}$.
+
+:::
+
+:::{prf:proof}
+
+Provaremos **1.** inicialmente. Seja $w \in W$, então
+
+$$
+\begin{align}
+w \in N(T^{*})  & \iff T^{*}w=0 \\
+ &  \iff \langle v , T^{*}w \rangle= 0,\;\forall v \in V \\
+ &  \iff \langle Tv , w \rangle = 0, \; \forall v \in V \\
+ &  \iff w \in \mathrm{Im}(T)^{\perp}.
+\end{align}
+$$
+
+A partir de **1.** podemos obter as outras: ao tomarmos o complemento ortogonal em ambos os lados da igualdade obtemos **4.** Então, substituindo $T$ por $T^{*}$ em **1.** e **4.** obtemos **3.** e **2.**, respectivamente. 
 
 :::
