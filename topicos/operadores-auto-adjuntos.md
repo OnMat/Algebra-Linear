@@ -3,12 +3,12 @@ title: Operadores Auto-Adjuntos
 subject: Tópicos Avançados
 ---
 
-Vejamos a definição e alguns resultados sobre *operadores auto-adjuntos*, um tipo de operador normal. Os operadores auto-adjuntos são o objeto central do [*Teorema Espectral*](teorema-espectral.md), um dos principais resultados da Álgebra Linear e tópico subsequente.
+Vejamos a definição e alguns resultados sobre ***operadores auto-adjuntos***, um caso particular de operador linear que é igual a sua adjunta. Os operadores auto-adjuntos são o objeto central do [*Teorema Espectral*](teorema-espectral.md), um dos principais resultados da Álgebra Linear e tópico subsequente.
 
 :::{prf:definition} Operador auto-adjunto
 :label: autoadjunto
 
-Seja $V$ um espaço vetorial com produto interno e dimensão finita, dizemos que $T\in \mathcal{L}(V)$ é *auto-adjunto* se $\forall v,w\in V$ temos
+Seja $V$ um espaço vetorial com produto interno e dimensão finita, dizemos que $T\in \mathcal{L}(V)$ é ***auto-adjunto*** se $\forall v,w\in V$ temos
 $$
 \langle Tv , w \rangle=\langle v , Tw \rangle.
 $$

@@ -3,7 +3,7 @@ title: Propriedades de espaços vetoriais de dimensão finita
 subject: Fundamentos
 ---
 
-Os conceitos discutidos no tópico anterior são válidos para espaços vetoriais arbitrários. Voltaremos nossa atenção de agora em diante para espaços vetoriais de dimensão finita (o significado de dimensão ficará claro futuramente). Tenha em mente que sempre que nos referirmos a uma lista de vetores $(v_{1},\dots,v_{n})$ teremos $n\in \mathbb{N}$, ou seja, a lista é finita. 
+Os conceitos discutidos no tópico anterior são válidos para espaços vetoriais arbitrários. **Daqui em diante, os espaços vetoriais considerados possuem dimensão finita** (o significado de dimensão ficará claro futuramente). Tenha em mente que sempre que nos referirmos a uma lista de vetores $(v_{1},\dots,v_{n})$ teremos $n\in \mathbb{N}$, ou seja, a lista é finita. 
 
 ### Combinações lineares e espaço gerado
 

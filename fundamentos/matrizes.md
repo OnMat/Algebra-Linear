@@ -129,6 +129,7 @@ Além disso, verificam-se algumas propriedades importantes (considere que todos 
 ### Outros conceitos importantes
 
 :::{prf:definition} Matriz transposta
+:label: def-matriz-transposta
 
 A transposta de uma matriz $A$, denotada por $A^{T}$ é a matriz obtida ao trocarem-se as suas linhas pelas colunas (ou vice-versa). Isto é, para cada entrada $a_{ij}$ de $A$, $a_{ij}=a_{ji}$ em $A^{T}$.
 

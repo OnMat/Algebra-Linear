@@ -161,6 +161,7 @@ Pelo mesmo raciocínio empregado no caso da aditividade, temos $T^{*}(aw)=aT^{*}
 Vejamos como determinar algebricamente a adjunta de uma transformação linear.
 
 :::{prf:example}
+:label: exemplo-adjunta
 
 Vamos determinar a adjunta da transformação linear do $\mathbb{R}^{2}$
  para o $\mathbb{R}^{3}$ (produtos internos canônicos) dada por
@@ -252,5 +253,94 @@ w \in N(T^{*})  & \iff T^{*}w=0 \\
 $$
 
 A partir de **1.** podemos obter as outras: ao tomarmos o complemento ortogonal em ambos os lados da igualdade obtemos **4.** Então, substituindo $T$ por $T^{*}$ em **1.** e **4.** obtemos **3.** e **2.**, respectivamente. 
+
+:::
+
+### A adjunta matricialmente (matriz transposta)
+
+Naturalmente, pela equivalência existente entre transformações lineares e matrizes, a adjunta também possui uma interpretação matricial. O principal resultado nos diz que, **quando lidando com bases ortonormais**, a matriz de $T^{*}$ corresponde exatamente a [transposta](#def-matriz-transposta) da matriz de $T$.
+
+:::{prf:proposition}
+:label: prop-matriz-adjunta
+
+Seja $T \in \mathcal{L}(V,W)$. Fixadas duas bases **ortonormais** $\alpha = (e_{1},\dots,e_{n})$ e $\beta =(f_{1},\dots,f_{m})$ de $V$ e $W$, respectivamente, então 
+
+$$
+[T^{*}]^{\beta}_{\alpha}=([T]^{\alpha}_{\beta})^{T}.
+$$
+
+Isto é, a matriz de $T^{*}$ com respeito às bases $\beta$ e $\alpha$ é igual a transposta da matriz de $T$ com respeito as bases $\alpha$ e $\beta$.
+
+:::
+
+:::{prf:proof}
+
+Veja que a $k$-ésima coluna de $[T]^{\alpha}_{\beta}$ corresponde aos escalares de $Te_{k}$ escrito como combinação linear da base $\beta$ (caso necessário, relembre o tópico de [transformações lineares e matrizes](../fundamentos/transformacoes-e-matrizes.md)). Pelo fato de $\beta$ ser ortonormal, então tal combinação linear é dada por
+
+$$
+Te_{k}=\langle Te_{k} , f_{1} \rangle f_{1}+\dots+\langle Te_{k} , f_{m} \rangle f_{m}.
+$$
+
+Logo, a entrada na linha $j$ e coluna $k$ de $[T]^{\alpha}_{\beta}$ é igual a $\langle Te_{k} , f_{j} \rangle$. Ao fazermos essa mesma análise, mas substituindo $T$ por $T^{*}$ e trocando os papéis de $\alpha$ e $\beta$ de acordo, podemos então afirmar que a entrada na linha $j$ e coluna $k$ de $[T^{*}]^{\beta}_{\alpha}$ é igual a $\langle T^{*}f_{k} , e_{j} \rangle$. Mas, por outro lado,
+
+$$
+\langle T^{*}f_{k} , e_{j} \rangle=\langle f_{k} , Te_{j} \rangle=\langle Te_{j} , f_{k} \rangle,
+$$
+
+que corresponde exatamente a entrada da linha $k$ e coluna $j$ de $[T]^{\alpha}_{\beta}$. No fim, o que isso nos diz é que cada entrada $a_{jk}$ de $[T^{*}]^{\beta}_{\alpha}$ é igual a entrada $a_{kj}$ de $[T]^{\alpha}_{\beta}$, ou seja, $[T^{*}]^{\beta}_{\alpha}$ é igual a transposta de $[T]^{\alpha}_{\beta}$.
+
+:::
+
+:::{prf:observation}
+
+Quando pelo menos uma das bases consideradas não é ortonormal, não temos garantia alguma dessa relação entre as matrizes de $T$ e $T^{*}$.
+
+:::
+
+:::{prf:example}
+
+Vamos resolver o exemplo [](#exemplo-adjunta) agora utilizando [](#prop-matriz-adjunta). Relembramos que a transformação considerada é $T \in \mathcal{L}(\mathbb{R}^{2},\mathbb{R}^{3})$ dada por
+
+$$
+T(x,y)=(x+y,2x+2y,3x+3y).
+$$
+
+Naturalmente, escolheremos as bases canônicas de $\mathbb{R}^{2}$ e $\mathbb{R}^{3}$, que são ortonormais, e determinaremos a matriz $[T]$. Então, determinamos sua transposta e obtemos a matriz $[T^{*}]$, que ao multiplicarmos por ${} \begin{bmatrix}x \\ y \\ z\end{bmatrix} {}$ encontramos a forma algébrica de $T^{*}$, uma vez que as bases são as canônicas.
+
+As colunas de $[T]$ são dadas por $T(1,0)$ e $T(0,1)$:
+
+$$
+\begin{align}
+ & T(1,0)=(1+0,2+0,3+0)=(1,2,3); \\
+ & T(0,1)=(0+1,0+2,0+3)=(1,2,3).
+\end{align}
+$$
+
+Logo,
+
+$$
+[T]=\begin{bmatrix}
+1 & 1 \\
+2 & 2 \\
+3 & 3
+\end{bmatrix}.
+$$
+
+E, consequentemente:
+
+$$
+[T^{*}]=[T]^{T}=\begin{bmatrix}
+1 & 2 & 3 \\
+1 & 2 & 3
+\end{bmatrix}.
+$$
+
+Fazendo o produto $\begin{bmatrix}1 & 2 & 3 \\ 1 & 2 & 3\end{bmatrix}\begin{bmatrix}x \\ y \\ z\end{bmatrix}$ encontramos 
+
+$$
+T^{*}(x,y,z)=(x+2y+3z,x+2y+3z),
+$$
+
+conforme o que foi obtido no [](#exemplo-adjunta) utilizando [](#def-adjunta).
 
 :::
