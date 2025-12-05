@@ -1,5 +1,5 @@
 ---
-title: Produto Interno e Norma
+title: Produto Interno, Norma e Ortogonalidade
 subject: Fundamentos
 ---
 
@@ -76,7 +76,7 @@ $$
 
 :::
 
-Assim como no caso do produto interno, a definição de norma pode ser generalizada de maneira que qualquer função que atenda certas propriedades caracterize uma norma, mesmo que esta não esteja diretamente relacionada com um produto interno[^1]. No caso das normas do tipo da [](#def-norma), as quais voltaremos nossa atenção, essas propriedades são "herdadas" do produto interno.
+Assim como no caso do produto interno, a definição de norma pode ser generalizada de maneira que qualquer função que atenda certas propriedades caracterize uma norma, mesmo que esta não esteja diretamente relacionada com um produto interno[^1]. No caso das normas do tipo da [](#def-norma), as quais voltaremos nossa atenção, essas propriedades são "herdadas" do produto interno. Uma dessas heranças imediatas é que $\lVert v \rVert=0$ se, e somente se, $v=0$.
 
 [^1]: Os principais exemplos de normas não induzidas por produto interno em ${} \mathbb{R}^{n} {}$ são a norma do infinito (ou norma do máximo), usualmente denotada por ${} \lVert \cdot \rVert_{\infty} {}$ e dada pela maior coordenada em módulo do vetor, e a norma da soma (ou norma 1), usualmente denotada por ${} \lVert \cdot \rVert_{S} {}$ e dada pela soma dos módulos das coordenadas.
 
@@ -92,4 +92,101 @@ onde $x=(x_{1},\dots,x_{n})\in \mathbb{R}^{n}$. Essa norma nos fornece o comprim
 
 :::
 
-### Propriedades
+### Propriedades da norma
+
+Adiante, consideraremos que $\lVert \cdot \rVert$ é uma norma induzida por produto interno em $V$.
+
+:::{prf:property}
+
+Seja $v \in V$,
+
+$$
+\lVert v \rVert = 0 \iff v = 0.
+$$
+
+:::
+
+:::{prf:proof}
+
+$$
+\begin{align}
+\lVert v \rVert =0 &  \iff \sqrt{ \langle v , v \rangle } = 0 \\
+ & \iff \langle v , v \rangle= 0 \\
+ & \iff v = 0 \quad \text{(pois o produto interno é positivo-definido)}.
+\end{align}
+$$
+
+:::
+
+Similarmente, também é imediato que $\lVert v \rVert\geq 0,\; \forall v \in V$. Logo, a norma induzida por produto interno também é positiva-definida.
+
+:::{prf:property}
+
+Sejam $v \in V$ e $a \in \mathbb{R}$,
+
+$$
+\lVert av \rVert =|a|\cdot \lVert v \rVert .
+$$
+
+:::
+
+:::{prf:proof}
+
+$$
+\begin{align}
+\lVert av \rVert^{2}  & =\langle av , av \rangle \\
+ & =a^{2}\langle v , v \rangle \\
+ & = a^{2} \lVert v \rVert ^{2} \\
+ & = |a|^{2}\lVert v \rVert ^{2}.
+\end{align}
+$$
+
+Tirando a raiz quadrada em ambos os lados, obtemos $\lVert av \rVert=|a|\lVert v \rVert$.
+
+:::
+
+:::{prf:definition} Ortogonalidade
+
+Dois vetores $u,v \in V$ são ***ortogonais*** quando 
+
+$$
+\langle u , v \rangle= 0.
+$$
+
+:::
+
+Note que $0$ é ortogonal a todos os vetores.
+
+:::{prf:property} Teorema de Pitágoras
+
+Sejam $u,v \in V$ ortogonais, então
+
+$$
+\lVert u+v \rVert ^{2}=\lVert u \rVert ^{2}+\lVert v \rVert ^{2}.
+$$
+
+:::
+
+:::{prf:proof}
+
+$$
+\begin{align}
+\lVert u+v \rVert ^{2} & =\langle u+v , u+v \rangle \\
+ & =\lVert u \rVert ^{2}+\lVert v \rVert ^{2}+ 2\underbrace{ \langle u , v \rangle }_{ = \,0 } \\
+ & = \lVert u \rVert ^{2}+\lVert v \rVert ^{2}.
+\end{align}
+$$
+
+:::
+
+A alcunha de "Teorema de Pitágoras" fica clara quando consideramos o caso particular em que $V=\mathbb{R}^{2}$ (neste caso, ortogonalidade entre dois vetores equivale ao ângulo entre eles ser de 90 graus), onde o vetor $u+v$ cumpre o papel de hipotenusa e os vetores $u$ e $v$ de catetos.
+
+### Bases ortonormais
+
+:::{prf:definition} Vetores ortonormais
+
+Uma lista de vetores é dita ***ortonormal*** quando os vetores que a constituem possuem norma igual a 1 e são ortogonais entre si (cada par de vetores da lista é ortogonal).
+
+:::
+
+Especificamente, uma lista $(v_{1},\dots v_{n})$ de vetores em $V$ é ortonormal quando $\langle v_{j} , v_{k} \rangle = 0$ para $j \neq k$ e $\langle v_{j} , v_{k} \rangle = 1$ para $j = k$ (note que isso implica que $\lVert v_{j} \rVert = 1$ para todo $v_{j}$ na lista).
