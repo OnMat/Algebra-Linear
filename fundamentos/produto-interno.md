@@ -244,6 +244,7 @@ utilizando [](#prop-escalar-norma) e o fato de que $\lVert v_{j} \rVert=1$ para 
 :::
 
 :::{prf:corollary}
+:label: corol-ortonormal-li
 
 Seja $(v_{1},\dots,v_{n})$ uma lista ortonormal de vetores em $V$, então $(v_{1},\dots,v_{n})$ é linearmente independente.
 
@@ -328,6 +329,7 @@ para $j=1,\dots,n$.
 A demonstração desse teorema é feita fornecendo um procedimento para encontrar tal lista ortonormal, o qual é denominado ***Processo de Gram-Schmidt*** ou ***Algoritmo de Gram-Schmidt***.
 
 :::{prf:proof} Processo de Gram-Schmidt
+:label: processo-gram-schmidt
 
 Dada a lista linearmente independente $(v_{1},\dots,v_{n})$, começamos fazendo $u_{1}=\frac{v_{1}}{\lVert v_{1} \rVert}$, um vetor de norma unitária que satisfaz [](#teo-gram-schmidt) para $j=1$. O processo de escolha de $u_{2},\dots,u_{n}$ é feito indutivamente, da seguinte forma:
 
@@ -354,6 +356,30 @@ $$
 $$
 
 No entanto, uma vez que tanto $(v_{1},\dots,v_{j})$ e $(u_{1},\dots,u_{j})$ são linearmente independentes, ambos os subespaços acima possuem dimensão igual a $j$, concluindo que devem ser iguais (pois um está contido no outro e possuem mesma dimensão). Dessa forma, construímos uma lista ortonormal tal que vale [](#teo-gram-schmidt).
+
+:::
+
+:::{prf:corollary}
+
+Todo espaço vetorial de dimensão finita e munido de produto interno possui uma base ortonormal.
+
+:::
+
+:::{prf:proof}
+
+Dada uma base desse espaço, que é uma lista linearmente independente, pelo [](#teo-gram-schmidt) existe uma lista ortonormal que também gera esse espaço. Além disso, essa lista é linearmente independente (pelo [](#corol-ortonormal-li)). Logo, é uma base ortonormal desse espaço.
+
+:::
+
+:::{prf:corollary}
+
+Toda lista ortonormal de vetores em $V$ pode ser estendida para uma base ortonormal de $V$.
+
+:::
+
+:::{prf:proof}
+
+Seja $(u_{1},\dots,u_{m})$ uma lista ortonormal de $V$, pelo [](#teoestenderbase) ela pode ser estendida em uma base $(u_{1},\dots,u_{m},v_{1},\dots,v_{n})$ de $V$. Aplicando o processo de Gram-Schmidt (descrito em [](#processo-gram-schmidt)) nessa base, é produzida uma base ortonormal de $V$. Mas, note que pela maneira como é realizado o processo e considerando que $(u_{1},\dots,u_{m})$ já é ortonormal, tal base ortonormal produzida será da forma $(u_{1},\dots,u_{m},w_{1},\dots,w_{m})$, isto é, os vetores $u_{1},\dots,u_{m}$ são preservados pelo processo. Portanto, no fim o que foi feito foi estender a lista ortonormal em uma base ortonormal de $V$.
 
 :::
 

@@ -93,7 +93,7 @@ para todo $v \in V$. Em particular, se tomarmos $v = u-u'$ teríamos $\langle u-
 
 :::
 
-### Definição e exemplo
+### Definição de adjunta e exemplo
 
 A definição de adjunta tem uma construção um pouco mais sofisticada, onde utilizamos o [](#teo-riesz).
 
