@@ -463,4 +463,64 @@ $$
 
 O tópico [](../aplicacoes/svd.md) mostra como essa ideia de aproximação de matrizes pode ser aplicada.
 
-Veja também: [](../aplicacoes/quadradosminimos.md).
+### Pseudoinversa
+
+A decomposição SVD também nos permite construir uma generalização da ideia de inversa para uma matriz qualquer, que não precisa nem mesmo ser quadrada.
+
+:::{prf:definition} Pseudoinversa de Moore-Penrose
+:label: def-pseudoinversa
+
+Seja $A=U\Sigma V^{T}$. A ***pseudoinversa*** de $A$ é a matriz:
+
+$$
+A^{+}=V\Sigma^{+}U^{T}
+$$
+
+Onde $\Sigma^{+}$ é obtida invertendo os valores singulares não nulos de $\Sigma$ (isto é, se $\sigma_{i}\neq 0$ faz-se $\frac{1}{\sigma_{i}}$) e tomando a transposta. 
+
+:::
+
+Para ilustrar melhor como obter ${} \Sigma^{+} {}$, se posto de $A$ é igual a $r$ e seja: 
+
+$$
+\Sigma =
+\begin{bmatrix}
+\sigma_1 &        &        &        & \cdots &        & 0 \\
+         & \sigma_2 &      &        & \cdots &        & 0 \\
+         &        & \ddots &        &        &        & \vdots \\
+         &        &        & \sigma_r &       &        & 0 \\
+         &        &        &        & 0      &        & 0 \\
+\vdots   & \vdots &        &        & \vdots & \ddots & \vdots \\
+0        & 0      & \cdots &        & 0      & \cdots & 0
+\end{bmatrix}
+$$
+
+A matriz resultante da inversão dos $\sigma_{i}$ ($i=1,\dots,r$) é:
+
+$$
+\Sigma' =
+\begin{bmatrix}
+\frac{1}{\sigma_{1}} &        &        &        & \cdots &        & 0 \\
+         & \frac{1}{\sigma_{2}} &      &        & \cdots &        & 0 \\
+         &        & \ddots &        &        &        & \vdots \\
+         &        &        & \frac{1}{\sigma_{r}} &       &        & 0 \\
+         &        &        &        & 0      &        & 0 \\
+\vdots   & \vdots &        &        & \vdots & \ddots & \vdots \\
+0        & 0      & \cdots &        & 0      & \cdots & 0
+\end{bmatrix}
+$$
+
+E então, $\Sigma^{+}=(\Sigma')^{T}$.
+
+O caráter de "inversa" da matriz $A^{+}$ se dá pelas seguintes propriedades que ela satisfaz:
+
+1. $AA^{+}A=A$
+2. $A^{+}AA^{+}=A^{+}$
+3. $(AA^{+})^{T}=AA^{+}$
+4. $(A^{+}A)^{T}=A^{+}A$
+
+Tais propriedades são verificadas sem muita dificuldade considerando-se a decomposição SVD de $A$ e as propriedades das matrizes $U$, $V$, $\Sigma $ e $\Sigma^{+}$. Note que valem as igualdades mesmo sem a garantia de que $AA^{+}$ e $A^{+}A$ são iguais as identidades nos espaços correspondentes (em particular, isso valerá quando $A$ é quadrada e invertível, tendo-se $A^{+}=A^{-1}$). Por isso, ${} A^{+} {}$ é uma generalização da inversa.
+
+Essas quatro propriedades são chamadas de **condições de Penrose** e definem, na verdade, um tipo específico de pseudoinversa (daí o nome "pseudoinversa de Moore-Penrose"). Em geral, essa é a pseudoinversa mais conhecida e utilizada, mas existem outros tipos (normalmente definidas para atender condições computacionais específicas).
+
+Uma das principais aplicações da pseudoinversa se dá na obtenção de soluções para o problema de quadrados mínimos, abordado no tópico [](../aplicacoes/quadradosminimos.md).

@@ -1,5 +1,5 @@
 ---
-title: Resolução de sistemas lineares por Quadrados Mínimos (e Pseudoinversa)
+title: Resolução de sistemas lineares por Quadrados Mínimos
 ---
 
 ### O Problema de Quadrados Mínimos
@@ -103,62 +103,7 @@ Uma vez que $Ax=b$ é um **sistema impossível**, as soluções (ou a solução 
 
 ### Caso geral e pseudoinversa
 
-A decomposição SVD de $A$ nos permite construir uma ferramenta para resolver $A^{T}Ax=A^{T}b$ no caso geral, que independe da quantidade de linhas e colunas, assim como do posto de $A$. 
-
-Começamos definindo a **pseudoinversa** de uma matriz e constatando algumas de suas propriedades.
-
-:::{prf:definition} Pseudoinversa de Moore-Penrose
-
-Seja $A=U\Sigma V^{T}$. A *pseudoinversa* de $A$ é a matriz:
-
-$$
-A^{+}=V\Sigma^{+}U^{T}
-$$
-
-Onde $\Sigma^{+}$ é obtida invertendo os valores singulares não nulos de $\Sigma$ (isto é, se $\sigma_{i}\neq 0$ faz-se $\frac{1}{\sigma_{i}}$) e tomando a transposta. 
-
-:::
-
-Para ilustrar melhor como obter ${} \Sigma^{+} {}$, se posto de $A$ é igual a $r$ e seja: 
-
-$$
-\Sigma =
-\begin{bmatrix}
-\sigma_1 &        &        &        & \cdots &        & 0 \\
-         & \sigma_2 &      &        & \cdots &        & 0 \\
-         &        & \ddots &        &        &        & \vdots \\
-         &        &        & \sigma_r &       &        & 0 \\
-         &        &        &        & 0      &        & 0 \\
-\vdots   & \vdots &        &        & \vdots & \ddots & \vdots \\
-0        & 0      & \cdots &        & 0      & \cdots & 0
-\end{bmatrix}
-$$
-
-A matriz resultante da inversão dos $\sigma_{i}$ ($i=1,\dots,r$) é:
-
-$$
-\Sigma' =
-\begin{bmatrix}
-\frac{1}{\sigma_{1}} &        &        &        & \cdots &        & 0 \\
-         & \frac{1}{\sigma_{2}} &      &        & \cdots &        & 0 \\
-         &        & \ddots &        &        &        & \vdots \\
-         &        &        & \frac{1}{\sigma_{r}} &       &        & 0 \\
-         &        &        &        & 0      &        & 0 \\
-\vdots   & \vdots &        &        & \vdots & \ddots & \vdots \\
-0        & 0      & \cdots &        & 0      & \cdots & 0
-\end{bmatrix}
-$$
-
-E então, $\Sigma^{+}=(\Sigma')^{T}$.
-
-$A^{+}$ é uma generalização da ideia de inversa para uma matriz qualquer, daí o nome de pseudoinversa. Existem outros tipos de pseudoinversas, esta em específico satisfaz as chamadas **condições de Penrose**:
-
-1. $AA^{+}A=A$
-2. $A^{+}AA^{+}=A^{+}$
-3. $(AA^{+})^{T}=AA^{+}$
-4. $(A^{+}A)^{T}=A^{+}A$
-
-Essas condições são verificadas sem muita dificuldade considerando-se a decomposição SVD de $A$ e as propriedades das matrizes $U$, $V$, $\Sigma $ e $\Sigma^{+}$. 
+Utilizando a pseudoinversa de Moore-Penrose, dada por [](#def-pseudoinversa), podemos resolver $A^{T}Ax=A^{T}b$ no caso geral, que independe da quantidade de linhas e colunas, assim como do posto de $A$. 
 
 :::{prf:theorem}
 :label: teo-pseudoinversa-postocompleto
@@ -234,7 +179,7 @@ $$
 A\bar{x}=A\hat{x}\implies A(\bar{x}-\hat{x})=0
 $$
 
-O que por sua vez nos dá que $\bar{x}-\hat{x}$ é um vetor do núcleo de $A$. Em particular, seja $z=\bar{x}-\hat{x}$, então todo vetor $\bar{x}$ solução da eq. normal pode ser escrito como $\bar{x}=z+\hat{x}$. Agora, considere a decomposição SVD de $A$. Pela construção que se tem a pseudoinversa, note que o vetor $\hat{x}=A^{+}b$ irá pertencer ao espaço coluna de $A^{T}$. Mas temos que o núcleo de $A$ é ortogonal ao espaço coluna de $A^{T}$, consequentemente $\langle \hat{x} , z \rangle = 0$.
+O que por sua vez nos dá que $\bar{x}-\hat{x}$ é um vetor do núcleo de $A$. Em particular, seja $z=\bar{x}-\hat{x}$, então todo vetor $\bar{x}$ solução da eq. normal pode ser escrito como $\bar{x}=z+\hat{x}$. Agora, considere a decomposição SVD de $A$. Pela construção que tem a pseudoinversa, note que o vetor $\hat{x}=A^{+}b$ irá pertencer ao espaço coluna de $A^{T}$. Mas temos que o núcleo de $A$ é ortogonal ao espaço coluna de $A^{T}$, consequentemente $\langle \hat{x} , z \rangle = 0$.
 
 Assim, temos enfim que:
 
@@ -242,7 +187,7 @@ $$
 \lVert \bar{x} \rVert^{2}=\lVert z+\hat{x} \rVert  ^{2}=\lVert z \rVert ^{2}+\lVert \hat{x} \rVert ^{2}\geq \lVert \hat{x} \rVert ^{2}
 $$
 
-(veja que a quebra da norma nas duas parcelas é consequência do fato de $\hat{x}$ e $z$ serem ortogonais)
+(veja que a quebra da norma nas duas parcelas é consequência do fato de $\hat{x}$ e $z$ serem ortogonais e [](#teo-pitagoras))
 
 Donde concluímos que $\lVert \bar{x} \rVert\geq \lVert \hat{x} \rVert$ e teremos a igualdade somente quando $z=0$ e $\bar{x}=\hat{x}$. Portanto, $\hat{x}$ é a solução da equação normal de norma mínima.
 
