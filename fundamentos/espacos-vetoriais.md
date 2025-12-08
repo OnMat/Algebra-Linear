@@ -124,7 +124,7 @@ Note que a condição 1 impede que um conjunto vazio seja um subespaço. O menor
 
 :::{prf:example}
 
-Considere o subconjunto do $\mathbb{R}^{n}$ formado pelos vetores cuja primeira entrada é nula. Isto é, $U=\{ (0,a_{2},\dots,a_{n})/ a_{i} \in \mathbb{R} \}$. 
+Considere o subconjunto do $\mathbb{R}^{n}$ formado pelos vetores cuja primeira entrada é nula. Isto é, $U=\{ (0,a_{2},\dots,a_{n}): a_{i} \in \mathbb{R} \}$. 
 
 1. Claramente, $0 \in U$;
 2. $(0,a_{2},\dots,a_{n})+(0,b_{2},\dots,b_{n})=(0,a_{2}+b_{2},\dots,a_{n}+b_{n}) \in U$;
@@ -168,8 +168,8 @@ A união de subespaços, no entanto, não se comporta da mesma maneira. Há caso
 
 Considere os seguintes subespaços de $\mathbb{R}^{2}$:
 
-- ${} S_{1}=\{ (0,y)/ y \in \mathbb{R} \} {}$;
-- $S_{2}=\{ (x,0)/ x \in \mathbb{R} \}$.
+- ${} S_{1}=\{ (0,y): y \in \mathbb{R} \} {}$;
+- $S_{2}=\{ (x,0): x \in \mathbb{R} \}$.
 
 Inicialmente, note que $S_{1}\cap S_{2} = \{ 0 \}$. Logo, seja $v \in S_{1} \cup S_{2}$ tal que $v \neq 0$, $v$ só pode ser da forma $(0,y)$ ou $(x,0)$, com $x$ e $y$ diferentes de zero. Assim, considere $v,w \in S_{1}\cup S_{2}$, de forma que $v \in S_{1}$ e $w \in S_{2}$ e ambos diferentes do vetor nulo. Observe que $v+w=(x,y)$, para $x,y \in \mathbb{R}-\{ 0 \}$, o que claramente não é um elemento de $S_{1}$ ou de $S_{2}$, portanto não pertence a união.
 
@@ -200,7 +200,7 @@ $(\impliedby)$ Suponha, sem perda de generalidade, que $U\subseteq W$. Segue-se 
 Sejam $U_{1},U_{2},\dots,U_{n}$ subespaços de $V$, define-se a sua soma como:
 
 $$
-U_{1}+U_{2}+\dots+U_{n}=\{ u_{1}+\dots+u_{n}/ u_{1} \in U_{1},\dots,u_{n} \in U_{n} \}
+U_{1}+U_{2}+\dots+U_{n}=\{ u_{1}+\dots+u_{n}: u_{1} \in U_{1},\dots,u_{n} \in U_{n} \}
 $$
 
 Ou seja, é o conjunto de todas as possíveis somas entre elementos de $U_{1},U_{2},\dots,U_{n}$.
@@ -212,13 +212,13 @@ Ou seja, é o conjunto de todas as possíveis somas entre elementos de $U_{1},U_
 
 Considere novamente os subespaços:
 
-- $S_{1}=\{ (x,0)/ x \in \mathbb{R} \}$
-- $S_{2}=\{ (0,y)/ y \in \mathbb{R} \}$
+- $S_{1}=\{ (x,0): x \in \mathbb{R} \}$
+- $S_{2}=\{ (0,y): y \in \mathbb{R} \}$
 
 Então, sua soma é dada por:
 
 $$
-S_{1}+S_{2}=\{ (x,y)/ x,y \in \mathbb{R} \}
+S_{1}+S_{2}=\{ (x,y): x,y \in \mathbb{R} \}
 $$
 
 Ou seja, $S_{1}+S_{2}=\mathbb{R}^{2}$.
@@ -332,9 +332,9 @@ Veja que, diferentemente da [](#prop-caracterizacao1-de-soma-direta), a [](#prop
 
 Considere os seguintes subespaços de $\mathbb{R}^{3}$:
 
-- $S_{1}=\{ (x,y,0)/x,y\in \mathbb{R} \}$
-- $S_{2}=\{ (0,0,z)/z\in \mathbb{R} \}$
-- $S_{3}=\{ (0,w,w)/w\in \mathbb{R} \}$
+- $S_{1}=\{ (x,y,0):x,y\in \mathbb{R} \}$
+- $S_{2}=\{ (0,0,z):z\in \mathbb{R} \}$
+- $S_{3}=\{ (0,w,w):w\in \mathbb{R} \}$
 
 Primeiramente, observe que $\mathbb{R}^{3}=S_{1}+S_{2}+S_{3}$. Além disso, $S_{1}\cap S_{2}=\{ 0 \}$, $S_{1}\cap S_{3}=\{ 0 \}$ e $S_{2}\cap S_{3}=\{ 0 \}$. No entanto, a soma entre esses subespaços não é direta, uma vez que a escrita de qualquer vetor do $\mathbb{R}^{3}$ não será única: Seja ${} (v_{1},v_{2},v_{3}) \in \mathbb{R}^{3} {}$, observe que $(v_{1},v_{2},v_{3})=(v_{1},v_{2},0)+(0,0,v_{3})+(0,0,0)$. Por outro lado, existem infinitas escolhas de $y,w \in \mathbb{R}$, ambas não nulas, de modo que $y+w=a_{2}$ e, a partir do $w$ escolhido, também podemos determinar $z\in \mathbb{R}$ de modo que $z+w=a_{3}$. Um exemplo numérico:
 

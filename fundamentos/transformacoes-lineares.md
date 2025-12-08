@@ -255,7 +255,7 @@ O **núcleo** (comumente também referido como *kernel*) é um importante subcon
 
 Seja $T \in \mathcal{L}(V,W)$. O ***núcleo*** de $T$, denotado por $N(T)$, é o seguinte subconjunto de $V$:
 
-$N(T)=\{ v \in V/Tv=0 \}$.
+$N(T)=\{ v \in V:Tv=0 \}$.
 
 Ou seja, o conjunto de vetores em $V$ que são mapeados por $T$ para o vetor nulo em $W$.
 
@@ -350,7 +350,7 @@ Para transformações lineares, o conceito de **imagem** é análogo ao usual pa
 Seja $T\in \mathcal{L}(V,W)$. A ***imagem*** de $T$, denotada por $\text{Im}(T)$, é o seguinte subconjunto de $W$:
 
 $$
-\text{Im}(T)=\{ Tv/v \in V \}.
+\text{Im}(T)=\{ Tv:v \in V \}.
 $$
 
 :::

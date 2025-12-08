@@ -24,7 +24,7 @@ Dizemos que $w$ é uma ***combinação linear*** de $(v_{1},\dots,v_{n})$, em re
 Seja $(v_{1},\dots, v_{n})$ uma lista de vetores em $V$. Considere o seguinte conjunto:
 
 $$
-S=\{ \alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}/\alpha_{1},\dots,\alpha_{n}\in \mathbb{R} \}
+S=\{ \alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}:\alpha_{1},\dots,\alpha_{n}\in \mathbb{R} \}
 $$
 
 Isto é, $S$ é o conjunto de todas as combinações lineares possíveis entre os vetores $v_{1},\dots,v_{n}$. Utilizando os resultados do tópico anterior, verificamos facilmente que $S$ é um subespaço vetorial de $V$. Dizemos que $S$ é o ***espaço gerado*** por $(v_{1},\dots,v_{n})$ e denotaremos-o por $\text{span}(v_{1},\dots,v_{n})$ (notação mais comum, proveniente do termo em inglês para o espaço gerado[^1]).
@@ -325,7 +325,7 @@ A definição de dimensão para um espaço de "dimensão finita" parece circular
 
 :::{prf:example}
 
-Como é esperado, seja $n \in \mathbb{N}$, o espaço $\mathbb{R}^{n}$ possui dimensão $n$. Por exemplo, o espaço das duplas ordenadas $\mathbb{R}^{2}=\{ (x,y)/x,y \in \mathbb{R} \}$ possui dimensão 2; o espaço das 123-uplas ordenadas, $\mathbb{R}^{123}$, possui dimensão 123...
+Como é esperado, seja $n \in \mathbb{N}$, o espaço $\mathbb{R}^{n}$ possui dimensão $n$. Por exemplo, o espaço das duplas ordenadas $\mathbb{R}^{2}=\{ (x,y):x,y \in \mathbb{R} \}$ possui dimensão 2; o espaço das 123-uplas ordenadas, $\mathbb{R}^{123}$, possui dimensão 123...
 
 A dimensão de um espaço fica evidente quando pensamos na sua base canônica, por exemplo, $\mathcal{P}_{m}$ (polinômios de grau menor ou igual a $m$) possui dimensão $m+1$, sua base canônica é $( 1,x,x^{2},\dots,x^{m} )$, que possui $m+1$ elementos.
 

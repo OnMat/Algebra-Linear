@@ -382,7 +382,7 @@ $$
 Equivalentemente, 
 
 $$
-\lVert A-A_{k} \rVert_{2}=\min \{ \lVert A-B \rVert _{2}/B\in \mathbb{R}^{m\times n}\text{ e }\text{posto}(B)=k \} 
+\lVert A-A_{k} \rVert_{2}=\min \{ \lVert A-B \rVert _{2}:B\in \mathbb{R}^{m\times n}\text{ e }\text{posto}(B)=k \} 
 $$
 
 Além disso, $\lVert A-A_{k} \rVert=\sigma_{k+1}$.

@@ -390,7 +390,7 @@ Seja $(u_{1},\dots,u_{m})$ uma lista ortonormal de $V$, pelo [](#teoestenderbase
 Seja $U$ um subespaço de $V$. O ***complemento ortogonal*** de $U$, denotado por $U^{\perp}$ (lê-se "$U$ perp") é o conjunto de todos os vetores de $V$ que são ortogonais a todos os vetores de $U$. Isto é,
 
 $$
-U^{\perp}=\{ v \in V; \langle v , u \rangle = 0,\;\forall u \in U \}.
+U^{\perp}=\{ v \in V: \langle v , u \rangle = 0,\;\forall u \in U \}.
 $$
 
 :::

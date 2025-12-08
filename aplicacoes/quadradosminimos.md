@@ -201,7 +201,7 @@ Agora, estendemos esse resultado para o caso geral, onde $A^{+}b$ nos dará uma 
 $A^{+}b$ fornece a solução da equação normal $A^{T}A\bar{x}=A^{T}b$ **que possui norma mínima**, seja qual for a matriz $A$. Isto é, se $\hat{x}=A^{+}b$, então:
 
 $$
-\lVert \hat{x} \rVert =\min \{ \lVert \bar{x} \rVert;\bar{x}\text{ é solução de }A^{T}A\bar{x}=A^{T}b  \}
+\lVert \hat{x} \rVert =\min \{ \lVert \bar{x} \rVert:\bar{x}\text{ é solução de }A^{T}A\bar{x}=A^{T}b  \}
 $$
 
 :::
