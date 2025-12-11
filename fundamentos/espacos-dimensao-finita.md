@@ -3,7 +3,21 @@ title: Propriedades de espaços vetoriais de dimensão finita
 subject: Fundamentos
 ---
 
-Os conceitos discutidos no tópico anterior são válidos para espaços vetoriais arbitrários. **Daqui em diante, os espaços vetoriais considerados possuem dimensão finita** (o significado de dimensão ficará claro futuramente). Tenha em mente que sempre que nos referirmos a uma lista de vetores $(v_{1},\dots,v_{n})$ teremos $n\in \mathbb{N}$, ou seja, a lista é finita. 
+Os conceitos discutidos no tópico anterior são válidos para espaços vetoriais arbitrários. **Daqui em diante, os espaços vetoriais considerados possuem dimensão finita** (o significado de dimensão ficará claro futuramente).
+
+:::{prf:observation}
+
+Nesse livro, utilizamos amplamente o conceito de lista para representar um conjunto de vetores. Por exemplo, a lista $(v_{1},\dots,v_{n})$ onde cada $v_{i}$ é vetor de um espaço vetorial $V$. Note que tal lista será tratada de maneira diferente da lista $(a_{1},\dots,a_{n})$ onde cada $a_{i}$ é um número real, sendo essa última tratada como um vetor do espaço ${} \mathbb{R}^{n} {}$. Em geral, a distinção entre listas de vetores e vetores do ${} \mathbb{R}^{n} {}$ ficará clara pelo contexto, mas sempre especificaremos qual o tipo de objeto que se trata e tentaremos padronizar a notação de maneira que $u$, $v$ e $w$ serão utilizados para representar vetores, enquanto que $a$, $b$, $c$, $x$, $y$, $\alpha$ e $\beta$ serão utilizados para representar números reais. 
+
+Não faremos operações de soma e multiplicação por escalar entre listas de vetores como fazemos para vetores do $\mathbb{R}^{n}$, apenas inserção, remoção e ordenação de elementos. Na prática, funcionando como um conjunto que distingue elementos repetidos e é ordenado, o que facilita a definição de muitos conceitos e demonstrações. Muitos textos de Álgebra Linear utilizam conjuntos de vetores, mas os conceitos e resultados com a abordagem de listas são equivalentes (feitas as devidas adaptações, quando necessário).
+
+:::
+
+:::{prf:observation}
+
+Sempre que nos referirmos a uma lista $(v_{1},\dots,v_{n})$, sejam seus elementos vetores ou escalares, teremos $n\in \mathbb{N}$. Ou seja, a lista é finita. 
+
+:::
 
 ### Combinações lineares e espaço gerado
 
