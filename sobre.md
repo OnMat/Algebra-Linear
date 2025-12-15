@@ -14,12 +14,13 @@ subject: Álgebra Linear
 
 - AXLER, Sheldon. **Linear algebra done right**. 2. ed. New York: Springer, 1997. (Undergraduate texts in mathematics).
 - LIMA, Elon Lages. **Álgebra linear**. 8. ed. Rio de Janeiro: IMPA, 2014. (Coleção Matemática Universitária).
+- POOLE, David. **Álgebra linear:** uma introdução moderna. 2. ed. São Paulo: Cengage Learning, 2016.
 
 ## Como citar
 
 Para citar este produto usando o BibLaTeX, utilize:
 
-```{code-cell} bibtex
+```{code-block} bibtex
 @mastersthesis{foobar,
   author  = "foo",
   title   = "bar",

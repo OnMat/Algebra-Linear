@@ -70,7 +70,7 @@ De maneira similar à definição de soma direta para um conjunto de subespaços
 
 :::{prf:definition} Vetores linearmente independentes
 
-Seja $(v_{1},\dots,v_{n})$ uma lista de vetores em $V$, dizemos que $(v_{1},\dots,v_{n})$ é ***linearmente independente*** se a única maneira de escrever o vetor nulo como uma combinação linear entre esses vetores é fazendo cada escalar igual a zero. Isto é, sejam $\alpha_{1},\dots,\alpha_{n} \in \mathbb{R}$, tais vetores são linearmente independentes se, e somente se,
+Seja $(v_{1},\dots,v_{n})$ uma lista de vetores em $V$, dizemos que $(v_{1},\dots,v_{n})$ é ***linearmente independente*** (ou LI) se a única maneira de escrever o vetor nulo como uma combinação linear entre esses vetores é fazendo cada escalar igual a zero. Isto é, sejam $\alpha_{1},\dots,\alpha_{n} \in \mathbb{R}$, tais vetores são linearmente independentes se, e somente se,
 
 $$
 \alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}=0\implies\alpha_{1},\dots,\alpha_{n}=0
@@ -99,7 +99,11 @@ são linearmente independentes. É fácil de observar que $0=\alpha_{1}(1,0,\dot
 
 Através da definição, verifica-se sem muita dificuldade que toda lista de vetores que está contida em uma lista linearmente independente também será linearmente independente.
 
-Naturalmente, uma lista de vetores $(v_{1},\dots,v_{n})$ é ***linearmente dependente*** quando não é linearmente independente. Logo, existe pelo menos um $\alpha_{i}$ não nulo de modo que $0=\alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}$.
+:::{prf:definition} Vetores linearmente dependentes
+
+Uma lista de vetores $(v_{1},\dots,v_{n})$ é ***linearmente dependente*** (ou LD) quando não é linearmente independente. Logo, existe pelo menos um $\alpha_{i}$ não nulo de modo que $0=\alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}$.
+
+:::
 
 Um exemplo típico de vetores linearmente dependentes são múltiplos (quando um vetor é o outro multiplicado por um escalar).
 

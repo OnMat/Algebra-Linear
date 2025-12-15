@@ -3,7 +3,7 @@ title: Matrizes
 subject: Fundamentos
 ---
 
-É difícil destacar o tamanho da importância das matrizes na Álgebra Linear, elas fornecem uma maneira extremamente prática de representar e condensar informações sobre transformações lineares, além de uma grande ferramente computacional.
+É difícil destacar o tamanho da importância das matrizes na Álgebra Linear, elas fornecem uma maneira extremamente prática de representar e condensar informações sobre transformações lineares, além de uma grande ferramenta computacional.
 
 As matrizes possuem toda uma fundamentação teórica e são objetos de estudo da Álgebra Linear tanto quanto transformações lineares e espaços vetoriais (e estão intimamente conectadas com estes conceitos). No entanto, visando uma abordagem mais simplificada, definiremos as matrizes e suas principais propriedades de maneira paralela e depois mostraremos a conexão delas com transformações lineares (no tópico subsequente a este). Um abordagem mais teórica, que pode ser encontrada em muitos livros, consiste em construir o conceito de matriz já diretamente a partir de transformações lineares, com a vantagem principal de que as operações de soma e produto serão consequências dessa construção, parecendo menos arbitrárias em relação à abordagem adotada aqui.
 

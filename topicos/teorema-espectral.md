@@ -87,11 +87,11 @@ Agora, podemos provar o Teorema Espectral.
 :::{prf:proof} Teorema Espectral para operadores auto-adjuntos 
 A prova se dá por indução sobre a dimensão de $V$. Consideremos $\dim V = n$.
 
-Como caso base, se $n=1$, qualquer ${} v\in V-\{ 0 \} {}$ forma uma base do espaço. Naturalmente, $\left\{  \frac{v}{\lvert |v| \rvert}  \right\}$ é uma base ortonormal de $V$. Ademais, também é formada por um autovetor, uma vez que se $T(v)\in V$, então $T(v)=\lambda v$, para algum $\lambda \in \mathbb{R}$, dado que $\{ v \}$ é uma base.
+Como caso base, se $n=1$, qualquer ${} v\in V-\{ 0 \} {}$ forma uma base do espaço. Naturalmente, $\left(  \frac{v}{\lvert |v| \rvert}  \right)$ é uma base ortonormal de $V$. Ademais, também é formada por um autovetor, uma vez que se $Tv\in V$, então $Tv=\lambda v$, para algum $\lambda \in \mathbb{R}$, dado que $( v )$ é uma base.
 
-Como hipótese de indução, considere $n>1$ e suponha que o Teorema vale para todo espaço com dimensão menor que $n$. O [Lema 2](#lema2) garante que existe um autovetor de $T$ (em particular, unitário) $v_{1}\in V$, associado a um autovalor real $\lambda_{1}$. Seja $U=[v_{1}]$, temos então que $\dim U^{\perp}= \dim V - \dim U=n-1<n$. Além disso, seja $u \in U$, $u=\alpha v_{1}$ e $T(\alpha v_{1})=\alpha T(v_{1})=\alpha \lambda_{1}v_{1}\in U$. Logo, $U$ é $T$-invariante. Consequentemente, pelo [Lema 1](#lema1), $U^{\perp}$ também é $T$-invariante.
+Como hipótese de indução, considere $n>1$ e suponha que o Teorema vale para todo espaço com dimensão menor que $n$. O [Lema 2](#lema2) garante que existe um autovetor de $T$ (em particular, unitário) $v_{1}\in V$, associado a um autovalor real $\lambda_{1}$. Seja $U=\text{span}(v_{1})$, temos então que $\dim U^{\perp}= \dim V - \dim U=n-1<n$. Além disso, seja $u \in U$, $u=\alpha v_{1}$ e $T(\alpha v_{1})=\alpha Tv_{1}=\alpha \lambda_{1}v_{1}\in U$. Logo, $U$ é $T$-invariante. Consequentemente, pelo [Lema 1](#lema1), $U^{\perp}$ também é $T$-invariante.
 
-Dado que $\dim U^{\perp}<n$ e ${} U^{\perp} {}$ é $T$-invariante, vale a hipótese de indução. Logo, existe uma base ortonormal $\{ v_{2},\dots ,v_{n} \}$ de $U^{\perp}$ formada por autovetores de $T$. Naturalmente, como $V=U \oplus U^{\perp}$, $\{ v_{1},v_{2},\dots,v_{n} \}$ é uma base ortonormal de $V$ formada por autovetores de $T$.
+Dado que $\dim U^{\perp}<n$ e ${} U^{\perp} {}$ é $T$-invariante, vale a hipótese de indução. Logo, existe uma base ortonormal $( v_{2},\dots ,v_{n} )$ de $U^{\perp}$ formada por autovetores de $T$. Naturalmente, como $V=U \oplus U^{\perp}$, $( v_{1},v_{2},\dots,v_{n} )$ é uma base ortonormal de $V$ formada por autovetores de $T$.
 :::
 
 Verifica-se sem muita dificuldade que, em espaços vetoriais reais, a recíproca do Teorema Espectral é verdadeira: Se existe uma base ortonormal formada por autovetores de $T$, então $T$ é auto-adjunto.
@@ -105,7 +105,7 @@ Seja $A\in M_{n}(\mathbb{R})$ uma matriz simétrica, então existe uma matriz $P
 
 ```{admonition} Demonstração
 :class: dropdown
-Seja $T\in \mathcal{L}(V)$ tal que $A=[T]_{c}$. Como $A$ é simétrica e a base canônica é ortonormal, então $T$ é auto-adjunta. Logo, do [Teorema Espectral](#teorema-espectral) sabemos que existe uma base $\beta=\{ v_{1},\dots,v_{n} \}$ de $V$ formada por autovetores de $T$. Seja $T(v_{i})=\lambda_{i}v_{i}$ ($i=1,2,\dots,n$), então
+Seja $T\in \mathcal{L}(V)$ tal que $A=[T]_{c}$. Como $A$ é simétrica e a base canônica é ortonormal, então $T$ é auto-adjunta. Logo, do [Teorema Espectral](#teorema-espectral) sabemos que existe uma base $\beta=( v_{1},\dots,v_{n} )$ de $V$ formada por autovetores de $T$. Seja $Tv_{i}=\lambda_{i}v_{i}$ ($i=1,2,\dots,n$), então
 $$
 D=[T]_{\beta}=\begin{bmatrix}
 \lambda_{1} & 0 & \dots & 0 \\
@@ -182,7 +182,7 @@ $$
 \end{align}
 $$
 
-Logo, $\{ \hat{v_{1}},\hat{v_{2}} \}$ é uma base ortonormal de $\mathbb{R}^{2}$ formada por autovetores de $A$.
+Logo, $( \hat{v_{1}},\hat{v_{2}} )$ é uma base ortonormal de $\mathbb{R}^{2}$ formada por autovetores de $A$.
 
 Voltando ao caso geral (para simplificar consideraremos uma matriz $2\times2$, mas a análise para dimensões maiores é análoga), considere que os autovetores normalizados encontrados no terceiro passo são $\hat{v_{1}}=(a,b)$ e $\hat{v_{2}}=(c,d)$. A demonstração do [](#espectral-para-matrizes-simetricas) nos diz que $P=\begin{bmatrix}a & c \\ b & d\end{bmatrix}$, portanto
 

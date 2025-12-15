@@ -116,7 +116,7 @@ $$
 $$
 Portanto, $[T]_{\beta}$ é simétrica.
 
-$(\impliedby):$ Se $[T]_{\beta}=([T]_{\beta})^{T}$, suponha que $\beta = \{ v_{1},\dots,v_{n} \}$. Logo, 
+$(\impliedby):$ Se $[T]_{\beta}=([T]_{\beta})^{T}$, suponha que $\beta = (v_{1},\dots,v_{n})$. Logo, 
 $$
 \langle Tv_{i} , v_{j} \rangle=\langle Tv_{j} , v_{i} \rangle,
 \label{eq:igualdade-prova-caracterizacao-op-auto-adjunto}
@@ -170,7 +170,7 @@ Existem certos tipos de operadores auto-adjuntos que merecem uma atenção espec
 
 :::{prf:definition} Operador definido positivo
 
-Seja $V$ um espaço vetorial com produto interno e dimensão finita, dado $T\in \mathcal{L}(V)$ auto-adjunto, dizemos que $T$ é *definido positivo* se $\forall v\in V$, com $v\neq 0$, temos
+Seja $V$ um espaço vetorial com produto interno e dimensão finita, dado $T\in \mathcal{L}(V)$ auto-adjunto, dizemos que $T$ é ***definido positivo*** se $\forall v\in V$, com $v\neq 0$, temos
 
 $$
 \langle Tv , v \rangle>0
@@ -199,7 +199,7 @@ Estendendo para considerar $v = 0$, temos a definição a seguir:
 
 :::{prf:definition} Operador não negativo
 
-Seja $V$ um espaço vetorial com produto interno e dimensão finita, dado $T\in \mathcal{L}(V)$ auto-adjunto, dizemos que $T$ é *não negativo* ou *semi-definido positivo* se $\forall v\in V$, temos
+Seja $V$ um espaço vetorial com produto interno e dimensão finita, dado $T\in \mathcal{L}(V)$ auto-adjunto, dizemos que $T$ é ***não negativo*** ou ***semi-definido positivo*** se $\forall v\in V$, temos
 
 $$
 \langle Tv , v \rangle\geq0
@@ -211,11 +211,11 @@ e escrevemos $T\geq0$.
 
 No caso do exemplo anterior, é natural que ao incluirmos a possibilidade que $v=0$ verificamos que o operador identidade é não negativo, uma vez que ele já é positivo definido. De fato, todo operador positivo definido é não negativo, mas a recíproca não vale (podemos ter $\langle Tv , v \rangle=0$ mas $v\neq 0$).
 
-Podemos também estender essas definições de maneira análoga para operadores *negativos* ($T<0$) e *não positivos* ($T\leq0$), mas existem operadores que não se enquadram em nenhum destes:
+Podemos também estender essas definições de maneira análoga para operadores ***negativos*** ($T<0$) e ***não positivos*** ($T\leq0$), mas existem operadores que não se enquadram em nenhum destes:
 
 :::{prf:example} Operador indefinido
 
-Considere a base ortonormal $\beta=\{ (1,0),(0,1) \}$ e $T(x,y)=(y,x),\forall(x,y)\in \mathbb{R}²$. Temos que:
+Considere a base ortonormal $\beta=( (1,0),(0,1) )$ e $T(x,y)=(y,x),\forall(x,y)\in \mathbb{R}²$. Temos que:
 
 $$
 [T]_{\beta}=
@@ -231,7 +231,7 @@ $$
 \langle T(x,y) , (x,y) \rangle=\langle (y,x) , (x,y) \rangle=yx+xy=2xy,\forall(x,y)\in \mathbb{R}²
 $$
  
-Note que, a depender dos valores de $x$ e $y$, $2xy$ pode ser positivo, negativo ou nulo. Portanto, $T$ é um *operador indefinido*.
+Note que, a depender dos valores de $x$ e $y$, $2xy$ pode ser positivo, negativo ou nulo. Portanto, $T$ é um ***operador indefinido***.
 
 :::
 
@@ -240,7 +240,7 @@ O teorema a seguir serve como base para uma extensão do [Teorema Espectral](/to
 :::{prf:theorem} 
 :label: pre-teorema-valores-singulares
 
-Seja $T:V\to W$ uma transformação linear entre espaços vetoriais de dimensão finita e munidos de produto interno, os operadores lineares $T^{*}T:V\to V$ e $TT^{*}:W\to W$ são não negativos e possuem o mesmo posto de $T$ e $T^{*}$.
+Seja ${} T\in \mathcal{L}(V,W) {}$ uma transformação linear entre espaços vetoriais de dimensão finita e munidos de produto interno, os operadores lineares ${} T^{*}T \in \mathcal{L}(V) {}$ e ${} TT^{*} \in \mathcal{L}(W) {}$ são não negativos e possuem o mesmo posto de $T$ e $T^{*}$.
 
 :::
 

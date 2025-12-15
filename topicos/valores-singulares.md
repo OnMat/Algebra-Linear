@@ -39,7 +39,7 @@ $$
 :::{prf:theorem} Valores Singulares
 :label: teo-valores-singulares1
 
-Seja $A\in \mathbb{R}^{m\times n}$, com posto igual a $r$. Existem números reais $\sigma_{1}\geq \dots\geq \sigma_{r}>0$, chamados de *valores singulares* de $A$, e bases ortonormais $\{ v_{1},\dots,v_{n} \}$ de $\mathbb{R}^{n}$ e $\{ u_{1},\dots,u_{m} \}$ de $\mathbb{R}^{m}$, tais que:
+Seja $A\in \mathbb{R}^{m\times n}$, com posto igual a $r$. Existem números reais $\sigma_{1}\geq \dots\geq \sigma_{r}>0$, chamados de *valores singulares* de $A$, e bases ortonormais $( v_{1},\dots,v_{n} )$ de $\mathbb{R}^{n}$ e $( u_{1},\dots,u_{m} )$ de $\mathbb{R}^{m}$, tais que:
 
 - $Av_{i}=\sigma_{i}u_{i}$, para $i=1,\dots,r$;
 - $Av_{i}=0$, para $i=r+1,\dots,n$;
@@ -52,9 +52,9 @@ Onde $v_{1},\dots,v_{n}$ são autovetores de $A^{T}A$, $u_{1},\dots,u_{m}$ são 
 
 :::{prf:proof}
 
-Pelo [](#pre-teorema-valores-singulares) sabemos que existe uma base ortonormal $\{ v_{1},\dots,v_{n} \}$ do $\mathbb{R}^{n}$ constituída de autovetores de $A^{T}A$, com $\lambda_{1},\dots,\lambda_{n}$ autovalores associados respectivamente. Além disso, $A^{T}A\geq0$ e portanto todos os seus autovalores são não negativos.
+Pelo [](#pre-teorema-valores-singulares) sabemos que existe uma base ortonormal $( v_{1},\dots,v_{n} )$ do $\mathbb{R}^{n}$ constituída de autovetores de $A^{T}A$, com $\lambda_{1},\dots,\lambda_{n}$ autovalores associados respectivamente. Além disso, $A^{T}A\geq0$ e portanto todos os seus autovalores são não negativos.
 
-Dessa forma, considere $\{ v_{1} ,\dots,v_{n}\}$ ordenados tais que $\lambda_{1}\geq \dots\geq \lambda_{n}\geq0$. Também de [](#pre-teorema-valores-singulares) sabemos que o posto de $A^{T}A$ é o mesmo de $A$, igual a $r$. Logo, temos que:
+Dessa forma, considere $( v_{1} ,\dots,v_{n})$ ordenados tais que $\lambda_{1}\geq \dots\geq \lambda_{n}\geq0$. Também de [](#pre-teorema-valores-singulares) sabemos que o posto de $A^{T}A$ é o mesmo de $A$, igual a $r$. Logo, temos que:
 
 $$
 \lambda_{1}\geq\dots\geq \lambda_{r}>0 \qquad \text{e} \qquad \lambda_{r+1}=\dots=\lambda_{n}=0
@@ -80,7 +80,7 @@ $$
 \end{align}
 $$
 
-(observe que como $\{ v_{1},\dots,v_{n} \}$ é ortonormal, então $\langle v_{i} , v_{i} \rangle=v_{i}^{T}v_{i}=1$)
+(observe que como $( v_{1},\dots,v_{n} )$ é ortonormal, então $\langle v_{i} , v_{i} \rangle=v_{i}^{T}v_{i}=1$)
 
 Para $i\neq j$ temos que $\langle v_{i} , v_{j} \rangle=0$ (pois compõem uma base ortonormal). Além disso $A^{T}Av_{i}=\lambda_{i}v_{i}$ e $A^{T}Av_{j}=\lambda_{j}v_{j}$, então:
 
@@ -88,7 +88,7 @@ $$
 \langle Av_{i} , Av_{j} \rangle=(Av_{i})^{T}Av_{j}=v_{i}^{T}A^{T}Av_{j}=v_{i}^{T}\lambda_{j}v_{j}=\lambda_{j}v_{i}^{T}v_{j}=\lambda_{j}\langle v_{i} , v_{j} \rangle=\lambda \cdot 0=0
 $$
 
-Logo, $Av_{i}$ e $Av_{j}$ também são ortogonais. Em particular, $\{ u_{1} ,\dots,u_{r}\}$ são ortonormais. Além disso, para $i=1,\dots,r$,
+Logo, $Av_{i}$ e $Av_{j}$ também são ortogonais. Em particular, $( u_{1} ,\dots,u_{r})$ são ortonormais. Além disso, para $i=1,\dots,r$,
 
 $$
 A^{T}u_{i}=A^{T}\left( \frac{1}{\sigma_{i}}Av_{i} \right)=\frac{1}{\sigma_{i}}A^{T}Av_{i}=\frac{1}{\sigma_{i}}\lambda_{i} v_{i}=\frac{\sigma_{i}^{2}}{\sigma_{i}}v_{i}=\sigma_{i}v_{i}
@@ -98,7 +98,7 @@ E como consequência do [](#lema-valores-singulares) temos que, para $i=1,\dots,
 
 Observe também que a dimensão do espaço nulo de $AA^{T}$ deve ser $m-r$, uma vez que $\text{posto}(AA^{T})=\text{posto}(A)=r$. 
 
-Consideramos então uma base ortonormal $\{ u_{r+1},\dots,u_{m} \}$ de $N(AA^{T})$ (ou seja, cada $u_{i}$ desses é um autovetor de $AA^{T}$ associado ao autovalor $0$). E ainda, $u_{r+1},\dots,u_{m}$ são ortogonais a $u_{1},\dots,u_{r}$, pois a soma direta dos espaços gerados por eles, respectivamente, é igual ao espaço $\mathbb{R}^{m}$, que por sua vez também é igual a soma direta entre o espaço gerado por $u_{1},\dots,u_{r}$ e seu complemento ortogonal. Logo, $\{ u_{1},\dots,u_{m} \}$ constitui uma base ortonormal de $\mathbb{R}^{m}$ formada por autovetores de $AA^{T}$. 
+Consideramos então uma base ortonormal $( u_{r+1},\dots,u_{m} )$ de $N(AA^{T})$ (ou seja, cada $u_{i}$ desses é um autovetor de $AA^{T}$ associado ao autovalor $0$). E ainda, $u_{r+1},\dots,u_{m}$ são ortogonais a $u_{1},\dots,u_{r}$, pois a soma direta dos espaços gerados por eles, respectivamente, é igual ao espaço $\mathbb{R}^{m}$, que por sua vez também é igual a soma direta entre o espaço gerado por $u_{1},\dots,u_{r}$ e seu complemento ortogonal. Logo, $( u_{1},\dots,u_{m} )$ constitui uma base ortonormal de $\mathbb{R}^{m}$ formada por autovetores de $AA^{T}$. 
 
 Note que, para $i=r+1,\dots,m$, temos $A^{T}u_{i}=0$, pois $N(AA^{T})=N(A^{T})$, como proposto. Similarmente, para $i=r+1,\dots,n$ temos $\lambda_{i}=0$ e ${} A^{T}Av_{i}=0 {}$, logo $Av_{i}=0$, pois $N(A^{T}A)=N(A)$.
 
@@ -116,13 +116,13 @@ $$
 A=U\Sigma V^{T}
 $$
 
-Em particular, sejam $\sigma_{1},\dots,\sigma_{r}$, $\{ v_{1},\dots,v_{n} \}$ e $\{ u_{1},\dots,u_{m} \}$ os mesmos do [teorema anterior](#teo-valores-singulares1), temos $V=[v_{1}\dots v_{n}]$, $U=[u_{1}\dots u_{m}]$ e $\sigma_{1},\dots,\sigma_{r}$ compondo as entradas não nulas da diagonal principal de $\Sigma$, nesta ordem.
+Em particular, sejam $\sigma_{1},\dots,\sigma_{r}$, $( v_{1},\dots,v_{n} )$ e $(u_{1},\dots,u_{m} )$ os mesmos do [teorema anterior](#teo-valores-singulares1), temos $V=[v_{1}\dots v_{n}]$, $U=[u_{1}\dots u_{m}]$ e $\sigma_{1},\dots,\sigma_{r}$ compondo as entradas não nulas da diagonal principal de $\Sigma$, nesta ordem.
 
 :::
 
 :::{prf:proof}
 
-Novamente, considere $\{ v_{1},\dots,v_{n} \}$, $\{ u_{1},\dots,u_{m} \}$ e $\sigma_{1},\dots,\sigma_{r}$ do [](#teo-valores-singulares1). Claramente as matrizes $V=[v_{1} \dots v_{n}]$ e $U=[u_{1} \dots u_{m}]$ são ortogonais, pois são formadas por vetores ortonormais.
+Novamente, considere $( v_{1},\dots,v_{n} )$, $( u_{1},\dots,u_{m} )$ e $\sigma_{1},\dots,\sigma_{r}$ do [](#teo-valores-singulares1). Claramente as matrizes $V=[v_{1} \dots v_{n}]$ e $U=[u_{1} \dots u_{m}]$ são ortogonais, pois são formadas por vetores ortonormais.
 
 Considere a matriz $\Sigma$ retangular diagonal de dimensão $m \times n$, contendo em sua diagonal principal $\sigma_{1},\dots,\sigma_{r}$ (nesta ordem) e as demais entradas nulas.
 
@@ -152,9 +152,9 @@ $$
 \left( \sum_{i=1}^{r}\sigma_{i}u_{i}v_{i}^{T} \right)\cdot [v_{j}]=\sum_{i=1}^{r}\sigma_{i}u_{i}v_{i}^{T}v_{j}=\sigma_{j}u_{j} \quad \text{para }j\leq r, \quad \text{e }0\text{ para }j>r.
 $$
 
-(consequência do fato que $\{ v_{1},\dots,v_{n} \}$ é ortonormal, logo $v_{i}^{T}v_{j}=0$ se $i \neq j$ e $v_{i}^{T}v_{j}=1$ se $i=j$)
+(consequência do fato que $( v_{1},\dots,v_{n} )$ é ortonormal, logo $v_{i}^{T}v_{j}=0$ se $i \neq j$ e $v_{i}^{T}v_{j}=1$ se $i=j$)
 
-Dado que $\{ v_{1},\dots,v_{n} \}$ é uma base de $\mathbb{R}^{n}$, devemos ter (pela unicidade de uma transformação linear sobre uma base) que
+Dado que $( v_{1},\dots,v_{n} )$ é uma base de $\mathbb{R}^{n}$, devemos ter (pela unicidade de uma transformação linear sobre uma base) que
 
 $$
 A=\sum_{i=1}^{r}\sigma_{i}u_{i}v_{i}^{T}=U \Sigma V^{T}.
@@ -182,7 +182,7 @@ $$
 Av_{i}=\sigma_{i}u_{i} \quad \text{e} \quad A^{T}u_{i}=\sigma_{i}v_{i},\;i=1,\dots,r
 $$
 
-Logo, podemos adotar a seguinte estratégia: Calculamos somente $A^{T}A$ ou $AA^{T}$, a que possui menor dimensão ($\min\{ m,n \}$). Assim, o processo de encontrar os autovalores (e consequentemente os valores singulares) e uma base ortonormal constituída de autovetores do espaço correspondente ao da matriz escolhida será menos trabalhoso. Para encontrar a outra matriz restante ($U$ ou $V$), fazemos uso das igualdades acima, bastando calcular as imagens $Av_{i}$ ou $A^{T}u_{i}$ e dividir as coordenadas pelo valor singular $\sigma_{i}$ correspondente, obtendo $r$ dos vetores que compõem a matriz restante. Para os $m-r$ ou $n-r$ vetores restantes, correspondentes aos valores singulares nulos, basta completarmos o conjunto dos $r$ vetores que já temos de maneira a formar uma base ortonormal do espaço correspondente (isto é, completamos com uma base ortonormal de $N(A)$ ou $N(A^{T})$)[^nota2].
+Logo, podemos adotar a seguinte estratégia: Calculamos somente $A^{T}A$ ou $AA^{T}$, a que possui menor dimensão ($\min\{ m,n \}$). Assim, o processo de encontrar os autovalores (e consequentemente os valores singulares) e uma base ortonormal constituída de autovetores do espaço correspondente ao da matriz escolhida será menos trabalhoso. Para encontrar a outra matriz restante ($U$ ou $V$), fazemos uso das igualdades acima, bastando calcular as imagens $Av_{i}$ ou $A^{T}u_{i}$ e dividir as coordenadas pelo valor singular $\sigma_{i}$ correspondente, obtendo $r$ dos vetores que compõem a matriz restante. Para os $m-r$ ou $n-r$ vetores restantes, correspondentes aos valores singulares nulos, basta completarmos a lista dos $r$ vetores que já temos de maneira a formar uma base ortonormal do espaço correspondente (isto é, completamos com uma base ortonormal de $N(A)$ ou $N(A^{T})$)[^nota2].
 
 Com isso em mente, vamos decompor $A$. Observe que $A^{T}A$ é $3\times3$, enquanto que $AA^{T}$ é $2\times 2$. Logo, vamos escolher $AA^{T}$ para trabalharmos e encontraremos primeiramente a matriz $U$.
 
@@ -252,7 +252,7 @@ v_{2}=\frac{1}{\sigma_{2}}\cdot A^{T}u_{2}=1\cdot \begin{bmatrix}
 \end{bmatrix}
 $$
 
-Para encontrar $v_{3}$, utilizaremos o processo de Gram-Schmidt. Começamos encontrando um $v_{3}'$ de forma que ${} \{ v_{1},v_{2},v'_{3} \} {}$ seja uma base de $\mathbb{R}^{3}$ (completar a base). Observe que ${} v_{3}'=(1,0,0) {}$ funciona. Agora, utilizaremos $v_{3}'$ para determinar $v_{3}''$ de forma que $\{ v_{1},v_{2},v_{3}'' \}$ seja uma base ortogonal de $\mathbb{R}^{3}$ (ortogonalizar). Temos que
+Para encontrar $v_{3}$, utilizaremos o processo de Gram-Schmidt. Começamos encontrando um $v_{3}'$ de forma que ${} ( v_{1},v_{2},v'_{3} ) {}$ seja uma base de $\mathbb{R}^{3}$ (completar a base). Observe que ${} v_{3}'=(1,0,0) {}$ funciona. Agora, utilizaremos $v_{3}'$ para determinar $v_{3}''$ de forma que $( v_{1},v_{2},v_{3}'' )$ seja uma base ortogonal de $\mathbb{R}^{3}$ (ortogonalizar). Temos que
 
 $$
 v_{3}''=v_{3}'-\text{proj}_{[v_{1},v_{2}]}\;v_{3}'
@@ -401,7 +401,7 @@ e pela definição de $\Sigma_{k}$ concluímos que $\sigma_{k+1}$ é de fato o m
 
 Agora, para $B\in \mathbb{R}^{m\times n}$ com posto $k$, mostremos que $\sigma_{k+1}\leq \lVert A-B \rVert_{2}$.
 
-Sejam $v_{1},\dots v_{n}$ os vetores que compõem as colunas de $V$, defina $W:=[v_{1},\dots,v_{k+1}]$. Temos então $(W+N(B))\subseteq \mathbb{R}^{n}$, pois $W,N(B)\subseteq \mathbb{R}^{n}$. Logo,
+Sejam $v_{1},\dots v_{n}$ os vetores que compõem as colunas de $V$, defina $W:=\text{span}(v_{1},\dots,v_{k+1})$. Temos então $(W+N(B))\subseteq \mathbb{R}^{n}$, pois $W,N(B)\subseteq \mathbb{R}^{n}$. Logo,
 
 $$
 \dim (W+N(B))=\dim W+\dim N(B)-\dim(W \cap N(B))\leq n
