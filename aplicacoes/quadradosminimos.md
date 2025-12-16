@@ -79,7 +79,7 @@ b-A\bar{x} \\
 \end{bmatrix}=0
 $$
 
-O que por sua vez nos dá $A^{T}(b-A\bar{x})=0$. Essa equação, comumente escrita como $\boxed{A^{T}A\bar{x}=A^{T}b}$, é chamada de *equação normal* e é a base para a solução do problema $Ax=b$ através da abordagem desenvolvida até aqui, denominada de *Método dos Quadrados Mínimos* (o nome vem da análise do problema do ponto de vista do Cálculo, que procura **minimizar o erro quadrático** $\lVert b-A\bar{x} \rVert^{2}$, resultando na mesma equação normal). 
+O que por sua vez nos dá $A^{T}(b-A\bar{x})=0$. Essa equação, comumente escrita como $\boxed{A^{T}A\bar{x}=A^{T}b}$, é chamada de ***equação normal*** e é a base para a solução do problema $Ax=b$ através da abordagem desenvolvida até aqui, denominada de ***Método dos Quadrados Mínimos*** (o nome vem da análise do problema do ponto de vista do Cálculo, que procura **minimizar o erro quadrático** $\lVert b-A\bar{x} \rVert^{2}$, resultando na mesma equação normal). 
 
 ### Soluções da Equação Normal
 
@@ -173,7 +173,7 @@ Assim, $A^{+}b$ é solução da equação normal.
 
 Agora, verificamos que $A^{+}b$ possui norma mínima entre as soluções da equação normal.
 
-Começamos notando que, pela construção que fizemos de $A^{T}A\bar{x}=A^{T}b$ no início do tópico, qualquer solução $\bar{x}$ é tal que $A\bar{x}$ é o vetor no espaço coluna de $A$ de forma que $\lVert b-A\bar{x} \rVert$ é mínimo, onde tal distância é a distância perpendicular entre o ponto $b$ e o espaço coluna de $A$, que por sua vez é única. Logo, o vetor $A\bar{x}$, onde $\bar{x}$ é uma solução da equação normal, **é o mesmo** para todas as soluções $\bar{x}$, denominado *projeção de $b$* no espaço coluna de $A$. Portanto, seja $A^{+}b=\hat{x}$, temos que:
+Começamos notando que, pela construção que fizemos de $A^{T}A\bar{x}=A^{T}b$ no início do tópico, qualquer solução $\bar{x}$ é tal que $A\bar{x}$ é o vetor no espaço coluna de $A$ de forma que $\lVert b-A\bar{x} \rVert$ é mínimo, onde tal distância é a distância perpendicular entre o ponto $b$ e o espaço coluna de $A$, que por sua vez é única. Logo, o vetor $A\bar{x}$, onde $\bar{x}$ é uma solução da equação normal, **é o mesmo para todas as soluções** $\bar{x}$, denominado ***projeção*** de $b$ no espaço coluna de $A$. Portanto, seja $A^{+}b=\hat{x}$, temos que:
 
 $$
 A\bar{x}=A\hat{x}\implies A(\bar{x}-\hat{x})=0

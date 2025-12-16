@@ -11,11 +11,11 @@ Considere, por exemplo, a modelagem do lucro de uma empresa dado em função do 
 
 Munidos das ferramentas do Cálculo, as propriedades de [matrizes simétricas e operadores auto-adjuntos](../topicos/operadores-auto-adjuntos.md) nos permitem uma análise do problema sob a ótica da Álgebra Linear, o que por muitas vezes oferece uma solução mais prática.
 
-A ideia central é analisarmos as propriedades da **matriz Hessiana**, uma das principais ferramentas do Cálculo Vetorial, que é constituída das derivadas parciais de segunda ordem da função, que naturalmente nos fornecem informações sobre os pontos de máximo e mínimo, chamados **pontos críticos**.
+A ideia central é analisarmos as propriedades da ***matriz Hessiana***, uma das principais ferramentas do Cálculo Vetorial, que é constituída das derivadas parciais de segunda ordem da função, que naturalmente nos fornecem informações sobre os pontos de máximo e mínimo, chamados **pontos críticos**.
 
 :::{prf:definition} Matriz Hessiana
 
-Dada uma função $f(x,y)$, sua *matriz Hessiana* é dada por
+Dada uma função $f(x,y)$, sua ***matriz Hessiana*** é dada por
 
 $$
 H(x,y)=\begin{bmatrix}
@@ -38,7 +38,7 @@ f_{y}(x,y)=0
 \label{eq:sistema}
 $$
 
-onde $\nabla f(x,y)$ é o *gradiente* de $f$, outro elemento protagonista do Cálculo Vetorial, que basicamente consiste do vetor cujas coordenadas são as derivadas de $f$ em cada variável respectiva.
+onde $\nabla f(x,y)$ é o ***gradiente*** de $f$, outro elemento protagonista do Cálculo Vetorial, que basicamente consiste do vetor cujas coordenadas são as derivadas de $f$ em cada variável respectiva.
 
 A partir daí, calculamos a matriz Hessiana para os pontos encontrados e encontramos seus autovalores. A natureza do ponto crítico é então determinada pelos sinais dos seus autovalores, $\lambda_{1}$ e $\lambda_{2}$:
 

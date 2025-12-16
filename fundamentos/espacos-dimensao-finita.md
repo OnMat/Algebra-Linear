@@ -259,6 +259,7 @@ Os elementos $1,x,\dots,x^{n}$ formam a base canônica de $\mathcal{P}_{n}$ .
 :::
 
 :::{prf:proposition} Caracterização de bases
+:label: prop-carac-bases
 
 Os vetores $v_{1},\dots,v_{n} \in V$ formam uma base de $V$ se, e somente se, todo $v \in V$ pode ser escrito de forma única como uma combinação linear entre eles. Isto é,
 
@@ -281,6 +282,34 @@ $$
 Pelo fato de $(v_{1},\dots,v_{n})$ ser linearmente independente (pois é uma base), devemos ter $\alpha_{1}-\alpha_{1}'=\dots=\alpha_{n}-\alpha_{n}'=0$, implicando que $\alpha_{1}=\alpha_{1}',\dots,\alpha_{n}=\alpha_{n}'$, provando que os escalares são únicos.
 
 $(\impliedby)$ A volta é direta: se todo vetor em $V$ pode ser escrito como combinação linear de $v_{1},\dots,v_{n}$ então estes vetores geram $V$. Além disso, se essa escrita é única, então o vetor nulo só pode ser escrito trivialmente, ou seja, $\alpha_{1}=\dots=\alpha_{n}=0$ e $v_{1},\dots,v_{n}$ são linearmente independentes. Logo, $(v_{1},\dots,v_{n})$ é uma base de $V$.
+
+:::
+
+A [](#prop-carac-bases) nos permite definir um conceito muito utilizado, as coordenadas de um vetor com relação a uma base específica.
+
+:::{prf:definition} Coordenadas de um vetor em uma base
+
+Seja $\beta=(v_{1},\dots,v_{n})$ uma base do espaço $V$. Pela [](#prop-carac-bases), para todo $v \in V$ existem $a_{1},\dots,a_{n} \in \mathbb{R}$ **únicos** tais que 
+
+$$
+v=a_{1}v_{1}+\dots+a_{n}v_{n}.
+$$
+
+Os escalares $a_{1},\dots,a_{n}$ são chamados ***coordenadas de $v$ na base $\beta$***. Comumente representamos essas coordenadas como 
+
+$$
+(v)_{\beta}=(a_{1},\dots,a_{n}),
+$$
+
+ou ainda
+
+$$
+v=\begin{bmatrix}
+a_{1} \\
+\vdots \\
+a_{n}
+\end{bmatrix}_{\beta}.
+$$
 
 :::
 

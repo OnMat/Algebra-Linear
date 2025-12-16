@@ -43,8 +43,7 @@ Sejam $A$ e $B$ operadores auto-adjuntos e $\alpha \in \mathbb{R}$, então os op
 
 :::
 
-```{admonition} Demonstração
-:class: dropdown
+:::{prf:proof}
 
 Utilizando as propriedades da adjunta:
 
@@ -55,8 +54,7 @@ $$
 \end{align}
 $$
 
-
-```
+:::
 
 :::{prf:proposition}
 
@@ -64,8 +62,7 @@ Seja $T\in \mathcal{L}(V)$ auto-adjunto e um isomorfismo, então $T^{-1}$ també
 
 :::
 
-```{admonition} Demonstração
-:class: dropdown
+:::{prf:proof}
 
 Dada a propriedade que $(T^{-1})^{*}=(T^{*})^{-1}$, substituímos $T^{*}$ por $T$ (pois $T=T^{*}$), obtendo que
 $$
@@ -73,15 +70,15 @@ $$
 $$
 Logo, $T^{-1}$ é auto-adjunto.
 
-```
+:::
 
 :::{prf:proposition}
 :label: autovetores-associados-a-autovalores-distintos-ortogonais
 Seja $T \in \mathcal{L}(V)$ auto-adjunto, então autovetores associados a autovalores distintos são ortogonais.
 :::
 
-```{admonition} Demonstração
-:class: dropdown
+:::{prf:proof}
+
 Sejam $v,w\in V$ autovetores associados a autovalores distintos $\lambda$ e $\mu$, respectivamente. Ou seja, $Tv=\lambda v$ e $Tw=\mu w$. Dado que $T$ é auto-adjunto, temos que $$
 \langle Tv , w \rangle=\langle v , Tw \rangle.
 $$
@@ -93,7 +90,8 @@ Logo,
 \end{align}
 
 Como $\lambda \neq \mu$, então necessariamente $\langle v , w \rangle= 0$. Ou seja, $v$ e $w$ são ortogonais.
-```
+
+:::
 
 ### Matrizes de operadores auto-adjuntos
 

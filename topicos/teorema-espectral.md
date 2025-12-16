@@ -3,7 +3,7 @@ title: Teorema Espectral
 subject: Tópicos Avançados
 ---
 
-O *Teorema Espectral* é um importante resultado na Álgebra Linear, diz respeito à existência de uma base ortonormal formada por autovetores de um operador auto-adjunto para o espaço vetorial o qual ele atua. Dividiremos-o em dois casos que, na prática, são correspondentes: Operadores auto-adjuntos e matrizes simétricas. O segundo caso surge naturalmente como um corolário do primeiro, devido a relação entre operadores e matrizes.
+O Teorema Espectral é um importante resultado na Álgebra Linear, diz respeito à existência de uma base ortonormal formada por autovetores de um operador auto-adjunto para o espaço vetorial o qual ele atua. Dividiremos-o em dois casos que, na prática, são correspondentes: Operadores auto-adjuntos e matrizes simétricas. O segundo caso surge naturalmente como um corolário do primeiro, devido a relação entre operadores e matrizes.
 
 ### Teorema Espectral (Operadores auto-adjuntos)
 
@@ -12,29 +12,30 @@ O *Teorema Espectral* é um importante resultado na Álgebra Linear, diz respeit
 Seja $T$ um operador linear auto-adjunto sobre um espaço vetorial $V$, de dimensão finita e munido de produto interno, então existe uma **base ortonormal** de $V$ formada por **autovetores** de $T$.
 :::
 
-A sua prova requer dois resultados prévios. **Em ambos, $T$ é um operador linear auto-adjunto sobre um espaço vetorial $V$ de dimensão finita e munido de produto interno**.
+A sua prova requer dois resultados prévios. Em ambos, $T$ é um operador linear auto-adjunto sobre um espaço vetorial $V$ de dimensão finita e munido de produto interno.
 
 :::{prf:lemma}
 :label: lema1
 Se $U$ é um subespaço $T$-invariante de $V$, então $U^{\perp}$ é $T$-invariante. 
 :::
 
-```{admonition} Demonstração
-:class: dropdown
+:::{prf:proof}
+
 Seja $u\in U$ e $w\in U^{\perp}$. Então, dado que $Tu \in U$ (pois $U$ é $T$-invariante), temos que
 $$
 \langle Tu , w \rangle=0.
 $$
 Por outro lado, dado que $T$ é auto-adjunto, $\langle Tu , w \rangle=\langle u , Tw \rangle$. Ou seja, $\langle Tw , u \rangle=0$, para todo $w \in U^{\perp}$ e $u\in U$. Isso implica que $Tw \in U^{\perp}$ e portanto $U^{\perp}$ é $T$-invariante.
-```
+
+:::
 
 :::{prf:lemma}
 :label: lema2
 Os autovalores de $T$ são reais.
 :::
 
-```{admonition} Demonstração
-:class: dropdown
+:::{prf:proof}
+
 Considere $\beta$ uma base ortonormal de $V$ e $\dim V = n>0$. Como $T$ é auto-adjunto, então $[T]_{\beta}=A$ é uma matriz simétrica (pelo [](#teorema1-autoadjunto)). 
 
 Sabemos que $\lambda$ é autovalor de $T$ se, e somente se, $p_{A}(\lambda)=0$, onde ${} p_{A}(x)=\det(x I-A) {}$ é o polinômio característico de $T$. Considere que $\lambda$ é uma raiz de $p_{A}(x)$ (cuja existência é garantida pelo *Teorema Fundamental da Álgebra*, podendo ser uma raiz real ou complexa), vamos mostrar então que $\lambda \in \mathbb{R}$.
@@ -80,7 +81,8 @@ $$
 o que procurávamos. 
 
 Assim, dado que os somatórios nas igualdades {eq}`eq:igualdade` são reais, podemos concluir que $\lambda \in \mathbb{R}$.
-```
+
+:::
 
 Agora, podemos provar o Teorema Espectral.
 
@@ -103,8 +105,8 @@ Verifica-se sem muita dificuldade que, em espaços vetoriais reais, a recíproca
 Seja $A\in M_{n}(\mathbb{R})$ uma matriz simétrica, então existe uma matriz $P\in M_{n}(\mathbb{R})$ ortogonal tal que $D=P^{T}AP$, onde $D$ é uma [matriz diagonal](#def-matriz-diagonal) cuja diagonal principal contém os autovalores de $A$.
 :::
 
-```{admonition} Demonstração
-:class: dropdown
+:::{prf:proof}
+
 Seja $T\in \mathcal{L}(V)$ tal que $A=[T]_{c}$. Como $A$ é simétrica e a base canônica é ortonormal, então $T$ é auto-adjunta. Logo, do [Teorema Espectral](#teorema-espectral) sabemos que existe uma base $\beta=( v_{1},\dots,v_{n} )$ de $V$ formada por autovetores de $T$. Seja $Tv_{i}=\lambda_{i}v_{i}$ ($i=1,2,\dots,n$), então
 $$
 D=[T]_{\beta}=\begin{bmatrix}
@@ -115,7 +117,8 @@ D=[T]_{\beta}=\begin{bmatrix}
 \end{bmatrix}.
 $$
 Além disso, $D=P^{-1}AP$, onde $P$ é a matriz mudança de base de $\beta$ para $c$. Dado que $\beta$ é ortonormal, então $P$ é ortogonal. Ou seja, $P^{-1}=P^{T}$.
-```
+
+:::
 
 O fato de podermos garantir que matrizes simétricas podem ser diagonalizadas e sabermos como encontrar a matriz diagonal tem grande aplicação prática e computacional, como veremos no exemplo a seguir.
 

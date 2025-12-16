@@ -19,7 +19,7 @@ Em particular, nos seria interessante que tais matrizes tenham propriedades simi
 - $\Sigma$ é uma matriz retangular diagonal $m\times n$;
 - $V^{T}$ é a transposta de uma matriz ortogonal $n\times n$.
 
-O próximo teorema é a base para essa ideia. Ele nos indica quais serão os valores da diagonal de $\Sigma$, chamados de *valores singulares*, e quais os vetores que irão compor as matrizes $U$ e $V^{T}$. Para demonstrá-lo precisamos do seguinte lema:
+O próximo teorema é a base para essa ideia. Ele nos indica quais serão os valores da diagonal de $\Sigma$, chamados de ***valores singulares***, e quais os vetores que irão compor as matrizes $U$ e $V^{T}$. Para demonstrá-lo precisamos do seguinte lema:
 
 :::{prf:lemma}
 :label: lema-valores-singulares
@@ -39,7 +39,7 @@ $$
 :::{prf:theorem} Valores Singulares
 :label: teo-valores-singulares1
 
-Seja $A\in \mathbb{R}^{m\times n}$, com posto igual a $r$. Existem números reais $\sigma_{1}\geq \dots\geq \sigma_{r}>0$, chamados de *valores singulares* de $A$, e bases ortonormais $( v_{1},\dots,v_{n} )$ de $\mathbb{R}^{n}$ e $( u_{1},\dots,u_{m} )$ de $\mathbb{R}^{m}$, tais que:
+Seja $A\in \mathbb{R}^{m\times n}$, com posto igual a $r$. Existem números reais $\sigma_{1}\geq \dots\geq \sigma_{r}>0$, chamados de ***valores singulares*** de $A$, e bases ortonormais $( v_{1},\dots,v_{n} )$ de $\mathbb{R}^{n}$ e $( u_{1},\dots,u_{m} )$ de $\mathbb{R}^{m}$, tais que:
 
 - $Av_{i}=\sigma_{i}u_{i}$, para $i=1,\dots,r$;
 - $Av_{i}=0$, para $i=r+1,\dots,n$;
@@ -104,9 +104,9 @@ Note que, para $i=r+1,\dots,m$, temos $A^{T}u_{i}=0$, pois $N(AA^{T})=N(A^{T})$,
 
 :::
 
-Tais $v_{1},\dots,v_{n}$ constituirão as colunas da matriz $V$ e são chamados de *vetores singulares à direita*, enquanto $u_{1},\dots,u_{m}$ constituirão as colunas de $U$ e são chamados de *vetores singulares à esquerda*.
+Tais $v_{1},\dots,v_{n}$ constituirão as colunas da matriz $V$ e são chamados de ***vetores singulares à direita***, enquanto $u_{1},\dots,u_{m}$ constituirão as colunas de $U$ e são chamados de ***vetores singulares à esquerda***.
 
-A partir disso, temos então a chamada *Decomposição em Valores Singulares* (também conhecida como *SVD*, do inglês *Singular Value Decomposition*) de uma matriz:
+A partir disso, temos então a chamada ***Decomposição em Valores Singulares*** (também conhecida como SVD, do inglês *Singular Value Decomposition*) de uma matriz:
 
 :::{prf:theorem} Decomposição em valores singulares
 
@@ -329,7 +329,7 @@ Primeiramente, precisamos de uma métrica que nos permita determinar o quão "pr
 
 :::{prf:definition} Norma 2 matricial
  
-Seja $A\in \mathbb{R}^{m\times n}$, definimos a norma 2 de $A$ como:
+Seja $A\in \mathbb{R}^{m\times n}$, definimos a ***norma 2*** de $A$ como:
 
 $$
 \lVert A \rVert_{2}=\sup _{\lVert x \rVert_{2}=1 }\lVert Ax \rVert_{2} \quad (x \in \mathbb{R}^{n}) 
@@ -521,6 +521,6 @@ O caráter de "inversa" da matriz $A^{+}$ se dá pelas seguintes propriedades qu
 
 Tais propriedades são verificadas sem muita dificuldade considerando-se a decomposição SVD de $A$ e as propriedades das matrizes $U$, $V$, $\Sigma $ e $\Sigma^{+}$. Note que valem as igualdades mesmo sem a garantia de que $AA^{+}$ e $A^{+}A$ são iguais as identidades nos espaços correspondentes (em particular, isso valerá quando $A$ é quadrada e invertível, tendo-se $A^{+}=A^{-1}$). Por isso, ${} A^{+} {}$ é uma generalização da inversa.
 
-Essas quatro propriedades são chamadas de **condições de Penrose** e definem, na verdade, um tipo específico de pseudoinversa (daí o nome "pseudoinversa de Moore-Penrose"). Em geral, essa é a pseudoinversa mais conhecida e utilizada, mas existem outros tipos (normalmente definidas para atender condições computacionais específicas).
+Essas quatro propriedades são chamadas de ***condições de Penrose*** e definem, na verdade, um tipo específico de pseudoinversa (daí o nome "pseudoinversa de Moore-Penrose"). Em geral, essa é a pseudoinversa mais conhecida e utilizada, mas existem outros tipos (normalmente definidas para atender condições computacionais específicas).
 
 Uma das principais aplicações da pseudoinversa se dá na obtenção de soluções para o problema de quadrados mínimos, abordado no tópico [](../aplicacoes/quadradosminimos.md).

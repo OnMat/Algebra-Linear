@@ -9,7 +9,7 @@ As matrizes possuem toda uma fundamentação teórica e são objetos de estudo d
 
 :::{prf:definition} Matriz
 
-Uma matriz de dimensão $m\times n$ (lê-se $m$ por $n$), com $m$ e $n$ inteiros positivos, é o conjunto de *entradas* $a_{ij}\in \mathbb{R}$, onde $i=1,\dots,m$ e $j=1,\dots,n$. 
+Uma ***matriz*** de dimensão $m\times n$ (lê-se $m$ por $n$), com $m$ e $n$ inteiros positivos, é o conjunto de *entradas* $a_{ij}\in \mathbb{R}$, onde $i=1,\dots,m$ e $j=1,\dots,n$. 
 
 Matrizes são representadas dispondo as entradas em $m$ linhas e $n$ colunas, onde cada entrada $a_{ij}$ está localizada na $i$-ésima linha e $j$-ésima coluna:
 
@@ -131,7 +131,7 @@ Além disso, verificam-se algumas propriedades importantes (considere que todos 
 :::{prf:definition} Matriz transposta
 :label: def-matriz-transposta
 
-A transposta de uma matriz $A$, denotada por $A^{T}$ é a matriz obtida ao trocarem-se as suas linhas pelas colunas (ou vice-versa). Isto é, para cada entrada $a_{ij}$ de $A$, $a_{ij}=a_{ji}$ em $A^{T}$.
+A ***transposta*** de uma matriz $A$, denotada por $A^{T}$ é a matriz obtida ao trocarem-se as suas linhas pelas colunas (ou vice-versa). Isto é, para cada entrada $a_{ij}$ de $A$, $a_{ij}=a_{ji}$ em $A^{T}$.
 
 :::
 
@@ -143,7 +143,7 @@ Note que se $A$ tem dimensão $m\times n$, então $A^{T}$ tem dimensão $n\times
 
 :::{prf:definition} Matriz quadrada
 
-Matrizes que possuem o mesmo número de linhas e colunas são denominadas *quadradas*.
+Matrizes que possuem o mesmo número de linhas e colunas são denominadas ***quadradas***.
 
 :::
 
@@ -155,7 +155,7 @@ Uma característica presente em matrizes quadradas, utilizada em outras definiç
 
 :::{prf:definition} Diagonal principal de uma matriz quadrada
 
-A diagonal principal de uma matriz quadrada é constituída dos elementos $a_{jj}$. Isto é, cujos índices de linha e coluna são iguais.
+A ***diagonal principal*** de uma matriz quadrada é constituída dos elementos $a_{jj}$. Isto é, cujos índices de linha e coluna são iguais.
 
 :::
 
@@ -166,7 +166,7 @@ Por exemplo, a diagonal principal da matriz $\begin{bmatrix}1 & 2 \\ 3 & 4\end{b
 :::{prf:definition} Matriz simétrica
 :label: def-matriz-simetrica
 
-Uma matriz quadrada é dita *simétrica* quando é igual a sua transposta. Isto é, seja $A \in \mathbb{R}^{n \times n}$, $A$ é simétrica se, e somente se, $A^{T}=A$.
+Uma matriz quadrada é dita ***simétrica*** quando é igual a sua transposta. Isto é, seja $A \in \mathbb{R}^{n \times n}$, $A$ é simétrica se, e somente se, $A^{T}=A$.
 
 :::
 
@@ -177,7 +177,7 @@ Note que, visualmente, matrizes simétricas são aquelas cujas entradas acima e 
 :::{prf:definition} Matriz diagonal
 :label: def-matriz-diagonal
 
-Uma matriz quadrada é *diagonal* quando, exceto por entradas em sua diagonal principal, todas as entradas são nulas.
+Uma matriz quadrada é ***diagonal*** quando, exceto por entradas em sua diagonal principal, todas as entradas são nulas.
 
 :::
 
@@ -189,7 +189,7 @@ Além disso, podemos generalizar o conceito de matriz diagonal para matrizes ret
 
 :::{prf:definition} Matriz retangular diagonal
 
-Seja $A\in \mathbb{R}^{m\times n}$, com $m \neq n$, dizemos que $A$ é *retangular diagonal* quando todas as suas entradas $a_{ij}$, com $i \neq j$, forem nulas.
+Seja $A\in \mathbb{R}^{m\times n}$, com $m \neq n$, dizemos que $A$ é ***retangular diagonal*** quando todas as suas entradas $a_{ij}$, com $i \neq j$, forem nulas.
 
 :::
 
@@ -211,7 +211,7 @@ Algumas matrizes aparecerão de maneira recorrente e possuem propriedades partic
 
 :::{prf:definition} Matriz identidade
 
-A matriz $I\in \mathbb{R}^{n \times n}$ é chamada de *matriz identidade*, tal que $I$ é uma matriz **diagonal** cujas entradas da diagonal principal são todas iguais a $1$.
+A matriz $I\in \mathbb{R}^{n \times n}$ é chamada de ***matriz identidade***, tal que $I$ é uma matriz diagonal cujas entradas da diagonal principal são todas iguais a $1$.
 
 :::
 
@@ -228,7 +228,7 @@ Seja $A\in \mathbb{R}^{m\times n}$, a matriz identidade possui a propriedade que
 
 :::{prf:definition} Matriz nula
 
-A matriz $\mathbf{0}\in \mathbb{R}^{m\times n}$ é chamada de *matriz nula*, tal que **todas as suas entradas são nulas**.
+A matriz $\mathbf{0}\in \mathbb{R}^{m\times n}$ é chamada de ***matriz nula***, tal que todas as suas entradas são nulas.
 
 :::
 
@@ -245,7 +245,7 @@ Naturalmente, seja $A\in \mathbb{R}^{m\times n}$, temos que $A+\mathbf{0}_{m\tim
 
 :::{prf:definition} Matriz inversa
 
-Seja $A\in \mathbb{R}^{n \times n}$, a *matriz inversa* de $A$, denotada por $A^{-1}\in \mathbb{R}^{n \times n}$, é a matriz **única** que satisfaz $AA^{-1}=A^{-1}A=I$.
+Seja $A\in \mathbb{R}^{n \times n}$, a ***matriz inversa*** de $A$, denotada por $A^{-1}\in \mathbb{R}^{n \times n}$, é a matriz **única** que satisfaz $AA^{-1}=A^{-1}A=I$.
 
 :::
 
@@ -282,7 +282,7 @@ $$
 
 :::{prf:definition} Matriz ortogonal
 
-Seja $A\in \mathbb{R}^{n \times n}$, $A$ é *ortogonal* quando $AA^{T}=A^{T}A=I$. Isto é, $A^{T}=A^{-1}$.
+Seja $A\in \mathbb{R}^{n \times n}$, $A$ é ***ortogonal*** quando $AA^{T}=A^{T}A=I$. Isto é, $A^{T}=A^{-1}$.
 
 :::
 
@@ -294,7 +294,7 @@ O determinante é uma das principais ferramentas quando lidamos com matrizes qua
 
 :::{prf:remark} Cálculo do determinante
 
-O determinante é uma função $\det(A):\mathbb{R}^{n \times n}\to \mathbb{R}$ (isto é: dada uma matriz quadrada de entradas reais, retorna um valor real).
+O ***determinante*** é uma função $\det(A):\mathbb{R}^{n \times n}\to \mathbb{R}$ (isto é: dada uma matriz quadrada de entradas reais, retorna um valor real).
 
 Para qualquer matriz ${} A=\begin{bmatrix}a & b \\ c & d\end{bmatrix} {}$ de dimensão $2\times 2$, ele é dado por
 
@@ -415,13 +415,13 @@ Além do determinante, outra característica importante de uma matriz, utilizada
 :::{prf:definition} Posto de uma matriz
 :label: def-posto
 
-Seja a matriz $A\in \mathbb{R}^{m\times n}$. O *posto* de $A$, denotado por $\text{posto}(A)$, é a quantidade máxima de colunas ou linhas linearmente independentes de $A$, considerando as linhas ou colunas como vetores. 
+Seja a matriz $A\in \mathbb{R}^{m\times n}$. O ***posto*** de $A$, denotado por $\text{posto}(A)$, é a quantidade máxima de colunas ou linhas linearmente independentes de $A$, considerando as linhas ou colunas como vetores. 
 
 :::
 
 Definimos como a quantidade de colunas **ou** linhas linearmente independentes pois as duas quantidades serão sempre as mesmas para qualquer matriz, não havendo ambiguidade. A razão por trás desse fato é tratada em tópicos mais adiante, assim como alguns outros resultados sobre o posto.
 
-Ao considerarmos as colunas ou linhas como vetores, o posto é igual a dimensão do espaço gerado por tais vetores. Comumente nos referimos a tais espaços como **Espaço Coluna** e **Espaço Linha**, respectivamente.
+Ao considerarmos as colunas ou linhas como vetores, o posto é igual a dimensão do espaço gerado por tais vetores. Comumente nos referimos a tais espaços como ***Espaço Coluna*** e ***Espaço Linha***, respectivamente.
 
 :::{prf:example}
 
@@ -436,7 +436,7 @@ $$
 
 Consideramos cada coluna (ou linha) como vetores. Temos o vetor $(1,0)$ compondo a primeira coluna e o vetor $(0,1)$ compondo a segunda coluna. Claramente são linearmente independentes, pois formam a base canônica do espaço $\mathbb{R}^{2}$, logo, $\text{posto}(A)=2$.
 
-Nesse caso, quando o posto é o maior possível, dizemos que a matriz $A$ possui *posto completo* ou *posto máximo*.
+Nesse caso, quando o posto é o maior possível, dizemos que a matriz $A$ possui ***posto completo*** ou ***posto máximo***.
 
 :::
 
