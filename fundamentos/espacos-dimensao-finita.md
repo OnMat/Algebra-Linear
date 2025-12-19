@@ -293,22 +293,61 @@ Seja $\beta=(v_{1},\dots,v_{n})$ uma base do espaço $V$. Pela [](#prop-carac-ba
 
 $$
 v=a_{1}v_{1}+\dots+a_{n}v_{n}.
+\label{eq:comb-coordenadas}
 $$
 
-Os escalares $a_{1},\dots,a_{n}$ são chamados ***coordenadas de $v$ na base $\beta$***. Comumente representamos essas coordenadas como 
+Os escalares $a_{1},\dots,a_{n}$ são chamados ***coordenadas de $v$ na base $\beta$***. Normalmente, representamos essas coordenadas na forma matricial: 
 
 $$
-(v)_{\beta}=(a_{1},\dots,a_{n}),
-$$
-
-ou ainda
-
-$$
-v=\begin{bmatrix}
+[v]_{\beta}=\begin{bmatrix}
 a_{1} \\
 \vdots \\
 a_{n}
-\end{bmatrix}_{\beta}.
+\end{bmatrix}.
+$$
+
+Observe que cada escalar na combinação linear {eq}`eq:comb-coordenadas` está associado ao seu respectivo vetor da base, independente da ordem da soma. No entanto, quando representamos uma base como uma lista de vetores $(v_{1},\dots,v_{n})$ temos uma ***base ordenada***, ou seja, a ordem dos vetores importa. Mudar a sua ordem mudará a ordem das coordenadas de um vetor nessa base. 
+
+:::
+
+:::{prf:example}
+
+Vamos determinar as coordenadas do vetor $(1,2) \in \mathbb{R}^{2}$ na base $\beta=((1,1),(0,2))$. 
+
+Queremos escalares $a_{1}, a_{2} \in \mathbb{R}$ tais que
+
+$$
+a_{1}(1,1)+a_{2}(0,2)=(1,2).
+$$
+
+Sendo assim, 
+
+$$
+(a_{1},a_{1})+(0,2a_{2})=(a_{1},a_{1}+2a_{2})=(1,2).
+$$
+
+O que nos dá o seguinte sistema:
+
+$$
+\begin{cases}
+a_{1}=1 \\
+a_{1}+2a_{2}=2
+\end{cases}
+$$
+
+De onde obtemos $a_{2}=1/2$. Isto é,
+
+$$
+1\cdot (1,1)+\frac{1}{2}\cdot (0,2)=(1,1)+(0,1)=(1,2).
+$$
+
+Portanto,
+
+$$
+[(1,2)]_{\beta}=\begin{bmatrix}
+1 \\
+1/2
+\end{bmatrix}.
 $$
 
 :::
