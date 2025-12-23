@@ -146,12 +146,13 @@ Seja $V$ um espaço vetorial, com $\alpha$ e $\beta$ bases de $V$, a ***matriz m
 
 :::
 
-O nome vem simplesmente do fato que tal matriz permite determinar as coordenadas na base $\beta$ de qualquer vetor em $V$, a partir das suas coordenadas em $\alpha$. Ou seja, digamos que $[v]_{\alpha}={} \begin{bmatrix} x_{1} \\ \vdots \\ x_{n}\end{bmatrix} {}$, então as coordenadas de $[v]_{\beta}$ são dadas pelas entradas do vetor coluna resultante do produto $[I]^{\alpha}_{\beta}\cdot \begin{bmatrix}
+O nome vem simplesmente do fato que tal matriz permite determinar as coordenadas na base $\beta$ de qualquer vetor em $V$, a partir das suas coordenadas em $\alpha$. Ou seja, digamos que $(v)_{\alpha}=(x_{1},x_{2},\dots,x_{n})$, então as coordenadas de $(v)_{\beta}$ são dadas pelas entradas do vetor coluna resultante do produto $[I]^{\alpha}_{\beta}\cdot \begin{bmatrix}
 x_{1} \\
+x_{2} \\
 \vdots \\
 x_{n}
 \end{bmatrix}$.
 
 E claro que podemos também fazer o produto matricial entre uma matriz compatível $A$ e ${} [I]^{\alpha}_{\beta} {}$, de maneira que se $A=[T]^{\beta}_{\gamma}$, a matriz resultante é $[T]^{\alpha}_{\gamma}$. Logo, podemos reescrever a matriz de qualquer transformação em bases diferentes, esse fato cumpre um papel importante no [Teorema Espectral para matrizes](#espectral-para-matrizes-simetricas).
 
-Por fim, a transposta de uma matriz também possui um contexto de transformação linear, que é discutido no tópico [](../topicos/adjunta.md).
+Por fim, a transposta de uma matriz também possui um contexto de transformação linear, que é discutido no tópico de *Adjunta*.

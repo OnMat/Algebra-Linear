@@ -167,7 +167,6 @@ Como $([T]_{c})^{T}=[T]_{c}$, o [](#teorema1-autoadjunto) nos garante que $T$ é
 Existem certos tipos de operadores auto-adjuntos que merecem uma atenção especial, pois a partir de suas propriedades obtemos alguns resultados que têm destaque no campo mais prático e aplicado da Álgebra Linear, como a resolução de sistemas lineares e métodos de aproximação numérica.
 
 :::{prf:definition} Operador definido positivo
-:label: def-operador-positivo
 
 Seja $V$ um espaço vetorial com produto interno e dimensão finita, dado $T\in \mathcal{L}(V)$ auto-adjunto, dizemos que $T$ é ***definido positivo*** se $\forall v\in V$, com $v\neq 0$, temos
 
@@ -179,7 +178,7 @@ e escrevemos $T>0$.
 
 :::
 
-:::{prf:example} Operador e matriz 
+:::{prf:example}
 
 Considere o operador identidade em $\mathbb{R}^{2}$. Para $(x,y)\in \mathbb{R}^{2}$, com $(x,y)\neq (0,0)$, temos
 
@@ -191,47 +190,6 @@ $$
 $$
 
 Logo, $I$ é um operador definido positivo.
-
-Note que temos a equivalência matricial para a [](#def-operador-positivo), de forma que também podemos nos referir a uma ***matriz definida positiva***. O produto interno canônico entre dois vetores $\begin{bmatrix}x_{1} \\ \vdots \\ x_{n}\end{bmatrix}$ e $\begin{bmatrix}y_{1} \\ \vdots \\ y_{n}\end{bmatrix}$ é computado simplesmente fazendo 
-
-$$
-\begin{bmatrix}
-x_{1} \\
-\vdots  \\
-x_{n}
-\end{bmatrix}^{T}\cdot \begin{bmatrix}
-y_{1}  \\
-\vdots  \\
-y_{n}
-\end{bmatrix} = \begin{bmatrix}
-x_{1}  &  \dots  &  x_{n} 
-\end{bmatrix} \cdot  \begin{bmatrix}
-y_{1} \\
-\vdots  \\
-y_{n}
-\end{bmatrix}.
-$$
-
-No caso do nosso exemplo, considerando a identidade em $\mathbb{R}^{2}$, teríamos
-
-$$
-\begin{bmatrix}
-  x & y   
-\end{bmatrix}\cdot \begin{bmatrix}
-1 & 0 \\
-0 & 1
-\end{bmatrix}\cdot \begin{bmatrix}
-x \\
-y
-\end{bmatrix}=\begin{bmatrix}
-x & y
-\end{bmatrix}\cdot \begin{bmatrix}
-x \\
-y
-\end{bmatrix}=x^{2}+y^{2},
-$$
-
-onde $x^{2}+y^{2} > 0$ caso $\begin{bmatrix}x \\ y\end{bmatrix} \neq \begin{bmatrix}0 \\ 0\end{bmatrix}$. Portanto, a matriz $\begin{bmatrix}1 & 0 \\ 0 & 1 \end{bmatrix}$ é definida positiva.
 
 :::
 
