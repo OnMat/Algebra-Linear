@@ -1,13 +1,13 @@
 ---
-title: Espaços Vetoriais
+title: 1. Espaços Vetoriais
 subject: Fundamentos
 ---
 
-### Conceitos iniciais
+# Conceitos iniciais
 
 O conceito de **Espaço Vetorial** é o alicerce onde se constrói a Álgebra Linear. Começamos com sua definição.
 
-:::{prf:definition} Espaço Vetorial
+:::{note} Definição 1.1. (Espaço Vetorial)
 :label: def-espaco-vetorial
 
 Seja $V$ um conjunto não vazio que estejam definidas duas operações:
@@ -36,7 +36,7 @@ Observe como os axiomas dependem das operações de adição e multiplicação p
 
 Vejamos o principal exemplo de espaço vetorial.
 
-:::{prf:example}
+:::{hint} Exemplo 1.2
 
 As n-uplas ordenadas com entradas reais, representadas por $(a_{1},a_{2},\dots,a_{n})$ com $a_{1},a_{2},\dots,a_{n} \in \mathbb{R}$, compõem o conjunto denotado por $\mathbb{R}^{n}$. A adição e o produto escalar são definidos como se espera:
 
@@ -51,7 +51,7 @@ Com estas operações, $\mathbb{R}^{n}$ constitui um espaço vetorial. Verifique
 
 :::
 
-:::{prf:remark}
+:::{warning} Observação 1.3
 
 Nos exemplos utilizaremos principalmente o $\mathbb{R}^{n}$, mas existem outros tipos de espaços vetoriais, por exemplo, o conjunto dos polinômios de grau máximo $n \in \mathbb{N}$, denotado por $\mathcal{P_{n}}$. Alguns desses espaços serão mencionados posteriormente (como o espaço das matrizes), outros não. Tenha em mente que os resultados apresentados, no entanto, valem para qualquer espaço vetorial (caso não seja especificado o contrário).
 
@@ -59,13 +59,14 @@ Nos exemplos utilizaremos principalmente o $\mathbb{R}^{n}$, mas existem outros 
 
 O terceiro axioma em [](def-espaco-vetorial) diz respeito ao elemento neutro da adição em um espaço vetorial. Tal elemento é denominado ***vetor nulo*** e denotado por $0$ (apesar de poder causar confusão com o escalar real $0$, em geral o contexto deixa claro qual elemento se trata. Por exemplo, se $v$ é um vetor, entao em $v + 0$ temos o vetor nulo, enquanto que $0v$ temos o escalar nulo). O resultado a seguir constata a unicidade desse elemento, em quaquer espaço vetorial.
 
-:::{prf:proposition} 
+:::{important} Proposição 1.4 
 
 Seja $V$ um espaço vetorial, seu vetor nulo é único.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 1.4
+:class: dropdown
 
 Suponha que $0$ e $0'$ sejam ambos elementos neutros da adição. Logo, pelos axiomas 1 e 3,
 
@@ -77,13 +78,14 @@ $$
 
 Similarmente, temos a unicidade do inverso aditivo, retratado no axioma 4.
 
-:::{prf:proposition} 
+:::{important} Proposição 1.5
 
 Seja $V$ um espaço vetorial, para todo $v \in V$, seu inverso aditivo é único.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 1.5
+:class: dropdown
 
 Suponha que $w$ e $w'$ sejam ambos inversos aditivos de $v$. Pelos axiomas, 
 
@@ -97,7 +99,7 @@ Assim, denotamos o inverso aditivo de um vetor $v$ por $-v$ e escrevemos $v+(-v)
 
 Observe que, como é natural de se esperar, temos $0v=0$, pois $0v=(0+0)v=0v+0v$, de onde obtemos $0=0v$ ao adicionarmos $-0v$ em ambos os lados. A partir disso, também temos $-v=(-1)v$, pois $0=0v=(1-1)v=v+(-1)v$ e aplicamos a unicidade do inverso aditivo.
 
-:::{prf:example}
+:::{hint} Exemplo 1.6
 
 No $\mathbb{R}^{n}$, o vetor nulo é $0=(0,\dots,0)$. Se $v=(a_{1},\dots,a_{n})$, então $-v=(-a_{1},\dots,-a_{n})$.
 
@@ -105,7 +107,7 @@ No $\mathbb{R}^{n}$, o vetor nulo é $0=(0,\dots,0)$. Se $v=(a_{1},\dots,a_{n})$
 
 Agora, voltamos nossa atenção para subconjuntos de espaços vetoriais que também constituem espaços vetoriais.
 
-:::{prf:definition} Subespaço Vetorial
+:::{note} Definição 1.7 (Subespaço Vetorial)
 :label: def-subespaco
 
 Seja $V$ um espaço vetorial e $U \subseteq  V$, $U$ será um espaço vetorial se satisfaz as seguintes condições, considerando as mesmas operações de soma e multiplicação por escalar definidas em $V$:
@@ -122,7 +124,7 @@ O fato de $U$ ser um subconjunto de um espaço vetorial $V$ faz com que ele já 
 
 Note que a condição 1 impede que um conjunto vazio seja um subespaço. O menor subespaço possível será aquele contendo somente o vetor nulo: $\{ 0 \}$. E, com exceção desse, todo os outros subespaços terão infinitos elementos (consequência do subespaço ser fechado na adição e multiplicação).
 
-:::{prf:example}
+:::{hint} Exemplo 1.8
 
 Considere o subconjunto do $\mathbb{R}^{n}$ formado pelos vetores cuja primeira entrada é nula. Isto é, $U=\{ (0,a_{2},\dots,a_{n}): a_{i} \in \mathbb{R} \}$. 
 
@@ -136,15 +138,16 @@ Portanto, $U$ é um espaço vetorial. Em particular, é um subespaço de $\mathb
 
 Para o $\mathbb{R}^{n}$, é comum que subespaços sejam interpretados geometricamente. No caso do $\mathbb{R}^{3}$, por exemplo, todo os seus subespaços próprios (que não sejam ele mesmo) e não nulos formam retas ou planos.
 
-### União e interseção de subespaços
+# União e interseção de subespaços
 
-:::{prf:proposition}
+:::{important} Proposição 1.9
 
 Sejam $U$ e $W$ subespaços de um mesmo espaço vetorial $V$, então $U\cap W$ é também um subespaço de $V$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 1.9
+:class: dropdown
 
 Claramente, $U\cap W \subseteq V$. Além disso, $0 \in U\cap W$, pois $U$ e $W$ são ambos subespaços. 
 
@@ -156,7 +159,7 @@ Com estas condições concluímos que $U\cap W$ é um subespaço vetorial de $V$
 
 :::
 
-:::{prf:observation}
+:::{warning} Observação 1.10
 
 Através de um argumento indutivo podemos estender este resultado para a interseção de uma família arbitrária de subespaços $U_{1},U_{2},\dots,U_{n}$ de $V$.
 
@@ -164,7 +167,7 @@ Através de um argumento indutivo podemos estender este resultado para a interse
 
 A união de subespaços, no entanto, não se comporta da mesma maneira. Há casos em que a união não será um subespaço:
 
-:::{prf:example}
+:::{hint} Exemplo 1.11
 
 Considere os seguintes subespaços de $\mathbb{R}^{2}$:
 
@@ -179,23 +182,24 @@ Assim, $S_{1}\cup S_{2}$ não é fechado na soma e, logo, não é um subespaço 
 
 O próximo resultado elucida a condição necessária (e suficiente) para que a união entre subespaços mantenha-se um subespaço.
 
-:::{prf:proposition}
+:::{important} Proposição 1.12
 
 Sejam $U$ e $W$ subespaços de $V$, a união $U\cup W$ é um subespaço de $V$ se, e somente se, $U\subseteq W$ ou $W\subseteq U$ (um dos subespaços está contido no outro).
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 1.12
+:class: dropdown
 
-$(\implies)$ Seja $U\cup W$ um subespaço. Suponha, por contradição, que $U \not \subset W$ e $W \not \subset U$, isso implica que existem elementos $u \in U-W$ e $w \in W-U$ diferentes do vetor nulo. Pelo fato de que $U \cup W$ é um subespaço e $u,w \in U\cup W$, temos $u+w \in U\cup W$, mas isso significa que (pela definição de união entre conjuntos) $u+w \in U$ ou $u+w \in W$, uma contradição à hipótese de que  $v$ e $w$ não pertencem ao mesmo subespaço (por exemplo, se ${} u+w \in U {}$, pelo fato de $U$ ser fechado na soma e multiplicação por escalar teríamos $u+w-u=w \in U$).
+$(\implies)$ Seja $U\cup W$ um subespaço. Suponha, por contradição, que $U \not \subset W$ e também $W \not\subset U$, isso implica que existem elementos $u \in U-W$ e $w \in W-U$ diferentes do vetor nulo. Pelo fato de que $U \cup W$ é um subespaço e $u,w \in U\cup W$, temos $u+w \in U\cup W$, mas isso significa que (pela definição de união entre conjuntos) $u+w \in U$ ou $u+w \in W$, uma contradição à hipótese de que  $v$ e $w$ não pertencem ao mesmo subespaço (por exemplo, se ${} u+w \in U {}$, pelo fato de $U$ ser fechado na soma e multiplicação por escalar teríamos $u+w-u=w \in U$).
 
 $(\impliedby)$ Suponha, sem perda de generalidade, que $U\subseteq W$. Segue-se então que $U\cup W=W$ e já temos que $W$ é um subespaço vetorial.
 
 :::
 
-### Soma e soma direta de subespaços
+# Soma e soma direta de subespaços
 
-:::{prf:definition}
+:::{note} Definição 1.13 (Soma de subespaços)
 
 Sejam $U_{1},U_{2},\dots,U_{n}$ subespaços de $V$, define-se a sua soma como:
 
@@ -207,7 +211,7 @@ Ou seja, é o conjunto de todas as possíveis somas entre elementos de $U_{1},U_
 
 :::
 
-:::{prf:example}
+:::{hint} Exemplo 1.14
 :label: exemplo-soma-de-subespacos
 
 Considere novamente os subespaços:
@@ -227,14 +231,15 @@ Ou seja, $S_{1}+S_{2}=\mathbb{R}^{2}$.
 
 Observe que a soma entre os subespaços resultou no próprio espaço o qual eles pertencem, que em particular é também um subespaço. O próximo resultado nos mostra que somas de subespaços sempre resultam em subespaços (mas não necessariamente no espaço vetorial inteiro, as condições para que isso ocorra serão discutidas futuramente).
 
-:::{prf:proposition}
+:::{important} Proposição 1.15
 :label: prop-soma-de-subespacos-eh-subespaco
 
 Sejam $U_{1},\dots,U_{n}$ subespaços de $V$, então $U_{1}+\dots+U_{n}$ é um subespaço de $V$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 1.15
+:class: dropdown
 
 Verificaremos que para dois subespaços $U$ e $W$ de $V$, $U+W$ é um subespaço de $V$. O caso geral para uma quantidade $n$ de subespaços verifica-se indutivamente a partir disso.
 
@@ -250,7 +255,7 @@ Logo, $U+W$ é um subespaço de $V$.
 
 Agora, definimos um tipo diferente de soma entre subespaços, que funciona como um caso especial da soma anterior. 
 
-:::{prf:definition} Soma direta
+:::{note} Definição 1.16 (Soma direta)
 :label: def-soma-direta
 
 Dizemos que um espaço vetorial $W$ é ***soma direta*** dos subespaços $U_{1},\dots,U_{n}$, denotado por $W=U_{1}\oplus\dots \oplus U_{n}$, se cada elemento $w \in W$ pode ser escrito **de modo único** como:
@@ -272,7 +277,7 @@ A grande diferença entre os dois tipos de soma fica evidente fazendo-se uma ana
 
 O próximo resultado nos dá uma maneira mais prática de verificar se um subespaço é resultante da soma direta de outros.
 
-:::{prf:proposition}
+:::{important} Proposição 1.17
 :label: prop-caracterizacao1-de-soma-direta
 
 Sejam $U_{1},\dots,U_{n}$ subespaços de $V$. Então, $V=U_{1}\oplus\dots \oplus U_{n}$ se, e somente se, valem as seguintes condições:
@@ -282,7 +287,8 @@ Sejam $U_{1},\dots,U_{n}$ subespaços de $V$. Então, $V=U_{1}\oplus\dots \oplus
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 1.17
+:class: dropdown
 
 $(\implies)$ Se vale $V=U_{1}\oplus\dots \oplus U_{n}$, pela [](#def-soma-direta) temos que cada elemento em $V$ pode ser escrito como uma soma de elementos de $U_{1},\dots,U_{n}$, ou seja, $V \subseteq U_{1}+\dots+U_{n}$, logo $V= U_{1}+\dots+U_{n}$ (pela [](#prop-soma-de-subespacos-eh-subespaco) já temos a inclusão contrária). Além disso, a escrita também é única, logo, só deve valer a escrita trivial do elemento nulo, isto é:
 
@@ -302,14 +308,15 @@ Mas, pela condição 2, o elemento nulo só pode ser escrito como uma soma de el
 
 Agora, vejamos como a "disjunção" entre dois subespaços (que é na verdade $U\cap W=\{ 0 \}$, pois todo subespaço contém o vetor nulo) garante que sua soma é direta.
 
-:::{prf:proposition}
+:::{important} Proposição 1.18
 :label: prop-caracterizacao2-soma-direta
 
 Sejam $U$ e $W$ subespaços de $V$, então $V=U\oplus W$ se, e somente se, $V=U+W$ e $U\cap W=\{ 0 \}$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 1.18
+:class: dropdown
 
 $(\implies)$ Seja $V=U\oplus W$. Utilizando [](#prop-caracterizacao1-de-soma-direta), temos $V=U + W$. Suponha que $v \in U\cap W$. Então, $0=v-v$ e como $v \in U,W$ e a representação do vetor nulo como soma de elementos desses subespaços é somente a trivial (também por [](#prop-caracterizacao1-de-soma-direta)), então $v=0$. Logo, $U\cap W=\{ 0 \}$.
 
@@ -328,7 +335,7 @@ Concluindo que $u=u'$ e $v=v'$, ou seja, a escrita é única. Donde obtemos que 
 
 Veja que, diferentemente da [](#prop-caracterizacao1-de-soma-direta), a [](#prop-caracterizacao2-soma-direta) diz respeito apenas a dois subespaços e não a uma quantidade finita arbitrária. O exemplo a seguir mostra que a propriedade de disjunção não garante soma direta para mais de dois subespaços.
 
-:::{prf:example}
+:::{hint} Exemplo 1.19
 
 Considere os seguintes subespaços de $\mathbb{R}^{3}$:
 

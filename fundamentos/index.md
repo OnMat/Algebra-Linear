@@ -3,4 +3,4 @@ title: Fundamentos
 subject: Álgebra Linear
 ---
 
-Os conceitos base da Álgebra Linear.
+A primeira seção aborda os conceitos base da Álgebra Linear.
