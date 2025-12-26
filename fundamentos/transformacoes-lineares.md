@@ -1,13 +1,13 @@
 ---
-title: Transformações Lineares
+title: 3. Transformações Lineares
 subject: Fundamentos
 ---
 
 Agora que já conhecemos os conceitos básicos relacionados a espaços vetoriais, assim como algumas propriedades fundamentais, começaremos a lidar com **Transformações Lineares**: funções em que o domínio e contradomínio são espaços vetoriais (e que possuem duas propriedades importantes). Juntamente com os vetores e espaços vetoriais, esse é o principal objeto de estudo da Álgebra Linear.
 
-### Definição
+# Definição
 
-:::{prf:definition} Transformação Linear
+:::{note} Definição 3.1 (Transformação Linear)
 :label: deftransformacaolinear
 
 Sejam $V$e $W$ espaços vetoriais, uma ***transformação linear*** $T$ de $V$ para $W$ é uma função $T:V\to W$, satisfazendo as duas propriedades a seguir:
@@ -27,7 +27,7 @@ Também denotaremos por $\mathcal{L}(V,W)$ o conjunto de todas as transformaçõ
 
 É importante destacar uma propriedade clássica de transformações lineares que é consequência direta da condição de homogeneidade:
 
-:::{prf:proposition} Transformações lineares preservam o vetor nulo
+:::{important} Proposição 3.2 (Transformações lineares preservam o vetor nulo)
 :label: prop-transformacoes-preservam-o-vetor-nulo
 
 Seja $T \in \mathcal{L}(V,W)$. O vetor nulo de $V$ é sempre levado ao vetor nulo de $W$. Isto é,
@@ -38,7 +38,8 @@ $$
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 3.2
+:class: dropdown
 
 Uma vez que $T$ é uma transformação linear, vale a condição de homogeneidade (propriedade 2 de [](#deftransformacaolinear)). Logo,
 
@@ -50,11 +51,11 @@ Observe que o $0$ aparece representando o vetor nulo de $W$ (no membro direito d
 
 :::
 
-### Exemplos
+# Exemplos
 
 Vejamos alguns exemplos de transformações lineares (a transformação nula e a identidade aparecerão com frequência e serão importantes em momentos futuros). Em todos os exemplos, a verificação das propriedades 1 e 2 da [](#deftransformacaolinear) é simples.
 
-:::{prf:example} Transformação nula
+:::{hint} Exemplo 3.3 (Transformação nula)
 
 A transformação linear nula entre dois espaços vetoriais é aquela que leva todos os vetores do espaço domínio no vetor nulo do espaço contradomínio. Isto é, $T\in \mathcal{L}(V,W)$ tal que
 
@@ -66,7 +67,7 @@ $$
 
 :::
 
-:::{prf:example} Transformação identidade
+:::{hint} Exemplo 3.4 (Transformação identidade)
 
 A transformação linear identidade (ou simplesmente identidade) de um espaço vetorial é aquela que leva todos os seus vetores neles mesmos. Isto é, $I \in \mathcal{L}(V,V)$ tal que
 
@@ -76,7 +77,7 @@ $$
 
 :::
 
-:::{prf:example} Derivada de um polinômio
+:::{hint} Exemplo 3.5 (Derivada de um polinômio)
 
 $T \in \mathcal{L}(\mathcal{P_{n}},\mathcal{P}_{n-1})$ tal que 
 
@@ -90,7 +91,7 @@ A aditividade e homogeneidade da derivada são resultados clássicos do Cálculo
 
 :::
 
-:::{prf:example} Uma transformação de $\mathbb{R}^{2}$ para $\mathbb{R}^{3}$
+:::{hint} Exemplo 3.6 (Uma transformação de $\mathbb{R}^{2}$ para $\mathbb{R}^{3}$)
 
 $T\in \mathcal{L}(\mathbb{R}^{2},\mathbb{R}^{3})$ tal que
 
@@ -102,7 +103,7 @@ $$
 
 O último exemplo de transformação linear possui um interessante sentido geométrico.
 
-:::{prf:example} Rotação do plano
+:::{hint} Exemplo 3.7 (Rotação do plano)
 :label: exemplo-rotacao-do-plano
 
 $T \in \mathcal{L}(\mathbb{R}^{2},\mathbb{R}^{2})$ tal que 
@@ -121,11 +122,11 @@ Animação feita com o software Manim
 
 Observe que, nessa ilustração, os vetores $\vec{v_{1}}$ e $\vec{v_{3}}$ formam uma base do $\mathbb{R}^{2}$, são os vetores ${} (0,2)$ e $(2,0)$, respectivamente. Enquanto que o vetor do meio, $\vec{v_{2}}$, corresponde ao vetor $(1,1)$. Perceba como $\vec{v_{2}}$ "acompanha" o movimento dos outros dois vetores, que para $\vec{v_{1}}$ e $\vec{v_{3}}$ fica evidente que é uma rotação anti-horária de 90 graus. É de se esperar que por $\vec{v_{1}}$ e $\vec{v_{3}}$ formarem uma base do $\mathbb{R}^{2}$, a transformação $T$ de qualquer vetor $\vec{v_{2}} \in \mathbb{R}^{2}$ seja dependente de $T\vec{v_{1}}$ e $T\vec{v_{3}}$, afinal, $\vec{v_{2}}$ é escrito como combinação linear de $\vec{v_{1}}$ e $\vec{v_{3}}$. É isso que discutiremos na seção a seguir.
 
-### Determinação de transformações através de uma base
+# Determinação de transformações através de uma base
 
 Até agora, com os exemplos dados, vimos transformações lineares definidas como estamos acostumados com funções: uma regra/fórmula que atribui a cada vetor do domínio um vetor no contradomínio. Acontece que, no caso de uma transformação linear,  ao escolhermos uma base do domínio podemos defini-la completamente somente pelas imagens dos vetores que compõem essa base, sem necessariamente saber qual regra a transformação aplica a um vetor genérico do domínio (mas podemos obtê-la, se quisermos). Tal fato é uma consequência natural das propriedades de uma base e da linearidade da transformação, como evidenciado abaixo.
 
-:::{prf:observation}
+:::{warning} Observação 3.8
 :label: determinacao-de-transformacao
 
 Seja $T \in \mathcal{L}(V,W)$ e $(v_{1},\dots,v_{n})$ uma base de $V$. Veja que $T$ é inteiramente determinada pelas imagens de cada $v_{i}$, isto é, $Tv_{i}=w_{i} \in W$: Seja $v \in V$, $v$ pode ser escrito **de maneira única** como $v= a_{1}v_{1}+\dots+a_{n}v_{n}$, para $a_{i} \in \mathbb{R}$. Logo, 
@@ -144,7 +145,7 @@ Assim, conhecendo cada $w_{i}$, determinamos univocamente $Tv$ para todo $v \in 
 
 Para ilustrar isso na prática, voltemos ao [](#exemplo-rotacao-do-plano):
 
-:::{prf:example}
+:::{hint} Exemplo 3.9
 
 Sabendo que a transformação $T\in \mathcal{L}(\mathbb{R}^{2},\mathbb{R}^{2})$ no [](#exemplo-rotacao-do-plano) se trata de uma rotação do plano em 90 graus no sentido anti-horário, vejamos como poderíamos defini-la através da base canônica $((1,0),(0,1))$ de $\mathbb{R}^{2}$ e obter a fórmula geral que foi fornecida.
 
@@ -177,11 +178,11 @@ Veja que, com um procedimento similar, podemos definir transformações que cara
 
 Assim, podemos definir transformações lineares arbitrárias de maneira bastante simples, atribuindo as imagens dos vetores de uma base escolhida, sem se preocupar em definir uma fórmula geral e se ela garantirá a linearidade. 
  
-### Composição/produto de transformações lineares
+# Composição/produto de transformações lineares
 
 Assim como para funções, é natural que se tenha a composição de transformações lineares. A linearidade faz com que a composição possua algumas propriedades típicas da operação de produto, como distributividade e associatividade (mas não comutatividade, como será mostrado). Por isso, é comum também se referir a composição de transformações lineares como produto.
 
-:::{prf:definition} Composição/produto de transformações lineares
+:::{note} Definição 3.10 (Composição/produto de transformações lineares)
 
 Sejam $S \in \mathcal{L}(V,W)$ e $T \in \mathcal{L}(W,U)$. A ***composição*** ou ***produto*** de $T$ e $S$ é dado por $TS \in \mathcal{L}(V,U)$[^2], tal que
 
@@ -199,7 +200,7 @@ Ou seja, dado $v \in V$, aplica-se $S$ e depois aplica-se $T$. Note que a imagem
 
 Com essa definição, valem as seguintes propriedades:
 
-:::{prf:property} Associatividade
+:::{note} Propriedade 3.11 (Associatividade)
 
 Sejam $S_{1},S_{2}$ e $S_{3}$ transformações lineares tais que o produto $S_{1}S_{2}S_{3}$ está definido (ou seja, a imagem de $S_{3}$ está no domínio de $S_{2}$ e a imagem de $S_{2}$ está no domínio de $S_{1}$). Vale que
 
@@ -211,7 +212,7 @@ Isto é, aplicar $S_{3}$ e depois $S_{2}$ e $S_{1}$ é o mesmo que aplicar $S_{3
 
 :::
 
-:::{prf:property} Distributividade
+:::{note} Propriedade 3.12 (Distributividade)
 
 Sejam $S,S_{1},S_{2} \in \mathcal{L}(V,W)$ e $T,T_{1},T_{2} \in \mathcal{L}(U,V)$. Valem
 
@@ -220,7 +221,7 @@ Sejam $S,S_{1},S_{2} \in \mathcal{L}(V,W)$ e $T,T_{1},T_{2} \in \mathcal{L}(U,V)
 
 :::
 
-:::{prf:property} Identidade
+:::{note} Propriedade 3.13 (Identidade)
 
 Sejam $I_{v}$ a identidade em $V$, $I_{w}$ a identidade em $W$ e $T \in \mathcal{L}(V,W)$. Vale que
 
@@ -234,7 +235,7 @@ Essas 3 propriedades são imediatas a partir das definições (composição, lin
 
 Como mencionado, **não vale a comutatividade para o produto de transformações**:
 
-:::{prf:observation}
+:::{warning} Observação 3.14
 
 Sejam $S$ e $T$ transformações lineares tais que o produto $ST$ esteja definido. Não há garantia que $ST=TS$ (mesmo que $TS$ esteja definido).
 
@@ -247,11 +248,11 @@ O caso mais óbvio de que a comutatividade não é garantida é quando $TS$ não
 
 Algebricamente, temos que $ST(x,y)=S(x,-y)=(y,x)$, enquanto que $TS(x,y)=T(-y,x)=(-y,-x)$.
 
-### Núcleo de uma transformação linear
+# Núcleo de uma transformação linear
 
 O **núcleo** (comumente também referido como *kernel*) é um importante subconjunto do espaço vetorial do domínio de uma transformação linear.
 
-:::{prf:definition} Núcleo de uma transformação linear
+:::{note} Definição 3.15 (Núcleo de uma transformação linear)
 
 Seja $T \in \mathcal{L}(V,W)$. O ***núcleo*** de $T$, denotado por $N(T)$, é o seguinte subconjunto de $V$:
 
@@ -263,7 +264,7 @@ Ou seja, o conjunto de vetores em $V$ que são mapeados por $T$ para o vetor nul
 
 Lembrando da [](#prop-transformacoes-preservam-o-vetor-nulo), sempre temos que $N(T) \neq \emptyset$, pois o núcleo possui como elemento, pelo menos, o vetor nulo do domínio.
 
-:::{prf:example}
+:::{hint} Exemplo 3.16
 
 Seja $p \in \mathcal{P}_{n}$, um polinômio de grau máximo $n$, e $T \in \mathcal{L}(\mathcal{P}_{n},\mathcal{P}_{n-1})$ a derivada ($Tp=p'$). Sabemos, pelas regras de derivação de polinômios, que a derivada de um polinômio é nula se, e somente se, o polinômio for constante. Ou seja,
 
@@ -279,13 +280,14 @@ Por outro lado, observe que no caso da transformação de rotação do [](#exemp
 
 Além de um subconjunto, o núcleo é também um subespaço:
 
-:::{prf:proposition} O núcleo é um subespaço
+:::{important} Proposição 3.17 (O núcleo é um subespaço)
 
 Seja $T \in \mathcal{L}(V,W)$. $N(T)$ é um subespaço de $V$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 3.17
+:class: dropdown
 
 Uma vez que $N(T)\subseteq V$, utilizamos [](#def-subespaco). Pela [](#prop-transformacoes-preservam-o-vetor-nulo) já temos que $0 \in N(T)$. Observe que, sejam $v,w \in N(T)$, temos
 
@@ -303,11 +305,11 @@ Portanto, o núcleo é fechado na multiplicação por escalar. Consequentemente,
 
 :::
 
-#### Injetividade
+## Injetividade
 
 O conceito de **injetividade**, assim como para funções, também vale para transformações lineares.
 
-:::{prf:definition} Injetividade
+:::{note} Definição 3.18 (Injetividade)
 
 Seja $T\in \mathcal{L}(V,W)$. Dizemos que $T$ é ***injetiva*** se para todo $v,w \in V$, sempre que $Tv=Tw$ tivermos $v=w$.
 
@@ -317,14 +319,15 @@ Essa definição de injetividade é basicamente a mesma da usual para funções.
 
 A grande diferença em relação à injetividade usual de funções é, no caso de transformações lineares, como essa propriedade se relaciona com o núcleo:
 
-:::{prf:proposition}
+:::{important} Proposição 3.19
 :label: prop-injetividade
 
 Seja $T\in \mathcal{L}(V,W)$. $T$ é injetiva se, e somente se, $N(T)=\{ 0 \}$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 3.19
+:class: dropdown
 
 $(\implies)$ Seja $T$ injetiva e $v \in N(T)$. Temos que $Tv=0=T0$. Logo, pela injetividade de $T$, $v=0$. Portanto, o único elemento no núcleo de $T$ é o vetor nulo: $N(T)=\{ 0 \}$.
 
@@ -341,11 +344,11 @@ Ou seja, $v-w \in N(T)$. Consequentemente, uma vez que $N(T)=\{ 0 \}$, $v-w = 0$
 
 :::
 
-### Imagem de uma transformação linear
+# Imagem de uma transformação linear
 
 Para transformações lineares, o conceito de **imagem** é análogo ao usual para funções.
 
-:::{prf:definition} Imagem de uma transformação linear
+:::{note} Definição 3.20 (Imagem de uma transformação linear)
 
 Seja $T\in \mathcal{L}(V,W)$. A ***imagem*** de $T$, denotada por $\text{Im}(T)$, é o seguinte subconjunto de $W$:
 
@@ -355,7 +358,7 @@ $$
 
 :::
 
-:::{prf:example}
+:::{hint} Exemplo 3.21
 :label: exemplo-sobrejeitividade
 
 Mais uma vez considerando o exemplo da derivada, se $T \in \mathcal{L}(\mathcal{P}_{n},\mathcal{P_{n-1}})$ com $Tp=p'$, é evidente que $\mathrm{Im}(T)=\mathcal{P_{n-1}}$ (lembre-se que todo polinômio é integrável. Logo, para todo elemento $q$ em $\mathcal{P}_{n-1}$ existe um elemento $p$ em $\mathcal{P}_{n}$ tal que $p'=Tp=q$).
@@ -364,13 +367,14 @@ Mais uma vez considerando o exemplo da derivada, se $T \in \mathcal{L}(\mathcal{
 
 Assim como no caso do núcleo, a imagem de uma transformação linear também é um subespaço, agora do contradomínio.
 
-:::{prf:proposition} A imagem é um subespaço
+:::{important} Proposição 3.22 (A imagem é um subespaço)
 
 Seja $T\in \mathcal{L}(V,W)$. $\mathrm{Im}(T)$ é um subespaço de $W$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 3.22
+:class: dropdown
 
 Utilizamos a [](#def-subespaco) novamente. Como $T0=0$, temos que $0 \in \mathrm{Im}(T)$. Sejam $Tv,Tw \in \mathrm{Im}(T)$, observe que
 
@@ -388,11 +392,11 @@ Mostrando que $\alpha Tv \in \mathrm{Im}(T)$ também. Logo, $\mathrm{Im}(T)$ é 
 
 :::
 
-#### Sobrejetividade
+## Sobrejetividade
 
 Do mesmo modo que com a injetividade, o conceito de sobrejetividade para transformações lineares também é análogo ao de funções.
 
-:::{prf:definition} Sobrejetividade
+:::{note} Definição 3.23 (Sobrejetividade)
 
 Seja $T\in \mathcal{L}(V,W)$. $T$ é ***sobrejetiva*** quando $\mathrm{Im}(T)=W$.
 
@@ -400,11 +404,11 @@ Seja $T\in \mathcal{L}(V,W)$. $T$ é ***sobrejetiva*** quando $\mathrm{Im}(T)=W$
 
 A transformação do [](#exemplo-sobrejeitividade) é sobrejetiva. Veja que, no entanto, **a sobrejetividade depende do espaço considerado no contradomínio**. Poderíamos, nesse mesmo exemplo, considerar o contradomínio como $\mathcal{P}_{n}$ ao invés de $\mathcal{P}_{n-1}$, sem alterar de fato a transformação. Mas, nesse caso, ela não seria sobrejetiva. 
 
-### Teorema do Núcleo e Imagem
+# Teorema do Núcleo e Imagem
 
 Os conceitos de núcleo e imagem de transformações lineares se unem em um dos principais resultados da Álgebra Linear, que diz que dada uma transformação, a dimensão de seu domínio é sempre igual a dimensão de seu núcleo mais a dimensão de sua imagem. Lembramos que os espaços considerados possuem dimensão finita.
 
-:::{prf:theorem} Teo. do núcleo e imagem
+:::{important} Teorema 3.24 (Teo. do núcleo e imagem)
 :label: teo-nucleo-imagem
 
 Seja $T \in \mathcal{L}(V,W)$. Então,
@@ -415,7 +419,8 @@ $$
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 3.24
+:class: dropdown
 
 Começamos considerando uma base $(u_{1},\dots,u_{n})$ de $N(T)$. Logo, $\dim N(T)=n$. Então, podemos estender essa base de $N(T)$ (que é uma lista linearmente independente de vetores em $V$) em uma base de $V$: $(u_{1},\dots,u_{n},w_{1},\dots,w_{m})$. Donde temos que $\dim V=n+m$. A partir disso, basta provarmos que $\dim \mathrm{Im}(T)=m$; em particular, provaremos que $(Tw_{1},\dots,Tw_{m})$ é uma base de $\mathrm{Im}(T)$.
 
@@ -460,13 +465,14 @@ A maneira como é feita a demonstração nos revela um panorama geral desse resu
 
 Os próximos corolários ilustram parte da importância do [](#teo-nucleo-imagem). Quando o unimos aos conceitos de injetividade e sobrejetividade, podemos obter informações importantes acerca da transformação linear apenas relacionando as dimensões dos espaços vetoriais envolvidos.
 
-:::{prf:corollary}
+:::{important} Corolário 3.25
 
 Sejam $V$ e $W$ espaços vetoriais tais que $\dim V > \dim W$. Então não existe transformação linear de $V$ para $W$ que seja injetiva.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 3.25
+:class: dropdown
 
 Pela [](#prop-injetividade), uma transformação é injetiva se, e somente se, a dimensão do seu núcleo é zero. Seja $T\in \mathcal{L}(V,W)$, utilizando o [](#teo-nucleo-imagem) temos que  
 
@@ -478,13 +484,14 @@ Considerando que $\dim V > \dim W \geq \dim \mathrm{Im}(T)$ (lembre-se que $\mat
 
 :::
 
-:::{prf:corollary}
+:::{important} Corolário 3.26
 
 Sejam $V$ e $W$ espaços vetoriais tais que $\dim V < \dim W$. Então não existe transformação linear de $V$ para $W$ que seja sobrejetiva.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 3.26
+:class: dropdown
 
 Seja $T \in \mathcal{L}(V,W)$, $T$ é sobrejetiva quando $\mathrm{Im}(T)=W$ (pela def. de sobrejetividade). Logo, $T$ é sobrejetiva quando $\dim \mathrm{Im}(T)=\dim W$. Utilizando o [](#teo-nucleo-imagem), temos
 
@@ -498,9 +505,9 @@ Observe que o lado direito da equação valerá no máximo $\dim V$ (quando $T$ 
 
 É fácil visualizarmos esses dois corolários se fizermos uma analogia com dois conjuntos finitos, em que um possui mais elementos que o outro. Claramente, não existe uma função que mapeia os elementos do conjunto menor para todos os elementos do conjunto maior (seria necessário que um mesmo elemento no domínio fosse mapeado para mais de um elemento no contradomínio, deixando de ser uma função). Da mesma forma, não existe uma função que mapeia cada elemento do conjunto maior para elementos distintos do conjunto menor, ao menos um elemento do contradomínio tem que ser a imagem de mais de um elemento do domínio (princípio da casa dos pombos). No caso dos espaços vetoriais, apesar de conterem infinitos elementos (com exceção do espaço trivial $\{ 0 \}$), a dimensão é como o seu "tamanho".
 
-### Invertibilidade e isomorfismo
+# Invertibilidade e isomorfismo
 
-:::{prf:definition} Inversa
+:::{note} Definição 3.27 (Inversa)
 :label: def-inversa
 
 Seja $T \in \mathcal{L}(V,W)$. $T$ é ***invertível*** se existe uma transformação $S \in \mathcal{L}(W,V)$ tal que $ST=I$ (identidade em $V$) e $TS=I$ (identidade em $W$). Se existir, tal transformação $S$ é chamada de ***inversa*** de $T$.
@@ -515,14 +522,15 @@ $$
 
 Denotaremos a inversa de uma transformação $T$ como ${} T^{-1} {}$.
 
-:::{prf:proposition} Caracterização da inversa
+:::{important} Proposição 3.28 (Caracterização da inversa)
 :label: caracterizacao-da-inversa
 
 Uma transformação linear é invertível se, e somente se, é injetiva e sobrejetiva.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 3.28
+:class: dropdown
 
 $(\implies)$ Seja $T \in \mathcal{L}(V,W)$ invertível. Para provar a injetividade, considere $v,u \in V$ tais que $Tv=Tu$. Utilizando a inversa, é imediato que
 
@@ -573,7 +581,7 @@ Concluindo que $S(\alpha w)=\alpha Sw$, portanto $S$ é linear e $S=T^{-1}$ (pel
 
 A definição seguinte traz um importante conceito, que associa dois espaços vetoriais.
 
-:::{prf:definition} Isomorfismo
+:::{note} Definição 3.29 (Isomorfismo)
 :label: def-isomorfismo
 
 Sejam $V$ e $W$ espaços vetoriais, se existe $T\in \mathcal{L}(V,W)$ tal que $T$ é invertível, dizemos que $V$ e $W$ são ***isomorfos*** e que tal $T$ é um ***isomorfismo*** entre $V$ e $W$.
@@ -584,13 +592,14 @@ Veja que quando dois espaços são isomorfos, o fato de existir uma transformaç
 
 [^3]: A palavra isomorfo, do grego, significa "mesma forma".
 
-:::{prf:theorem} 
+:::{important} Teorema 3.30
 
 Dois espaços vetoriais são isomorfos se, e somente se, possuem mesma dimensão.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 3.30
+:class: dropdown
 
 $(\implies)$ Suponha que $V$ e $W$ são dois espaços isomorfos. Logo, existe uma transformação linear $T$ de $V$ para $W$ tal que $T$ é invertível. Logo, por [](#caracterizacao-da-inversa), temos que $\dim N(T)= 0$ ($T$ é injetiva) e ${} \dim \mathrm{Im}(T)=\dim W {}$ ($T$ é sobrejetiva). Portanto, substituindo no [](#teo-nucleo-imagem), obtemos
 
@@ -624,7 +633,7 @@ Por fim, analisamos as condições de invertibilidade para o caso especial em qu
 
 O resultado abaixo é um grande facilitador quando lidamos com invertibilidade de operadores.
 
-:::{prf:theorem} Injetividade, sobrejetividade e invertibilidade são equivalentes em operadores
+:::{important} Teorema 3.31 (Injetividade, sobrejetividade e invertibilidade são equivalentes em operadores)
 :label: teo-invertibilidade-em-operadores
 
 Se $T \in \mathcal{L}(V)$, as afirmações seguintes são equivalentes:
@@ -635,7 +644,8 @@ Se $T \in \mathcal{L}(V)$, as afirmações seguintes são equivalentes:
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 3.31
+:class: dropdown
 
 Já diretamente, temos que 1 implica 2 (pela [](#caracterizacao-da-inversa
 )). Suponha que vale 2, logo, $\dim N(T)=0$ e pelo [](#teo-nucleo-imagem) temos

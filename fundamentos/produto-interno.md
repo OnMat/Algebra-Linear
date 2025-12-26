@@ -1,5 +1,5 @@
 ---
-title: Produto Interno, Norma e Ortogonalidade
+title: 7. Produto Interno, Norma e Ortogonalidade
 subject: Fundamentos
 ---
 
@@ -19,11 +19,11 @@ Eles nos dão em $\mathbb{R}^{2}$ e $\mathbb{R}^{3}$ uma importante ferramenta d
 
 A ideia agora é generalizarmos os conceitos de produto interno e norma, considerando um espaço vetorial qualquer. Possuindo espaços vetoriais munidos de produto interno, poderemos definir uma importante transformação linear, chamada de **adjunta**.
 
-### Produto interno
+# Produto interno
 
 O produto interno, em um sentido geral, é definido como uma função entre vetores de um espaço que obedece algumas propriedades.
 
-:::{prf:definition} Produto interno
+:::{note} Definição 7.1 (Produto interno)
 :label: def-produto-interno
 
 Seja $V$ um espaço vetorial. Um ***produto interno*** em $V$ é uma função $\langle \cdot , \cdot \rangle:V\times V\to \mathbb{R}$ que leva cada par de vetores $(u,v)$ de $V$ em um número $\langle u , v \rangle \in \mathbb{R}$, satisfazendo as seguintes propriedades:
@@ -37,7 +37,7 @@ Seja $V$ um espaço vetorial. Um ***produto interno*** em $V$ é uma função $\
 
 Note que as condições de aditividade e homogeneidade juntas formam uma condição de linearidade na primeira entrada. Com a condição de simetria, temos na verdade a linearidade nas duas entradas. Por isso, um produto interno é dito ***bilinear***.
 
-:::{prf:example} Produto interno euclidiano em ${} \mathbb{R}^{n} {}$
+:::{hint} Exemplo 7.2 (Produto interno euclidiano em ${} \mathbb{R}^{n} {}$)
 
 Sejam $x=(x_{1},\dots,x_{n})$ e $y=(y_{1},\dots,y_{n})$ vetores de $\mathbb{R}^{n}$, a função $\langle \cdot , \cdot \rangle: \mathbb{R}^{n} \times \mathbb{R}^{n}\to \mathbb{R}$ dada por 
 
@@ -63,11 +63,11 @@ $$
 
 define um produto interno em $\mathbb{R}^{n}$, sendo o produto interno euclidiano um caso particular deste, onde $a_{1}=\dots=a_{n}=1$.
 
-### Norma
+# Norma
 
 A partir de todo produto interno podemos definir uma ***norma***. Normas funcionam como métricas nos espaços vetoriais, medindo o comprimento ou "intensidade" dos vetores, além das distâncias entre eles. 
 
-:::{prf:definition} Norma induzida pelo produto interno
+:::{note} Definição 7.3 (Norma induzida pelo produto interno)
 :label: def-norma
 
 Seja $V$ um espaço vetorial munido de produto interno $\langle \cdot , \cdot \rangle$, a ***norma induzida*** por $\langle \cdot , \cdot \rangle$ é a função $\lVert \cdot \rVert:V\to \mathbb{R}$, dada por
@@ -82,7 +82,7 @@ Assim como no caso do produto interno, a definição de norma pode ser generaliz
 
 [^1]: Os principais exemplos de normas não induzidas por produto interno em ${} \mathbb{R}^{n} {}$ são a norma do infinito (ou norma do máximo), usualmente denotada por ${} \lVert \cdot \rVert_{\infty} {}$ e dada pela maior coordenada em módulo do vetor, e a norma da soma (ou norma 1), usualmente denotada por ${} \lVert \cdot \rVert_{S} {}$ e dada pela soma dos módulos das coordenadas.
 
-:::{prf:example} Norma euclidiana
+:::{hint} Exemplo 7.4 (Norma euclidiana)
 
 No caso do produto interno euclidiano no ${} \mathbb{R}^{n} {}$, a norma induzida é dada por
 
@@ -96,7 +96,7 @@ onde $x=(x_{1},\dots,x_{n})\in \mathbb{R}^{n}$. Essa norma nos fornece o comprim
 
 Adiante, consideraremos que $\lVert \cdot \rVert$ é uma norma induzida por produto interno em $V$.
 
-:::{prf:property}
+:::{note} Propriedade 7.5
 
 Seja $v \in V$,
 
@@ -106,7 +106,8 @@ $$
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 7.5
+:class: dropdown
 
 $$
 \begin{align}
@@ -120,7 +121,7 @@ $$
 
 Similarmente, também é imediato que $\lVert v \rVert\geq 0,\; \forall v \in V$. Logo, a norma induzida por produto interno também é positiva-definida.
 
-:::{prf:property}
+:::{note} Propriedade 7.6
 :label: prop-escalar-norma
 
 Sejam $v \in V$ e $a \in \mathbb{R}$,
@@ -131,7 +132,8 @@ $$
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 7.6
+:class: dropdown
 
 $$
 \begin{align}
@@ -146,9 +148,9 @@ Tirando a raiz quadrada em ambos os lados, obtemos $\lVert av \rVert=|a|\lVert v
 
 :::
 
-### Ortogonalidade
+# Ortogonalidade
 
-:::{prf:definition} Ortogonalidade
+:::{note} Definição 7.7 Ortogonalidade
 
 Dois vetores $u,v \in V$ são ***ortogonais*** quando 
 
@@ -160,7 +162,7 @@ $$
 
 Note que $0$ é ortogonal a todos os vetores.
 
-:::{prf:property} Teorema de Pitágoras
+:::{note} Propriedade 7.8 Teorema de Pitágoras
 :label: teo-pitagoras
 
 Sejam $u,v \in V$ ortogonais, então
@@ -171,7 +173,8 @@ $$
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 7.8
+:class: dropdown
 
 $$
 \begin{align}
@@ -185,7 +188,7 @@ $$
 
 A alcunha de "Teorema de Pitágoras" fica clara quando consideramos o caso particular em que $V=\mathbb{R}^{2}$ (neste caso, ortogonalidade entre dois vetores equivale ao ângulo entre eles ser de 90 graus), onde o vetor $u+v$ cumpre o papel de hipotenusa e os vetores $u$ e $v$ de catetos.
 
-:::{prf:definition} Projeção de um vetor sobre outro
+:::{note} Definição 7.9 (Projeção de um vetor sobre outro)
 
 Sejam $u,v \in V$, com $v$ **não nulo**. O vetor ***projeção de $u$ em $v$*** é dado por
 
@@ -197,7 +200,7 @@ $$
 
 Note que o vetor projeção é um múltiplo escalar do vetor sobre o qual se projeta.
 
-:::{prf:proposition}
+:::{important} Proposição 7.10
 
 Sejam $v,u \in V$, com $v$ **não nulo**. O vetor 
 
@@ -209,7 +212,8 @@ $$
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 7.10
+:class: dropdown
 
 Veja que 
 
@@ -236,7 +240,7 @@ Relação geométrica entre os vetores.
 
 O vetor projeção possui muitos usos na Álgebra Linear, mas um dos principais é provar a ***Desigualdade de Cauchy-Schwarz***, uma das mais importantes desigualdades da matemática.
 
-:::{prf:theorem} Cauchy-Schwarz
+:::{important} Teorema 7.11 (Cauchy-Schwarz)
 :label: cauchy-schwarz
 
 Para quaisquer $u,v \in V$ vale a seguinte desigualdade:
@@ -247,7 +251,8 @@ $$
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 7.11
+:class: dropdown
 
 Para o caso em que $v=0$, é evidente que vale a igualdade:
 
@@ -281,7 +286,7 @@ Observe que vale a desigualdade se, e somente se, $w= 0$. Ou seja, quando $u=\te
 
 Como consequência de [](#cauchy-schwarz), temos uma outra desigualdade muito utilizada.
 
-:::{prf:corollary} Desigualdade triangular
+:::{important} Corolário 7.12 (Desigualdade triangular)
 
 Sejam $u,v \in V$, vale
 
@@ -291,7 +296,8 @@ $$
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 7.12
+:class: dropdown
 
 Note que como temos números reais não negativos em ambos os lados da igualdade, é equivalente provarmos $\lVert u + v\rVert^{2} \leq (\lVert u \rVert+\lVert v \rVert)^{2}$.
 
@@ -311,9 +317,9 @@ Onde a desigualdade é obtida utilizando [](#cauchy-schwarz) em $\lVert u \rVert
 
 :::
 
-### Bases ortonormais
+# Bases ortonormais
 
-:::{prf:definition} Vetores ortonormais
+:::{note} Definição 7.13 (Vetores ortonormais)
 
 Uma lista de vetores é dita ***ortonormal*** quando os vetores que a constituem possuem norma igual a 1 e são ortogonais entre si (cada par de vetores da lista é ortogonal).
 
@@ -323,7 +329,7 @@ Especificamente, uma lista $(v_{1},\dots v_{n})$ de vetores em $V$ é ortonormal
 
 Um exemplo imediato de vetores ortonormais é a base canônica de $\mathbb{R}^{n}$, considerando o produto interno e a norma canônicos.
 
-:::{prf:proposition}
+:::{important} Proposição 7.14
 :label: prop-norma-combinacao-ortonormal
 
 Seja $(v_{1},\dots,v_{n})$ uma lista ortonormal de vetores em $V$, então 
@@ -336,7 +342,8 @@ para quaisquer $a_{1},\dots,a_{n} \in \mathbb{R}$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 7.14
+:class: dropdown
 
 Separemos o vetor $a_{1}v_{1}+\dots+a_{n}v_{n}$ em dois vetores, $a_{1}v_{1}$ e $a_{2}v_{2}+\dots a_{n}v_{n}$. Utilizando o fato que $(v_{1},\dots,v_{n})$ é ortonormal obtemos
 
@@ -369,14 +376,15 @@ utilizando [](#prop-escalar-norma) e o fato de que $\lVert v_{j} \rVert=1$ para 
 
 :::
 
-:::{prf:corollary}
+:::{important} Corolário 7.15
 :label: corol-ortonormal-li
 
 Seja $(v_{1},\dots,v_{n})$ uma lista ortonormal de vetores em $V$, então $(v_{1},\dots,v_{n})$ é linearmente independente.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 7.15
+:class: dropdown
 
 Sejam $a_{1},\dots,a_{n} \in \mathbb{R}$ tais que 
 
@@ -394,7 +402,7 @@ Uma vez que cada parcela é não negativa, necessariamente devemos ter $a_{1}=\d
 
 :::
 
-:::{prf:definition} Base ortonormal
+:::{note} Definição 7.16 (Base ortonormal)
 
 Uma lista $(v_{1},\dots,v_{n})$ ortonormal que constitui uma base de $V$ é dita uma ***base ortonormal*** de $V$.
 
@@ -402,7 +410,7 @@ Uma lista $(v_{1},\dots,v_{n})$ ortonormal que constitui uma base de $V$ é dita
 
 Como já mencionado, a base canônica de $\mathbb{R}^{n}$ é uma lista ortonormal, portanto é uma base ortonormal.
 
-:::{prf:theorem} 
+:::{important} Teorema 7.17 
 
 Seja $(v_{1},\dots,v_{n})$ uma base ortonormal de $V$, então para todo $v \in V$ tem-se
 
@@ -413,7 +421,8 @@ $$
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 7.17
+:class: dropdown
 
 Uma vez que $(v_{1},\dots,v_{n})$ forma uma base de $V$, para todo $v \in V$ existem escalares únicos $a_{1},\dots,a_{n}$ tais que 
 
@@ -435,11 +444,11 @@ Portanto, vale a igualdade {eq}`eq:teorema-base-ortonormal`.
 
 :::
 
-### Processo de Gram-Schmidt
+# Processo de Gram-Schmidt
 
 O importante resultado a seguir mostra que dada qualquer lista de vetores linearmente independentes é possível encontrar uma lista ortonormal que gera o mesmo subespaço que tal lista dada.
 
-:::{prf:theorem} Gram-Schmidt
+:::{important} Teorema 7.18 (Gram-Schmidt)
 :label: teo-gram-schmidt
 
 Seja $(v_{1},\dots,v_{n})$ uma lista linearmente independente de vetores em $V$, existe uma lista **ortonormal** $(u_{1},\dots,u_{n})$ de vetores em $V$ tal que
@@ -454,7 +463,8 @@ para $j=1,\dots,n$.
 
 A demonstração desse teorema é feita fornecendo um procedimento para encontrar tal lista ortonormal, o qual é denominado ***Processo de Gram-Schmidt*** ou ***Algoritmo de Gram-Schmidt***.
 
-:::{prf:proof} Processo de Gram-Schmidt
+:::{tip} Demonstração 7.18 (Processo de Gram-Schmidt)
+:class: dropdown
 :label: processo-gram-schmidt
 
 Dada a lista linearmente independente $(v_{1},\dots,v_{n})$, começamos fazendo $u_{1}=\frac{v_{1}}{\lVert v_{1} \rVert}$, um vetor de norma unitária que satisfaz [](#teo-gram-schmidt) para $j=1$. O processo de escolha de $u_{2},\dots,u_{n}$ é feito indutivamente, da seguinte forma:
@@ -485,33 +495,35 @@ No entanto, uma vez que tanto $(v_{1},\dots,v_{j})$ e $(u_{1},\dots,u_{j})$ são
 
 :::
 
-:::{prf:corollary}
+:::{important} Corolário 7.19
 
 Todo espaço vetorial de dimensão finita e munido de produto interno possui uma base ortonormal.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 7.19
+:class: dropdown
 
 Dada uma base desse espaço, que é uma lista linearmente independente, pelo [](#teo-gram-schmidt) existe uma lista ortonormal que também gera esse espaço. Além disso, essa lista é linearmente independente (pelo [](#corol-ortonormal-li)). Logo, é uma base ortonormal desse espaço.
 
 :::
 
-:::{prf:corollary}
+:::{important} Corolário 7.20
 
 Toda lista ortonormal de vetores em $V$ pode ser estendida para uma base ortonormal de $V$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 7.20
+:class: dropdown
 
 Seja $(u_{1},\dots,u_{m})$ uma lista ortonormal de $V$, pelo [](#teoestenderbase) ela pode ser estendida em uma base $(u_{1},\dots,u_{m},v_{1},\dots,v_{n})$ de $V$. Aplicando o processo de Gram-Schmidt (descrito em [](#processo-gram-schmidt)) nessa base, é produzida uma base ortonormal de $V$. Mas, note que pela maneira como é realizado o processo e considerando que $(u_{1},\dots,u_{m})$ já é ortonormal, tal base ortonormal produzida será da forma $(u_{1},\dots,u_{m},w_{1},\dots,w_{m})$, isto é, os vetores $u_{1},\dots,u_{m}$ são preservados pelo processo. Portanto, no fim o que foi feito foi estender a lista ortonormal em uma base ortonormal de $V$.
 
 :::
 
-### Complemento ortogonal
+# Complemento ortogonal
 
-:::{prf:definition} Complemento ortogonal
+:::{note} Definição 7.21 (Complemento ortogonal)
 
 Seja $U$ um subespaço de $V$. O ***complemento ortogonal*** de $U$, denotado por $U^{\perp}$ (lê-se "$U$ perp") é o conjunto de todos os vetores de $V$ que são ortogonais a todos os vetores de $U$. Isto é,
 
@@ -525,7 +537,7 @@ $$
 
 O complemento ortogonal de um subespaço nos permite escrever o espaço o qual ele faz parte como uma soma direta envolvendo esse subespaço:
 
-:::{prf:theorem}
+:::{important} Teorema 7.22
 :label: teo-soma-direta-complemento
 
 Seja $U$ um subespaço de $V$, então
@@ -536,7 +548,8 @@ $$
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 7.22
+:class: dropdown
 
 Devemos mostrar que $V=U+U^{\perp}$ e $U\cap U^{\perp}=\{ 0 \}$. Para o primeiro, seja $v \in V$, considere $(u_{1},\dots,u_{n})$ uma base ortonormal de $U$. Note que
 
@@ -570,7 +583,7 @@ Mas isso faz com que $u = 0$ (lembre-se do item 1 de [](#def-produto-interno)). 
 
 :::
 
-:::{prf:corollary} Complemento do complemento
+:::{important} Corolário 7.23 (Complemento do complemento)
 
 Seja $U$ um subespaço de $V$, então
 
@@ -580,7 +593,8 @@ $$
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 7.23
+:class: dropdown
 
 Começamos mostrando $U\subseteq (U^{\perp})^{\perp}$. Seja $u \in U$, pela definição de $U^{\perp}$ temos que $\langle u , v \rangle= 0$ para todo $v \in U^{\perp}$. Logo, $u$ é ortogonal a todo vetor em $U^{\perp}$, implicando que $u \in (U^{\perp})^{\perp}$.
 

@@ -1,11 +1,11 @@
 ---
-title: Propriedades de espaços vetoriais de dimensão finita
+title: 2. Propriedades de espaços vetoriais de dimensão finita
 subject: Fundamentos
 ---
 
 Os conceitos discutidos no tópico anterior são válidos para espaços vetoriais arbitrários. **Daqui em diante, os espaços vetoriais considerados possuem dimensão finita** (o significado de dimensão ficará claro futuramente).
 
-:::{prf:observation}
+:::{warning} Observação 2.1
 
 Nesse livro, utilizamos amplamente o conceito de lista para representar um conjunto de vetores. Por exemplo, a lista $(v_{1},\dots,v_{n})$ onde cada $v_{i}$ é vetor de um espaço vetorial $V$. Note que tal lista será tratada de maneira diferente da lista $(a_{1},\dots,a_{n})$ onde cada $a_{i}$ é um número real, sendo essa última tratada como um vetor do espaço ${} \mathbb{R}^{n} {}$. Em geral, a distinção entre listas de vetores e vetores do ${} \mathbb{R}^{n} {}$ ficará clara pelo contexto, mas sempre especificaremos qual o tipo de objeto que se trata e tentaremos padronizar a notação de maneira que $u$, $v$ e $w$ serão utilizados para representar vetores, enquanto que $a$, $b$, $c$, $x$, $y$, $\alpha$ e $\beta$ serão utilizados para representar números reais. 
 
@@ -13,15 +13,15 @@ Não faremos operações de soma e multiplicação por escalar entre listas de v
 
 :::
 
-:::{prf:observation}
+:::{warning} Observação 2.2
 
 Sempre que nos referirmos a uma lista $(v_{1},\dots,v_{n})$, sejam seus elementos vetores ou escalares, teremos $n\in \mathbb{N}$. Ou seja, a lista é finita. 
 
 :::
 
-### Combinações lineares e espaço gerado
+# Combinações lineares e espaço gerado
 
-:::{prf:definition} Combinação linear
+:::{note} Definição 2.3 (Combinação linear)
 
 Seja $(v_{1},\dots,v_{n})$ uma lista de vetores de um espaço vetorial $V$ e $\alpha_{1},\dots,\alpha_{n}\in \mathbb{R}$. Considere o seguinte vetor $w$:
 
@@ -33,7 +33,7 @@ Dizemos que $w$ é uma ***combinação linear*** de $(v_{1},\dots,v_{n})$, em re
 
 :::
 
-:::{prf:definition} Espaço gerado
+:::{note} Definição 2.4 (Espaço gerado)
 
 Seja $(v_{1},\dots, v_{n})$ uma lista de vetores em $V$. Considere o seguinte conjunto:
 
@@ -47,7 +47,7 @@ Isto é, $S$ é o conjunto de todas as combinações lineares possíveis entre o
 
 [^1]: Alternativamente, encontra-se a notação $[\{ v_{1},\dots,v_{n} \}]$.
 
-:::{prf:example}
+:::{hint} Exemplo 2.5
 
 Considere os vetores $(1,2,3)$ e $(4,5,6)$, do $\mathbb{R}^{3}$. Observe que ${} (10,14,18)\in \text{span}((1,2,3),(4,5,6))$, pois $(10,14,18)=2\cdot(1,2,3)+2\cdot(4,5,6)$. 
 
@@ -64,11 +64,11 @@ $$
 
 Quando $\text{span}(v_{1},\dots,v_{n})=V$, dizemos que $(v_{1},\dots,v_{n})$ **gera** $V$. Logo, dizemos que um espaço vetorial tem dimensão finita quando uma quantidade finita de seus elementos o gera.
 
-### Independência linear
+# Independência linear
 
 De maneira similar à definição de soma direta para um conjunto de subespaços, definimos o conceito de independência linear para uma lista de vetores.
 
-:::{prf:definition} Vetores linearmente independentes
+:::{note} Definição 2.6 (Vetores linearmente independentes)
 
 Seja $(v_{1},\dots,v_{n})$ uma lista de vetores em $V$, dizemos que $(v_{1},\dots,v_{n})$ é ***linearmente independente*** (ou LI) se a única maneira de escrever o vetor nulo como uma combinação linear entre esses vetores é fazendo cada escalar igual a zero. Isto é, sejam $\alpha_{1},\dots,\alpha_{n} \in \mathbb{R}$, tais vetores são linearmente independentes se, e somente se,
 
@@ -78,13 +78,13 @@ $$
 
 :::
 
-:::{prf:observation}
+:::{warning} Observação 2.7
 
 Com um raciocínio análogo ao que fizemos para a soma direta, verifica-se que ${} (v_{1},\dots,v_{n}) {}$ é linearmente independente se, e somente se, todo vetor pertencente ao espaço gerado por ${} (v_{1},\dots,v_{n}) {}$ possui representação única como combinaçao linear entre esses vetores.
 
 :::
 
-:::{prf:example}
+:::{hint} Exemplo 2.8
 :label: exbasecanonica
 
 Seja $n \in \mathbb{N}$, os $n$ vetores do $\mathbb{R}^{n}$ (ou seja, com $n$ entradas reais)
@@ -99,7 +99,7 @@ são linearmente independentes. É fácil de observar que $0=\alpha_{1}(1,0,\dot
 
 Através da definição, verifica-se sem muita dificuldade que toda lista de vetores que está contida em uma lista linearmente independente também será linearmente independente.
 
-:::{prf:definition} Vetores linearmente dependentes
+:::{note} Definição 2.9 (Vetores linearmente dependentes)
 
 Uma lista de vetores $(v_{1},\dots,v_{n})$ é ***linearmente dependente*** (ou LD) quando não é linearmente independente. Logo, existe pelo menos um $\alpha_{i}$ não nulo de modo que $0=\alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}$.
 
@@ -107,7 +107,7 @@ Uma lista de vetores $(v_{1},\dots,v_{n})$ é ***linearmente dependente*** (ou L
 
 Um exemplo típico de vetores linearmente dependentes são múltiplos (quando um vetor é o outro multiplicado por um escalar).
 
-:::{prf:example}
+:::{hint} Exemplo 2.10
 
 Considere os vetores $(1,2)$ e $(2,4)$, do $\mathbb{R}^{2}$. Como $(2,4)=2(1,2)$, então
 
@@ -127,14 +127,15 @@ Como temos o vetor nulo resultante de uma combinação linear entre $(1,2)$ e $(
 
 De maneira geral, sempre que tivermos o vetor nulo pertencente à lista de vetores, então ela será linearmente dependente: se considerarmos $0=\alpha_{0}0+\alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}$, dados valores de $\alpha_{1},\dots,\alpha_{n}$ que satisfaçam $\alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}=0$ (mesmo que sejam todos nulos), então qualquer $\alpha_{0} \in \mathbb{R}$ irá satisfazer a igualdade. Logo, mesmo que $(v_{1},\dots,v_{n})$ seja linearmente independente, ao adicionarmos o vetor nulo a lista se torna linearmente dependente.
 
-:::{prf:proposition}
+:::{important} Proposição 2.11
 :label: prop-aux-teo-li
 
 Se $(v_{1},\dots,v_{n})$ é linearmente dependente e $v_{1} \neq 0$, existe $i \in \{ 2,\dots,n \}$ tal que $v_{i} \in \text{span}(v_{1},\dots,v_{i-1})$. Além disso, se $v_{i}$ for removido de $(v_{1},\dots,v_{n})$, o espaço gerado pela lista resultante é igual ao $\text{span}(v_{1},\dots,v_{n})$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 2.11
+:class: dropdown
 
 Se $(v_{1},\dots, v_{n})$ é linearmente dependente, então $0 = \alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}$ de modo que pelo menos um dos escalares é não nulo. Como $v_{1} \neq 0$, não podemos ter $\alpha_{2}=\alpha_{3}=\dots=\alpha_{n}=0$, (pois, nesse caso, para a igualdade valer deveríamos ter $\alpha_{1}=0$ também, logo, todos os escalares seriam nulos, uma contradição). Dessa forma, existe pelo menos um $k\in \{ 2,\dots,n \}$ tal que $\alpha_{k}\neq 0$. Seja $i$ o maior elemento em $\{ 2,\dots,n \}$ com essa propriedade, podemos escrever:
 
@@ -157,14 +158,15 @@ Substituir $v_{i}$ na equação acima pelo lado direito da equação {eq}`eq:pro
 
 Esse resultado nos diz que é possível reduzir uma lista de vetores linearmente dependentes em uma lista linearmente independente, removendo vetores que são combinação linear de outros vetores da lista (no caso da lista conter somente o vetor nulo, a lista resultante desse processo é vazia, assumida como linearmente independente por convenção).
 
-:::{prf:theorem}
+:::{important} Teorema 2.12
 :label: teocomprimentoentreespanebase
 
 Seja $V$ um espaço vetorial de dimensão finita, toda lista de vetores que gera $V$ tem comprimento maior ou igual a toda lista de vetores linearmente independentes em $V$. Isto é, se $\text{span}( v_{1},\dots,v_{n})=V$ e $(u_{1},\dots,u_{m})$ é linearmente independente em $V$, então $m \leq n$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 2.12
+:class: dropdown
 
 Suponha que $\text{span}(v_{1},\dots,v_{n})=V$ e $(u_{1},\dots,u_{ m})$ é linearmente independente. Observe que $(u_{1},v_{1},\dots,v_{n})$ ainda gera $V$ e é linearmente dependente (pois como $v_{1},\dots,v_{n}$ geram $V$, $u_{1}$ pode ser escrito como combinação linear deles). Logo, uma vez que ${} u_{1} \neq 0$ (pois ${} (u_{1},\dots,u_{m})$ é linearmente independente), podemos remover um dos $v$'s de modo que a lista resultante ainda gera $V$ (utilizando [](#prop-aux-teo-li)). 
 
@@ -176,11 +178,11 @@ Isso implica que devemos ter uma quantidade de $v$'s pelo menos igual a quantida
 
 A partir desses resultados também obtemos que qualquer subespaço de um espaço de dimensão finita terá, da mesma forma, dimensão finita. Como é de se esperar.
 
-### Bases
+# Bases
 
 A união entre os conceitos de espaço gerado e independência linear origina a ideia de *base*, central na Álgebra Linear.
 
-:::{prf:definition} Base
+:::{note} Definição 2.13 (Base)
 :label: defbase
 
 Seja $V$ um espaço vetorial. Uma lista $(v_{1},\dots,v_{n})$ de vetores em $V$ é uma ***base*** de $V$ se satisfaz as seguintes condições:
@@ -190,7 +192,7 @@ Seja $V$ um espaço vetorial. Uma lista $(v_{1},\dots,v_{n})$ de vetores em $V$ 
 
 :::
 
-:::{prf:example} Base canônica de $\mathbb{R}^{n}$
+:::{hint} Exemplo 2.14 (Base canônica de $\mathbb{R}^{n}$)
 
 Considere os seguintes $n$ vetores de $\mathbb{R}^{n}$:
 
@@ -206,7 +208,7 @@ Ilustrando mais concretamente, a base canônica de $\mathbb{R}^{2}$ é $( (1,0),
 
 Veja que multiplicar os vetores da base canônica por escalares quaisquer não altera as duas propriedades que fazem deles uma base. Logo, existem infinitas bases para $\mathbb{R}^{n}$. Existem também bases formadas por vetores que não são somente múltiplos dos vetores da base canônica, como ilustra o próximo exemplo.
 
-:::{prf:example}
+:::{hint} Exemplo 2.15
 :label: exemplobase
 
 $(1,2)$ e $(3,4)$ formam uma base de $\mathbb{R}^{2}$.
@@ -234,7 +236,7 @@ Observe que, independente dos valores de $x$ e $y$, podemos determinar valores r
 
 :::
 
-:::{prf:example}
+:::{hint} Exemplo 2.16
 
 $(1,2),(3,4)$ e $(2,4)$ não formam uma base de $\mathbb{R}^{2}$.
 
@@ -246,7 +248,7 @@ Esse exemplo nos dá um indício de que bases são **maximais** em relação à 
 
 Antes de partirmos para as proposições e teoremas, um último exemplo ilustrando uma base de um espaço vetorial diferente do $\mathbb{R}^{n}$:
 
-:::{prf:example} Base canônica de $\mathcal{P}_{n}$
+:::{hint} Exemplo 2.17 (Base canônica de $\mathcal{P}_{n}$)
 
 $\mathcal{P}_{n}$ representa o espaço vetorial formado pelos polinômios de grau máximo $n \in \mathbb{N}$, ou seja, o conjunto dos elementos da forma
 
@@ -258,7 +260,7 @@ Os elementos $1,x,\dots,x^{n}$ formam a base canônica de $\mathcal{P}_{n}$ .
 
 :::
 
-:::{prf:proposition} Caracterização de bases
+:::{important} Proposição 2.18 (Caracterização de bases)
 :label: prop-carac-bases
 
 Os vetores $v_{1},\dots,v_{n} \in V$ formam uma base de $V$ se, e somente se, todo $v \in V$ pode ser escrito de forma única como uma combinação linear entre eles. Isto é,
@@ -271,7 +273,8 @@ com $\alpha_{1},\dots,\alpha_{n} \in \mathbb{R}$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 2.18
+:class: dropdown
 
 $(\implies)$ Se $(v_{1},\dots,v_{n})$ é uma base de $V$, em particular, $(v_{1},\dots,v_{n})$ gera $V$. Logo, para todo $v \in V$, existem $\alpha_{1},\dots,\alpha_{n} \in \mathbb{R}$ de modo que $v= \alpha_{1}v_{1}+\dots+\alpha_{n}v_{n}$. Quanto à unicidade, se existem $\alpha_{1}',\dots,\alpha_{n}'\in \mathbb{R}$ tais que $v=\alpha_{1}'v_{1}+\dots+\alpha_{n}'v_{n}$, então
 
@@ -287,7 +290,7 @@ $(\impliedby)$ A volta é direta: se todo vetor em $V$ pode ser escrito como com
 
 A [](#prop-carac-bases) nos permite definir um conceito muito utilizado, as coordenadas de um vetor com relação a uma base específica.
 
-:::{prf:definition} Coordenadas de um vetor em uma base
+:::{note} Definição 2.19 (Coordenadas de um vetor em uma base)
 
 Seja $\beta=(v_{1},\dots,v_{n})$ uma base do espaço $V$. Pela [](#prop-carac-bases), para todo $v \in V$ existem $a_{1},\dots,a_{n} \in \mathbb{R}$ **únicos** tais que 
 
@@ -310,7 +313,7 @@ Observe que cada escalar na combinação linear {eq}`eq:comb-coordenadas` está 
 
 :::
 
-:::{prf:example}
+:::{hint} Exemplo 2.20
 
 Vamos determinar as coordenadas do vetor $(1,2) \in \mathbb{R}^{2}$ na base $\beta=((1,1),(0,2))$. 
 
@@ -352,14 +355,15 @@ $$
 
 :::
 
-:::{prf:theorem} Spans podem ser reduzidos em uma base
+:::{important} Teorema 2.21 (Spans podem ser reduzidos em uma base)
 :label: teoreducaobase
 
 Toda lista de vetores que geram $V$ pode ser reduzida para uma base de $V$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 2.21
+:class: dropdown
 
 Suponha que $(v_{1},\dots,v_{n})$ gera $V$. Primeiramente, se $v_{1}= 0$ remova-o. A partir disso, uma aplicação sequencial de [](#prop-aux-teo-li) indo de $v_{2}$ até $v_{n}$, removendo os vetores que pertencem ao espaço gerado pelos anteriores, nos dará uma nova lista que ainda gera $V$ e que é agora linearmente independente, ou seja, uma base de $V$.
 
@@ -369,14 +373,15 @@ Esse teorema nos garante que todo espaço vetorial de dimensão finita possui um
 
 Agora, mostramos o processo contrário ao do teorema anterior, que toda lista linearmente independente pode ser estendida em uma base, adicionando novos vetores.
 
-:::{prf:theorem} Vetores LI podem ser estendidos em uma base
+:::{important} Teorema 2.22 (Vetores LI podem ser estendidos em uma base)
 :label: teoestenderbase
 
 Toda lista de vetores de $V$ linearmente independentes pode ser estendida em uma base de $V$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 2.22
+:class: dropdown
 
 Seja $(v_{1},\dots,v_{n})$ linearmente independente e $u_{1},\dots,u_{m} \in V$ tais que $\text{span}( u_{1},\dots,u_{m})=V$. Começamos verificando se $u_{1}$ pertence ao $\text{span}(v_{1},\dots,v_{n})$. Se não pertencer, adicionamos-o a lista $(v_{1},\dots,v_{n})$, caso contrário, não o adicionamos. Repetimos o processo para $u_{2}$, verificando se ele pertence ao espaço gerado pela nova lista (que pode ter ou não novos elementos). Fazendo isso até $u_{m}$, ao final obtemos uma lista linearmente independente (pois nenhum vetor na lista pertence ao span dos anteriores) e que gera $V$ (pois todos os $u_{i}$ pertencem ao span da nova lista, e eles geram $V$). Logo, construímos uma base de $V$.
 
@@ -386,22 +391,23 @@ Um resultado similar, sobre subespaços e somas diretas, pode ser extraído a pa
 
 Por fim, um resultado que é naturalmente esperado e é importante para a definição de *dimensão*:
 
-:::{prf:theorem} Bases possuem mesmo comprimento
+:::{important} Teorema 2.23 (Bases possuem mesmo comprimento)
 :label: teocomprimentobase
 
 Quaisquer duas bases de um mesmo espaço vetorial de dimensão finita possuem a mesma quantidade de vetores.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 2.23
+:class: dropdown
 
 Sejam $B_{1} =(v_{1},\dots,v_{n})$ e ${} B_{2}= (u_{1},\dots,u_{m})$ bases de $V$, utilizamos o [](#teocomprimentoentreespanebase): Por um lado, $B_{1}$ é uma lista de vetores linearmente independentes em $V$ e $B_{2}$ é uma lista de vetores que gera $V$, logo, $n\leq m$. Por outro lado, invertendo os papeis de $B_{1}$ e $B_{2}$, obtemos $m\leq n$. Ou seja, $n=m$ e as bases possuem a mesma quantidade de vetores.
 
 :::
 
-### Dimensão
+# Dimensão
 
-:::{prf:definition} Dimensão de um espaço vetorial
+:::{note} Definição 2.24 (Dimensão de um espaço vetorial)
 
 Seja $V$ um espaço vetorial de dimensão finita, sua ***dimensão*** é definida como o número inteiro não negativo dado pelo comprimento de qualquer uma de suas bases (que, pelo [](#teocomprimentobase), é o mesmo para qualquer base) e é denotada por $\dim V$.
 
@@ -409,7 +415,7 @@ Seja $V$ um espaço vetorial de dimensão finita, sua ***dimensão*** é definid
 
 A definição de dimensão para um espaço de "dimensão finita" parece circular, mas lembre-se que um espaço possui dimensão finita se pode ser gerado por uma lista finita de vetores, e essa definição não depende do conceito de dimensão definido agora. A necessidade de especificar que o espaço tenha dimensão finita se dá, pois, se o espaço possuir dimensão infinita, então qualquer uma de suas bases conterá infinitos elementos, logo, o conceito de "comprimento" não será mais limitado a um número real, fugindo do escopo elementar da Álgebra Linear.
 
-:::{prf:example}
+:::{hint} Exemplo 2.25
 
 Como é esperado, seja $n \in \mathbb{N}$, o espaço $\mathbb{R}^{n}$ possui dimensão $n$. Por exemplo, o espaço das duplas ordenadas $\mathbb{R}^{2}=\{ (x,y):x,y \in \mathbb{R} \}$ possui dimensão 2; o espaço das 123-uplas ordenadas, $\mathbb{R}^{123}$, possui dimensão 123...
 
@@ -421,14 +427,15 @@ O espaço que contém somente o vetor nulo, $\{ 0 \}$, possui dimensão zero. Le
 
 Como já mencionado, todo subespaço de um espaço de dimensão finita terá dimensão finita. Então, naturalmente, temos o seguinte resultado:
 
-:::{prf:proposition}
+:::{important} Proposição 2.26
 :label: teo-dim-subespaco-menor-ou-igual-dim-espaco
 
 Se $V$ é um espaço de dimensão finita e $U$ é um subespaço de $V$, então $\dim U \leq \dim V$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 2.26
+:class: dropdown
 
 Observe que qualquer base de $U$ é uma lista linearmente independente de vetores que também pertencem a $V$. Logo, pelo [](#teoestenderbase), pode ser estendida em uma base de $V$, o que implica que $\dim U \leq \dim V$.
 
@@ -436,31 +443,33 @@ Observe que qualquer base de $U$ é uma lista linearmente independente de vetore
 
 Os próximos dois resultados mostram que se uma lista de vetores possui comprimento igual a dimensão do espaço, somente uma das condições em [](#defbase) precisa ser verificada para que a lista seja uma base desse espaço. **Em ambos os casos, $V$ é um espaço de dimensão finita.**
 
-:::{prf:proposition}
+:::{important} Proposição 2.27
 
 Se $(v_{1},\dots,v_{n})$ gera $V$ e $n=\dim V$ (ou seja, a lista tem comprimento igual a dimensão de $V$), então $(v_{1},\dots,v_{n})$ é uma base de $V$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 2.27
+:class: dropdown
 
 $(v_{1},\dots,v_{n})$ gera $V$, pelo [](#teoreducaobase) essa lista pode ser reduzida em uma base de $V$. Por outro lado, $(v_{1},\dots,v_{n})$ já possui comprimento igual a $\dim V$. Como todas as bases possuem mesmo comprimento, a redução deve ser a trivial, isto é, $(v_{1},\dots,v_{n})$ já é uma base de $V$. 
 
 :::
 
-:::{prf:proposition}
+:::{important} Proposição 2.28
 
 Se $(v_{1},\dots,v_{n})$ é uma lista linearmente independente de vetores em $V$ e $n= \dim V$ (a lista possui comprimento igual a dimensão de $V$), então $(v_{1},\dots,v_{n})$ é uma base de $V$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 2.28
+:class: dropdown
 
 O raciocínio é similar à proposição anterior. $(v_{1},\dots,v_{n})$ é linearmente independente, que pelo [](#teoestenderbase) pode ser estendida em uma base de $V$. Mas, seu comprimento é igual a dimensão de $V$ (e todas as bases possuem comprimento igual a dimensão de $V$), logo, a extensão é a trivial e $(v_{1},\dots,v_{n})$ já é uma base de $V$. 
 
 :::
 
-:::{prf:example}
+:::{hint} Exemplo 2.29
 
 Considere os vetores do $\mathbb{R}^{2}$: $(11,237)$ e $(5,3)$. Eles são linearmente independentes (pois um não é múltiplo do outro), como $((11,237),(5,3))$ possui comprimento 2, igual a dimensão de $\mathbb{R}^{2}$, a proposição anterior nos garante que $((11,237),(5,3))$ é uma base de $\mathbb{R}^{2}$, sem precisarmos verificar que gera $\mathbb{R}^{2}$.
 
@@ -468,7 +477,7 @@ Considere os vetores do $\mathbb{R}^{2}$: $(11,237)$ e $(5,3)$. Eles são linear
 
 O teorema a seguir nos dá uma fórmula para a dimensão da soma de dois subespaços. Observe que ela é análoga à fórmula da cardinalidade da união de dois conjuntos finitos, dada por $|A\cup B|=|A|+|B|-|A\cap B|$.
 
-:::{prf:theorem} Dimensão da soma de dois subespaços
+:::{important} Teorema 2.30 (Dimensão da soma de dois subespaços)
 
 Se $V$ possui dimensão finita e $V_{1}$ e $V_{2}$ são subespaços de $V$, então
 
@@ -478,7 +487,8 @@ $$
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 2.30
+:class: dropdown
 
 Começamos considerando $(v_{1},\dots,v_{n})$ uma base de $V_{1}\cap V_{2}$, logo, temos que $\dim V_{1}\cap V_{2}=n$. Observe que, por ser uma base da interseção entre $V_{1}$ e $V_{2}$, $(v_{1},\dots,v_{n})$ é uma lista de vetores linearmente independentes simultaneamente em $V_{1}$ e em $V_{2}$. Logo, podemos estender $(v_{1},\dots ,v_{n})$ para uma base $(v_{1},\dots,v_{n},u_{1},\dots,u_{i})$ de $V_{1}$, assim como para uma base $(v_{1},\dots,v_{n},w_{1},\dots,w_{j})$ de $V_{2}$ (note que cada $u_{k}$ é elemento de $V_{1}$, enquanto que cada $w_{k}$ é elemento de $V_{2}$). Daí, temos que $\dim V_{1}=n+i$ e $\dim V_{2}=n+j$. Veja que $(v_{1},\dots,v_{n},u_{1},\dots,u_{i},w_{1},\dots,w_{j})$ gera $V_{1}+V_{2}$, logo, se tal lista for linearmente independente será uma base de $V_{1}+V_{2}$, de onde teremos
 
@@ -522,7 +532,7 @@ Similarmente, invocamos o fato de que $(v_{1},\dots,v_{n},w_{1},\dots,w_{j})$ é
 
 Por fim, temos uma proposição que relaciona dimensão e soma direta.
 
-:::{prf:proposition}
+:::{important} Proposição 2.31
 
 Sejam $U_{1},\dots,U_{n}$ subespaços de um espaço de dimensão finita $V$ tais que valem as duas condições abaixo:
 
@@ -537,7 +547,8 @@ $$
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 2.31
+:class: dropdown
 
 Utilizaremos a [](#prop-caracterizacao1-de-soma-direta) do tópico anterior. Já temos que $V=U_{1}+\dots+U_{n}$ (pela condição 1), restando mostrar que $0=u_{1}+\dots+u_{n}$, com $u_{k} \in U_{k}$, implica que $u_{1}=\dots=u_{n}=0$.
 

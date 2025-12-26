@@ -1,21 +1,25 @@
 ---
-title: Relação entre transformações lineares e matrizes
+title: 5. Relação entre transformações lineares e matrizes
 subject: Fundamentos
 ---
 
-Notações utilizadas:
+:::{warning} Notações utilizadas
+
+Ao longo do livro utilizamos as seguintes notações envolvendo matrizes:
 
 - $c$ é a base canônica do espaço $\mathbb{R}^{n}$ em contexto.
 - $[T]^{\alpha}_{\beta}$ é a matriz associada a transformação linear ${} T \in \mathcal{L}(V,W) {}$ em relação a base $\alpha$ de $V$ e a base $\beta$ de $W$. No caso da matriz de um operador em relação a uma mesma base, omitiremos o sobrescrito.
 - $\textbf{I}$ é a matriz identidade (dimensão compatível com o contexto em que é utilizada) e $[I]^{\alpha}_{\beta}$ representa a matriz mudança de base de $\alpha$ para $\beta$.
 
+:::
+
 Tendo estudado transformações lineares e as propriedades fundamentais de matrizes, veremos agora como estas estão intrinsecamente relacionadas, de maneira que toda matriz está associada a uma transformação linear (e vice-versa).
 
-### Princípios
+# Princípios
 
 Vimos que todo espaço vetorial possui bases que o geram, logo, quando discutimos uma transformação linear podemos pensar em relação a ela considerando bases específicas dos espaços envolvidos. Essa ideia é o cerne da relação entre transformações lineares e matrizes.
 
-:::{prf:definition} Matriz de uma transformação linear
+:::{note} Definição 5.1 (Matriz de uma transformação linear)
 :label: def-matrizdeumatransformacaolinear
 
 Considere ${} T \in \mathcal{L}(V,W) {}$ uma transformação linear, onde o espaço vetorial $V$ possui dimensão $n$ e o espaço vetorial $W$ possui dimensão $m$. Dadas bases ordenadas $\alpha= (v_{1},v_{2},\dots,v_{n})$ e $\beta= (w_{1},w_{2},\dots,w_{m})$ de $V$ e $W$, respectivamente, definimos a matriz $[T]^{\alpha}_{\beta}$, de dimensão $m \times n$, como a *matriz associada à $T$ em relação às bases $\alpha$ e $\beta$*. De forma que:
@@ -35,7 +39,7 @@ onde $a_{ij}$ é a $i$-ésima coordenada de $Tv_{j}$ na base $\beta$.
 
 Assim, fixadas as bases dos espaços vetoriais envolvidos, toda transformação linear entre esses espaços está relacionada univocamente a uma matriz, o que decorre da unicidade das coordenadas em uma base ordenada (mas note que uma mesma transformação pode ter matrizes diferentes, mas de mesma dimensão, em relação a bases diferentes). Logo, conseguimos "encapsular" uma transformação linear em uma matriz, de modo que somente com suas entradas e conhecendo os espaços vetoriais e bases em contexto podemos determinar de qual transformação se trata. Isso é extremamente interessante e poderoso, principalmente do ponto de vista computacional (veremos adiante como isso nos permite determinar a imagem de um vetor utilizando a matriz associada à transformação), conseguimos resumir qualquer transformação linear em um conjunto de números.
 
-:::{prf:example}
+:::{hint} Exemplo 5.2
 
 Qual a matriz associada à transformação linear ${} T \in \mathcal{L}(\mathbb{R}^{2},\mathbb{R}^{3}) {}$, nas bases canônicas, dada por $T(x,y)=(x+y,2x-y,y)$?
 
@@ -64,14 +68,14 @@ Mas e o oposto? Dada uma matriz qualquer, como interpretá-la como uma transform
 
 Portanto, temos a seguinte definição:
 
-:::{prf:definition} Transformação linear associada a uma matriz
+:::{note} Definição 5.3 (Transformação linear associada a uma matriz)
 :label: def-transformacaoassociadaamatriz
 
 Seja $A\in \mathbb{R}^{m\times n}$, a ***transformação linear associada*** a $A$ é $T \in \mathcal{L}(\mathbb{R}^{n},\mathbb{R}^{m})$, tal que cada entrada $a_{ij}$ de $A$ é a $i$-ésima coordenada de ${} Te_{j} {}$ na base canônica de $\mathbb{R}^{m}$, onde $(e_{1},e_{2},\dots,e_{n})$ é a base canônica de $\mathbb{R}^{n}$.
 
 :::
 
-:::{prf:example}
+:::{hint} Exemplo 5.4
 
 Qual transformação linear $T$ está associada à matriz $A=\begin{bmatrix}1 & 2 & 3 \\ 4 & 5 & 6\end{bmatrix}$?
 
@@ -96,11 +100,11 @@ Determinando assim $T$.
 
 :::
 
-### Releitura das propriedades matriciais
+# Releitura das propriedades matriciais
 
 Agora, com a ótica de transformações lineares, podemos interpretar as propriedades de matrizes.
 
-:::{prf:property}
+:::{note} Propriedade 5.5
 
 A soma matricial é equivalente a soma de transformações lineares, isto é, sejam ${} T\in \mathcal{L}(V,W) {}$ e ${} S\in \mathcal{L}(V,W) {}$:
 
@@ -112,7 +116,7 @@ $\alpha$ e $\beta$ são bases de $V$ e $W$, respectivamente. Note que devemos te
 
 :::
 
-:::{prf:property}
+:::{note} Propriedade 5.6
 
 A multiplicação de uma matriz por um escalar é equivalente a multiplicação de uma transformação linear por este escalar. Para $k \in \mathbb{R}$,
 
@@ -122,7 +126,7 @@ $$
 
 :::
 
-:::{prf:property}
+:::{note} Propriedade 5.7
 
 O produto matricial é equivalente à composição de transformações lineares. Sejam ${} T\in \mathcal{L}(V,W) {}$ e ${} S\in \mathcal{L}(W,U) {}$,
 
@@ -140,7 +144,7 @@ Perceba como essa interpretação também oferece uma nova maneira de determinar
 
 Além disso, como é esperado, $\mathbf{I}=[I]_{\alpha}$. Introduziremos agora uma importante ferramenta relacionada com a matriz do operador identidade:
 
-:::{prf:property}
+:::{note} Propriedade 5.8
 
 Seja $V$ um espaço vetorial, com $\alpha$ e $\beta$ bases de $V$, a ***matriz mudança de base*** de $\alpha$ para $\beta$ é $[I]^{\alpha}_{\beta}$ ($I$ o operador identidade em $V$).
 
@@ -152,6 +156,6 @@ x_{1} \\
 x_{n}
 \end{bmatrix}$.
 
-E claro que podemos também fazer o produto matricial entre uma matriz compatível $A$ e ${} [I]^{\alpha}_{\beta} {}$, de maneira que se $A=[T]^{\beta}_{\gamma}$, a matriz resultante é $[T]^{\alpha}_{\gamma}$. Logo, podemos reescrever a matriz de qualquer transformação em bases diferentes, esse fato cumpre um papel importante no [Teorema Espectral para matrizes](#espectral-para-matrizes-simetricas).
+E claro que podemos também fazer o produto matricial entre uma matriz compatível $A$ e ${} [I]^{\alpha}_{\beta} {}$, de maneira que se $A=[T]^{\beta}_{\gamma}$, a matriz resultante é $[T]^{\alpha}_{\gamma}$. Logo, podemos reescrever a matriz de qualquer transformação em bases diferentes, esse fato cumpre um papel importante mais adiante, no [Teorema Espectral para matrizes](#espectral-para-matrizes-simetricas).
 
 Por fim, a transposta de uma matriz também possui um contexto de transformação linear, que é discutido no tópico [](../topicos/adjunta.md).

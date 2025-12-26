@@ -1,5 +1,5 @@
 ---
-title: Autovetores e Autovalores
+title: 6. Autovetores e Autovalores
 subject: Fundamentos
 ---
 
@@ -7,9 +7,9 @@ Os conceitos de autovalores e autovetores são um dos mais centrais na Álgebra 
 
 Lembre-se que $\mathcal{L}(V)$ denota o conjunto dos operadores lineares em um espaço vetorial $V$ de dimensão finita.
 
-### Noções iniciais - Subespaços invariantes
+# Noções iniciais - Subespaços invariantes
 
-:::{prf:definition} Subespaço invariante
+:::{note} Definição 6.1 (Subespaço invariante)
 
 Seja $T \in \mathcal{L}(V)$ e $U$ um subespaço de $V$. Dizemos que $U$ é ***invariante*** sobre $T$ quando para todo $u \in U$ temos $Tu \in U$.
 
@@ -19,7 +19,7 @@ Um subespaço invariante é um subespaço "fechado" sobre um operador $T$, todos
 
 É comum denotarmos $T|_{U}$ para o operador $T$ restrito ao subespaço $U$ como domínio, ou seja, $T|_{U} \in \mathcal{L}(U,V)$ com $U \subseteq V$ e a transformação dada por $T$. Nesse sentido, $U$ é um subespaço invariante sobre $T$ quando $T|_{U}$ é um operador em $U$ ($T|_{U} \in \mathcal{L}(U)$).
 
-:::{prf:example} Exemplos de subespaços invariantes
+:::{hint} Exemplo 6.2 (Exemplos de subespaços invariantes)
 
 Exemplos triviais de subespaços invariantes são $\{ 0 \}$ e o próprio $V$. Além desses, $N(T)$ e $\mathrm{Im}(T)$ também são invariantes: Se $u \in N(T)$ temos $Tu=0 \in N(T)$; se $u \in \mathrm{Im}(T)$, temos $Tu \in \mathrm{Im}(T)$ (pela própria definição da imagem de $T$).
 
@@ -27,11 +27,11 @@ Em um caso menos óbvio, mas ainda fácil de enxergar, se $T \in \mathcal{L}(\ma
 
 :::
 
-### Autovetores e autovalores
+# Autovetores e autovalores
 
 O estudo dos autovetores e autovalores se inicia com o enfoque em subespaços invariantes de dimensão 1.
 
-:::{prf:remark} Formato de subespaços de dimensão 1
+:::{warning} Observação 6.3 (Formato de subespaços de dimensão 1)
 
 Pelas definições de dimensão e base, um subespaço de dimensão 1 consiste no conjunto dos múltiplos escalares de um vetor não nulo. Seja $v \in V$ um vetor não nulo, o conjunto $U=\{ \alpha u: \alpha \in \mathbb{R} \}$ é um subespaço de dimensão 1, e todo subespaço de $V$de dimensão 1 será dessa forma para algum $v \in V$ não nulo.
 
@@ -47,7 +47,7 @@ Reciprocamente, se $u \in V$ é não nulo e tal que $Tu = \lambda u$, para algum
 
 Essa noção nos leva à seguinte definição:
 
-:::{prf:definition} Autovetor e autovalor
+:::{note} Definição 6.4 (Autovetor e autovalor)
 
 Sejam $T \in \mathcal{L}(V)$ e $\lambda \in \mathbb{R}$. Se existe $v \in V$ não nulo[^1] tal que
 
@@ -69,7 +69,7 @@ Um exemplo trivial de autovetores e autovalores provém do operador identidade, 
 
 Antes de partirmos para um exemplo prático, considere a seguinte observação:
 
-:::{prf:observation}
+:::{warning} Observação 6.5
 :label: equivalencia-autovetores
 
 Sejam $T\in \mathcal{L}(V)$, ${} v \in V {}$ e $\lambda \in \mathbb{R}$, temos a seguinte equivalência:
@@ -88,7 +88,7 @@ A última igualdade nos diz que $v$ está no núcleo do operador $(T-\lambda I)$
 
 É através dessa observação e do [](#teo-invertibilidade-matriz) que encontramos/calculamos os autovetores e autovalores de um operador linear (lembre-se que [toda transformação linear está associada a uma matriz](./transformacoes-e-matrizes.md)).
 
-:::{prf:example} Encontrando os autovalores e autovetores de um operador
+:::{hint} Exemplo 6.6 (Encontrando os autovalores e autovetores de um operador)
 
 Considere o operador linear do $\mathbb{R}^{2}$ dado pela seguinte matriz (na base canônica):
 
@@ -175,14 +175,15 @@ Parte da importância prática de autovetores/autovalores se deve a essa noção
 
 Por último, temos um importante teorema e corolário envolvendo autovalores e autovetores.
 
-:::{prf:theorem} Autovalores distintos possuem autovetores linearmente independentes
+:::{important} Teorema 6.7 (Autovalores distintos possuem autovetores linearmente independentes)
 :label: teo-autovalores-distintos-autovetores-li
 
 Seja $T\in \mathcal{L}(V)$. Se $\lambda_{1},\dots,\lambda_{m}$ são autovalores distintos de $T$ e $v_{1},\dots,v_{m}$ seus respectivos autovetores, então $(v_{1},\dots,v_{m})$ é linearmente independente. 
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 6.7
+:class: dropdown
 
 Suponha que $(v_{1},\dots,v_{m})$ é linearmente dependente. [](#prop-aux-teo-li) garante que existe pelo menos um índice $i$ entre $1$ e $m$ tal que $v_{i} \in \text{span}(v_{1},\dots,v_{i-1})$. Escolha $k$ como sendo o menor dos índices que satisfaz essa condição. Logo, existem $a_{1},\dots,a_{k-1} \in \mathbb{R}$ tais que 
 
@@ -208,13 +209,14 @@ Note que pela escolha de $k$ devemos ter $(v_{1},\dots,v_{k-1})$ linearmente ind
 
 :::
 
-:::{prf:corollary}
+:::{important} Corolário 6.8
 
 Seja $T \in \mathcal{L}(V)$. $T$ possui no máximo $\dim V$ autovalores distintos. 
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 6.8
+:class: dropdown
 
 Sejam $\lambda_{1},\dots,\lambda_{m}$ autovalores distintos de $T$ com $v_{1},\dots,v_{m}$ respectivos autovetores associados. Pelo [teorema anterior](#teo-autovalores-distintos-autovetores-li), $(v_{1},\dots,v_{m})$ é linearmente independente. [](#teo-dim-subespaco-menor-ou-igual-dim-espaco) garante que $\dim [\text{span}(v_{1},\dots,v_{m})] \leq \dim V$. Em particular, a dimensão do subespaço $\text{span}(v_{1},\dots,v_{m})$ é $m$, pois os autovetores são linearmente independentes. Portanto, $m \leq \dim V$.
 

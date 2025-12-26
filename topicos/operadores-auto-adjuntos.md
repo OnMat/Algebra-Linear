@@ -1,11 +1,11 @@
 ---
-title: Operadores Auto-Adjuntos
+title: 9. Operadores Auto-Adjuntos
 subject: Tópicos Avançados
 ---
 
 Vejamos a definição e alguns resultados sobre ***operadores auto-adjuntos***, um caso particular de operador linear que é igual a sua adjunta. Os operadores auto-adjuntos são o objeto central do [*Teorema Espectral*](teorema-espectral.md), um dos principais resultados da Álgebra Linear e tópico subsequente.
 
-:::{prf:definition} Operador auto-adjunto
+:::{note} Definição 9.1 (Operador auto-adjunto)
 :label: autoadjunto
 
 Seja $V$ um espaço vetorial com produto interno e dimensão finita, dizemos que $T\in \mathcal{L}(V)$ é ***auto-adjunto*** se $\forall v,w\in V$ temos
@@ -16,7 +16,7 @@ Ou seja, $\boxed{T=T^{*}}$.
 
 :::
 
-:::{prf:example} Reflexão em torno do eixo $x$
+:::{hint} Exemplo 9.2 Reflexão em torno do eixo $x$
 :label: exemplo-1-operador-auto-adjunto
 
 Geometricamente, o operador $T\in \mathcal{L}(\mathbb{R}^{2})$ definido por $T(x,y)=(x,-y)$ descreve uma reflexão em torno do eixo $x$. Verifiquemos que ele é auto-adjunto.
@@ -37,13 +37,14 @@ A auto-adjunção significa que, de uma certa forma, o operador preserva o produ
 
 :::
 
-:::{prf:proposition}
+:::{important} Proposição 9.3
 
 Sejam $A$ e $B$ operadores auto-adjuntos e $\alpha \in \mathbb{R}$, então os operadores $(A+B)$ e $\alpha A$ também são auto-adjuntos.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 9.3
+:class: dropdown
 
 Utilizando as propriedades da adjunta:
 
@@ -56,13 +57,14 @@ $$
 
 :::
 
-:::{prf:proposition}
+:::{important} Proposição 9.4
 
 Seja $T\in \mathcal{L}(V)$ auto-adjunto e um isomorfismo, então $T^{-1}$ também é auto-adjunto.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 9.4
+:class: dropdown
 
 Dada a propriedade que $(T^{-1})^{*}=(T^{*})^{-1}$, substituímos $T^{*}$ por $T$ (pois $T=T^{*}$), obtendo que
 $$
@@ -72,12 +74,13 @@ Logo, $T^{-1}$ é auto-adjunto.
 
 :::
 
-:::{prf:proposition}
+:::{important} Proposição 9.5
 :label: autovetores-associados-a-autovalores-distintos-ortogonais
 Seja $T \in \mathcal{L}(V)$ auto-adjunto, então autovetores associados a autovalores distintos são ortogonais.
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 9.5
+:class: dropdown
 
 Sejam $v,w\in V$ autovetores associados a autovalores distintos $\lambda$ e $\mu$, respectivamente. Ou seja, $Tv=\lambda v$ e $Tw=\mu w$. Dado que $T$ é auto-adjunto, temos que $$
 \langle Tv , w \rangle=\langle v , Tw \rangle.
@@ -93,18 +96,19 @@ Como $\lambda \neq \mu$, então necessariamente $\langle v , w \rangle= 0$. Ou s
 
 :::
 
-### Matrizes de operadores auto-adjuntos
+# Matrizes de operadores auto-adjuntos
 
 Como é de se esperar, operadores auto-adjuntos possuem uma equivalência matricial. Tal equivalência relaciona-se com matrizes simétricas (ver {ref}`def-matriz-simetrica`).
 
-:::{prf:theorem} Caracterização de operadores auto-adjuntos
+:::{important} Teorema 9.6 (Caracterização de operadores auto-adjuntos)
 :label: teorema1-autoadjunto
 
 Seja $T\in \mathcal{L}(V)$, então $T$ é auto-adjunto se, e somente se, $[T]_\beta$ é simétrica, onde $\beta$ é uma base ortonormal de $V$.
 
 :::
 
-:::{prf:proof} Caracterização de operadores auto-adjuntos
+:::{tip} Demonstração 9.6 
+:class: dropdown
 
 Seja $\beta$ uma base ortonormal de $V$.
 
@@ -141,7 +145,7 @@ concluindo que $T=T^{*}$.
 
 :::
 
-:::{prf:example}
+:::{hint} Exemplo 9.7
 
 Voltando ao operador do [](#exemplo-1-operador-auto-adjunto), vamos verificar sua auto-adjunção utilizando o [](#teorema1-autoadjunto).
 
@@ -162,11 +166,11 @@ Como $([T]_{c})^{T}=[T]_{c}$, o [](#teorema1-autoadjunto) nos garante que $T$ é
 
 :::
 
-### Positividade de operadores auto-adjuntos
+# Positividade de operadores auto-adjuntos
 
 Existem certos tipos de operadores auto-adjuntos que merecem uma atenção especial, pois a partir de suas propriedades obtemos alguns resultados que têm destaque no campo mais prático e aplicado da Álgebra Linear, como a resolução de sistemas lineares e métodos de aproximação numérica.
 
-:::{prf:definition} Operador definido positivo
+:::{note} Definição 9.8 (Operador definido positivo)
 :label: def-operador-positivo
 
 Seja $V$ um espaço vetorial com produto interno e dimensão finita, dado $T\in \mathcal{L}(V)$ auto-adjunto, dizemos que $T$ é ***definido positivo*** se $\forall v\in V$, com $v\neq 0$, temos
@@ -179,7 +183,7 @@ e escrevemos $T>0$.
 
 :::
 
-:::{prf:example} Operador e matriz 
+:::{hint} Exemplo 9.9 (Operador e matriz)
 
 Considere o operador identidade em $\mathbb{R}^{2}$. Para $(x,y)\in \mathbb{R}^{2}$, com $(x,y)\neq (0,0)$, temos
 
@@ -237,7 +241,7 @@ onde $x^{2}+y^{2} > 0$ caso $\begin{bmatrix}x \\ y\end{bmatrix} \neq \begin{bmat
 
 Estendendo para considerar $v = 0$, temos a definição a seguir:
 
-:::{prf:definition} Operador não negativo
+:::{note} Definição 9.10 (Operador não negativo)
 
 Seja $V$ um espaço vetorial com produto interno e dimensão finita, dado $T\in \mathcal{L}(V)$ auto-adjunto, dizemos que $T$ é ***não negativo*** ou ***semi-definido positivo*** se $\forall v\in V$, temos
 
@@ -253,7 +257,7 @@ No caso do exemplo anterior, é natural que ao incluirmos a possibilidade que $v
 
 Podemos também estender essas definições de maneira análoga para operadores ***negativos*** ($T<0$) e ***não positivos*** ($T\leq0$), mas existem operadores que não se enquadram em nenhum destes:
 
-:::{prf:example} Operador indefinido
+:::{hint} Exemplo 9.11 (Operador indefinido)
 
 Considere a base ortonormal $\beta=( (1,0),(0,1) )$ e $T(x,y)=(y,x),\forall(x,y)\in \mathbb{R}²$. Temos que:
 
@@ -277,14 +281,15 @@ Note que, a depender dos valores de $x$ e $y$, $2xy$ pode ser positivo, negativo
 
 O teorema a seguir serve como base para uma extensão do [Teorema Espectral](/topicos/teorema-espectral) para transformações lineares quaisquer.
 
-:::{prf:theorem} 
+:::{important} Teorema 9.12
 :label: pre-teorema-valores-singulares
 
 Seja ${} T\in \mathcal{L}(V,W) {}$ uma transformação linear entre espaços vetoriais de dimensão finita e munidos de produto interno, os operadores lineares ${} T^{*}T \in \mathcal{L}(V) {}$ e ${} TT^{*} \in \mathcal{L}(W) {}$ são não negativos e possuem o mesmo posto de $T$ e $T^{*}$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 9.12
+:class: dropdown
 
 Primeiramente, note que $(T^{*}T)^*=T^{*}T$ e $(TT^{*})^{*}=TT^{*}$. Logo, ambos são auto-adjuntos. Agora, considerando $v\in V$, temos
 

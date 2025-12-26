@@ -1,15 +1,15 @@
 ---
-title: Adjunta
+title: 8. Adjunta
 subject: Tópicos Avançados
 ---
 
 Quando estamos trabalhando com dois espaços vetoriais $V$ e $W$ munidos de produto interno, podemos associar a cada transformação linear de $V$ para $W$ uma transformação linear de $W$ para $V$ que possui algumas propriedades interessantes. Essa transformação é chamada de ***adjunta*** de $T$ e serve de alicerce para um dos principais resultados da Álgebra Linear, o [Teorema Espectral](teorema-espectral.md).
 
-### Conceitos iniciais - Funcionais lineares
+# Conceitos iniciais - Funcionais lineares
 
 Antes de falarmos sobre a adjunta propriamente, precisamos de um teorema central acerca de um tipo especial de transformações lineares, os funcionais lineares.
 
-:::{prf:definition} Funcional linear
+:::{note} Definição 8.1 (Funcional linear)
 
 Seja $V$ um espaço vetorial, um ***funcional linear*** em $V$ é uma transformação linear $T$ de $V$ para $\mathbb{R}$, ou seja, $T \in \mathcal{L}(V,\mathbb{R})$ . [^1]
 
@@ -17,7 +17,7 @@ Seja $V$ um espaço vetorial, um ***funcional linear*** em $V$ é uma transforma
 
 [^1]: É comum denotar o conjunto de todos os funcionais lineares de um espaço $V$ como $V^{*}$. Verifica-se que $V^{*}$ constitui um espaço vetorial, que é chamado de ***dual*** de $V$.
 
-:::{prf:example}
+:::{hint} Exemplo 8.2
 
 A função $F:\mathbb{R}^{3}\to \mathbb{R}$ definida por
 
@@ -49,7 +49,7 @@ $$
 
 define um funcional linear em $V$ (a linearidade de $F$ é evidente pela [linearidade do próprio produto interno](#def-produto-interno)). O teorema a seguir mostra que, na verdade, vale a recíproca: todo funcional linear pode ser representado dessa forma, através do produto interno.
 
-:::{prf:theorem} Teo. da representação de Riesz
+:::{important} Teorema 8.3 (Teo. da representação de Riesz)
 :label: teo-riesz
 
 Seja $V$ um espaço vetorial munido de produto interno $\langle \cdot , \cdot \rangle$ e $F$ um funcional linear em $V$. Então, existe um único $u \in V$ tal que 
@@ -62,7 +62,8 @@ para todo $v \in V$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 8.3
+:class: dropdown
 
 Começamos provando a existência de $u$. Seja $v \in V$ e $(e_{1},\dots,e_{n})$ uma base ortonormal de $V$, então
 
@@ -93,11 +94,11 @@ para todo $v \in V$. Em particular, se tomarmos $v = u-u'$ teríamos $\langle u-
 
 :::
 
-### Definição de adjunta e exemplo
+# Definição de adjunta e exemplo
 
 A definição de adjunta tem uma construção um pouco mais sofisticada, onde utilizamos o [](#teo-riesz).
 
-:::{prf:definition} Adjunta
+:::{note} Definição 8.4 (Adjunta)
 :label: def-adjunta
 
 Sejam $V$ e $W$ espaços vetoriais munidos de produto interno e $T \in \mathcal{L}(V,W)$. A ***adjunta*** de $T$, denotada por $T^{*}$, é a função de $W$ para $V$ definida da seguinte forma: Fixe $w \in W$ e considere o funcional linear sobre $V$ que mapeia $v \in V$ para $\langle Tv , w \rangle$. $T^{*}w$ será o único vetor de $V$ que representa esse funcional linear como um produto interno em $V$, garantido pelo [](#teo-riesz). Isto é, $T^{*}w \in V$ é o único tal que
@@ -123,13 +124,14 @@ Na prática, podemos pensar na adjunta como uma "inversa em relação ao produto
 
 Antes de prosseguirmos, devemos constatar um fato essencial sobre essa nova função que definimos.
 
-:::{prf:proposition} A adjunta é linear
+:::{important} Proposição 8.5 (A adjunta é linear)
 
 A adjunta de uma transformação linear também é uma transformação linear. Mais simbolicamente, se $T\in \mathcal{L}(V,W)$ então ${} T^{*} \in \mathcal{L}(W,V) {}$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 8.5
+:class: dropdown
 :label: prova-linearidade-adjunta
 
 Consideremos $w,w' \in W$ e $a \in \mathbb{R}$. Veja que para todo $v \in V$ temos
@@ -160,7 +162,7 @@ Pelo mesmo raciocínio empregado no caso da aditividade, temos $T^{*}(aw)=aT^{*}
 
 Vejamos como determinar algebricamente a adjunta de uma transformação linear.
 
-:::{prf:example}
+:::{hint} Exemplo 8.6
 :label: exemplo-adjunta
 
 Vamos determinar a adjunta da transformação linear do $\mathbb{R}^{2}$
@@ -208,11 +210,11 @@ Portanto, essa abordagem de fixar vetores do domínio da transformação conside
 
 :::
 
-### Propriedades da adjunta
+# Propriedades da adjunta
 
 Utilizando a [](#def-adjunta) e a linearidade do produto interno, de maneira similar ao que é feito em [](#prova-linearidade-adjunta), é possível verificar as seguintes propriedades da adjunta:
 
-:::{prf:property} Propriedades principais da adjunta
+:::{note} Propriedade 8.7 (Propriedades principais da adjunta)
 
 (**aditividade**) $(S+T)^{*}=S^{*}+T^{*}$, $\forall S,T \in \mathcal{L}(V,W)$;
 
@@ -228,7 +230,7 @@ Utilizando a [](#def-adjunta) e a linearidade do produto interno, de maneira sim
 
 Além dessas propriedades fundamentais, temos relações importantes entre os núcleos e imagens de uma transformação e sua adjunta.
 
-:::{prf:proposition}
+:::{important} Proposição 8.8
 
 Seja $T \in \mathcal{L}(V,W)$, valem as seguintes igualdades:
 
@@ -239,7 +241,8 @@ Seja $T \in \mathcal{L}(V,W)$, valem as seguintes igualdades:
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 8.8
+:class: dropdown
 
 Provaremos **1.** inicialmente. Seja $w \in W$, então
 
@@ -256,11 +259,11 @@ A partir de **1.** podemos obter as outras: ao tomarmos o complemento ortogonal 
 
 :::
 
-### A adjunta matricialmente (matriz transposta)
+# A adjunta matricialmente (matriz transposta)
 
 Naturalmente, pela equivalência existente entre transformações lineares e matrizes, a adjunta também possui uma interpretação matricial. O principal resultado nos diz que, **quando lidando com bases ortonormais**, a matriz de $T^{*}$ corresponde exatamente a [transposta](#def-matriz-transposta) da matriz de $T$.
 
-:::{prf:proposition}
+:::{important} Proposição 8.9
 :label: prop-matriz-adjunta
 
 Seja $T \in \mathcal{L}(V,W)$. Fixadas duas bases **ortonormais** $\alpha = (e_{1},\dots,e_{n})$ e $\beta =(f_{1},\dots,f_{m})$ de $V$ e $W$, respectivamente, então 
@@ -273,7 +276,8 @@ Isto é, a matriz de $T^{*}$ com respeito às bases $\beta$ e $\alpha$ é igual 
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 8.9
+:class: dropdown
 
 Veja que a $k$-ésima coluna de $[T]^{\alpha}_{\beta}$ corresponde aos escalares de $Te_{k}$ escrito como combinação linear da base $\beta$ (caso necessário, relembre o tópico de [transformações lineares e matrizes](../fundamentos/transformacoes-e-matrizes.md)). Pelo fato de $\beta$ ser ortonormal, então tal combinação linear é dada por
 
@@ -291,13 +295,13 @@ que corresponde exatamente a entrada da linha $k$ e coluna $j$ de $[T]^{\alpha}_
 
 :::
 
-:::{prf:observation}
+:::{warning} Observação 8.10
 
 Quando pelo menos uma das bases consideradas não é ortonormal, não temos garantia alguma dessa relação entre as matrizes de $T$ e $T^{*}$.
 
 :::
 
-:::{prf:example}
+:::{hint} Exemplo 8.11
 
 Vamos resolver o exemplo [](#exemplo-adjunta) agora utilizando [](#prop-matriz-adjunta). Relembramos que a transformação considerada é $T \in \mathcal{L}(\mathbb{R}^{2},\mathbb{R}^{3})$ dada por
 

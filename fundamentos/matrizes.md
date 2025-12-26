@@ -1,5 +1,5 @@
 ---
-title: Matrizes
+title: 4. Matrizes
 subject: Fundamentos
 ---
 
@@ -7,7 +7,7 @@ subject: Fundamentos
 
 As matrizes possuem toda uma fundamentação teórica e são objetos de estudo da Álgebra Linear tanto quanto transformações lineares e espaços vetoriais (e estão intimamente conectadas com estes conceitos). No entanto, visando uma abordagem mais simplificada, definiremos as matrizes e suas principais propriedades de maneira paralela e depois mostraremos a conexão delas com transformações lineares (no tópico subsequente a este). Um abordagem mais teórica, que pode ser encontrada em muitos livros, consiste em construir o conceito de matriz já diretamente a partir de transformações lineares, com a vantagem principal de que as operações de soma e produto serão consequências dessa construção, parecendo menos arbitrárias em relação à abordagem adotada aqui.
 
-:::{prf:definition} Matriz
+:::{note} Definição 4.1 (Matriz)
 
 Uma ***matriz*** de dimensão $m\times n$ (lê-se $m$ por $n$), com $m$ e $n$ inteiros positivos, é o conjunto de *entradas* $a_{ij}\in \mathbb{R}$, onde $i=1,\dots,m$ e $j=1,\dots,n$. 
 
@@ -28,7 +28,7 @@ O conjunto das matrizes com entradas reais e dimensão $m\times n$ é representa
 
 Naturalmente, dizemos que duas matrizes são iguais quando possuem mesma dimensão e entradas iguais. Formalmente:
 
-:::{prf:definition} Igualdade de matrizes
+:::{note} Definição 4.2 (Igualdade de matrizes)
 
 Sejam $A,B\in \mathbb{R}^{m\times n}$, com respectivas entradas $a_{ij}$ e $b_{ij}$ ($i=1,\dots,m$ e $j=1,\dots,n$), temos que $A=B$ quando $a_{ij}=b_{ij}$ para todo $i=1,\dots,m$ e $j=1,\dots,n$.
 
@@ -36,9 +36,9 @@ Sejam $A,B\in \mathbb{R}^{m\times n}$, com respectivas entradas $a_{ij}$ e $b_{i
 
 O conjunto $\mathbb{R}^{m\times n}$ constitui, também, um espaço vetorial. Mas, para isso, devemos definir as operações de soma e multiplicação por escalar para matrizes.
 
-### Operações matriciais
+# Operações matriciais
 
-:::{prf:definition} Soma de matrizes
+:::{note} Definição 4.3 (Soma de matrizes)
 
 Sejam $A$ e $B$ matrizes em $\mathbb{R}^{m\times n}$, com respectivas entradas $a_{ij}$ e $b_{ij}$ ($i=1,\dots,m$ e $j=1,\dots,n$), a *soma matricial* de $A$ e $B$ é dada pela matriz $C$ ($C=A+B$), onde $C\in \mathbb{R}^{m\times n}$ e sua entrada da $i$-ésima linha e $j$-ésima coluna é dada por $c_{ij}=a_{ij}+b_{ij}$ .
 
@@ -64,7 +64,7 @@ $$
 
 Observe que a adição só está definida para matrizes que possuem mesma dimensão.
 
-:::{prf:definition} Multiplicação de matriz por escalar
+:::{note} Definição 4.4 (Multiplicação de matriz por escalar)
 
 Seja $k\in \mathbb{R}$ e $A\in \mathbb{R}^{m\times n}$, com entradas $a_{ij}$, o produto de $A$ pelo escalar $k$ é dado pela matriz $kA\in \mathbb{R}^{m\times n}$, que possui a entrada da $i$-ésima linha e $j$-ésima coluna dada por $k\cdot a_{ij}$.
 
@@ -89,7 +89,7 @@ Com estas duas operações, verifica-se facilmente que $\mathbb{R}^{m\times n}$ 
 
 Por fim, temos o *produto matricial*. Essa operação cumpre um papel importante no [tópico seguinte](transformacoes-e-matrizes.md).
 
-:::{prf:definition} Produto de matrizes
+:::{note} Definição 4.5 (Produto de matrizes)
 
 Seja $A\in \mathbb{R}^{m\times n}$ e $B\in \mathbb{R}^{n\times p}$, com respectivas entradas $a_{ij}$ e $b_{ij}$, o produto $AB$ é dado pela matriz $C\in \mathbb{R}^{m\times p}$, de forma que sua entrada da linha $i$ e coluna $j$ é dada por
 
@@ -126,9 +126,9 @@ Além disso, verificam-se algumas propriedades importantes (considere que todos 
 4. Vale a multiplicação por escalar: $k(AB)=(kA)B=A(kB)$.
 
 
-### Outros conceitos importantes
+# Outros conceitos importantes
 
-:::{prf:definition} Matriz transposta
+:::{note} Definição 4.6 (Matriz transposta)
 :label: def-matriz-transposta
 
 A ***transposta*** de uma matriz $A$, denotada por $A^{T}$ é a matriz obtida ao trocarem-se as suas linhas pelas colunas (ou vice-versa). Isto é, para cada entrada $a_{ij}$ de $A$, $a_{ij}=a_{ji}$ em $A^{T}$.
@@ -139,9 +139,9 @@ Seja $A=\begin{bmatrix}1 & 2 & 3 \\ 4 & 5 & 6\end{bmatrix}$, então $A^{T}=\begi
 
 Note que se $A$ tem dimensão $m\times n$, então $A^{T}$ tem dimensão $n\times m$.
 
-#### Matrizes quadradas
+## Matrizes quadradas
 
-:::{prf:definition} Matriz quadrada
+:::{note} Definição 4.7 (Matriz quadrada)
 
 Matrizes que possuem o mesmo número de linhas e colunas são denominadas ***quadradas***.
 
@@ -153,7 +153,7 @@ A notação utilizada para representar o conjunto das matrizes quadradas com ent
 
 Uma característica presente em matrizes quadradas, utilizada em outras definições, é o conceito de *diagonal principal*.
 
-:::{prf:definition} Diagonal principal de uma matriz quadrada
+:::{note} Definição 4.8 (Diagonal principal de uma matriz quadrada)
 
 A ***diagonal principal*** de uma matriz quadrada é constituída dos elementos $a_{jj}$. Isto é, cujos índices de linha e coluna são iguais.
 
@@ -163,7 +163,7 @@ Visualmente, a diagonal principal constitui as entradas que estão no sentido da
 
 Por exemplo, a diagonal principal da matriz $\begin{bmatrix}1 & 2 \\ 3 & 4\end{bmatrix}$ é formada pelas entradas $1$ e $4$.
 
-:::{prf:definition} Matriz simétrica
+:::{note} Definição 4.9 (Matriz simétrica)
 :label: def-matriz-simetrica
 
 Uma matriz quadrada é dita ***simétrica*** quando é igual a sua transposta. Isto é, seja $A \in \mathbb{R}^{n \times n}$, $A$ é simétrica se, e somente se, $A^{T}=A$.
@@ -174,7 +174,7 @@ A matriz $\begin{bmatrix}1 & 2 \\ 2 & 3\end{bmatrix}$ é simétrica.
 
 Note que, visualmente, matrizes simétricas são aquelas cujas entradas acima e abaixo da diagonal principal são "refletidas" em torno dela.
 
-:::{prf:definition} Matriz diagonal
+:::{note} Definição 4.10 (Matriz diagonal)
 :label: def-matriz-diagonal
 
 Uma matriz quadrada é ***diagonal*** quando, exceto por entradas em sua diagonal principal, todas as entradas são nulas.
@@ -187,7 +187,7 @@ Note que a definição permite que a diagonal principal possua entradas nulas, a
 
 Além disso, podemos generalizar o conceito de matriz diagonal para matrizes retangulares, conforme a próxima definição:
 
-:::{prf:definition} Matriz retangular diagonal
+:::{note} Definição 4.11 (Matriz retangular diagonal)
 
 Seja $A\in \mathbb{R}^{m\times n}$, com $m \neq n$, dizemos que $A$ é ***retangular diagonal*** quando todas as suas entradas $a_{ij}$, com $i \neq j$, forem nulas.
 
@@ -205,11 +205,11 @@ $$
 
 
 
-#### Matrizes especiais
+## Matrizes especiais
 
 Algumas matrizes aparecerão de maneira recorrente e possuem propriedades particulares.
 
-:::{prf:definition} Matriz identidade
+:::{note} Definição 4.12 (Matriz identidade)
 
 A matriz $I\in \mathbb{R}^{n \times n}$ é chamada de ***matriz identidade***, tal que $I$ é uma matriz diagonal cujas entradas da diagonal principal são todas iguais a $1$.
 
@@ -226,7 +226,7 @@ $$
 
 Seja $A\in \mathbb{R}^{m\times n}$, a matriz identidade possui a propriedade que $AI_{n}=I_{m}A=A$ (o subíndice representa a dimensão da matriz identidade), atuando como *elemento neutro do produto matricial*.
 
-:::{prf:definition} Matriz nula
+:::{note} Definição 4.13 (Matriz nula)
 
 A matriz $\mathbf{0}\in \mathbb{R}^{m\times n}$ é chamada de ***matriz nula***, tal que todas as suas entradas são nulas.
 
@@ -243,7 +243,7 @@ $$
 
 Naturalmente, seja $A\in \mathbb{R}^{m\times n}$, temos que $A+\mathbf{0}_{m\times n}=A$. Logo, a matriz nula atua como *elemento neutro da adição matricial*. Também verifica-se que $\mathbf{0}_{p\times m}\cdot A$ e $A\cdot \mathbf{0}_{n\times p}$ resultarão na matriz nula de dimensão correspondente.
 
-:::{prf:definition} Matriz inversa
+:::{note} Definição 4.14 (Matriz inversa)
 
 Seja $A\in \mathbb{R}^{n \times n}$, a ***matriz inversa*** de $A$, denotada por $A^{-1}\in \mathbb{R}^{n \times n}$, é a matriz **única** que satisfaz $AA^{-1}=A^{-1}A=I$.
 
@@ -280,7 +280,7 @@ $$
 
 (note que $I^{-1}=I$ para qualquer dimensão)
 
-:::{prf:definition} Matriz ortogonal
+:::{note} Definição 4.15 (Matriz ortogonal)
 
 Seja $A\in \mathbb{R}^{n \times n}$, $A$ é ***ortogonal*** quando $AA^{T}=A^{T}A=I$. Isto é, $A^{T}=A^{-1}$.
 
@@ -288,11 +288,11 @@ Seja $A\in \mathbb{R}^{n \times n}$, $A$ é ***ortogonal*** quando $AA^{T}=A^{T}
 
 Mais uma vez, a  matriz identidade também recai nessa categoria. Havíamos constatado na definição anterior que a identidade é igual a sua inversa, e por ser diagonal é também simétrica. Logo, ${} I=I^{T}=I^{-1} {}$.
 
-### Determinante
+# Determinante
 
 O determinante é uma das principais ferramentas quando lidamos com matrizes quadradas, fornecendo informações acerca da matriz, como invertibilidade, além de ser utilizado em aspectos computacionais. Para os propósitos dessa seção, iremos apenas enunciar como calculá-lo para matrizes de dimensões $2\times2$ e $3\times 3$, além de algumas propriedades importantes.
 
-:::{prf:remark} Cálculo do determinante
+:::{warning} Observação 4.16 (Cálculo do determinante)
 
 O ***determinante*** é uma função $\det(A):\mathbb{R}^{n \times n}\to \mathbb{R}$ (isto é: dada uma matriz quadrada de entradas reais, retorna um valor real).
 
@@ -331,7 +331,7 @@ $$
 
 note, comparando com a fórmula, que o determinante é então dado somando os produtos das entradas nas diagonais da esquerda para direita e subtraindo os produtos das entradas nas diagonais da direta para esquerda.
 
-:::{prf:example} 
+:::{hint} Exemplo 4.17 
 
 Seja a matriz:
 
@@ -357,7 +357,7 @@ obtendo $\det(B)=(1\cdot5 \cdot 9)+(2 \cdot 6 \cdot 7) + (3 \cdot 4 \cdot 8) - (
 
 :::
 
-:::{prf:theorem} Invertibilidade de uma matriz
+:::{important} Teorema 4.18 (Invertibilidade de uma matriz)
 :label: teo-invertibilidade-matriz
 
 Seja $A$ uma matriz quadrada, então $A$ é invertível (existe a matriz $A^{-1}$) se, e somente se, $\det(A)\neq 0$.
@@ -368,7 +368,7 @@ Essa relação entre a invertibilidade de uma matriz e seu determinante ser não
 
 Por fim, algumas outras propriedades:
 
-:::{prf:property}
+:::{note} Propriedade 4.19
 
 Seja $k\in \mathbb{R}$ e $A$ uma matriz quadrada,
 
@@ -378,7 +378,7 @@ $$
 
 :::
 
-:::{prf:property}
+:::{note} Propriedade 4.20
 
 Sejam $A$ e $B$ duas matrizes quadradas de mesma ordem,
 
@@ -388,7 +388,7 @@ $$
 
 :::
 
-:::{prf:property}
+:::{note} Propriedade 4.21
 
 Seja $A$ uma matriz quadrada, 
 
@@ -398,7 +398,7 @@ $$
 
 :::
 
-:::{prf:property}
+:::{note} Propriedade 4.22
 
 Seja $A$ uma matriz quadrada invertível,
 
@@ -408,11 +408,11 @@ $$
 
 :::
 
-### Posto
+# Posto
 
 Além do determinante, outra característica importante de uma matriz, utilizada em tópicos subsequentes, é o seu posto. Diferentemente do determinante, toda matriz possui um posto bem definido, seja ela quadrada ou não.
 
-:::{prf:definition} Posto de uma matriz
+:::{note} Definição 4.23 (Posto de uma matriz)
 :label: def-posto
 
 Seja a matriz $A\in \mathbb{R}^{m\times n}$. O ***posto*** de $A$, denotado por $\text{posto}(A)$, é a quantidade máxima de colunas ou linhas linearmente independentes de $A$, considerando as linhas ou colunas como vetores. 
@@ -423,7 +423,7 @@ Definimos como a quantidade de colunas **ou** linhas linearmente independentes p
 
 Ao considerarmos as colunas ou linhas como vetores, o posto é igual a dimensão do espaço gerado por tais vetores. Comumente nos referimos a tais espaços como ***Espaço Coluna*** e ***Espaço Linha***, respectivamente.
 
-:::{prf:example}
+:::{hint} Exemplo 4.24
 
 Determine o posto da matriz:
 
@@ -442,7 +442,7 @@ Nesse caso, quando o posto é o maior possível, dizemos que a matriz $A$ possui
 
 Perceba que a própria definição do posto nos diz que o posto máximo de uma matriz $m \times n$ será sempre igual a ${} \min \{ m,n \} {}$, uma vez que, como mencionado, a quantidade de colunas LI é sempre igual a quantidade de linhas LI (logo, não é possível ter mais linhas/colunas LI do que a própria quantidade de linhas/colunas).
 
-:::{prf:example}
+:::{hint} Exemplo 4.25
 
 Determine o posto da matriz:
 
@@ -459,13 +459,13 @@ Pelo que foi discutido anteriormente, o posto máximo de $A\in \mathbb{R}^{2\tim
 
 Ao determinar o posto de uma matriz, em geral, é mais vantajoso analisar entre as linhas e colunas o que possuir menor dimensão. No caso do último exemplo, $A$ possui dimensão $2\times 3$, analisando suas duas linhas vemos claramente que $(1,2,3)=(1,2,3)$, logo $\text{posto}(A)=1$ (ao invés de analisarmos 3 vetores).
 
-### Notações úteis
+# Notações úteis
 
 Ao longo do estudo da Álgebra Linear, é comum tratarmos as linhas ou colunas de matrizes como vetores (vide a [def. de posto](#def-posto)). Essa representação é muito útil não só para simplificação de manipulações algébricas, como também auxilia na computação de produtos matriciais. 
 
 Apresentaremos a notação utilizada nesse tipo de representação, assim como uma interpretação alternativa para o produto matricial.
 
-:::{prf:observation}
+:::{warning} Observação 4.26
 
 
 Seja $A\in \mathbb{R}^{m\times n}$, podemos representar $A$ como:
@@ -478,7 +478,7 @@ onde cada $v_{k}\in \mathbb{R}^{m}$ e $v_{k}=(a_{1k},a_{2k},\dots,a_{mk})$, com 
 
 :::
 
-:::{prf:example}
+:::{hint} Exemplo 4.27
 
 Podemos representar a matriz
 
@@ -497,7 +497,7 @@ Naturalmente, a equivalência entre matrizes $n\times 1$ e vetores do $\mathbb{R
 
 Com essa noção em mente, temos a seguinte visualização do produto matricial:
 
-:::{prf:observation} Produto entre matriz e vetor
+:::{warning} Observação 4.28 (Produto entre matriz e vetor)
 
 Sejam $A=[v_{1}\;v_{2}\;\dots\;v_{n}]\in \mathbb{R}^{m\times n}$ e $x=(x_{1},x_{2},\dots,x_{n})\in \mathbb{R}^{n}$. O vetor $b\in \mathbb{R}^{m}$ dado pelo produto $Ax$ é resultante de uma combinação linear entre os vetores $v_{1},v_{2},\dots,v_{n}$, dada por $b=x_{1}v_{1}+x_{2}v_{2}+\dots+x_{n}v_{n}$.
 
@@ -505,7 +505,7 @@ Sejam $A=[v_{1}\;v_{2}\;\dots\;v_{n}]\in \mathbb{R}^{m\times n}$ e $x=(x_{1},x_{
 
 Podemos visualizar melhor com um exemplo prático:
 
-:::{prf:example}
+:::{hint} Exemplo 4.29
 
 Sejam
 
@@ -557,7 +557,7 @@ A grande vantagem de "quebrar" o produto dessa forma é, ao invés de pensar no 
 
 A partir disso, temos o produto entre duas matrizes quaisquer:
 
-:::{prf:observation}
+:::{warning} Observação 4.30
 
 Sejam $A\in \mathbb{R}^{m\times n}$ e $B\in \mathbb{R}^{n\times p}$, com $A=[v_{1}\;v_{2}\;\dots\;v_{n}]$ e $B=[u_{1}\;u_{2}\;\dots\;u_{p}]$, onde cada $u_{k}=(u_{1k},u_{2k},\dots,u_{nk})$. A $j$-ésima coluna de $AB$ (lembre-se que $AB$ tem $p$ colunas) é dada pela seguinte combinação linear das colunas de $A$:
 
@@ -575,7 +575,7 @@ $$
 
 Então, podemos pensar no produto $AB$ como a concatenação dos vetores resultantes do produto de $A$ por cada coluna de $B$. 
 
-:::{prf:example}
+:::{hint} Exemplo 4.31
 
 $$
 \begin{bmatrix}
