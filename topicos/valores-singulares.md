@@ -1,9 +1,9 @@
 ---
-title: Decomposição em Valores Singulares (SVD)
+title: 11. Decomposição em Valores Singulares (SVD)
 subject: Tópicos Avançados
 ---
 
-### A decomposição SVD
+# A decomposição SVD
 
 Vimos no [Teorema Espectral](teorema-espectral.md) que é possível decompor qualquer matriz simétrica como o produto entre 3 matrizes, sendo uma delas diagonal (contendo os autovalores) e as outras duas ortogonais (de transição entre a base canônica e a base ortonormal de autovetores). Esse tópico apresenta uma espécie de "generalização" do Teorema Espectral para uma matriz qualquer de dimensão $m \times n$.
 
@@ -21,14 +21,15 @@ Em particular, nos seria interessante que tais matrizes tenham propriedades simi
 
 O próximo teorema é a base para essa ideia. Ele nos indica quais serão os valores da diagonal de $\Sigma$, chamados de ***valores singulares***, e quais os vetores que irão compor as matrizes $U$ e $V^{T}$. Para demonstrá-lo precisamos do seguinte lema:
 
-:::{prf:lemma}
+:::{important} Lema 11.1
 :label: lema-valores-singulares
 
 Seja $A$ uma matriz $m\times n$ e $v$ um vetor coluna de dimensão $n$, tal que $A^{T}Av=\lambda v$ ($v$ é autovetor de $A^{T}A$), então $AA^{T}(Av)=\lambda Av$ ($Av$ é um autovetor de $AA^{T}$ associado a $\lambda$).
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 11.1
+:class: dropdown
 
 $$
 AA^{T}(Av)=A(A^{T}Av)=A(\lambda v)=\lambda Av
@@ -36,7 +37,7 @@ $$
 
 :::
 
-:::{prf:theorem} Valores Singulares
+:::{important} Teorema 11.2 (Valores Singulares)
 :label: teo-valores-singulares1
 
 Seja $A\in \mathbb{R}^{m\times n}$, com posto igual a $r$. Existem números reais $\sigma_{1}\geq \dots\geq \sigma_{r}>0$, chamados de ***valores singulares*** de $A$, e bases ortonormais $( v_{1},\dots,v_{n} )$ de $\mathbb{R}^{n}$ e $( u_{1},\dots,u_{m} )$ de $\mathbb{R}^{m}$, tais que:
@@ -50,7 +51,8 @@ Onde $v_{1},\dots,v_{n}$ são autovetores de $A^{T}A$, $u_{1},\dots,u_{m}$ são 
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 11.2
+:class: dropdown
 
 Pelo [](#pre-teorema-valores-singulares) sabemos que existe uma base ortonormal $( v_{1},\dots,v_{n} )$ do $\mathbb{R}^{n}$ constituída de autovetores de $A^{T}A$, com $\lambda_{1},\dots,\lambda_{n}$ autovalores associados respectivamente. Além disso, $A^{T}A\geq0$ e portanto todos os seus autovalores são não negativos.
 
@@ -108,7 +110,7 @@ Tais $v_{1},\dots,v_{n}$ constituirão as colunas da matriz $V$ e são chamados 
 
 A partir disso, temos então a chamada ***Decomposição em Valores Singulares*** (também conhecida como SVD, do inglês *Singular Value Decomposition*) de uma matriz:
 
-:::{prf:theorem} Decomposição em valores singulares
+:::{important} Teorema 11.3 (Decomposição em valores singulares)
 
 Seja $A\in \mathbb{R}^{m\times n}$, existem matrizes ortogonais $V\in \mathbb{R}^{n \times n}$ e $U\in \mathbb{R}^{m \times m}$ e uma matriz retangular diagonal $\Sigma \in \mathbb{R}^{m\times n}$ tais que
 
@@ -120,7 +122,8 @@ Em particular, sejam $\sigma_{1},\dots,\sigma_{r}$, $( v_{1},\dots,v_{n} )$ e $(
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 11.3
+:class: dropdown
 
 Novamente, considere $( v_{1},\dots,v_{n} )$, $( u_{1},\dots,u_{m} )$ e $\sigma_{1},\dots,\sigma_{r}$ do [](#teo-valores-singulares1). Claramente as matrizes $V=[v_{1} \dots v_{n}]$ e $U=[u_{1} \dots u_{m}]$ são ortogonais, pois são formadas por vetores ortonormais.
 
@@ -164,7 +167,7 @@ $$
 
 Vejamos agora um exemplo, para entender como a decomposição em valores singulares é feita na prática.
 
-:::{prf:example}
+:::{hint} Exemplo 11.4
 
 Vamos determinar a decomposição em valores singulares da seguinte matriz:
 
@@ -319,7 +322,7 @@ $$
 
 :::
 
-### Aproximação de matrizes utilizando SVD
+# Aproximação de matrizes utilizando SVD
 
 Entre uma das muitas aplicações da decomposição SVD está a aproximação de matrizes. Em um cenário computacional, é comum que seja mais vantajoso trabalharmos com uma aproximação de determinado objeto matemático do que com sua forma exata. Para matrizes isso ocorre com bastante frequência.
 
@@ -327,7 +330,7 @@ Por exemplo, suponha que uma matriz $A$ de posto $r$ possua os valores singulare
 
 Primeiramente, precisamos de uma métrica que nos permita determinar o quão "próximas" estão duas matrizes, assim definimos uma norma para matrizes. Em particular, existem diferentes tipos de normas para matrizes (assim como existem para vetores), mas para os própositos desse tópico nos será útil a *norma 2*, pela relação que ela possui com os valores singulares.
 
-:::{prf:definition} Norma 2 matricial
+:::{note} Definição 11.5 (Norma 2 matricial)
  
 Seja $A\in \mathbb{R}^{m\times n}$, definimos a ***norma 2*** de $A$ como:
 
@@ -341,7 +344,7 @@ onde $\lVert x \rVert_{2}$ corresponde à norma 2 (ou norma euclidiana) para vet
 
 Essa é a definição mais comum, mas verifica-se que ela é equivalente a seguinte, que explicita a relação dessa norma com os valores singulares:
 
-:::{prf:definition} Norma 2 matricial via valores singulares
+:::{note} Definição 11.6 (Norma 2 matricial via valores singulares)
 
 Seja $A\in \mathbb{R}^{m\times n}$, sua norma 2 é dada pelo maior valor singular de $A$. Ou seja,
 
@@ -355,7 +358,7 @@ Essa equivalência entre as duas definições fica evidente quando pensamos geom
 
 Então, temos a aproximação de matrizes via *truncamento da SVD*:
 
-:::{prf:definition} Matriz $A_{k}$
+:::{note} Definição 11.7 (Matriz $A_{k}$)
 :label: def-matrizak-eckart-young
 
 Seja $A \in \mathbb{R}^{m\times n}$ com posto $r$ e decomposição SVD $A=U\Sigma V^{T}$, fixado $k$ entre $1,\dots,r-1$ definimos a matriz $A_{k}$ como:
@@ -370,7 +373,7 @@ onde $\Sigma_{k}$ é a matriz $\Sigma$ com $\sigma_{i}=0$ para $i=k+1,\dots,r$.
 
 Observe que $A_{k}$ possui posto $k$.
 
-:::{prf:theorem} Eckart-Young
+:::{important} Teorema 11.8 (Eckart-Young)
 :label: teo-eckart-young
 
 Seja $A\in \mathbb{R}^{m\times n}$ com posto ${} r>1 {}$ e $k=1,\dots,r-1$, então $A_{k}$ é a matriz que melhor aproxima $A$ segundo a norma 2. Isto é, para toda matriz $B\in \mathbb{R}^{m\times n}$ com posto $k$, tem-se
@@ -389,7 +392,8 @@ Além disso, $\lVert A-A_{k} \rVert=\sigma_{k+1}$.
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 11.8
+:class: dropdown
 
 Começamos pela igualdade $\lVert A-A_{k} \rVert_{2}=\sigma_{k+1}$. Devemos mostrar que $\sigma_{k+1}$ é o maior valor singular de $A-A_{k}$. Mas observe que 
 
@@ -463,11 +467,11 @@ $$
 
 O tópico [](../aplicacoes/svd.md) mostra como essa ideia de aproximação de matrizes pode ser aplicada.
 
-### Pseudoinversa
+# Pseudoinversa
 
 A decomposição SVD também nos permite construir uma generalização da ideia de inversa para uma matriz qualquer, que não precisa nem mesmo ser quadrada.
 
-:::{prf:definition} Pseudoinversa de Moore-Penrose
+:::{note} Definição 11.9 (Pseudoinversa de Moore-Penrose)
 :label: def-pseudoinversa
 
 Seja $A=U\Sigma V^{T}$. A ***pseudoinversa*** de $A$ é a matriz:

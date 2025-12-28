@@ -1,9 +1,9 @@
 ---
-title: Compressão de imagens utilizando Decomposição em Valores Singulares
+title: 13. Compressão de imagens utilizando Decomposição em Valores Singulares
 subject: Aplicações
 ---
 
-### Contextualização
+# Contextualização
 
 Um dos principais exemplos de como matrizes podem ser aplicadas no meio computacional é o processamento de imagens. Em geral, a maioria dos softwares lidam com imagens tratando-as como uma matriz de *pixels* (à nível de manipulação e processamento, já o armazenamento em disco é feito utilizando outros formatos mais eficientes, como os conhecidos formatos *.JPG*, *.PNG*, entre outros), com dimensões correspondentes as da resolução da imagem. 
 
@@ -17,7 +17,7 @@ O conceito de *comprimir* uma imagem consiste em reduzir o seu tamanho (a quanti
 
 Nesse tópico, mostraremos uma implementação (relativamente simples) desse método de compressão na linguagem *Python*, fazendo uso dos conceitos vistos no tópico de [Valores Singulares](../topicos/valores-singulares.md) e recursos oferecidos por bibliotecas da linguagem Python. Analisaremos os efeitos da compressão em uma imagem de teste, considerando valores diferentes para o posto $k$ de aproximação.
 
-### O Algoritmo
+# O Algoritmo
 
 A ideia geral para o algoritmo provém do que discutimos até agora:
 
@@ -93,7 +93,7 @@ Logo, as matrizes RGB aproximadas, obtidas nos produtos entre suas respectivas m
 
 O uso da função *np.clip*, nas linhas 38-40, é importante para garantir que as entradas das matrizes resultantes dos produtos estejam no intervalo permitido pelo padrão RGB, entre 0 e 255. A função substitui por 0 entradas com valor abaixo de 0, assim como por 255 entradas acima de 255, preservando as que estão dentro do intervalo. A presença de entradas fora desse intervalo resultaria em pixels "defeituosos" no resultado final, com cores destoantes da imagem original.
 
-### Testes e resultados
+# Testes e resultados
 
 Agora, veremos os resultados obtidos aplicando o algoritmo em uma imagem de testes, para diferentes valores de $k$. Note que o valor $k$ escolhido no algoritmo é livre, não há um controle sobre o valor escolhido em relação ao posto das matrizes originais. Mas, se escolhermos $k$ maior que o posto, na prática não ocorrerá alteração alguma na imagem. 
 

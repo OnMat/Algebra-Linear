@@ -1,9 +1,9 @@
 ---
-title: Máximos e mínimos utilizando matrizes simétricas
+title: 12. Máximos e mínimos utilizando matrizes simétricas
 subject: Aplicações
 ---
 
-### Máximos e mínimos locais de funções de duas variáveis
+# Máximos e mínimos locais de funções de duas variáveis
 
 A modelagem matemática de fenômenos físicos (em áreas como Mecânica Clássica, Termodinâmica, Óptica, etc.), de processos da Engenharia e Economia - entre outras atividades de grande relevância para o empreendimento humano - naturalmente recai sobre o estudo de funções de múltiplas variáveis, uma vez que estes lidam com intricados fatores que interagem entre si e dependem uns dos outros. Em particular, **funções de duas variáveis** aparecem com bastante frequência nos exemplos citados.
 
@@ -13,7 +13,7 @@ Munidos das ferramentas do Cálculo, as propriedades de [matrizes simétricas e 
 
 A ideia central é analisarmos as propriedades da ***matriz Hessiana***, uma das principais ferramentas do Cálculo Vetorial, que é constituída das derivadas parciais de segunda ordem da função, que naturalmente nos fornecem informações sobre os pontos de máximo e mínimo, chamados **pontos críticos**.
 
-:::{prf:definition} Matriz Hessiana
+:::{note} Definição 12.1 Matriz Hessiana
 
 Dada uma função $f(x,y)$, sua ***matriz Hessiana*** é dada por
 

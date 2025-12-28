@@ -1,8 +1,8 @@
 ---
-title: Resolução de sistemas lineares por Quadrados Mínimos
+title: 14. Resolução de sistemas lineares por Quadrados Mínimos
 ---
 
-### O Problema de Quadrados Mínimos
+# O Problema de Quadrados Mínimos
 
 Suponha que na modelagem de um determinado problema chegue-se ao seguinte sistema linear, o qual deseja-se determinar as incógnitas $x$ e $y$:
 
@@ -81,7 +81,7 @@ $$
 
 O que por sua vez nos dá $A^{T}(b-A\bar{x})=0$. Essa equação, comumente escrita como $\boxed{A^{T}A\bar{x}=A^{T}b}$, é chamada de ***equação normal*** e é a base para a solução do problema $Ax=b$ através da abordagem desenvolvida até aqui, denominada de ***Método dos Quadrados Mínimos*** (o nome vem da análise do problema do ponto de vista do Cálculo, que procura **minimizar o erro quadrático** $\lVert b-A\bar{x} \rVert^{2}$, resultando na mesma equação normal). 
 
-### Soluções da Equação Normal
+# Soluções da Equação Normal
 
 Consideremos primeiramente o caso mais simples, quando $A\in \mathbb{R}^{m\times n}$, com $m\geq n$, possui posto completo (ou seja, $n$). Pelo [](#pre-teorema-valores-singulares) e a equivalência entre transformações lineares e matrizes, sabemos que o posto de $A^{T}A$, que é $n \times n$, também será $n$. Logo, $A^{T}A$ é invertível e podemos resolver $A^{T}A\bar{x}=A^{T}b$ por:
 
@@ -101,11 +101,11 @@ O mesmo acontece quando $Ax=b$ é **possível e indeterminado**. Nesse caso, $A^
 
 Uma vez que $Ax=b$ é um **sistema impossível**, as soluções (ou a solução única, no caso $m \geq n$ e posto completo) de $A^{T}A\bar{x}=A^{T}b$ são **soluções aproximadas** de $Ax=b$, com base no critério de minimizar $\lVert b - A\bar{x} \rVert$.
 
-### Caso geral e pseudoinversa
+# Caso geral e pseudoinversa
 
 Utilizando a pseudoinversa de Moore-Penrose, dada por [](#def-pseudoinversa), podemos resolver $A^{T}Ax=A^{T}b$ no caso geral, que independe da quantidade de linhas e colunas, assim como do posto de $A$. 
 
-:::{prf:theorem}
+:::{important} Teorema 14.1
 :label: teo-pseudoinversa-postocompleto
 
 Quando $A \in \mathbb{R}^{m\times n}$ possui $m\geq n$ e posto completo, a solução única da equação normal $A^{T}A\bar{x}=A^{T}b$ é dada por:
@@ -116,7 +116,8 @@ $$
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 14.1
+:class: dropdown
 
 Uma vez que $A$ tem $m\geq n$ e posto completo, então seu posto é igual a $n$. Consequentemente, $A^{T}A$ é invertível e a solução da equação normal é dada unicamente por $\bar{x}=(A^{T}A)^{-1}A^{T}b$. Seja $A=U\Sigma V^{T}$, substituindo e utilizando o fato que $U$ e $V$ são matrizes ortogonais, obtemos o seguinte:
 
@@ -141,7 +142,7 @@ Concluímos que, quando $m\geq n$ e $A$ tem posto completo, $(A^{T}A)^{-1}A^{T}=
 
 Agora, estendemos esse resultado para o caso geral, onde $A^{+}b$ nos dará uma solução única para a equação normal em função de um critério específico.
 
-:::{prf:theorem} 
+:::{important} Teorema 14.2
 
 $A^{+}b$ fornece a solução da equação normal $A^{T}A\bar{x}=A^{T}b$ **que possui norma mínima**, seja qual for a matriz $A$. Isto é, se $\hat{x}=A^{+}b$, então:
 
@@ -151,7 +152,8 @@ $$
 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 14.2
+:class: dropdown
 
 Começamos verificando que $A^{+}b$ é solução de $A^{T}A\bar{x}=A^{T}b$. Seja $A=U\Sigma V^{T}$,
 
@@ -198,7 +200,7 @@ Donde concluímos que $\lVert \bar{x} \rVert\geq \lVert \hat{x} \rVert$ e teremo
 
 Com isso, temos uma solução geral para o problema de Quadrados Mínimos, e ainda, única pelo critério de norma mínima (mesmo que a equação normal possua infinitas soluções).
 
-### Exemplos numéricos
+# Exemplos numéricos
 
 Voltando ao sistema inicial {eq}`sistema-exemplo`, encontraremos sua solução aproximada via quadrados mínimos utilizando a inversa da matriz $A^{T}A$ (pois como já vimos, a matriz associada a esse sistema tem posto completo).
 

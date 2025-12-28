@@ -1,25 +1,26 @@
 ---
-title: Teorema Espectral
+title: 10. Teorema Espectral
 subject: Tópicos Avançados
 ---
 
 O Teorema Espectral é um importante resultado na Álgebra Linear, diz respeito à existência de uma base ortonormal formada por autovetores de um operador auto-adjunto para o espaço vetorial o qual ele atua. Dividiremos-o em dois casos que, na prática, são correspondentes: Operadores auto-adjuntos e matrizes simétricas. O segundo caso surge naturalmente como um corolário do primeiro, devido a relação entre operadores e matrizes.
 
-### Teorema Espectral (Operadores auto-adjuntos)
+# Teorema Espectral (Operadores auto-adjuntos)
 
-:::{prf:theorem} Teorema Espectral para operadores auto-adjuntos
+:::{important} Teorema 10.1 (Teorema Espectral para operadores auto-adjuntos)
 :label: teorema-espectral
 Seja $T$ um operador linear auto-adjunto sobre um espaço vetorial $V$, de dimensão finita e munido de produto interno, então existe uma **base ortonormal** de $V$ formada por **autovetores** de $T$.
 :::
 
-A sua prova requer dois resultados prévios. Em ambos, $T$ é um operador linear auto-adjunto sobre um espaço vetorial $V$ de dimensão finita e munido de produto interno.
+A sua demonstração requer dois resultados prévios. Em ambos, $T$ é um operador linear auto-adjunto sobre um espaço vetorial $V$ de dimensão finita e munido de produto interno:
 
-:::{prf:lemma}
+:::{important} Lema 10.2 
 :label: lema1
 Se $U$ é um subespaço $T$-invariante de $V$, então $U^{\perp}$ é $T$-invariante. 
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 10.2
+:class: dropdown
 
 Seja $u\in U$ e $w\in U^{\perp}$. Então, dado que $Tu \in U$ (pois $U$ é $T$-invariante), temos que
 $$
@@ -29,12 +30,13 @@ Por outro lado, dado que $T$ é auto-adjunto, $\langle Tu , w \rangle=\langle u 
 
 :::
 
-:::{prf:lemma}
+:::{important} Lema 10.3
 :label: lema2
 Os autovalores de $T$ são reais.
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 10.3
+:class: dropdown
 
 Considere $\beta$ uma base ortonormal de $V$ e $\dim V = n>0$. Como $T$ é auto-adjunto, então $[T]_{\beta}=A$ é uma matriz simétrica (pelo [](#teorema1-autoadjunto)). 
 
@@ -86,26 +88,29 @@ Assim, dado que os somatórios nas igualdades {eq}`eq:igualdade` são reais, pod
 
 Agora, podemos provar o Teorema Espectral.
 
-:::{prf:proof} Teorema Espectral para operadores auto-adjuntos 
+:::{tip} Demonstração 10.1 (Teorema Espectral para operadores auto-adjuntos)
+:class: dropdown
+
 A prova se dá por indução sobre a dimensão de $V$. Consideremos $\dim V = n$.
 
 Como caso base, se $n=1$, qualquer ${} v\in V-\{ 0 \} {}$ forma uma base do espaço. Naturalmente, $\left(  \frac{v}{\lvert |v| \rvert}  \right)$ é uma base ortonormal de $V$. Ademais, também é formada por um autovetor, uma vez que se $Tv\in V$, então $Tv=\lambda v$, para algum $\lambda \in \mathbb{R}$, dado que $( v )$ é uma base.
 
-Como hipótese de indução, considere $n>1$ e suponha que o Teorema vale para todo espaço com dimensão menor que $n$. O [Lema 2](#lema2) garante que existe um autovetor de $T$ (em particular, unitário) $v_{1}\in V$, associado a um autovalor real $\lambda_{1}$. Seja $U=\text{span}(v_{1})$, temos então que $\dim U^{\perp}= \dim V - \dim U=n-1<n$. Além disso, seja $u \in U$, $u=\alpha v_{1}$ e $T(\alpha v_{1})=\alpha Tv_{1}=\alpha \lambda_{1}v_{1}\in U$. Logo, $U$ é $T$-invariante. Consequentemente, pelo [Lema 1](#lema1), $U^{\perp}$ também é $T$-invariante.
+Como hipótese de indução, considere $n>1$ e suponha que o Teorema vale para todo espaço com dimensão menor que $n$. O [](#lema2) garante que existe um autovetor de $T$ (em particular, unitário) $v_{1}\in V$, associado a um autovalor real $\lambda_{1}$. Seja $U=\text{span}(v_{1})$, temos então que $\dim U^{\perp}= \dim V - \dim U=n-1<n$. Além disso, seja $u \in U$, $u=\alpha v_{1}$ e $T(\alpha v_{1})=\alpha Tv_{1}=\alpha \lambda_{1}v_{1}\in U$. Logo, $U$ é $T$-invariante. Consequentemente, pelo [](#lema1), $U^{\perp}$ também é $T$-invariante.
 
 Dado que $\dim U^{\perp}<n$ e ${} U^{\perp} {}$ é $T$-invariante, vale a hipótese de indução. Logo, existe uma base ortonormal $( v_{2},\dots ,v_{n} )$ de $U^{\perp}$ formada por autovetores de $T$. Naturalmente, como $V=U \oplus U^{\perp}$, $( v_{1},v_{2},\dots,v_{n} )$ é uma base ortonormal de $V$ formada por autovetores de $T$.
 :::
 
 Verifica-se sem muita dificuldade que, em espaços vetoriais reais, a recíproca do Teorema Espectral é verdadeira: Se existe uma base ortonormal formada por autovetores de $T$, então $T$ é auto-adjunto.
 
-### Teorema Espectral para matrizes simétricas
+# Teorema Espectral para matrizes simétricas
 
-:::{prf:corollary} Teorema Espectral para matrizes simétricas
+:::{important} Corolário 10.4 (Teorema Espectral para matrizes simétricas)
 :label: espectral-para-matrizes-simetricas
 Seja $A\in M_{n}(\mathbb{R})$ uma matriz simétrica, então existe uma matriz $P\in M_{n}(\mathbb{R})$ ortogonal tal que $D=P^{T}AP$, onde $D$ é uma [matriz diagonal](#def-matriz-diagonal) cuja diagonal principal contém os autovalores de $A$.
 :::
 
-:::{prf:proof}
+:::{tip} Demonstração 10.4
+:class: dropdown
 
 Seja $T\in \mathcal{L}(V)$ tal que $A=[T]_{c}$. Como $A$ é simétrica e a base canônica é ortonormal, então $T$ é auto-adjunta. Logo, do [Teorema Espectral](#teorema-espectral) sabemos que existe uma base $\beta=( v_{1},\dots,v_{n} )$ de $V$ formada por autovetores de $T$. Seja $Tv_{i}=\lambda_{i}v_{i}$ ($i=1,2,\dots,n$), então
 $$
@@ -122,7 +127,7 @@ Além disso, $D=P^{-1}AP$, onde $P$ é a matriz mudança de base de $\beta$ para
 
 O fato de podermos garantir que matrizes simétricas podem ser diagonalizadas e sabermos como encontrar a matriz diagonal tem grande aplicação prática e computacional, como veremos no exemplo a seguir.
 
-:::{prf:example} Potenciação de uma matriz simétrica
+:::{hint} Exemplo 10.5 (Potenciação de uma matriz simétrica)
 
 Seja $A$ uma matriz simétrica, podemos determinar $A^{n}$ para um expoente natural qualquer. A chave está em encontrarmos a forma diagonal de $A$, garantida pelo [](#espectral-para-matrizes-simetricas) (neste caso, nos será útil escrever $A$ como $PDP^{T}$), e então verificar o que seria $A^{n}$ neste formato.
 
